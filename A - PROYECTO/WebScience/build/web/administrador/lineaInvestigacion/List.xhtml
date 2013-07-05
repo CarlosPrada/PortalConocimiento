@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLineaInvestigacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListLineaInvestigacionEmpty}" rendered="#{lineaInvestigacionController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{lineaInvestigacionController.items.rowCount > 0}">
+                    <h:outputText value="#{lineaInvestigacionController.pagination.pageFirstItem + 1}..#{lineaInvestigacionController.pagination.pageLastItem + 1}/#{lineaInvestigacionController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{lineaInvestigacionController.previous}" value="#{bundle.Previous} #{lineaInvestigacionController.pagination.pageSize}" rendered="#{lineaInvestigacionController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{lineaInvestigacionController.next}" value="#{bundle.Next} #{lineaInvestigacionController.pagination.pageSize}" rendered="#{lineaInvestigacionController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{lineaInvestigacionController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_idLineaInvestigacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idLineaInvestigacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_nombreLineaInvestigacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreLineaInvestigacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_descripcionLineaInvestigacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcionLineaInvestigacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_estadoLineaInvestigacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoLineaInvestigacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_eliminadoLineaInvestigacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eliminadoLineaInvestigacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_usuarioCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuarioCreacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_fechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_usuarioEdicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuarioEdicion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_fechaEdicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaEdicion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{lineaInvestigacionController.prepareView}" value="#{bundle.ListLineaInvestigacionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{lineaInvestigacionController.prepareEdit}" value="#{bundle.ListLineaInvestigacionEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{lineaInvestigacionController.destroy}" value="#{bundle.ListLineaInvestigacionDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{lineaInvestigacionController.prepareCreate}" value="#{bundle.ListLineaInvestigacionCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListLineaInvestigacionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
