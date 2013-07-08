@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLineaInvestigacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_idLineaInvestigacion}" for="idLineaInvestigacion" />
+                    <p:inputText id="idLineaInvestigacion" value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_idLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_idLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_nombreLineaInvestigacion}" for="nombreLineaInvestigacion" />
+                    <p:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_descripcionLineaInvestigacion}" for="descripcionLineaInvestigacion" />
+                    <p:inputText id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_descripcionLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_descripcionLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_estadoLineaInvestigacion}" for="estadoLineaInvestigacion" />
+                    <p:inputText id="estadoLineaInvestigacion" value="#{lineaInvestigacionController.selected.estadoLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_estadoLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_estadoLineaInvestigacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lineaInvestigacionController.create}" value="#{bundle.CreateLineaInvestigacionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.CreateLineaInvestigacionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLineaInvestigacionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

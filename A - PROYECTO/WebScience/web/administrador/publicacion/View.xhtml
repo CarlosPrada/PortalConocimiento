@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPublicacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_idPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.idPublicacion}" title="#{bundle.ViewPublicacionTitle_idPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_contenidoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.contenidoPublicacion}" title="#{bundle.ViewPublicacionTitle_contenidoPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_fechaInicioeventoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.fechaInicioeventoPublicacion}" title="#{bundle.ViewPublicacionTitle_fechaInicioeventoPublicacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_fechaFineventoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.fechaFineventoPublicacion}" title="#{bundle.ViewPublicacionTitle_fechaFineventoPublicacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_fechaDespublicarPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.fechaDespublicarPublicacion}" title="#{bundle.ViewPublicacionTitle_fechaDespublicarPublicacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_idMultimedia}"/>
+                    <h:outputText value="#{publicacionController.selected.idMultimedia}" title="#{bundle.ViewPublicacionTitle_idMultimedia}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_estadoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.estadoPublicacion}" title="#{bundle.ViewPublicacionTitle_estadoPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_eliminadoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.eliminadoPublicacion}" title="#{bundle.ViewPublicacionTitle_eliminadoPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_usuarioCreacion}"/>
+                    <h:outputText value="#{publicacionController.selected.usuarioCreacion}" title="#{bundle.ViewPublicacionTitle_usuarioCreacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_fechaCreacion}"/>
+                    <h:outputText value="#{publicacionController.selected.fechaCreacion}" title="#{bundle.ViewPublicacionTitle_fechaCreacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_usuarioEdicion}"/>
+                    <h:outputText value="#{publicacionController.selected.usuarioEdicion}" title="#{bundle.ViewPublicacionTitle_usuarioEdicion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_fechaEdicion}"/>
+                    <h:outputText value="#{publicacionController.selected.fechaEdicion}" title="#{bundle.ViewPublicacionTitle_fechaEdicion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_idTipoPublicacion}"/>
+                    <h:outputText value="#{publicacionController.selected.idTipoPublicacion}" title="#{bundle.ViewPublicacionTitle_idTipoPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewPublicacionLabel_idSeccion}"/>
+                    <h:outputText value="#{publicacionController.selected.idSeccion}" title="#{bundle.ViewPublicacionTitle_idSeccion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{publicacionController.destroyAndView}" value="#{bundle.ViewPublicacionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPublicacionEditLink}"/>
+                <br />
+                <h:commandLink action="#{publicacionController.prepareCreate}" value="#{bundle.ViewPublicacionCreateLink}" />
+                <br />
+                <h:commandLink action="#{publicacionController.prepareList}" value="#{bundle.ViewPublicacionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPublicacionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
