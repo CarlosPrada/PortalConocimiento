@@ -59,9 +59,8 @@ public class InvestigadorPortalController implements Serializable {
         listaLineasInvestigador = new ListDataModel(ejbFacadeLineasInvestigador.findAll());
         }catch(Exception e){
             System.out.println("Error listando investitadores!");
-        }
-        
-        return "/portal/investigadores.xhtml?faces-redirect=true";        
+        }        
+        return "/portal/investigadores.xhtm?faces-redirect=truel";        
     }    
     public String goDetallesInvestigador(Investigador inv){
         
