@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPublicacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPublicacionEmpty}" rendered="#{publicacionController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{publicacionController.items.rowCount > 0}">
+                    <h:outputText value="#{publicacionController.pagination.pageFirstItem + 1}..#{publicacionController.pagination.pageLastItem + 1}/#{publicacionController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{publicacionController.previous}" value="#{bundle.Previous} #{publicacionController.pagination.pageSize}" rendered="#{publicacionController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{publicacionController.next}" value="#{bundle.Next} #{publicacionController.pagination.pageSize}" rendered="#{publicacionController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{publicacionController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_idPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPublicacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_contenidoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.contenidoPublicacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_fechaInicioeventoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaInicioeventoPublicacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_fechaFineventoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFineventoPublicacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_fechaDespublicarPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDespublicarPublicacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_idMultimedia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMultimedia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_estadoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoPublicacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_eliminadoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eliminadoPublicacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_idTipoPublicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTipoPublicacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPublicacionTitle_idSeccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSeccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{publicacionController.prepareView}" value="#{bundle.ListPublicacionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{publicacionController.prepareEdit}" value="#{bundle.ListPublicacionEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{publicacionController.destroy}" value="#{bundle.ListPublicacionDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{publicacionController.prepareCreate}" value="#{bundle.ListPublicacionCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPublicacionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

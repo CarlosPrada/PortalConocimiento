@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="./../plantillaPortal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title"> Eventos </ui:define>
+    <ui:define name="libreriasJS"> </ui:define>
+     <ui:define name="header">Eventos</ui:define>
+    <ui:define name="slider"></ui:define>
+
+    <ui:define name="body">
+    <h:form id="form" >
+        
+        <p:dataGrid value="#{eventosPortalController.listadoPublicacionEvento}"  emptyMessage="No se encontraton eventos" var="inv" >
+       <p:growl id="messages" showDetail="true" /> 
+        
+        
+        <p:schedule id="schedule" value="#{eventosPortalController.eventModel}" widgetVar="myschedule" >  
+      
+            <!--<p:ajax event="dateSelect" listener="#{eventosPortalController.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show()" />  
+            <p:ajax event="eventSelect" listener="#{eventosPortalController.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show()" />  
+            <p:ajax event="eventMove" listener="#{eventosPortalController.onEventMove}" update="messages" />  
+            <p:ajax event="eventResize" listener="#{eventosPortalController.onEventResize}" update="messages" />  
+      -->
+        </p:schedule>  
+      
+        <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip" >  
+            <h:panelGrid id="eventDetails" columns="2" >  
+                <h:outputLabel for="title" value="Title:" />  
+                <p:inputText id="title" value="#{eventosPortalController.event.title}" required="true"/>  
+      
+                <h:outputLabel for="from" value="From:" />  
+                <p:inputMask id="from" value="#{eventosPortalController.event.startDate}" mask="99/99/9999">  
+                    <f:convertDateTime pattern="dd/MM/yyyy" />  
+                </p:inputMask>  
+      
+                <h:outputLabel for="to" value="To:" />  
+                <p:inputMask id="to" value="#{eventosPortalController.event.endDate}" mask="99/99/9999">  
+                    <f:convertDateTime pattern="dd/MM/yyyy" />  
+                </p:inputMask>  
+      
+                <h:outputLabel for="allDay" value="All Day:" />  
+                <h:selectBooleanCheckbox id="allDay" value="#{eventosPortalController.event.allDay}" />  
+      
+                <p:commandButton type="reset" value="Reset" />  
+                <p:commandButton id="addButton" value="Save" actionListener="#{eventosPortalController.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>  
+            </h:panelGrid>  
+        </p:dialog>  
+       </p:dataGrid>
+    </h:form>  
+    </ui:define>
+</ui:composition>

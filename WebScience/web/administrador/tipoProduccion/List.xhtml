@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTipoProduccionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTipoProduccionEmpty}" rendered="#{tipoProduccionController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tipoProduccionController.items.rowCount > 0}">
+                    <h:outputText value="#{tipoProduccionController.pagination.pageFirstItem + 1}..#{tipoProduccionController.pagination.pageLastItem + 1}/#{tipoProduccionController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tipoProduccionController.previous}" value="#{bundle.Previous} #{tipoProduccionController.pagination.pageSize}" rendered="#{tipoProduccionController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tipoProduccionController.next}" value="#{bundle.Next} #{tipoProduccionController.pagination.pageSize}" rendered="#{tipoProduccionController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tipoProduccionController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoProduccionTitle_idTipoProduccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTipoProduccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoProduccionTitle_nombreTipoProduccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreTipoProduccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoProduccionTitle_estadoTipoProduccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoTipoProduccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tipoProduccionController.prepareView}" value="#{bundle.ListTipoProduccionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoProduccionController.prepareEdit}" value="#{bundle.ListTipoProduccionEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoProduccionController.destroy}" value="#{bundle.ListTipoProduccionDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tipoProduccionController.prepareCreate}" value="#{bundle.ListTipoProduccionCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTipoProduccionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLineaInvestigacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_idLineaInvestigacion}" for="idLineaInvestigacion" />
+                    <h:inputText id="idLineaInvestigacion" value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_idLineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_idLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_nombreLineaInvestigacion}" for="nombreLineaInvestigacion" />
+                    <h:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_descripcionLineaInvestigacion}" for="descripcionLineaInvestigacion" />
+                    <h:inputText id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_descripcionLineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_descripcionLineaInvestigacion}"/>
+                    <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_estadoLineaInvestigacion}" for="estadoLineaInvestigacion" />
+                    <h:inputText id="estadoLineaInvestigacion" value="#{lineaInvestigacionController.selected.estadoLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_estadoLineaInvestigacion}" />
+                    <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_eliminadoLineaInvestigacion}" for="eliminadoLineaInvestigacion" />
+                    <h:inputText id="eliminadoLineaInvestigacion" value="#{lineaInvestigacionController.selected.eliminadoLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_eliminadoLineaInvestigacion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{lineaInvestigacionController.update}" value="#{bundle.EditLineaInvestigacionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditLineaInvestigacionViewLink}"/>
+                <br />
+                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.EditLineaInvestigacionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditLineaInvestigacionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

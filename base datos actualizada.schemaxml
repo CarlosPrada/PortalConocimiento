@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">portal_data_base</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="estado_proyecto" view="colnames">
+<left>604</left>
+<top>212</top>
+<width>192</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `estado_proyecto` (
+  `id_estado_proyecto` int(11) NOT NULL,
+  `nombre_estado_proyecto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_estado_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="investigador" view="colnames">
+<left>8</left>
+<top>22</top>
+<width>190</width>
+<height>294</height>
+<sql_create_table>CREATE TABLE `investigador` (
+  `usuario_investigador` varchar(30) NOT NULL,
+  `contrasena_investigador` varchar(20) NOT NULL,
+  `nombre_investigador` varchar(50) NOT NULL,
+  `informacion_investigador` text NOT NULL,
+  `telefono_investigador` varchar(15) DEFAULT NULL,
+  `celular_investigador` varchar(10) DEFAULT NULL,
+  `correo_investigador` varchar(50) NOT NULL,
+  `genero_investigador` varchar(50) NOT NULL,
+  `cvlac_investigador` varchar(100) DEFAULT NULL,
+  `id_tipo_investigador` int(11) NOT NULL,
+  `id_nivel_permiso` int(11) NOT NULL,
+  `estado_investigador` char(1) DEFAULT 'A',
+  `eliminado_investigador` char(1) DEFAULT NULL,
+  PRIMARY KEY (`usuario_investigador`),
+  KEY `FK_investigador` (`id_nivel_permiso`),
+  KEY `FK_investigador_tipo` (`id_tipo_investigador`),
+  CONSTRAINT `FK_investigador` FOREIGN KEY (`id_nivel_permiso`) REFERENCES `permiso` (`id_permiso`),
+  CONSTRAINT `FK_investigador_id_nivel_permiso` FOREIGN KEY (`id_nivel_permiso`) REFERENCES `permiso` (`id_permiso`),
+  CONSTRAINT `FK_investigador_id_tipo_investigador` FOREIGN KEY (`id_tipo_investigador`) REFERENCES `tipo_investigador` (`id_tipo_investigador`),
+  CONSTRAINT `FK_investigador_tipo` FOREIGN KEY (`id_tipo_investigador`) REFERENCES `tipo_investigador` (`id_tipo_investigador`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="linea_investigacion" view="colnames">
+<left>465</left>
+<top>347</top>
+<width>225</width>
+<height>158</height>
+<sql_create_table>CREATE TABLE `linea_investigacion` (
+  `id_linea_investigacion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_linea_investigacion` varchar(50) NOT NULL,
+  `descripcion_linea_investigacion` varchar(150) NOT NULL,
+  `estado_linea_investigacion` char(1) DEFAULT 'A',
+  `eliminado_linea_investigacion` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_linea_investigacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="lineas_investigador" view="colnames">
+<left>266</left>
+<top>0</top>
+<width>132</width>
+<height>94</height>
+<sql_create_table>CREATE TABLE `lineas_investigador` (
+  `id_linea` int(11) NOT NULL,
+  `id_investigador` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_linea`,`id_investigador`),
+  KEY `FK_lineas_investigador` (`id_investigador`),
+  CONSTRAINT `FK_lineas_investigacion` FOREIGN KEY (`id_linea`) REFERENCES `linea_investigacion` (`id_linea_investigacion`),
+  CONSTRAINT `FK_lineas_investigador` FOREIGN KEY (`id_investigador`) REFERENCES `investigador` (`usuario_investigador`),
+  CONSTRAINT `FK_lineas_investigador_id_investigador` FOREIGN KEY (`id_investigador`) REFERENCES `investigador` (`usuario_investigador`),
+  CONSTRAINT `FK_lineas_investigador_id_linea_investigacion` FOREIGN KEY (`id_linea`) REFERENCES `linea_investigacion` (`id_linea_investigacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="multimedia" view="colnames">
+<left>416</left>
+<top>648</top>
+<width>180</width>
+<height>160</height>
+<sql_create_table>CREATE TABLE `multimedia` (
+  `id_multimedia` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_multimedia` varchar(50) NOT NULL,
+  `id_tipo_multimedia` int(11) NOT NULL,
+  `url_tipo_multimedia` varchar(400) NOT NULL,
+  `estado_multimedia` char(1) NOT NULL DEFAULT 'A',
+  `eliminado_multimedia` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_multimedia`),
+  KEY `FK_multimedia` (`id_tipo_multimedia`),
+  CONSTRAINT `FK_multimedia` FOREIGN KEY (`id_tipo_multimedia`) REFERENCES `tipo_multimedia` (`id_tipo_multimedia`),
+  CONSTRAINT `FK_multimedia_id_tipo_multimedia` FOREIGN KEY (`id_tipo_multimedia`) REFERENCES `tipo_multimedia` (`id_tipo_multimedia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="permiso" view="colnames">
+<left>230</left>
+<top>530</top>
+<width>163</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `permiso` (
+  `id_permiso` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_permiso` varchar(30) NOT NULL,
+  `descripcion_permiso` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_permiso`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="producto" view="colnames">
+<left>592</left>
+<top>2</top>
+<width>170</width>
+<height>154</height>
+<sql_create_table>CREATE TABLE `producto` (
+  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_producto` varchar(40) NOT NULL,
+  `descripcion_producto` varchar(200) NOT NULL,
+  `id_proyecto` int(11) NOT NULL,
+  `estado_producto` char(1) DEFAULT 'A',
+  `eliminado_producto` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_producto`),
+  KEY `FK_producto` (`id_proyecto`),
+  CONSTRAINT `FK_producto` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`),
+  CONSTRAINT `FK_producto_id_proyecto` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="produccion_intelectual" view="colnames">
+<left>232</left>
+<top>344</top>
+<width>172</width>
+<height>178</height>
+<sql_create_table>CREATE TABLE `produccion_intelectual` (
+  `id_produccion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_produccion` varchar(200) NOT NULL,
+  `agno_produccion` int(4) NOT NULL,
+  `referencia_produccion` text,
+  `id_tipo_produccion` int(4) NOT NULL,
+  `id_autor_produccion` varchar(30) NOT NULL,
+  `estado_produccion` char(1) DEFAULT 'A',
+  PRIMARY KEY (`id_produccion`),
+  KEY `FK_produccion_intelectual_autor` (`id_autor_produccion`),
+  KEY `FK_produccion_intelectual_tipo` (`id_tipo_produccion`),
+  CONSTRAINT `FK_produccion_intelectual_autor` FOREIGN KEY (`id_autor_produccion`) REFERENCES `investigador` (`usuario_investigador`),
+  CONSTRAINT `FK_produccion_intelectual_tipo` FOREIGN KEY (`id_tipo_produccion`) REFERENCES `tipo_produccion` (`id_tipo_produccion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="proyecto" view="colnames">
+<left>828</left>
+<top>154</top>
+<width>167</width>
+<height>209</height>
+<sql_create_table>CREATE TABLE `proyecto` (
+  `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_proyecto` varchar(50) NOT NULL,
+  `descripcion_proyecto` varchar(200) NOT NULL,
+  `id_tipo_proyecto` int(11) NOT NULL,
+  `id_estado_proyecto` int(11) NOT NULL,
+  `id_linea` int(11) NOT NULL,
+  `estado_proyecto` char(1) DEFAULT 'A',
+  `eliminado_proyecto` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_proyecto`),
+  KEY `FK_proyecto` (`id_linea`),
+  KEY `FK_tipo_proyecto` (`id_tipo_proyecto`),
+  KEY `FK_proyecto_estado` (`id_estado_proyecto`),
+  CONSTRAINT `FK_proyecto` FOREIGN KEY (`id_linea`) REFERENCES `linea_investigacion` (`id_linea_investigacion`),
+  CONSTRAINT `FK_proyecto_estado` FOREIGN KEY (`id_estado_proyecto`) REFERENCES `estado_proyecto` (`id_estado_proyecto`),
+  CONSTRAINT `FK_proyecto_id_estado_proyecto` FOREIGN KEY (`id_estado_proyecto`) REFERENCES `estado_proyecto` (`id_estado_proyecto`),
+  CONSTRAINT `FK_proyecto_id_linea` FOREIGN KEY (`id_linea`) REFERENCES `linea_investigacion` (`id_linea_investigacion`),
+  CONSTRAINT `FK_proyecto_id_tipo_proyecto` FOREIGN KEY (`id_tipo_proyecto`) REFERENCES `tipo_proyecto` (`id_tipo_proyecto`),
+  CONSTRAINT `FK_tipo_proyecto` FOREIGN KEY (`id_tipo_proyecto`) REFERENCES `tipo_proyecto` (`id_tipo_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="proyecto_investigadores" view="colnames">
+<left>250</left>
+<top>100</top>
+<width>194</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `proyecto_investigadores` (
+  `id_proyecto_investigacion` int(11) NOT NULL,
+  `id_investigador` varchar(30) NOT NULL,
+  `id_rol` int(11) NOT NULL,
+  PRIMARY KEY (`id_proyecto_investigacion`,`id_investigador`),
+  KEY `FK_proyecto_investigadores_rol` (`id_rol`),
+  KEY `FK_investigadores_proyecto` (`id_investigador`),
+  CONSTRAINT `FK_investigadores_proyecto` FOREIGN KEY (`id_investigador`) REFERENCES `investigador` (`usuario_investigador`),
+  CONSTRAINT `FK_proyecto_investigadores` FOREIGN KEY (`id_proyecto_investigacion`) REFERENCES `proyecto` (`id_proyecto`),
+  CONSTRAINT `FK_proyecto_investigadores_id_investigador` FOREIGN KEY (`id_investigador`) REFERENCES `investigador` (`usuario_investigador`),
+  CONSTRAINT `FK_proyecto_investigadores_id_proyecto` FOREIGN KEY (`id_proyecto_investigacion`) REFERENCES `proyecto` (`id_proyecto`),
+  CONSTRAINT `FK_proyecto_investigadores_id_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`),
+  CONSTRAINT `FK_proyecto_investigadores_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="publicacion" view="colnames">
+<left>788</left>
+<top>390</top>
+<width>222</width>
+<height>230</height>
+<sql_create_table>CREATE TABLE `publicacion` (
+  `id_publicacion` int(11) NOT NULL AUTO_INCREMENT,
+  `contenido_publicacion` varchar(50) NOT NULL,
+  `fecha_inicioevento_publicacion` date DEFAULT NULL,
+  `fecha_finevento_publicacion` date DEFAULT NULL,
+  `fecha_despublicar_publicacion` date DEFAULT NULL,
+  `id_tipo_publicacion` int(11) DEFAULT NULL,
+  `id_seccion` int(11) DEFAULT NULL,
+  `id_multimedia` int(11) DEFAULT NULL,
+  `estado_publicacion` char(1) DEFAULT 'A',
+  `eliminado_publicacion` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_publicacion`),
+  KEY `FK_publicacion` (`id_seccion`),
+  KEY `FK_publicacion_tipo` (`id_tipo_publicacion`),
+  CONSTRAINT `FK_publicacion` FOREIGN KEY (`id_seccion`) REFERENCES `seccion` (`id_seccion`),
+  CONSTRAINT `FK_publicacion_id_seccion` FOREIGN KEY (`id_seccion`) REFERENCES `seccion` (`id_seccion`),
+  CONSTRAINT `FK_publicacion_id_tipo_publicacion` FOREIGN KEY (`id_tipo_publicacion`) REFERENCES `tipo_publicacion` (`id_tipo_publicacion`),
+  CONSTRAINT `FK_publicacion_tipo` FOREIGN KEY (`id_tipo_publicacion`) REFERENCES `tipo_publicacion` (`id_tipo_publicacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="recursos" view="colnames">
+<left>618</left>
+<top>512</top>
+<width>126</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `recursos` (
+  `id_recurso` int(11) NOT NULL AUTO_INCREMENT,
+  `id_publicacion` int(11) NOT NULL,
+  `id_multimedia` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_recurso`),
+  KEY `FK_recursos_multimedia` (`id_multimedia`),
+  KEY `index_publicacion` (`id_publicacion`),
+  CONSTRAINT `FK_recursos_id_multimedia` FOREIGN KEY (`id_multimedia`) REFERENCES `multimedia` (`id_multimedia`),
+  CONSTRAINT `FK_recursos_id_publicacion` FOREIGN KEY (`id_publicacion`) REFERENCES `publicacion` (`id_publicacion`),
+  CONSTRAINT `FK_recursos_multimedia` FOREIGN KEY (`id_multimedia`) REFERENCES `multimedia` (`id_multimedia`),
+  CONSTRAINT `FK_recursos_publicacion` FOREIGN KEY (`id_publicacion`) REFERENCES `publicacion` (`id_publicacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="rol" view="colnames">
+<left>470</left>
+<top>196</top>
+<width>130</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `rol` (
+  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_rol` varchar(40) NOT NULL,
+  `descripcion_rol` varchar(150) NOT NULL,
+  `estado_rol` char(1) DEFAULT 'A',
+  PRIMARY KEY (`id_rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="seccion" view="colnames">
+<left>626</left>
+<top>683</top>
+<width>150</width>
+<height>140</height>
+<sql_create_table>CREATE TABLE `seccion` (
+  `id_seccion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_seccion` varchar(20) NOT NULL,
+  `estado_seccion` char(1) DEFAULT NULL,
+  `eliminado_seccion` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_seccion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tipo_investigador" view="colnames">
+<left>244</left>
+<top>234</top>
+<width>214</width>
+<height>108</height>
+<sql_create_table>CREATE TABLE `tipo_investigador` (
+  `id_tipo_investigador` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_tipo_investigador` varchar(20) NOT NULL,
+  `descripcion_tipo_investigador` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_tipo_investigador`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tipo_produccion" view="colnames">
+<left>412</left>
+<top>512</top>
+<width>186</width>
+<height>120</height>
+<sql_create_table>CREATE TABLE `tipo_produccion` (
+  `id_tipo_produccion` int(4) NOT NULL AUTO_INCREMENT,
+  `nombre_tipo_produccion` varchar(50) NOT NULL,
+  `estado_tipo_produccion` char(1) DEFAULT 'A',
+  PRIMARY KEY (`id_tipo_produccion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tipo_proyecto" view="colnames">
+<left>1027</left>
+<top>339</top>
+<width>194</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `tipo_proyecto` (
+  `id_tipo_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_tipo_proyecto` varchar(50) NOT NULL,
+  `descripcion_tipo_proyecto` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_tipo_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tipo_publicacion" view="colnames">
+<left>1032</left>
+<top>543</top>
+<width>188</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `tipo_publicacion` (
+  `id_tipo_publicacion` int(11) NOT NULL,
+  `nombre_tipo_publicacion` int(11) NOT NULL,
+  PRIMARY KEY (`id_tipo_publicacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tipo_multimedia" view="colnames">
+<left>152</left>
+<top>732</top>
+<width>188</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `tipo_multimedia` (
+  `id_tipo_multimedia` int(11) NOT NULL,
+  `nombre_tipo_multimedia` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_tipo_multimedia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

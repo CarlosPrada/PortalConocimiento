@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProductoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProductoLabel_idProducto}" for="idProducto" />
+                    <h:inputText id="idProducto" value="#{productoController.selected.idProducto}" title="#{bundle.EditProductoTitle_idProducto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idProducto}"/>
+                    <h:outputLabel value="#{bundle.EditProductoLabel_nombreProducto}" for="nombreProducto" />
+                    <h:inputText id="nombreProducto" value="#{productoController.selected.nombreProducto}" title="#{bundle.EditProductoTitle_nombreProducto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_nombreProducto}"/>
+                    <h:outputLabel value="#{bundle.EditProductoLabel_descripcionProducto}" for="descripcionProducto" />
+                    <h:inputText id="descripcionProducto" value="#{productoController.selected.descripcionProducto}" title="#{bundle.EditProductoTitle_descripcionProducto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_descripcionProducto}"/>
+                    <h:outputLabel value="#{bundle.EditProductoLabel_estadoProducto}" for="estadoProducto" />
+                    <h:inputText id="estadoProducto" value="#{productoController.selected.estadoProducto}" title="#{bundle.EditProductoTitle_estadoProducto}" />
+                    <h:outputLabel value="#{bundle.EditProductoLabel_eliminadoProducto}" for="eliminadoProducto" />
+                    <h:inputText id="eliminadoProducto" value="#{productoController.selected.eliminadoProducto}" title="#{bundle.EditProductoTitle_eliminadoProducto}" />
+                    <h:outputLabel value="#{bundle.EditProductoLabel_idProyecto}" for="idProyecto" />
+                    <h:selectOneMenu id="idProyecto" value="#{productoController.selected.idProyecto}" title="#{bundle.EditProductoTitle_idProyecto}" required="true" requiredMessage="#{bundle.EditProductoRequiredMessage_idProyecto}">
+                        <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{productoController.update}" value="#{bundle.EditProductoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProductoViewLink}"/>
+                <br />
+                <h:commandLink action="#{productoController.prepareList}" value="#{bundle.EditProductoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProductoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
