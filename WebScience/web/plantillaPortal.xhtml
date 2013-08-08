@@ -59,7 +59,7 @@
                                 <li><a class="top-a" href="quienesSomos.html"><b>Grupo</b></a>
                                     <div class="col1">
                                         <ul class="colLeft">
-                                            <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos(2)}" value="Quienes Somos" /></li>
+                                            <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos3()}" value="Quienes Somos" /></li>
                                             <li><h:commandLink action="#{investigadorPortalController.goInvestigadores()}" value="Investigadores" /></li>
                                             <li><h:commandLink action="#{lineasInvestigacionPortalController.goLineasInvestigacion()}" value="Líneas Investigación" /></li>
                                             <li><h:commandLink action="#{relacionesInstitucionalesPortalController.goRelacionesInstitucionales()}" value="Relaciones Institucioanles" /></li>
@@ -95,7 +95,10 @@
                                         </ul>
                                     </div>
                                 </li>     
-                                <li><a class="top-a" href="comunidad.html"><b>Administrar</b></a>
+                                <li>
+                                    <h:commandLink styleClass="top-a" action="#{administradorPC.goAdministrar()}" >
+                                        <b>Administrar</b>
+                                    </h:commandLink>
                                 </li>   
                             </ul>
                         </h:form>

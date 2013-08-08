@@ -42,7 +42,6 @@ public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
     }
     
     public Publicacion findByIdTipoPublicacion(Integer idTipoPublicacion) {
-
         try {
             Query query = em.createNamedQuery("TipoPublicacion.findByIdTipoPublicacion");
             query.setParameter("idTipoPublicacion", idTipoPublicacion);
