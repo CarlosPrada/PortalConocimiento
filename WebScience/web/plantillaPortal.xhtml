@@ -59,7 +59,7 @@
                                 <li><a class="top-a" href="quienesSomos.html"><b>Grupo</b></a>
                                     <div class="col1">
                                         <ul class="colLeft">
-                                            <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos3()}" value="Quienes Somos" /></li>
+                                            <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos(2)}" value="Quienes Somos" /></li>
                                             <li><h:commandLink action="#{investigadorPortalController.goInvestigadores()}" value="Investigadores" /></li>
                                             <li><h:commandLink action="#{lineasInvestigacionPortalController.goLineasInvestigacion()}" value="Líneas Investigación" /></li>
                                             <li><h:commandLink action="#{relacionesInstitucionalesPortalController.goRelacionesInstitucionales()}" value="Relaciones Institucioanles" /></li>
@@ -77,9 +77,7 @@
                                     </h:commandLink>
                                 </li>
                                 <li>
-                                    <h:commandLink styleClass="top-a" action="#{eventosPortalController.goEventos()}" >
-                                        <b>Eventos</b>
-                                    </h:commandLink>
+
 
                                     <div class="col1">
                                         <ul class="colLeft">
@@ -91,7 +89,9 @@
                                 <li><a class="top-a" href="comunidad.html"><b>Comunidad</b></a>
                                     <div class="col1">
                                         <ul class="colLeft">
-                                            <li><a href="galeria.html">Galeria</a></li>
+                                            <li><h:commandLink action="#{eventosPortalController.goEventos()}" value="Eventos"></h:commandLink></li>
+                                            <li><a href="galeria.html">Noticias</a></li>
+                                            <li><a href="galeria.html">Galeria</a></li>                                            
                                         </ul>
                                     </div>
                                 </li>     

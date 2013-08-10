@@ -7,7 +7,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title"> Investigadores </ui:define>
+    <ui:define name="title"> Quienes Somos </ui:define>
     <ui:define name="libreriasJS"> </ui:define>
     <ui:define name="slider"> </ui:define>
 
@@ -16,15 +16,17 @@
             <div class="content_resize">
                 <div class="mainbarIzquierdo">     
 
-                    <p:fieldset legend="Historia">  
-                        <h:panelGrid columns="2" cellpadding="10">  
-                            <p:graphicImage value=""  />  
-                            <h:outputText value="" />  
+                    <p:fieldset legend="Historia" >  
+                        
+                        <h:panelGrid columns="2" cellpadding="10" > 
+                            <p:dataGrid  columns="2" paginator="true" rows="4" value="#{quienesSomosPC.pubHistoria}"  emptyMessage="No se encontraton registros" var="pubHistoria" >
+                            <p:graphicImage value="Hola que ase"  />  vestigadorList
+                            <h:outputText value="#{pubHistoria}" />  
+                            </p:dataGrid>
                         </h:panelGrid>  
-                    </p:fieldset>  
-
-
-<!-- 
+                    </p:fieldset> 
+    
+                    <!-- 
 
                     <div class="article">
                         <h2><span>Historia</span></h2>                    
