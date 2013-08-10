@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import uis.giib.administrador.dao.TipoPublicacionFacade;
 import uis.giib.entidades.Publicacion;
 
 /**
@@ -31,8 +32,7 @@ public class QuienesSomosPortalController implements Serializable {
     public void QuienesSomosPortalController(Integer idTipoPublicacion) {
         try {
             pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)) ; 
-            
-             
+    
         } catch (Exception e) {
             System.out.println("Error de QuinesSomos!");
         }
@@ -49,25 +49,27 @@ public class QuienesSomosPortalController implements Serializable {
         return "/portal/quienesSomos.xhtml?faces-redirect=true";
     }
     
-    //Función para pruebas
-    public String goQuienesSomos2() {
-        try {
-             pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(2)); 
-        } catch (Exception e) {
-            System.out.println("Error de QuinesSomos!");
-        }
-        return "/portal/quienesSomos.xhtml?faces-redirect=true";
+    public Integer getIdTipoPublicacion() {
+        return idTipoPublicacion;
     }
-    
-    //Función para pruebas
-    public String goQuienesSomos3() {
-        try {
-             System.out.println("Hola");
-             pubHistoria = new ListDataModel( ejbPublicacion.findAll()); 
-        } catch (Exception e) {
-            System.out.println("Error de QuinesSomos");
-        }
-        return "/portal/quienesSomos.xhtml?faces-redirect=true";
-        //return "/portal/investigadoresDetalle.xhtml?faces-redirect=true";  
+
+    public void setIdTipoPublicacion(Integer idTipoPublicacion) {
+        this.idTipoPublicacion = idTipoPublicacion;
+    }
+
+    public DataModel getPubHistoria() {
+        return pubHistoria;
+    }
+
+    public void setPubHistoria(DataModel pubHistoria) {
+        this.pubHistoria = pubHistoria;
+    }
+
+    public TipoPublicacionFacade getEjbPublicacion() {
+        return ejbPublicacion;
+    }
+
+    public void setEjbPublicacion(TipoPublicacionFacade ejbPublicacion) {
+        this.ejbPublicacion = ejbPublicacion;
     }
 }

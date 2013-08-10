@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import uis.giib.administrador.dao.ProyectoFacade;
+import uis.giib.administrador.dao.TipoProyectoFacade;
 import uis.giib.entidades.Proyecto;
 
 /**
@@ -71,6 +73,14 @@ public class ProyectoPortalController implements Serializable {
         this.listadoProyectos = listadoProyectos;
     }
 
+    public DataModel getListaTiposProyecto() {
+        return listaTiposProyecto;
+    }
+
+    public void setListaTiposProyecto(DataModel listaTiposProyecto) {
+        this.listaTiposProyecto = listaTiposProyecto;
+    }
+
     public Proyecto getProyectoActual() {
         return proyectoActual;
     }
@@ -79,20 +89,22 @@ public class ProyectoPortalController implements Serializable {
         this.proyectoActual = proyectoActual;
     }
 
-    public uis.giib.administrador.dao.ProyectoFacade getEjbFacade() {
+    public ProyectoFacade getEjbFacade() {
         return ejbFacade;
     }
 
-    public void setEjbFacade(uis.giib.administrador.dao.ProyectoFacade ejbFacade) {
+    public void setEjbFacade(ProyectoFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }
 
-    public DataModel getListaTiposProyecto() {
-        return listaTiposProyecto;
+    public TipoProyectoFacade getEjbTipoProyectoFacade() {
+        return ejbTipoProyectoFacade;
     }
 
-    public void setListaTiposProyecto(DataModel listaTiposProyecto) {
-        this.listaTiposProyecto = listaTiposProyecto;
+    public void setEjbTipoProyectoFacade(TipoProyectoFacade ejbTipoProyectoFacade) {
+        this.ejbTipoProyectoFacade = ejbTipoProyectoFacade;
     }
+
+    
     
 }
