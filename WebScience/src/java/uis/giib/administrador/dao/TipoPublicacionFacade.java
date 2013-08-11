@@ -35,7 +35,7 @@ public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
         try {
             Query query = em.createNamedQuery("TipoPublicacion.findByNombreTipoPublicacion");
             query.setParameter("nombreTipoPublicacion", nombreTipoPublicacion);
-            return (Publicacion) query.getResultList();
+            return (Publicacion) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
@@ -45,7 +45,7 @@ public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
         try {
             Query query = em.createNamedQuery("TipoPublicacion.findByIdTipoPublicacion");
             query.setParameter("idTipoPublicacion", idTipoPublicacion);
-            return (Publicacion) query.getResultList();
+            return (Publicacion) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
