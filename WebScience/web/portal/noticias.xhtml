@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="./../plantillaPortal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Noticias</ui:define>
+    <ui:define name="libreriasJS"></ui:define>
+    <ui:define name="header">NOTICIAS</ui:define>
+    <ui:define name="slider"></ui:define>
+
+    <ui:define name="body">
+        <h:form>  
+
+            <p:growl id="growl" showDetail="true"/>  
+
+            <p:fieldset legend="Historia" >  
+
+                <h:panelGrid columns="2" cellpadding="10" > 
+                    <p:dataGrid  columns="2" paginator="true" rows="4" value="#{noticiasPortalController.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                        <p:graphicImage value="Hola que ase"  />  
+                        <h:outputText value="#{noticias.tituloPublicacion}" />  
+                    </p:dataGrid>
+                </h:panelGrid>  
+            </p:fieldset> 
+
+            <h3>Noticias Grupo de Investigacion de Ingeneria Biomedica </h3>  
+            <p:panel header=""  >  
+                <h:outputText value="#{noticiasPortalController.listadoNoticias.tituloPublicacion}" />  
+            </p:panel>  
+        </h:form> 
+
+
+    </ui:define>
+</ui:composition>

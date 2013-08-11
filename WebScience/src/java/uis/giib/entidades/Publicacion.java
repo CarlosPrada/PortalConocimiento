@@ -37,13 +37,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Publicacion.findAll", query = "SELECT p FROM Publicacion p"),
     @NamedQuery(name = "Publicacion.findByIdPublicacion", query = "SELECT p FROM Publicacion p WHERE p.idPublicacion = :idPublicacion"),
-    @NamedQuery(name = "Publicacion.findByContenidoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.contenidoPublicacion = :contenidoPublicacion"),
+    @NamedQuery(name = "Publicacion.findByContenidoResumidoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.contenidoResumidoPublicacion = :contenidoResumidoPublicacion"),
     @NamedQuery(name = "Publicacion.findByFechaInicioeventoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.fechaInicioeventoPublicacion = :fechaInicioeventoPublicacion"),
     @NamedQuery(name = "Publicacion.findByFechaFineventoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.fechaFineventoPublicacion = :fechaFineventoPublicacion"),
     @NamedQuery(name = "Publicacion.findByFechaDespublicarPublicacion", query = "SELECT p FROM Publicacion p WHERE p.fechaDespublicarPublicacion = :fechaDespublicarPublicacion"),
     @NamedQuery(name = "Publicacion.findByIdMultimedia", query = "SELECT p FROM Publicacion p WHERE p.idMultimedia = :idMultimedia"),
     @NamedQuery(name = "Publicacion.findByEstadoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.estadoPublicacion = :estadoPublicacion"),
-    @NamedQuery(name = "Publicacion.findByEliminadoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.eliminadoPublicacion = :eliminadoPublicacion")})
+    @NamedQuery(name = "Publicacion.findByEliminadoPublicacion", query = "SELECT p FROM Publicacion p WHERE p.eliminadoPublicacion = :eliminadoPublicacion"),
+    @NamedQuery(name = "Publicacion.findByTituloPublicacion", query = "SELECT p FROM Publicacion p WHERE p.tituloPublicacion = :tituloPublicacion")})
 public class Publicacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -54,8 +55,8 @@ public class Publicacion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "contenido_publicacion")
-    private String contenidoPublicacion;
+    @Column(name = "contenido_resumido_publicacion")
+    private String contenidoResumidoPublicacion;
     @Column(name = "fecha_inicioevento_publicacion")
     @Temporal(TemporalType.DATE)
     private Date fechaInicioeventoPublicacion;
@@ -71,6 +72,10 @@ public class Publicacion implements Serializable {
     private Character estadoPublicacion;
     @Column(name = "eliminado_publicacion")
     private Character eliminadoPublicacion;
+    @Column(name = "titulo_publicacion")
+    private Character tituloPublicacion;
+    @Column(name = "contenido_detallado_publicacion")
+    private Character contenidodetalladoPublicacion;
     @JoinColumn(name = "id_tipo_publicacion", referencedColumnName = "id_tipo_publicacion")
     @ManyToOne
     private TipoPublicacion idTipoPublicacion;
@@ -89,7 +94,30 @@ public class Publicacion implements Serializable {
 
     public Publicacion(Integer idPublicacion, String contenidoPublicacion) {
         this.idPublicacion = idPublicacion;
-        this.contenidoPublicacion = contenidoPublicacion;
+        this.contenidoResumidoPublicacion = contenidoPublicacion;
+    }
+    public String getContenidoResumidoPublicacion() {
+        return contenidoResumidoPublicacion;
+    }
+
+    public void setContenidoResumidoPublicacion(String contenidoResumidoPublicacion) {
+        this.contenidoResumidoPublicacion = contenidoResumidoPublicacion;
+    }
+
+    public Character getTituloPublicacion() {
+        return tituloPublicacion;
+    }
+
+    public void setTituloPublicacion(Character tituloPublicacion) {
+        this.tituloPublicacion = tituloPublicacion;
+    }
+
+    public Character getContenidodetalladoPublicacion() {
+        return contenidodetalladoPublicacion;
+    }
+
+    public void setContenidodetalladoPublicacion(Character contenidodetalladoPublicacion) {
+        this.contenidodetalladoPublicacion = contenidodetalladoPublicacion;
     }
 
     public Integer getIdPublicacion() {
@@ -101,11 +129,11 @@ public class Publicacion implements Serializable {
     }
 
     public String getContenidoPublicacion() {
-        return contenidoPublicacion;
+        return contenidoResumidoPublicacion;
     }
 
     public void setContenidoPublicacion(String contenidoPublicacion) {
-        this.contenidoPublicacion = contenidoPublicacion;
+        this.contenidoResumidoPublicacion = contenidoPublicacion;
     }
 
     public Date getFechaInicioeventoPublicacion() {
