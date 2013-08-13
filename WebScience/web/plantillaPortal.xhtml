@@ -31,7 +31,7 @@
                 <div class="header_resize">
                     <div class="logo">
                         <h1>
-                            <a href="index.html"><small>#<!-- ALGO PUEDE IR AQUÍ--></small> <span>GIIB</span></a>
+                            <a href="index.html"><small></small> <span>GIIB</span></a>
                             <ui:insert name="header">Default Title</ui:insert>
                         </h1>
                     </div>
@@ -56,7 +56,7 @@
                                         <b>Inicio</b>
                                     </h:commandLink>
                                 </li>
-                                <li><a class="top-a" href="quienesSomos.html"><b>Grupo</b></a>
+                                <li><a class="top-a" ><b>Grupo</b></a>
                                     <div class="col1">
                                         <ul class="colLeft">
                                             <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos(2)}" value="Quienes Somos" /></li>
@@ -90,7 +90,7 @@
                                     <div class="col1">
                                         <ul class="colLeft">
                                             <li><h:commandLink action="#{eventosPC.goEventos()}" value="Eventos"></h:commandLink></li>
-                                            <li><a href="galeria.html">Noticias</a></li>
+                                             <li><h:commandLink action="#{noticiasPortalController.goNoticiasPortalController()}" value="Noticias"></h:commandLink></li>             
                                             <li><a href="galeria.html">Galeria</a></li>                                            
                                         </ul>
                                     </div>

@@ -41,7 +41,6 @@ public class NoticiasPortalController implements Serializable {
     }
 
     public String goNoticiasPortalController() {
-
         try {
             listadoNoticias = new ListDataModel(ejbFacade.findAll());
         } catch (Exception e) {
