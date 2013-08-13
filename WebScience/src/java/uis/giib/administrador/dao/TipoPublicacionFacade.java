@@ -4,6 +4,7 @@
  */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -41,11 +42,11 @@ public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
         }
     }
     
-    public Publicacion findByIdTipoPublicacion(Integer idTipoPublicacion) {
+    public TipoPublicacion buscarPublicacionesPorTipo(Integer idTipoPublicacion) {
         try {
             Query query = em.createNamedQuery("TipoPublicacion.findByIdTipoPublicacion");
             query.setParameter("idTipoPublicacion", idTipoPublicacion);
-            return (Publicacion) query.getSingleResult();
+            return (TipoPublicacion)query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }

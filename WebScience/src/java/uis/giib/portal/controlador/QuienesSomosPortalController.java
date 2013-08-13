@@ -31,7 +31,7 @@ public class QuienesSomosPortalController implements Serializable {
     @PostConstruct
     public void QuienesSomosPortalController(Integer idTipoPublicacion) {
         try {
-            pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)) ; 
+       //     pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)) ; 
     
         } catch (Exception e) {
             System.out.println("Error de QuinesSomos!");
@@ -42,7 +42,7 @@ public class QuienesSomosPortalController implements Serializable {
     // usado cuando hacemos click en el menú 
     public String goQuienesSomos(Integer idTipoPublicacion) {
         try {            
-             pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)); 
+         //    pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)); 
         } catch (Exception e) {
             System.out.println("Error de QuinesSomos!");
         }
