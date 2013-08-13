@@ -1,49 +1,57 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns="http://www.w3.org/1999/xhtml"                
+                xmlns="http://www.w3.org/1999/xhtml"
                 template="./../plantillaPortal.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
 
-    <ui:define name="title">
-        Detalle investigador
-    </ui:define>
-
-    <ui:define name="slider">
-
-    </ui:define>
+    <ui:define name="title">Detalle investigado</ui:define>
+    <ui:insert name="header"></ui:insert>
+    <ui:define name="libreriasJS"> </ui:define>
+    <ui:define name="slider"> </ui:define>
 
     <ui:define name="body">
-                <div class="mainbarDerecho">
+        <div class="mainbarDerecho">
 
-                    <h3><span><h:outputText value="#{investigadorPortalController.investigadorActual.nombreInvestigador}" /> <h:outputText value="#{investigadorPortalController.investigadorActual.apellidoInvestigador}" /></span></h3>
-                    <div class="clr"></div>
-                    <div > <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{investigadorPortalController.investigadorActual.imageInvestigadorPath}.jsf" /></div>                         
-                    <div class="mainbar600">    
-                        <h2><span>Biografía</span></h2> 
-                        <p><h:outputText escape="false" value="#{investigadorPortalController.investigadorActual.informacionInvestigador}" /></p>
-                    </div>               		
-                </div>
+            <h3><span><h:outputText value="#{investigadorPortalController.investigadorActual.nombreInvestigador} " /> <h:outputText value="#{investigadorPortalController.investigadorActual.apellidoInvestigador}" /></span></h3>
+            <div > <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{investigadorPortalController.investigadorActual.imageInvestigadorPath}.jsf" /></div>
+            <div class="mainbar600">
 
-                <div class="mainbar300">       			 
-                    <h2><span>Contacto</span></h2>
-                    <div class="clr"></div>
-                    <p> 
-                        <!--<span>Dirección: <h:outputText value="#{investigadorPortalController.investigadorActual.informacionInvestigador}" />  </span><br />-->
-                        <span>Telefono: <h:outputText value="#{investigadorPortalController.investigadorActual.telefonoInvestigador}" /></span> <br />
-                        <span>Celular <h:outputText value="#{investigadorPortalController.investigadorActual.celularInvestigador}" /> </span> <br />
-                        <span>Correo ELectrónico: <h:outputText value="#{investigadorPortalController.investigadorActual.correoInvestigador}" /> </span> <a href="#"></a>
-                    </p>      		
-                </div>	            
-                <div class="mainbar300">        		
-                    <h2><span>Líneas de Interés</span></h2>
-                    <p:dataList value="#{investigadorPortalController.investigadorActual.lineasInvestigadorList}" />
-                    
-                    <div class="clr"></div>          				
+                <h:form>
+                    <p:tabView effect="" effectDuration="fast">
 
-                </div>
-                <div class="clr"></div>
+                        <p:tab title="Biografía">
+                            <h:panelGrid columns="1"  cellpadding="1"  >
+                                <p><h:outputText escape="false" value="#{investigadorPortalController.investigadorActual.informacionInvestigador}" /></p>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Proyectos">
+                            <h:panelGrid columns="1" cellpadding="1">
+                                <p><h:outputText escape="false" value="#{investigadorPortalController.investigadorActual.informacionInvestigador}" /></p>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Lineas de Investigación">
+                            <h:panelGrid columns="1" cellpadding="1">
+                                <p:dataList value="#{investigadorPortalController.investigadorActual.getLineasInvestigadorList()}" />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Contacto">
+                            <h:panelGrid columns="1" cellpadding="1">
+                                <span> <h:outputText value="Telefono: "/> <h:outputText value="#{investigadorPortalController.investigadorActual.telefonoInvestigador}" /></span> <br />
+                                <span>Celular <h:outputText value="#{investigadorPortalController.investigadorActual.celularInvestigador}" /> </span> <br />
+                                <span>Correo ELectrónico: <h:outputText value="#{investigadorPortalController.investigadorActual.correoInvestigador}" /> </span> 
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>
+                </h:form>
+
+            </div>
+            </div>
+              
+                
+
+       
 
     </ui:define>
 

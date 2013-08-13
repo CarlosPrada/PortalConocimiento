@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
@@ -34,28 +35,29 @@ public class EventosPortalController implements Serializable {
     private ScheduleModel eventModel;
     private ScheduleEvent event = new DefaultScheduleEvent();
     //private List<TipoPublicacion> listadoPublicacionEvento;
-    private List<Publicacion> listadoPublicacionEventos;
+    private DataModel<Publicacion> listadoPublicacionEventos;
     private TipoPublicacion tipoPublicacion;
-    
-    private Integer hhh = new Integer(1);
-    
+    private Integer idTipo = new Integer(1);
     @EJB
     private uis.giib.administrador.dao.TipoPublicacionFacade ejbFacade;
 
     public EventosPortalController() {
         try {
+
+
+            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
+            listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
+
+            Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
+
             eventModel = new DefaultScheduleModel();
-            tipoPublicacion = (TipoPublicacion) (List<TipoPublicacion>) new ListDataModel((List) ejbFacade.findByIdTipoPublicacion(hhh));
-            listadoPublicacionEventos = tipoPublicacion.getPublicacionList();
-            //if(listadoPublicacionEventos.isEmpty()){
-           // }
-           
-            for (Iterator<Publicacion> it = listadoPublicacionEventos.iterator(); it.hasNext();) {
+            while (it.hasNext()) {
                 Publicacion i = it.next();
                 eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
             }
+
         } catch (Exception e) {
-            System.out.println("Error listando investitadores!");
+            System.out.println("Error listando investitadores!" + e.getLocalizedMessage());
         }
     }
 
@@ -63,32 +65,35 @@ public class EventosPortalController implements Serializable {
     public String goEventos() {
 
         try {
-            /*eventModel = new DefaultScheduleModel();
-             listadoPublicacionEvento =  (List<Publicacion>) new ListDataModel((List) ejbFacade.findByNombreTipoPublicacion("Evento")); 
-             for (Iterator<Publicacion> it = listadoPublicacionEvento.iterator(); it.hasNext();) {
-             Publicacion i = it.next();
-             eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));*/
+
+
+            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
+            listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
+
+            Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
+
             eventModel = new DefaultScheduleModel();
-            tipoPublicacion = (TipoPublicacion) (List<TipoPublicacion>) new ListDataModel((List) ejbFacade.findByIdTipoPublicacion(1));
-            listadoPublicacionEventos = tipoPublicacion.getPublicacionList();
-            for (Iterator<Publicacion> it = listadoPublicacionEventos.iterator(); it.hasNext();) {
+            while (it.hasNext()) {
                 Publicacion i = it.next();
-                eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));            }
+                eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
+            }
+
         } catch (Exception e) {
-            System.out.println("Error listando investitadores!");
+            System.out.println("Error listando investitadores!" + e.getMessage());
         }
         return "/portal/eventos.xhtml?faces-redirect=true";
     }
-/*
-    public List<TipoPublicacion> getListadoPublicacionEvento() {
-        return listadoPublicacionEvento;
-    }
+    /*
+     public List<TipoPublicacion> getListadoPublicacionEvento() {
+     return listadoPublicacionEvento;
+     }
 
-    public void setListadoPublicacionEvento(List<TipoPublicacion> listadoPublicacionEvento) {
-        this.listadoPublicacionEvento = listadoPublicacionEvento;
-    }
-*/
-    public List<Publicacion> getListadoPublicacionEventos() {
+     public void setListadoPublicacionEvento(List<TipoPublicacion> listadoPublicacionEvento) {
+     this.listadoPublicacionEvento = listadoPublicacionEvento;
+     }
+     */
+
+    public DataModel<Publicacion> getListadoPublicacionEventos() {
         return listadoPublicacionEventos;
     }
 
@@ -100,7 +105,7 @@ public class EventosPortalController implements Serializable {
         return ejbFacade;
     }
 
-    public void setListadoPublicacionEventos(List<Publicacion> listadoPublicacionEventos) {
+    public void setListadoPublicacionEventos(DataModel<Publicacion> listadoPublicacionEventos) {
         this.listadoPublicacionEventos = listadoPublicacionEventos;
     }
 
