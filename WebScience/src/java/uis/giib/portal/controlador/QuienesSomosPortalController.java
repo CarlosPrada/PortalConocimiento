@@ -3,14 +3,12 @@ package uis.giib.portal.controlador;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.TipoPublicacionFacade;
 import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.TipoPublicacion;
 
 /**
  *
@@ -19,57 +17,64 @@ import uis.giib.entidades.Publicacion;
 @Named(value = "quienesSomosPC")
 @SessionScoped
 public class QuienesSomosPortalController implements Serializable {
-    
-    @ManagedProperty("#{param.param}")
-    private Integer idTipoPublicacion;
-    
-    private DataModel pubHistoria;
+
+    private DataModel<Publicacion> quinesSomos;
+    private TipoPublicacion tipoPublicacion;
+    private Integer idTipo = new Integer(2);
     @EJB
-    private uis.giib.administrador.dao.TipoPublicacionFacade ejbPublicacion;
+    private uis.giib.administrador.dao.TipoPublicacionFacade ejbTipoPublicacion;
 
     // en un ListDataModel colocamos todos los proyectos en la DB
-    @PostConstruct
-    public void QuienesSomosPortalController(Integer idTipoPublicacion) {
+    public void QuienesSomosPortalController() {
         try {
-       //     pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)) ; 
-    
+            tipoPublicacion = ejbTipoPublicacion.buscarPublicacionesPorTipo(idTipo);
+            quinesSomos = new ListDataModel(tipoPublicacion.getPublicacionList());
         } catch (Exception e) {
-            System.out.println("Error de QuinesSomos!");
+            System.out.println("Error de QuinesSomos!" + e.getCause());
         }
     }
 
     //Métodos de navegación
     // usado cuando hacemos click en el menú 
-    public String goQuienesSomos(Integer idTipoPublicacion) {
-        try {            
-         //    pubHistoria = new ListDataModel((List) ejbPublicacion.findByIdTipoPublicacion(idTipoPublicacion)); 
+    public String goQuienesSomos() {
+        try {
+            tipoPublicacion = ejbTipoPublicacion.buscarPublicacionesPorTipo(idTipo);
+            quinesSomos = new ListDataModel(tipoPublicacion.getPublicacionList());
         } catch (Exception e) {
-            System.out.println("Error de QuinesSomos!");
+            System.out.println("Error de QuinesSomos!" + e.getCause());
         }
         return "/portal/quienesSomos.xhtml?faces-redirect=true";
     }
-    
-    public Integer getIdTipoPublicacion() {
-        return idTipoPublicacion;
+
+    public Integer getIdTipo() {
+        return idTipo;
     }
 
-    public void setIdTipoPublicacion(Integer idTipoPublicacion) {
-        this.idTipoPublicacion = idTipoPublicacion;
+    public void setIdTipo(Integer idTipo) {
+        this.idTipo = idTipo;
     }
 
-    public DataModel getPubHistoria() {
-        return pubHistoria;
+    public TipoPublicacion getTipoPublicacion() {
+        return tipoPublicacion;
     }
 
-    public void setPubHistoria(DataModel pubHistoria) {
-        this.pubHistoria = pubHistoria;
+    public void setTipoPublicacion(TipoPublicacion tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
     }
 
-    public TipoPublicacionFacade getEjbPublicacion() {
-        return ejbPublicacion;
+    public TipoPublicacionFacade getEjbTipoPublicacion() {
+        return ejbTipoPublicacion;
     }
 
-    public void setEjbPublicacion(TipoPublicacionFacade ejbPublicacion) {
-        this.ejbPublicacion = ejbPublicacion;
+    public void setEjbTipoPublicacion(TipoPublicacionFacade ejbTipoPublicacion) {
+        this.ejbTipoPublicacion = ejbTipoPublicacion;
     }
+
+    public DataModel<Publicacion> getQuinesSomos() {
+        return quinesSomos;
+    }
+
+    public void setQuinesSomos(DataModel<Publicacion> quinesSomos) {
+        this.quinesSomos = quinesSomos;
+    }    
 }
