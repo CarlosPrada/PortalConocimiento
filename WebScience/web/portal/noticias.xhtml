@@ -15,21 +15,18 @@
         <h:form>  
 
             <p:growl id="growl" showDetail="true"/>  
-
-            <p:fieldset legend="Historia" >  
-
+        <h3>Noticias Grupo de Investigacion de Ingeneria Biomedica </h3> 
+            <p:fieldset legend="" >  
+                
                 <h:panelGrid columns="2" cellpadding="10" > 
-                    <p:dataGrid  columns="2" paginator="true" rows="4" value="#{noticiasPortalController.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                    <p:dataGrid    columns="2" paginator="true" rows="4" value="#{noticiasPortalController.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
                         <p:graphicImage value="Hola que ase"  />  
                         <h:outputText value="#{noticias.tituloPublicacion}" />  
                     </p:dataGrid>
                 </h:panelGrid>  
             </p:fieldset> 
 
-            <h3>Noticias Grupo de Investigacion de Ingeneria Biomedica </h3>  
-            <p:panel header=""  >  
-                <h:outputText value="#{noticiasPortalController.listadoNoticias}" />  
-            </p:panel>  
+            
         </h:form> 
 
 

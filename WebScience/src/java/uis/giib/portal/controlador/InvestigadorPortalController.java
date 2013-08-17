@@ -20,7 +20,7 @@ import uis.giib.entidades.LineasInvestigador;
 @Named(value = "investigadorPortalController")
 @SessionScoped
 public class InvestigadorPortalController implements Serializable {
-
+//atributos
     private DataModel listadoInvestigadores;
     private DataModel listaTiposInvestigador;
     private List<LineasInvestigador> listaLineasInvestigador;
@@ -31,7 +31,7 @@ public class InvestigadorPortalController implements Serializable {
     private uis.giib.administrador.dao.TipoInvestigadorFacade ejbFacadeTipoInvestigador;    
     @EJB
     private uis.giib.administrador.dao.LineasInvestigadorFacade ejbFacadeLineasInvestigador;
-    
+    //constructor
     public InvestigadorPortalController() {
         
         try{

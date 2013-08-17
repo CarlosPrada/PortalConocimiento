@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos y Cristhian
  */
 @Entity
 @Table(name = "linea_investigacion")
@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "LineaInvestigacion.findByDescripcionLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.descripcionLineaInvestigacion = :descripcionLineaInvestigacion"),
     @NamedQuery(name = "LineaInvestigacion.findByEstadoLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.estadoLineaInvestigacion = :estadoLineaInvestigacion"),
     @NamedQuery(name = "LineaInvestigacion.findByEliminadoLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.eliminadoLineaInvestigacion = :eliminadoLineaInvestigacion")})
+//Falta crear consultas arriba de tablas nuevas o cambiadas.
 public class LineaInvestigacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,6 +44,14 @@ public class LineaInvestigacion implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_linea_investigacion")
     private Integer idLineaInvestigacion;
+
+    public String getDetallelineadeinvestigacion() {
+        return detallelineadeinvestigacion;
+    }
+
+    public void setDetallelineadeinvestigacion(String detallelineadeinvestigacion) {
+        this.detallelineadeinvestigacion = detallelineadeinvestigacion;
+    }
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -53,8 +62,12 @@ public class LineaInvestigacion implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "descripcion_linea_investigacion")
     private String descripcionLineaInvestigacion;
+    @Column(name = "detalle_linea_de_investigacion")
+    private String detallelineadeinvestigacion;
     @Column(name = "estado_linea_investigacion")
     private Character estadoLineaInvestigacion;
+    @Column(name = "imagen_linea_de_investigacion")
+    private String imagenLineaInvestigacion;
     @Column(name = "eliminado_linea_investigacion")
     private Character eliminadoLineaInvestigacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaInvestigacion")
@@ -74,6 +87,16 @@ public class LineaInvestigacion implements Serializable {
         this.nombreLineaInvestigacion = nombreLineaInvestigacion;
         this.descripcionLineaInvestigacion = descripcionLineaInvestigacion;
     }
+
+    public String getImagenLineaInvestigacion() {
+        return imagenLineaInvestigacion;
+    }
+
+    public void setImagenLineaInvestigacion(String imagenLineaInvestigacion) {
+        this.imagenLineaInvestigacion = imagenLineaInvestigacion;
+    }
+
+
 
     public Integer getIdLineaInvestigacion() {
         return idLineaInvestigacion;
