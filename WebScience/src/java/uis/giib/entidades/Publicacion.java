@@ -73,9 +73,9 @@ public class Publicacion implements Serializable {
     @Column(name = "eliminado_publicacion")
     private Character eliminadoPublicacion;
     @Column(name = "titulo_publicacion")
-    private Character tituloPublicacion;
+    private String tituloPublicacion;
     @Column(name = "contenido_detallado_publicacion")
-    private Character contenidodetalladoPublicacion;
+    private String contenidodetalladoPublicacion;
     @JoinColumn(name = "id_tipo_publicacion", referencedColumnName = "id_tipo_publicacion")
     @ManyToOne
     private TipoPublicacion idTipoPublicacion;
@@ -104,19 +104,19 @@ public class Publicacion implements Serializable {
         this.contenidoResumidoPublicacion = contenidoResumidoPublicacion;
     }
 
-    public Character getTituloPublicacion() {
+    public String getTituloPublicacion() {
         return tituloPublicacion;
     }
 
-    public void setTituloPublicacion(Character tituloPublicacion) {
+    public void setTituloPublicacion(String tituloPublicacion) {
         this.tituloPublicacion = tituloPublicacion;
     }
 
-    public Character getContenidodetalladoPublicacion() {
+    public String getContenidodetalladoPublicacion() {
         return contenidodetalladoPublicacion;
     }
 
-    public void setContenidodetalladoPublicacion(Character contenidodetalladoPublicacion) {
+    public void setContenidodetalladoPublicacion(String contenidodetalladoPublicacion) {
         this.contenidodetalladoPublicacion = contenidodetalladoPublicacion;
     }
 

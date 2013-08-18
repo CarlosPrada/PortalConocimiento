@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -34,7 +33,6 @@ public class EventosPortalController implements Serializable {
 
     private ScheduleModel eventModel;
     private ScheduleEvent event = new DefaultScheduleEvent();
-    //private List<TipoPublicacion> listadoPublicacionEvento;
     private DataModel<Publicacion> listadoPublicacionEventos;
     private TipoPublicacion tipoPublicacion;
     private Integer idTipo = new Integer(1);
@@ -43,19 +41,14 @@ public class EventosPortalController implements Serializable {
 
     public EventosPortalController() {
         try {
-
-
             tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
             listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
-
             Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
-
             eventModel = new DefaultScheduleModel();
             while (it.hasNext()) {
                 Publicacion i = it.next();
                 eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
             }
-
         } catch (Exception e) {
             System.out.println("Error listando investitadores!" + e.getLocalizedMessage());
         }
@@ -65,34 +58,20 @@ public class EventosPortalController implements Serializable {
     public String goEventos() {
 
         try {
-
-
             tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
             listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
-
             Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
-
             eventModel = new DefaultScheduleModel();
             while (it.hasNext()) {
                 Publicacion i = it.next();
                 eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
             }
-
         } catch (Exception e) {
             System.out.println("Error listando investitadores!" + e.getMessage());
         }
         return "/portal/eventos.xhtml?faces-redirect=true";
     }
-    /*
-     public List<TipoPublicacion> getListadoPublicacionEvento() {
-     return listadoPublicacionEvento;
-     }
-
-     public void setListadoPublicacionEvento(List<TipoPublicacion> listadoPublicacionEvento) {
-     this.listadoPublicacionEvento = listadoPublicacionEvento;
-     }
-     */
-
+   
     public DataModel<Publicacion> getListadoPublicacionEventos() {
         return listadoPublicacionEventos;
     }
@@ -135,17 +114,6 @@ public class EventosPortalController implements Serializable {
         return calendar;
     }
 
-    /* public List<Publicacion> getListadoPublicacionEvento() {
-     return listadoPublicacionEvento;
-     }
-
-     public void setListadoPublicacionEvento(List<Publicacion> listadoPublicacionEvento) {
-     this.listadoPublicacionEvento = listadoPublicacionEvento;
-     }
-
-     public TipoPublicacionFacade getEjbFacade() {
-     return ejbFacade;
-     }*/
     public void setEjbFacade(TipoPublicacionFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }

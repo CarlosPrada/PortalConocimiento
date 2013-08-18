@@ -16,58 +16,16 @@
             <div class="content_resize">
                 <div class="mainbarIzquierdo">     
 
-                    <p:fieldset legend="Historia" >  
-                        
-                        <h:panelGrid columns="2" cellpadding="10" > 
-                            <p:dataGrid  columns="2" paginator="true" rows="4" value="#{quienesSomosPC.pubHistoria}"  emptyMessage="No se encontraton registros" var="pubHistoria" >
-                            <p:graphicImage value="Hola que ase"  />  vestigadorList
-                            <h:outputText value="#{pubHistoria}" />  
-                            </p:dataGrid>
+                    <p:dataGrid value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
+                        <h3><span><h:outputText value="#{qunsSms.contenidoResumidoPublicacion}" /> </span></h3>
+                    </p:dataGrid>
+
+                    <!--<p:fieldset legend="Quienes Somos" >  
+                        <h:panelGrid columns="2" cellpadding="10"> 
+                            <h:outputText value="#{quienesSomosPC.quinesSomos}" />  
                         </h:panelGrid>  
-                    </p:fieldset> 
-    
-                    <!-- 
-
-                    <div class="article">
-                        <h2><span>Historia</span></h2>                    
-                        <div class="clr"></div>   
-                        <div ><img src="images/insert_image.png" alt="" width="400" height="150" /></div>                
-                        <p>Una célula (del latín cellula, diminutivo de cella, "hueco")1 es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo.2 De este modo, puede clasificarse a los organismos vivos según el número de células que posean: si sólo tienen una, se les denomina unicelulares (como pueden ser los protozoos o las bacterias, organismos microscópicos); si poseen más, se les llama pluricelulares. En estos últimos el número de células es variable: de unos pocos cientos, como en algunos nematodos, a cientos de billones (1014), como en el caso del ser humano. Las células suelen poseer un tamaño de 10 µm y una masa de 1 ng, si bien existen células mucho mayores.</p>
-                        <p>La teoría celular, propuesta en 1838 para los vegetales y en 1839 para los animales,3 por Matthias Jakob Schleiden y Theodor Schwann, postula que todos los organismos están compuestos por células, y que todas las células derivan de otras precedentes. De este modo, todas las funciones vitales emanan de la maquinaria celular y de la interacción entre células adyacentes; además, la tenencia de la información genética, base de la herencia, en su ADN permite la transmisión de aquella de generación en generación.</p>
-                    </div>
+                    </p:fieldset>  -->   
                 </div>
-
-                <div class="mainbarDerecho">
-                    <div class="article">
-                        <h2><span>Objetivos</span></h2>
-                        <div class="clr"></div>
-                        <div ><img src="images/insert_image.png" alt="" width="400" height="150" /></div>   
-                        <p>Una célula (del latín cellula, diminutivo de cella, "hueco")1 es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo.2 De este modo, puede clasificarse a los organismos vivos según el número de células que posean: si sólo tienen una, se les denomina unicelulares (como pueden ser los protozoos o las bacterias, organismos microscópicos); si poseen más, se les llama pluricelulares. En estos últimos el número de células es variable: de unos pocos cientos, como en algunos nematodos, a cientos de billones (1014), como en el caso del ser humano. Las células suelen poseer un tamaño de 10 µm y una masa de 1 ng, si bien existen células mucho mayores.</p>
-                        <p>La teoría celular, propuesta en 1838 para los vegetales y en 1839 para los animales,3 por Matthias Jakob Schleiden y Theodor Schwann, postula que todos los organismos están compuestos por células, y que todas las células derivan de otras precedentes. De este modo, todas las funciones vitales emanan de la maquinaria celular y de la interacción entre células adyacentes; además, la tenencia de la información genética, base de la herencia, en su ADN permite la transmisión de aquella de generación en generación.</p>
-                    </div>
-                </div>
-
-                <div class="mainbar440">
-                    <div class="article">
-                        <h2><span>Misión</span></h2>
-                        <div class="clr"></div>
-                        <p>Una célula (del latín cellula, diminutivo de cella, "hueco")1 es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo.2 De este modo, puede clasificarse a los organismos vivos según el número de células que posean: si sólo tienen una, se les denomina unicelulares (como pueden ser los protozoos o las bacterias, organismos microscópicos); si poseen más, se les llama pluricelulares. En estos últimos el número de células es variable: de unos pocos cientos, como en algunos nematodos, a cientos de billones (1014), como en el caso del ser humano. Las células suelen poseer un tamaño de 10 µm y una masa de 1 ng, si bien existen células mucho mayores.</p>
-                        <p>La teoría celular, propuesta en 1838 para los vegetales y en 1839 para los animales,3 por Matthias Jakob Schleiden y Theodor Schwann, postula que todos los organismos están compuestos por células, y que todas las células derivan de otras precedentes. De este modo, todas las funciones vitales emanan de la maquinaria celular y de la interacción entre células adyacentes; además, la tenencia de la información genética, base de la herencia, en su ADN permite la transmisión de aquella de generación en generación.</p>
-                    </div>
-                </div>			
-
-                <div class="mainbar440">
-                    <div class="article">
-                        <h2><span>Visión</span></h2>
-                        <div class="clr"></div>
-                        <p>Una célula (del latín cellula, diminutivo de cella, "hueco")1 es la unidad morfológica y funcional de todo ser vivo. De hecho, la célula es el elemento de menor tamaño que puede considerarse vivo.2 De este modo, puede clasificarse a los organismos vivos según el número de células que posean: si sólo tienen una, se les denomina unicelulares (como pueden ser los protozoos o las bacterias, organismos microscópicos); si poseen más, se les llama pluricelulares. En estos últimos el número de células es variable: de unos pocos cientos, como en algunos nematodos, a cientos de billones (1014), como en el caso del ser humano. Las células suelen poseer un tamaño de 10 µm y una masa de 1 ng, si bien existen células mucho mayores.</p>
-                        <p>La teoría celular, propuesta en 1838 para los vegetales y en 1839 para los animales,3 por Matthias Jakob Schleiden y Theodor Schwann, postula que todos los organismos están compuestos por células, y que todas las células derivan de otras precedentes. De este modo, todas las funciones vitales emanan de la maquinaria celular y de la interacción entre células adyacentes; además, la tenencia de la información genética, base de la herencia, en su ADN permite la transmisión de aquella de generación en generación.</p>
-                    </div>
-
--->
-                </div>
-
-                <div  align="center" ><img src="images/insert_image.png" alt="" width="500" height="250" /></div>   
 
             </div>
             <div class="clr"></div>
