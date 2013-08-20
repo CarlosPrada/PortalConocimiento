@@ -16,14 +16,17 @@
 
             <p:growl id="growl" showDetail="true"/>  
         <h3>Noticias Grupo de Investigacion de Ingeneria Biomedica </h3> 
-            <p:fieldset legend="" >  
+            <p:fieldset legend="Noticias" >  
                 
-                <h:panelGrid columns="2" cellpadding="10" > 
-                    <p:dataGrid    columns="2" paginator="true" rows="4" value="#{noticiasPortalController.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
-                        <p:graphicImage value="Hola que ase"  />  
-                        <h:outputText value="#{noticias.tituloPublicacion}" />  
+             
+                   <p:dataGrid    columns="3" paginator="true" rows="1" value="#{noticiasPortalController.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                       <div class="mainbarDerecho">
+                       <h:graphicImage alt="" width="100" height="140" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
+                         <h:outputText value="#{noticias.tituloPublicacion}" /> 
+                         <br/><h:outputText value="#{noticias.contenidodetalladoPublicacion}" />
+                         </div>
                     </p:dataGrid>
-                </h:panelGrid>  
+                
             </p:fieldset> 
 
             

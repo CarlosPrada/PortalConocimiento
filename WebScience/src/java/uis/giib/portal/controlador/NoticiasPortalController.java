@@ -11,7 +11,9 @@ import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.PublicacionFacade;
+import uis.giib.administrador.dao.TipoPublicacionFacade;
 import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.TipoPublicacion;
 
 /**
  *
@@ -21,11 +23,15 @@ import uis.giib.entidades.Publicacion;
 @SessionScoped
 public class NoticiasPortalController implements Serializable {
 
-    private DataModel listadoNoticias;
+    private DataModel<Publicacion> listadoNoticias;
+    private TipoPublicacion tipoPublicacion;
     private Publicacion publicacionActual;
+        private Integer idTipo = new Integer(6);
+
+    
     // LLama objeto encargado de hacer las consultas a la DB
     @EJB
-    private uis.giib.administrador.dao.PublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.TipoPublicacionFacade ejbFacade;
 
     /**
      * Creates a new instance of ProyectoPortalController
@@ -34,7 +40,9 @@ public class NoticiasPortalController implements Serializable {
     public NoticiasPortalController() {
 
         try {
-            listadoNoticias = new ListDataModel(ejbFacade.findAll());
+       
+            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
+            listadoNoticias = new ListDataModel(tipoPublicacion.getPublicacionList());
         } catch (Exception e) {
             System.out.println("Error listando Noticias!");
         }
@@ -42,7 +50,8 @@ public class NoticiasPortalController implements Serializable {
 
     public String goNoticiasPortalController() {
         try {
-            listadoNoticias = new ListDataModel(ejbFacade.findAll());
+             tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
+            listadoNoticias = new ListDataModel(tipoPublicacion.getPublicacionList());
         } catch (Exception e) {
             System.out.println("Error listando Noticias!");
         }
@@ -65,11 +74,29 @@ public class NoticiasPortalController implements Serializable {
         this.publicacionActual = publicacionActual;
     }
 
-    public PublicacionFacade getEjbFacade() {
+    public TipoPublicacion getTipoPublicacion() {
+        return tipoPublicacion;
+    }
+
+    public void setTipoPublicacion(TipoPublicacion tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
+    }
+
+    public TipoPublicacionFacade getEjbFacade() {
         return ejbFacade;
     }
 
-    public void setEjbFacade(PublicacionFacade ejbFacade) {
+    public void setEjbFacade(TipoPublicacionFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
+    }
+
+   
+
+    public Integer getIdTipo() {
+        return idTipo;
+    }
+
+    public void setIdTipo(Integer idTipo) {
+        this.idTipo = idTipo;
     }
 }
