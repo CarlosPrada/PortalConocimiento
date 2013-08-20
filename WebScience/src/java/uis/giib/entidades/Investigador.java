@@ -5,7 +5,6 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -107,6 +106,7 @@ public class Investigador implements Serializable {
     @JoinColumn(name = "id_nivel_permiso", referencedColumnName = "id_permiso")
     @ManyToOne(optional = false)
     private Permiso idNivelPermiso;
+    //private List<LineaInvestigacion> lineasInvestigacionList;
 
     public Investigador() {
     }
@@ -125,6 +125,14 @@ public class Investigador implements Serializable {
         this.apellidoInvestigador = apellidoInvestigador;
     }
 
+    /*public List<LineaInvestigacion> getLineasInvestigacionList() {
+        return lineasInvestigacionList;
+    }
+
+    public void setLineasInvestigacionList(List<LineaInvestigacion> lineasInvestigacionList) {
+        this.lineasInvestigacionList = lineasInvestigacionList;
+    }*/
+    
     public String getImageInvestigadorPath() {
         return imageInvestigadorPath;
     }

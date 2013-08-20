@@ -28,12 +28,12 @@
                         </p:tab>
                         <p:tab title="Proyectos">
                             <h:panelGrid columns="1" cellpadding="1">
-                                <p><h:outputText escape="false" value="#{investigadorPortalController.investigadorActual.informacionInvestigador}" /></p>
+                                <p><h:outputText escape="false" value="#{investigadorPortalController.lineasInvestigadorList}" /></p>
                             </h:panelGrid>
                         </p:tab>
                         <p:tab title="Lineas de Investigación">
                             <h:panelGrid columns="1" cellpadding="1">
-                                <p:dataList value="#{investigadorPortalController.investigadorActual.getLineasInvestigadorList()}" />
+                                <p:dataList value="#{investigadorPortalController.investigadorActual.lineasInvestigadorList}" />
                             </h:panelGrid>
                         </p:tab>
                         <p:tab title="Contacto">
@@ -45,14 +45,8 @@
                         </p:tab>
                     </p:tabView>
                 </h:form>
-
-            </div>
-            </div>
-              
                 
-
-       
-
+            </div>
+        </div>
     </ui:define>
-
 </ui:composition>
