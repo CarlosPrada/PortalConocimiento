@@ -15,7 +15,7 @@ import uis.giib.entidades.Publicacion;
  *
  * @author Carlos David Prada Remolina
  */
-@Named(value = "inicioPortalController")
+@Named(value = "indexPC")
 @SessionScoped
 public class IndexPortalController implements Serializable {
 

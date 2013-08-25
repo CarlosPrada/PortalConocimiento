@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author cristhian ruiz
  */
-@Named(value = "GaleriaPortalController")
+@Named(value = "GaleriaPC")
 @SessionScoped
 public class GaleriaPortalController implements Serializable {
 //crearlos con multimedia o publicaciones los private

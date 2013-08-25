@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author Carlos David Prada Remolina
  */
-@Named(value = "relacionesInstitucionalesPortalController")
+@Named(value = "relacionesInstitucionalesPC")
 @SessionScoped
 public class RelacionesInstitucionalesPortalController implements Serializable {
 

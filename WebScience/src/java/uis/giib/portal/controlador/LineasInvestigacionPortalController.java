@@ -7,43 +7,32 @@ package uis.giib.portal.controlador;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.LineaInvestigacionFacade;
-import uis.giib.entidades.Investigador;
 import uis.giib.entidades.LineaInvestigacion;
-import uis.giib.entidades.LineasInvestigador;
 
 /**
  *
  * @author Carlos
  */
-@Named(value = "lineasInvestigacionPortalController")
+@Named(value = "lineasInvestigacionPC")
 @SessionScoped
 public class LineasInvestigacionPortalController implements Serializable {
 
     private DataModel listadoLineasInvestigacion;
-    private LineaInvestigacion   lineasInvestigacionActual;
+    private LineaInvestigacion lineasInvestigacionActual;
     @EJB
     private uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacade;
-//consyructor
 
+    //consyructor
     public LineasInvestigacionPortalController() {
         try {
             listadoLineasInvestigacion = new ListDataModel(ejbFacade.findAll());
         } catch (Exception e) {
             System.out.println("Error listando las Líneas de Investigaión!");
         }
-    }
-
-    public LineaInvestigacion getLineasInvestigacionActual() {
-        return lineasInvestigacionActual;
-    }
-
-    public void setLineasInvestigacionActual(LineaInvestigacion lineasInvestigacionActual) {
-        this.lineasInvestigacionActual = lineasInvestigacionActual;
     }
 
     //Métodos de navegación
@@ -62,9 +51,18 @@ public class LineasInvestigacionPortalController implements Serializable {
         try {
             lineasInvestigacionActual = (LineaInvestigacion) linInvestiga;
         } catch (Exception e) {
-            System.out.println("Error Mostrando detalles Lineas Investigacion!");
+            System.out.println("Error Mostrando detalles Linea Investigación!");
         }
         return "/portal/lineasInvestigacionDetalle.xhtml?faces-redirect=true";
+    }
+
+    //Getters - Setters 
+    public LineaInvestigacion getLineasInvestigacionActual() {
+        return lineasInvestigacionActual;
+    }
+
+    public void setLineasInvestigacionActual(LineaInvestigacion lineasInvestigacionActual) {
+        this.lineasInvestigacionActual = lineasInvestigacionActual;
     }
 
     public DataModel getListadoLineasInvestigacion() {

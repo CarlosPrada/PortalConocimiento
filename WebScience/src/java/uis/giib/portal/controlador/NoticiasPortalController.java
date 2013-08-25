@@ -19,7 +19,7 @@ import uis.giib.entidades.TipoPublicacion;
  *
  * @author Cristhian Ruiz
  */
-@Named(value = "noticiasPortalController")
+@Named(value = "noticiasPC")
 @SessionScoped
 public class NoticiasPortalController implements Serializable {
 

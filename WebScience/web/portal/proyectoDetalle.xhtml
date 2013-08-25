@@ -15,7 +15,7 @@
     <ui:define name="body">
         <div class="mainbarDerecho">
 
-            <h3><span><h:outputText value="#{proyectoPortalController.proyectoActual.nombreProyecto}" /> </span></h3>
+            <h3><span><h:outputText value="#{proyectoPC.proyectoActual.nombreProyecto}" /> </span></h3>
             <div class="clr"></div>
             <div ><img src="images/insert_image.png" alt="" width="300" height="250" /></div>
             <div class="mainbar600">
@@ -25,18 +25,18 @@
 
                         <p:tab title="Descripción">
                             <h:panelGrid columns="1"  cellpadding="1"  >
-                                <h:outputText value="#{proyectoPortalController.proyectoActual.descripcionDetalladaProyecto}"/>
+                                <h:outputText value="#{proyectoPC.proyectoActual.descripcionDetalladaProyecto}"/>
 
                             </h:panelGrid>
                         </p:tab>
                         <p:tab title="Objetivos">
                             <h:panelGrid columns="1" cellpadding="1">
-                                <h:outputText value="#{proyectoPortalController.proyectoActual.objetivosProyecto}"></h:outputText>
+                                <h:outputText value="#{proyectoPC.proyectoActual.objetivosProyecto}"></h:outputText>
                             </h:panelGrid>
                         </p:tab>
                         <p:tab title="Resultados">
                             <h:panelGrid columns="1" cellpadding="1">
-                                <h:outputText value="#{proyectoPortalController.proyectoActual.resultadosProyecto}"></h:outputText>
+                                <h:outputText value="#{proyectoPC.proyectoActual.resultadosProyecto}"></h:outputText>
                             </h:panelGrid>
                         </p:tab>
                     </p:tabView>

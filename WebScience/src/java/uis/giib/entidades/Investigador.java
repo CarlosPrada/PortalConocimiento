@@ -63,10 +63,10 @@ public class Investigador implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "informacion_investigador")
     private String informacionInvestigador;
-    @Size(max = 15)
+    @Size(max = 21)
     @Column(name = "telefono_investigador")
     private String telefonoInvestigador;
-    @Size(max = 10)
+    @Size(max = 20)
     @Column(name = "celular_investigador")
     private String celularInvestigador;
     @Basic(optional = false)
@@ -76,10 +76,10 @@ public class Investigador implements Serializable {
     private String correoInvestigador;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 1)
     @Column(name = "genero_investigador")
     private String generoInvestigador;
-    @Size(max = 100)
+    @Size(max = 150)
     @Column(name = "cvlac_investigador")
     private String cvlacInvestigador;
     @Column(name = "estado_investigador")
@@ -94,6 +94,10 @@ public class Investigador implements Serializable {
     @Size(max = 100)
     @Column(name = "titulo_Investigador")
     private String tituloInvestigador;
+    @Size(max = 40)
+    @Column(name = "fax_Investigador")
+    private String faxInvestigador;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
     private List<LineasInvestigador> lineasInvestigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
@@ -106,7 +110,7 @@ public class Investigador implements Serializable {
     @JoinColumn(name = "id_nivel_permiso", referencedColumnName = "id_permiso")
     @ManyToOne(optional = false)
     private Permiso idNivelPermiso;
-    //private List<LineaInvestigacion> lineasInvestigacionList;
+    
 
     public Investigador() {
     }
@@ -124,14 +128,15 @@ public class Investigador implements Serializable {
         this.generoInvestigador = generoInvestigador;
         this.apellidoInvestigador = apellidoInvestigador;
     }
-
-    /*public List<LineaInvestigacion> getLineasInvestigacionList() {
-        return lineasInvestigacionList;
+    
+    // Getters - Setters
+    public String getFaxInvestigador() {
+        return faxInvestigador;
     }
 
-    public void setLineasInvestigacionList(List<LineaInvestigacion> lineasInvestigacionList) {
-        this.lineasInvestigacionList = lineasInvestigacionList;
-    }*/
+    public void setFaxInvestigador(String faxInvestigador) {
+        this.faxInvestigador = faxInvestigador;
+    }
     
     public String getImageInvestigadorPath() {
         return imageInvestigadorPath;

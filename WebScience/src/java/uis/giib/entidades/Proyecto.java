@@ -33,9 +33,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Proyecto.findByIdProyecto", query = "SELECT p FROM Proyecto p WHERE p.idProyecto = :idProyecto"),
     @NamedQuery(name = "Proyecto.findByNombreProyecto", query = "SELECT p FROM Proyecto p WHERE p.nombreProyecto = :nombreProyecto"),
     @NamedQuery(name = "Proyecto.findByDescripcionResumidaProyecto", query = "SELECT p FROM Proyecto p WHERE p.descripcionResumidaProyecto = :descripcionResumidaProyecto"),
-    @NamedQuery(name = "Proyecto.findByEstadoProyecto", query = "SELECT p FROM Proyecto p WHERE p.estadoProyecto = :estadoProyecto"),
+    @NamedQuery(name = "TipoProyecto.findByIdTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.idTipoProyecto = :idTipoProyecto"),
     @NamedQuery(name = "Proyecto.findByEliminadoProyecto", query = "SELECT p FROM Proyecto p WHERE p.eliminadoProyecto = :eliminadoProyecto")})
 public class Proyecto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,8 +53,6 @@ public class Proyecto implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "descripcion_resumida_proyecto")
     private String descripcionResumidaProyecto;
-    @Column(name = "estado_proyecto")
-    private Character estadoProyecto;
     @Column(name = "eliminado_proyecto")
     private Character eliminadoProyecto;
     @Basic(optional = false)
@@ -122,14 +121,6 @@ public class Proyecto implements Serializable {
 
     public void setDescripcionResumidaProyecto(String descripcionResumidaProyecto) {
         this.descripcionResumidaProyecto = descripcionResumidaProyecto;
-    }
-
-    public Character getEstadoProyecto() {
-        return estadoProyecto;
-    }
-
-    public void setEstadoProyecto(Character estadoProyecto) {
-        this.estadoProyecto = estadoProyecto;
     }
 
     public Character getEliminadoProyecto() {
@@ -212,5 +203,4 @@ public class Proyecto implements Serializable {
     public String toString() {
         return "uis.giib.entidades.Proyecto[ idProyecto=" + idProyecto + " ]";
     }
-    
 }
