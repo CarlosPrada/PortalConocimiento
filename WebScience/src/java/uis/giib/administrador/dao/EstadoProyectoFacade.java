@@ -3,11 +3,13 @@
  * and open the template in the editor.
  */
 package uis.giib.administrador.dao;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import uis.giib.entidades.EstadoProyecto;
+import uis.giib.entidades.TipoPublicacion;
 
 /**
  *
@@ -25,6 +27,16 @@ public class EstadoProyectoFacade extends AbstractFacade<EstadoProyecto> {
 
     public EstadoProyectoFacade() {
         super(EstadoProyecto.class);
+    }
+    
+        public TipoPublicacion buscarProyectosPorEstado(Integer idEstado) {
+        try {
+            Query query = em.createNamedQuery("EstadoProyecto.findByIdEstadoProyecto");
+            query.setParameter("idEstado", idEstado);
+            return (TipoPublicacion)query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
     
 }

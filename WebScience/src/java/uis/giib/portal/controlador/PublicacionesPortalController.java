@@ -16,7 +16,7 @@ import uis.giib.entidades.Publicacion;
  *
  * @author Carlos
  */
-@Named(value = "publicacionesPortalController")
+@Named(value = "publicacionesPC")
 @SessionScoped
 public class PublicacionesPortalController implements Serializable {
 

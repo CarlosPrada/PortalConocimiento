@@ -18,7 +18,7 @@
         </div>
 
         <h:form>            
-            <p:accordionPanel value="#{investigadorPortalController.listaTiposInvestigador}" var="tipoInv" >
+            <p:accordionPanel value="#{investigadorPC.listaTiposInvestigador}" var="tipoInv" >
                 <p:tab title="#{tipoInv.nombreTipoInvestigador}" >
                     <p:dataGrid columns="2" paginator="true" rows="6" value="#{tipoInv.investigadorList}"  emptyMessage="No se encontraton registros" var="inv">
                         <div class="mainbarInvestigadores">
@@ -27,7 +27,7 @@
                                 <h:graphicImage alt="" width="150" height="175" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
                                 <h2><h:outputText value="#{inv.tituloInvestigador}"/> </h2>
                                 <p>
-                                    <h:commandLink value="Ver detalles" action="#{investigadorPortalController.goDetallesInvestigador(inv)}" />
+                                    <h:commandLink value="Ver detalles" action="#{investigadorPC.goDetallesInvestigador(inv)}" />
                                 </p>
                             </div>
                         </div>

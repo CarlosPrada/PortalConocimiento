@@ -3,94 +3,85 @@ package uis.giib.portal.controlador;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.InvestigadorFacade;
 import uis.giib.administrador.dao.TipoInvestigadorFacade;
 import uis.giib.entidades.Investigador;
-import uis.giib.entidades.LineasInvestigador;
-//import uis.giib.entidades.LineasInvestigador;
+
+
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos David Prada Remolina
  */
-@Named(value = "investigadorPortalController")
+@Named(value = "investigadorPC")
 @SessionScoped
 public class InvestigadorPortalController implements Serializable {
-//atributos
+
+    //Atributos
+    
     private DataModel listadoInvestigadores;
     private DataModel listaTiposInvestigador;
-    private DataModel listaLineasInvestigador;
-    private DataModel lineasInvestigadorList;
     private Investigador investigadorActual;
     @EJB
-    private uis.giib.administrador.dao.InvestigadorFacade ejbFacade;    
+    private uis.giib.administrador.dao.InvestigadorFacade ejbFacadeInvestigador;    
     @EJB
     private uis.giib.administrador.dao.TipoInvestigadorFacade ejbFacadeTipoInvestigador;    
-    @EJB
-    private uis.giib.administrador.dao.LineasInvestigadorFacade ejbFacadeLineasInvestigador;
+
     //constructor
     public InvestigadorPortalController() {
         
         try{
-        listadoInvestigadores = new ListDataModel(ejbFacade.findAll());
+        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findAll());
         listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());
-        //listaLineasInvestigador = (List<LineasInvestigador>) new ListDataModel(ejbFacadeLineasInvestigador.findAll());
-        //listaLineasInvestigador = new ListDataModel(ejbFacadeLineasInvestigador.findAll());
         }catch(Exception e){
             System.out.println("Error listando investitadores!");
         }        
     }
     
     //Métodos de navegación
+    
+    /**Método que redirige al usuario a la página de investigadores.xhtml
+     * 
+     * @return Dirección de la página de investigadores.xhtml
+     */
     public String goInvestigadores(){
 
         try{
-        listadoInvestigadores = new ListDataModel(ejbFacade.findAll());
-        listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());     
-        //listaLineasInvestigador = (List<LineasInvestigador>) new ListDataModel(ejbFacadeLineasInvestigador.findAll());
-        //listaLineasInvestigador = new ListDataModel(ejbFacadeLineasInvestigador.findAll());
+        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findAll());
+        listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll()); 
         }catch(Exception e){
             System.out.println("Error listando investitadores!");
         }        
         return "/portal/investigadores.xhtm?faces-redirect=truel";        
     }    
-    public String goDetallesInvestigador(Investigador inv){
+    
+    /**Método que redirige al usuario a la página de investigadoresDetalle.xhtml
+     * 
+     * @param investigador: Objeto que contiene el investigdor cuyos detalles serán explorados
+     * @return Dirección de la página de investigadoresDetalle.xhtml
+     */    
+    public String goDetallesInvestigador(Investigador investigador){
         
         try{
-        investigadorActual = (Investigador) inv;
-        lineasInvestigadorList = new ListDataModel(investigadorActual.getLineasInvestigadorList());
-        
-        
-        //listaLineasInvestigador = new ListDataModel(investigadorActual.getLineasInvestigacionList());
-        
-        //listaLineasInvestigador = new ListDataModel(ejbFacadeLineasInvestigador.findAll());
-        
-        //listaLineasInvestigador = (List<LineasInvestigador>) new ListDataModel(ejbFacadeLineasInvestigador.findAll());
-        //investigadorActual.setLineasInvestigadorList((List<LineasInvestigador>) listaLineasInvestigador);
+        investigadorActual = (Investigador) investigador;
         }catch(Exception e){
             System.out.println("Error Mostrando detalles Investigador!");
         }       
         return "/portal/investigadoresDetalle.xhtml?faces-redirect=true";        
     }
 
-    // Getters/Setters
-    /* public List<LineasInvestigador> getListaLineasInvestigador() {
-    return listaLineasInvestigador;
-    }
-    public void setListaLineasInvestigador(List<LineasInvestigador> listaLineasInvestigador) {
-    this.listaLineasInvestigador = listaLineasInvestigador;
-    }*/
-    public DataModel getListaLineasInvestigador() {
-        return listaLineasInvestigador;
+    // Getters - Setters
+
+    public InvestigadorFacade getEjbFacadeInvestigador() {
+        return ejbFacadeInvestigador;
     }
 
-    public void setListaLineasInvestigador(DataModel listaLineasInvestigador) {
-        this.listaLineasInvestigador = listaLineasInvestigador;
-    }    
+    public void setEjbFacadeInvestigador(InvestigadorFacade ejbFacadeInvestigador) {
+        this.ejbFacadeInvestigador = ejbFacadeInvestigador;
+    }
 
     public TipoInvestigadorFacade getEjbFacadeTipoInvestigador() {
         return ejbFacadeTipoInvestigador;
@@ -125,27 +116,10 @@ public class InvestigadorPortalController implements Serializable {
     }
 
     public InvestigadorFacade getEjbFacade() {
-        return ejbFacade;
+        return ejbFacadeInvestigador;
     }
 
     public void setEjbFacade(InvestigadorFacade ejbFacade) {
-        this.ejbFacade = ejbFacade;
-    }
-
-    public uis.giib.administrador.dao.LineasInvestigadorFacade getEjbFacadeLineasInvestigador() {
-        return ejbFacadeLineasInvestigador;
-    }
-
-    public void setEjbFacadeLineasInvestigador(uis.giib.administrador.dao.LineasInvestigadorFacade ejbFacadeLineasInvestigador) {
-        this.ejbFacadeLineasInvestigador = ejbFacadeLineasInvestigador;
+        this.ejbFacadeInvestigador = ejbFacade;
     }    
-
-    public DataModel getLineasInvestigadorList() {
-        return lineasInvestigadorList;
-    }
-
-    public void setLineasInvestigadorList(DataModel lineasInvestigadorList) {
-        this.lineasInvestigadorList = lineasInvestigadorList;
-    }
-    
 }

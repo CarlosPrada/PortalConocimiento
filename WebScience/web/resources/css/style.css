@@ -1,13 +1,6 @@
 /* Design by http://www.dreamtemplate.com */
 @charset "utf-8";
-body {
-	margin:0;
-	padding:0;
-	width:100%;
-	color:#929292;
-	font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
-	background:#f1f1f1 url(#{resource['images/main_bg.gif']}) repeat left top;
-}
+
 html, .main {
 	padding:0;
 	margin:0;
@@ -38,10 +31,10 @@ a {
 	color:#0096da;
 	text-decoration:underline;
 }
-/*.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbarDerecho, .content .mainbarIzquierdo, .content .mainbar440,.content .sidebar {
+.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbarDerecho, .content .mainbarIzquierdo, .content .mainbar440,.content .sidebar {
 	margin:0;
 	padding:0;
-}*/
+}
 .header {
 }
 .header_resize {
@@ -136,8 +129,6 @@ h1 small {
 	padding:0px 0 24px;
 	width:480px;
 }
-
-
 .mainbarInvestigadores {
 	margin:0;
 	padding:0 5px 40px 5px;
@@ -162,18 +153,14 @@ h1 small {
 	float:left;
 	width:960px;
 }
-.content .mainbar660 {
-	margin:0;
-	padding:0 0 40px 20px;
-	float:left;
-	width:660px;
-}
-.content .mainbar600 {
-	margin:0;
-	padding:0 0 0 40px;
-	text-align:justify;
-	float:left;
-	width:600px;
+
+.content .mainbarDerecho .mainbar600 span{
+	margin-bottom:20px;
+	padding-bottom:0px;
+	text-align:left;
+	font-size:15px;
+	line-height:1.2em;
+	color:#161616;
 }
 
 .content .mainbar600 {
@@ -182,6 +169,12 @@ h1 small {
 	text-align:justify;
 	float:left;
 	width:600px;
+}
+.content .mainbar660 {
+	margin:0;
+	padding:0 0 40px 20px;
+	float:left;
+	width:660px;
 }
 
 .content .mainbarIzquierdo h2 {
@@ -202,8 +195,8 @@ h1 small {
 }
 
 .content .mainbarDerecho  h3 {
-	margin-bottom:0 0 20px 0;
-	padding-bottom:0 0 0 0;
+	margin-bottom:20px;
+	padding-bottom:0px;
 	text-align:left;
 	font-size:35px;
 	line-height:1.2em;
@@ -211,23 +204,21 @@ h1 small {
 }
 
 .content .mainbar600 h2 {
-	margin-bottom:0 0 0 0;
-	padding-bottom:0 0 0 0;
+	margin-bottom:0px;
+	padding-bottom:0px;
 	text-align:left;
 	font-size:20px;
 	line-height:1.2em;
 	color:#161616;
 }
-
 .content .mainbar300 h2 {
-	margin-bottom:0 0 0 0;
-	padding-bottom:0 0 0 0;
+	margin-bottom:0px;
+	padding-bottom:0px;
 	text-align:left;
 	font-size:20px;
 	line-height:1.2em;
 	color:#161616;
 }
-
 .content .mainbarDerecho  h1 {
 	margin-bottom:0;
 	padding-bottom:0;
@@ -236,7 +227,6 @@ h1 small {
 	line-height:1.2em;
 	color:#161616;
 }
-
 .article  h1 {
 	margin-bottom:0;
 	padding-bottom:0;
@@ -255,18 +245,14 @@ h1 small {
 }
 
 .mainbarInvestigadores h3 {
-	margin-bottom:0;
-	padding-top:20;
+	margin-bottom:0px;
+	padding-top:20px;
 	text-align:left;
 	font-size:20px;
 	line-height:1.2em;
 	color:#161616;
 }
 .mainbarDerecho  p, .mainbar600  p,.content .mainbarIzquierdo  p, .content .mainbar440  p , .mainbarInvestigadores p{
-	text-align:justify;
-}
-
-.justify{
 	text-align:justify;
 }
 
@@ -300,8 +286,8 @@ h1 small {
 }
 
 .mainbarInvestigadores .articleInvestigadores h1{
-	margin-bottom: -18px;
-	padding-top:20;
+	margin-bottom: -12px;
+	padding-top:20px;
 	text-align:left;
 	font-size:25px;
 	color:#161616;	
@@ -322,7 +308,7 @@ h1 small {
 }
 
 .mainbarInvestigadores .articleInvestigadores div a{
-	height:100;
+	height:100px;
 	background:repeat-x left bottom;	
 }
 .content .mainbarIzquierdo .article ul{
@@ -527,7 +513,7 @@ p.infopost a {
 	padding:2px 0 2px 12px;
 	color:#6e6e6e;
 	text-decoration:none;
-	background:url(#{resource['images/li.gif']}) no-repeat left center;
+	/*background:url(#{resource['images/li.gif']}) no-repeat left center;*/
 }
 .fbg .fbg_ul li a:hover {
 	color:#0096da;
@@ -588,13 +574,7 @@ ol li .send {
 	width:auto;
 	height:30px;
 }
-#formsearch span {
-	display:block;
-	margin:0;
-	padding:0;
-	float:left;
-	background:url(#{resource['images/portal/search_bg.gif']}) no-repeat left top;
-}
+
 #formsearch input.editbox_search {
 	margin:0;
 	padding:8px 6px;
@@ -701,8 +681,6 @@ a {
 	-moz-transform-style: preserve-3d;
 	-webkit-transform-style: preserve-3d;
 }
-
-
 .menuHolder ul.nav li a.top-a {
 	display:block; 
 	text-decoration:none; 
@@ -710,14 +688,12 @@ a {
 	float:left; 
 	height:36px;
 }
-
 .menuHolder ul.nav li a.top-a b {
 	display:block; 
 	padding:0 20px; 
 	font:normal 14px/30px arial, sans-serif; 
 	color:#fff;
 }
-
 .menuHolder ul.nav li:hover a.top-a {
 	background:#09c; 
 	border-radius:8px 8px 0 0;
@@ -726,15 +702,6 @@ a {
 	-o-box-shadow:inset 0px 3px 3px rgba(0, 0, 0, 0.4);
 	box-shadow:inset 0px 3px 3px rgba(0, 0, 0, 0.4);
 }
-
-
-
-
-
-
-
-
-
 .menuHolder ul.nav div {
 	position:absolute; 
 	top:40px; left:4px; 
@@ -766,7 +733,6 @@ a {
 	left:auto; 
 	right:4px;
 }
-
 .menuHolder ul.nav div ul {
 	padding:10px 0; 
 	list-style:none; 
@@ -792,7 +758,6 @@ a {
 	margin-left:10px; 
 	margin-right:10px;
 }
-
 .menuHolder ul.nav div ul li {
 	float:left; 
 	border-bottom:1px dotted #09c;
@@ -802,7 +767,6 @@ a {
 .menuHolder ul.nav div ul li:last-child {
 	border:0;
 }
-
 .menuHolder ul.nav div ul li a {
 	display:block; 
 	width:105px; 
@@ -825,10 +789,26 @@ a {
 .menuHolder ul.nav div.col3 {
 	width:460px;
 }
-
 .menuHolder ul.nav li:hover div {
 	-moz-transform: rotateX(0deg);
 	-webkit-transform: rotateX(0deg);
 	-o-transform: rotateX(0deg);
 	transform: rotateX(0deg);
+}
+
+
+#formsearch span {
+	display:block;
+	margin:0;
+	padding:0;
+	float:left;
+	background:url(#{resource['images/portal/search_bg.gif']}) no-repeat left top;
+}
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	color:#929292;
+	font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+	background:#f1f1f1 url(#{resource['images/main_bg.gif']}) repeat left top;
 }

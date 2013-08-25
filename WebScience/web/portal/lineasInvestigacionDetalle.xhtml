@@ -12,41 +12,40 @@
     <ui:define name="slider"> </ui:define>
 
     <ui:define name="body">
-        <div class="mainbarDerecho">
-            <h3><span><h:outputText value="#{lineasInvestigacionPortalController.lineasInvestigacionActual.nombreLineaInvestigacion} " /> </span></h3>
-            <div > <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenLineasInvestigacion/#{lineasInvestigacionPortalController.lineasInvestigacionActual.imagenLineaInvestigacion}.jsf" /></div>
-            <div class="mainbar600">
+        <div clas="content">
+            <div class="mainbarDerecho">
+                <h3><h:outputText value="#{lineasInvestigacionPC.lineasInvestigacionActual.nombreLineaInvestigacion} " /></h3>
+                <div > <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenLineaInvestigacion/#{lineasInvestigacionPC.lineasInvestigacionActual.imagenLineaInvestigacion}.jsf" /></div>
+                <div class="mainbar600">
 
-                <h:form>
-                    <p:tabView effect="" effectDuration="fast">
+                    <h:form>
+                        <p:tabView effect="" effectDuration="fast">
+                            <p:tab title="Descripcion">
+                                <h:panelGrid columns="1"  cellpadding="1"  >
+                                    <p><h:outputText escape="false" value="#{lineasInvestigacionPC.lineasInvestigacionActual.detallelineadeinvestigacion}" /></p>
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Investigadores Relacionados">
+                                <h:panelGrid columns="1" cellpadding="1" >
+                                    <p:dataList value="#{lineasInvestigacionPC.lineasInvestigacionActual.lineasInvestigadorList}" var="lineasInvestigador" >
+                                        <h:commandLink value="#{lineasInvestigador.investigador.nombreInvestigador} #{lineasInvestigador.investigador.apellidoInvestigador}" action="#{investigadorPC.goDetallesInvestigador(lineasInvestigador.investigador)}" />
+                                    </p:dataList>
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Proyectos Relacionados">
+                                <h:panelGrid columns="1" cellpadding="1">
+                                    <p:dataList value="#{lineasInvestigacionPC.lineasInvestigacionActual.proyectoList}" var="proyectoList" >
+                                        <h:commandLink value="#{proyectoList.nombreProyecto}" action="#{proyectoPC.goDetallesProyecto(proyectoList)}" />
+                                    </p:dataList>
+                                </h:panelGrid>
+                            </p:tab>
 
-                        <p:tab title="Descripcion">
-                            
-                            <h:panelGrid columns="1"  cellpadding="1"  >
-                                 <p><h:outputText escape="false" value="#{lineasInvestigacionPortalController.lineasInvestigacionActual.detallelineadeinvestigacion}" /></p>
-                            </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="Investigadores">
-                            <h:panelGrid columns="1" cellpadding="1">
-                                <p><h:outputText escape="false" value="#{lineasInvestigacionPortalController.lineasInvestigacionActual.idLineaInvestigacion}" /></p>
-                            </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="Proyectos">
-                            <h:panelGrid columns="1" cellpadding="1">
-                                <p:dataList value="#{investigadorPortalController.investigadorActual.getLineasInvestigadorList()}" />
-                            </h:panelGrid>
-                        </p:tab>
-                        
-                    </p:tabView>
-                </h:form>
+                        </p:tabView>
+                    </h:form>
 
+                </div>
             </div>
-            </div>
-              
-                
-
-       
-
+        </div>
     </ui:define>
 
 </ui:composition>

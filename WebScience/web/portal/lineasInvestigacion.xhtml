@@ -11,23 +11,24 @@
     <ui:define name="libreriasJS"> </ui:define>
     <ui:define name="header">Líneas Investigación</ui:define>
     <ui:define name="slider"></ui:define>
-    
+
 
     <ui:define name="body">
         <h:form>
-            
             <div class="article">                                
                 <h1><span>Líneas de Investigación</span></h1>                                 
             </div>
-            <p:dataGrid columns="2" paginator="true" rows="4" value="#{lineasInvestigacionPortalController.listadoLineasInvestigacion}"  emptyMessage="No se encontraton registros" var="lineasInv">
-                <div class="mainbar440">
-                    <div class="article">
-                        <h2><span><h:outputText value="#{lineasInv.nombreLineaInvestigacion}" /></span></h2>
-                        <div class="clr"></div>
-                        <p><h:outputText value="#{lineasInv.descripcionLineaInvestigacion}" /></p>
-                        <p><br/>
-                                    <h:commandLink value="Ver detalles" action="#{lineasInvestigacionPortalController.goDetallesLineasInvestigacion(lineasInv)}" />
-                                </p>
+            <p:dataGrid columns="2" paginator="false" rows="6" value="#{lineasInvestigacionPC.listadoLineasInvestigacion}"  emptyMessage="No se encontraton registros" var="lineasInv">
+                <div clas="content">
+                    <div class="mainbar440">
+                        <div class="article">
+                            <h2><h:outputText value="#{lineasInv.nombreLineaInvestigacion}" /></h2>
+                            <div class="clr"></div>
+                            <p><h:outputText value="#{lineasInv.descripcionLineaInvestigacion}" /></p>
+                            <p><br/>
+                                <h:commandLink value="Ver detalles" action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInv)}" />
+                            </p>
+                        </div>
                     </div>
                 </div>
             </p:dataGrid>

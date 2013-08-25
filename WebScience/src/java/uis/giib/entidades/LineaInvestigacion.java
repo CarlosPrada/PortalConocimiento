@@ -5,7 +5,7 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -71,9 +71,9 @@ public class LineaInvestigacion implements Serializable {
     @Column(name = "eliminado_linea_investigacion")
     private Character eliminadoLineaInvestigacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaInvestigacion")
-    private Collection<LineasInvestigador> lineasInvestigadorCollection;
+    private List<LineasInvestigador> lineasInvestigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLinea")
-    private Collection<Proyecto> proyectoCollection;
+    private List<Proyecto> proyectoList;
 
     public LineaInvestigacion() {
     }
@@ -96,7 +96,21 @@ public class LineaInvestigacion implements Serializable {
         this.imagenLineaInvestigacion = imagenLineaInvestigacion;
     }
 
+    public List<LineasInvestigador> getLineasInvestigadorList() {
+        return lineasInvestigadorList;
+    }
 
+    public void setLineasInvestigadorList(List<LineasInvestigador> lineasInvestigadorList) {
+        this.lineasInvestigadorList = lineasInvestigadorList;
+    }
+
+    public List<Proyecto> getProyectoList() {
+        return proyectoList;
+    }
+
+    public void setProyectoList(List<Proyecto> proyectoList) {
+        this.proyectoList = proyectoList;
+    }
 
     public Integer getIdLineaInvestigacion() {
         return idLineaInvestigacion;
@@ -138,23 +152,7 @@ public class LineaInvestigacion implements Serializable {
         this.eliminadoLineaInvestigacion = eliminadoLineaInvestigacion;
     }
 
-    @XmlTransient
-    public Collection<LineasInvestigador> getLineasInvestigadorCollection() {
-        return lineasInvestigadorCollection;
-    }
-
-    public void setLineasInvestigadorCollection(Collection<LineasInvestigador> lineasInvestigadorCollection) {
-        this.lineasInvestigadorCollection = lineasInvestigadorCollection;
-    }
-
-    @XmlTransient
-    public Collection<Proyecto> getProyectoCollection() {
-        return proyectoCollection;
-    }
-
-    public void setProyectoCollection(Collection<Proyecto> proyectoCollection) {
-        this.proyectoCollection = proyectoCollection;
-    }
+    
 
     @Override
     public int hashCode() {

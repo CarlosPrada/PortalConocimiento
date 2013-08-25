@@ -6,6 +6,7 @@ package uis.giib.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class EstadoProyecto implements Serializable {
     @Column(name = "nombre_estado_proyecto")
     private String nombreEstadoProyecto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstadoProyecto")
-    private Collection<Proyecto> proyectoCollection;
+    private List<Proyecto> proyectoList;
 
     public EstadoProyecto() {
     }
@@ -67,14 +68,7 @@ public class EstadoProyecto implements Serializable {
         this.nombreEstadoProyecto = nombreEstadoProyecto;
     }
 
-    @XmlTransient
-    public Collection<Proyecto> getProyectoCollection() {
-        return proyectoCollection;
-    }
 
-    public void setProyectoCollection(Collection<Proyecto> proyectoCollection) {
-        this.proyectoCollection = proyectoCollection;
-    }
 
     @Override
     public int hashCode() {
@@ -99,6 +93,14 @@ public class EstadoProyecto implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.EstadoProyecto[ idEstadoProyecto=" + idEstadoProyecto + " ]";
+    }
+
+    public List<Proyecto> getProyectoList() {
+        return proyectoList;
+    }
+
+    public void setProyectoList(List<Proyecto> proyectoList) {
+        this.proyectoList = proyectoList;
     }
     
 }

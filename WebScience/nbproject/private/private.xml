@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
         <file>file:/C:/Users/USUARIO/Documents/GitHub/PortalConocimiento/WebScience/web/plantillaPortal.xhtml</file>
@@ -12,4 +13,24 @@
         <file>file:/C:/Users/USUARIO/Documents/GitHub/PortalConocimiento/WebScience/web/resources/css/style.css</file>
         <file>file:/C:/Users/USUARIO/Documents/GitHub/PortalConocimiento/WebScience/web/portal/index.xhtml</file>
     </open-files>
+=======
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+        <file>
+            <url>src/java/uis/giib/portal/controlador/InvestigadorPortalController.java</url>
+            <bookmark id="2">
+                <name/>
+                <line>4</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/java/uis/giib/entidades/LineasInvestigadorPK.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+>>>>>>> 4232b0f6d6cdb804c0bed51eda5b6ef8465cbad3
 </project-private>
