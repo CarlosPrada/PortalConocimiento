@@ -13,34 +13,31 @@
     <ui:define name="slider"></ui:define>
 
     <ui:define name="body">
+
+        <div class="article">                                
+            <h1><span>Eventos GIIB</span></h1>
+        </div>
+
         <h:form id="form" >
-
-            <p:dataGrid value="#{eventosPC.listadoPublicacionEventos}" emptyMessage="No se encontraton registros"  var="prueba">
+           <!-- <p:dataGrid value="#{eventosPC.listadoPublicacionEventos}" emptyMessage="No se encontraton registros"  var="prueba">
                 <h3><span><h:outputText value="#{prueba.idPublicacion}" /> </span></h3>
-            </p:dataGrid>
-
-
-
+            </p:dataGrid>-->
             <p:growl id="messages" showDetail="true" /> 
             <p:schedule id="schedule" value="#{eventosPC.eventModel}" widgetVar="myschedule"  draggable="false" >  
-
                 <p:ajax event="dateSelect" listener="#{eventosPC.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show()" />  
                 <p:ajax event="eventSelect" listener="#{eventosPC.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show()" />  
                 <p:ajax event="eventMove" listener="#{eventosPC.onEventMove}" update="messages" />  
                 <p:ajax event="eventResize" listener="#{eventosPC.onEventResize}" update="messages" />  
-
             </p:schedule>  
 
             <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip" >  
                 <h:panelGrid id="eventDetails" columns="2" >  
                     <h:outputLabel for="title" value="Title:" />  
                     <p:inputText id="title" value="#{eventosPC.event.title}" required="true"/>  
-
                     <h:outputLabel for="from" value="From:" />  
                     <p:inputMask id="from" value="#{eventosPC.event.startDate}" mask="99/99/9999">  
                         <f:convertDateTime pattern="dd/MM/yyyy" />  
                     </p:inputMask>  
-
                     <h:outputLabel for="to" value="To:" />  
                     <p:inputMask id="to" value="#{eventosPC.event.endDate}" mask="99/99/9999">  
                         <f:convertDateTime pattern="dd/MM/yyyy" />  

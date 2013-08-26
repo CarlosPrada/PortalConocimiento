@@ -7,12 +7,12 @@ package uis.giib.portal.controlador;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.ProyectoFacade;
 import uis.giib.administrador.dao.TipoProyectoFacade;
+import uis.giib.entidades.LineaInvestigacion;
 import uis.giib.entidades.Proyecto;
 
 /**
@@ -22,62 +22,59 @@ import uis.giib.entidades.Proyecto;
 @Named(value = "proyectoPC")
 @SessionScoped
 public class ProyectoPortalController implements Serializable {
-    
-    
-    //Atributos
 
+    //Atributos
     private DataModel listadoProyectos;
     private DataModel listaTiposProyecto;
     private DataModel estadoProyectoList;
     private Proyecto proyectoActual;
-    private Integer idTipo = new Integer(1);
-    
+    private LineaInvestigacion lineaInvestigacion;
+    //private Integer idTipo = new Integer(1);
     // LLama objeto encargado de hacer las consultas a la DB
     @EJB
     private uis.giib.administrador.dao.ProyectoFacade ejbProyectoFacade;
-    
     @EJB
     private uis.giib.administrador.dao.TipoProyectoFacade ejbTipoProyectoFacade;
     @EJB
     private uis.giib.administrador.dao.EstadoProyectoFacade ejbEstadoProyectoFacade;
-    
+
     // Contructor
-    
     public ProyectoPortalController() {
-        
-        try{
-        listadoProyectos = new ListDataModel(ejbProyectoFacade.findAll());
-        //listadoProyectos = new ListDataModel((List) ejbProyectoFacade.buscarProyectosPorEstado(idTipo));
-        listaTiposProyecto = new ListDataModel(ejbTipoProyectoFacade.findAll());
-        estadoProyectoList = new ListDataModel(ejbEstadoProyectoFacade.findAll());
-        }catch(Exception e){
+
+        try {
+            listadoProyectos = new ListDataModel(ejbProyectoFacade.findAll());
+            //listadoProyectos = new ListDataModel((List) ejbProyectoFacade.buscarProyectosPorEstado(idTipo));
+            listaTiposProyecto = new ListDataModel(ejbTipoProyectoFacade.findAll());
+            estadoProyectoList = new ListDataModel(ejbEstadoProyectoFacade.findAll());
+        } catch (Exception e) {
             System.out.println("Error listando Proyectos!");
-        }        
+        }
     }
-    
+
     //Métodos de navegación
-    
-    public String goProyectos(){
+    public String goProyectos() {
 
-        try{
-        //listadoProyectos = new ListDataModel((List) ejbProyectoFacade.buscarProyectosPorEstado(idTipo));
-        listaTiposProyecto = new ListDataModel(ejbTipoProyectoFacade.findAll());
-        estadoProyectoList = new ListDataModel(ejbEstadoProyectoFacade.findAll());
-        }catch(Exception e){
+        try {
+            //listadoProyectos = new ListDataModel((List) ejbProyectoFacade.buscarProyectosPorEstado(idTipo));
+            listaTiposProyecto = new ListDataModel(ejbTipoProyectoFacade.findAll());
+            estadoProyectoList = new ListDataModel(ejbEstadoProyectoFacade.findAll());
+        } catch (Exception e) {
             System.out.println("Error listando proyectos!");
-        }        
-        return "/portal/proyectos.xhtml?faces-redirect=true";    
+        }
+        return "/portal/proyecto.xhtml?faces-redirect=true";
     }
-    
-    public String goDetallesProyecto(Proyecto proyecto){
-        
-        proyectoActual = (Proyecto) proyecto;
-        return "/portal/proyectoDetalle.xhtml?faces-redirect=true";
-     }
 
-    
-    //Getters - Setters
-      
+    public String goDetallesProyecto(Proyecto proyecto) {
+
+        try {
+            proyectoActual = (Proyecto) proyecto;
+        } catch (Exception e) {
+            System.out.println("Error listando proyectos!");
+        }
+        return "/portal/proyectoDetalle.xhtml?faces-redirect=true";
+    }
+
+    //Getters - Setters     
     public DataModel getListadoProyectos() {
         return listadoProyectos;
     }
@@ -142,6 +139,11 @@ public class ProyectoPortalController implements Serializable {
         this.ejbEstadoProyectoFacade = ejbEstadoProyectoFacade;
     }
 
-    
-    
+    public LineaInvestigacion getLineaInvestigacion() {
+        return lineaInvestigacion;
+    }
+
+    public void setLineaInvestigacion(LineaInvestigacion lineaInvestigacion) {
+        this.lineaInvestigacion = lineaInvestigacion;
+    }
 }

@@ -5,7 +5,9 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +18,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -61,6 +65,9 @@ public class Proyecto implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "descripcion_detallada_proyecto")
     private String descripcionDetalladaProyecto;
+    @Size(max = 50)
+    @Column(name = "imagen_proyecto")
+    private String imagenProyecto;
     @Basic(optional = false)
     @NotNull
     @Lob
@@ -73,6 +80,8 @@ public class Proyecto implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "resultados_proyecto")
     private String resultadosProyecto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proyecto")
+    private List<ProyectoInvestigadores> proyectoInvestigadoresList;
     @JoinColumn(name = "id_tipo_proyecto", referencedColumnName = "id_tipo_proyecto")
     @ManyToOne(optional = false)
     private TipoProyecto idTipoProyecto;
@@ -99,6 +108,23 @@ public class Proyecto implements Serializable {
         this.resultadosProyecto = resultadosProyecto;
     }
 
+    @XmlTransient
+    public List<ProyectoInvestigadores> getProyectoInvestigadoresList() {
+        return proyectoInvestigadoresList;
+    }
+
+    public void setProyectoInvestigadoresList(List<ProyectoInvestigadores> proyectoInvestigadoresList) {
+        this.proyectoInvestigadoresList = proyectoInvestigadoresList;
+    }
+    
+    public String getImagenProyecto() {
+        return imagenProyecto;
+    }
+
+    public void setImagenProyecto(String imagenProyecto) {
+        this.imagenProyecto = imagenProyecto;
+    }
+    
     public Integer getIdProyecto() {
         return idProyecto;
     }

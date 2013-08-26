@@ -6,41 +6,46 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title">
-        Detalle Proyecto
-    </ui:define>
-
+    <ui:define name="title">Proyecto Detalle</ui:define>
+    <ui:define name="libreriasJS"></ui:define>
+    <ui:define name="header">Proyecto Detalle</ui:define>
     <ui:define name="slider"></ui:define>
 
     <ui:define name="body">
-        <div class="mainbarDerecho">
+        <div clas="content">
+            <div class="mainbarDerecho">
 
-            <h3><span><h:outputText value="#{proyectoPC.proyectoActual.nombreProyecto}" /> </span></h3>
-            <div class="clr"></div>
-            <div ><img src="images/insert_image.png" alt="" width="300" height="250" /></div>
-            <div class="mainbar600">
+                <h3><h:outputText value="#{proyectoPC.proyectoActual.nombreProyecto}" /></h3>
+                <h:graphicImage alt="" width="150" height="175" url="/WebScience/javax.faces.resource/images/ImagenProyecto/#{proyectoPC.proyectoActual.imagenProyecto}.jsf" />
+                <div class="mainbar600">
+                    <h:form>
+                        <p:tabView effect="" effectDuration="fast">
+                            <p:tab title="Descripción">
+                                <h:panelGrid columns="1"  cellpadding="1"  >
+                                    <span>Estado del Proyecto: </span> #{proyectoPC.proyectoActual.idEstadoProyecto.nombreEstadoProyecto} <br/><br/>
+                                    <span>Tipo de Proyecto: </span> #{proyectoPC.proyectoActual.idTipoProyecto.nombreTipoProyecto} <br/><br/>
+                                    <span>Autores: </span>
+                                    <p:dataList value=" #{proyectoPC.proyectoActual.proyectoInvestigadoresList} }" var="proyectoInvestigador" >
+                                        <h:commandLink value="#{proyectoInvestigador}" action="#{investigadorPC.goDetallesProyecto(proyectoInvestigadores.investigador)}" />
+                                    </p:dataList>
+                                    <span>Línea Investigación: </span> <h:commandLink value="#{proyectoPC.proyectoActual.idLinea.nombreLineaInvestigacion}" action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(proyectoPC.proyectoActual.idLinea)}" /> <br/><br/>
+                                    <h:outputText value="#{proyectoPC.proyectoActual.descripcionDetalladaProyecto}"/>
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Objetivos">
+                                <h:panelGrid columns="1" cellpadding="1">
+                                    <h:outputText value="#{proyectoPC.proyectoActual.objetivosProyecto}"></h:outputText>
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Resultados">
+                                <h:panelGrid columns="1" cellpadding="1">
+                                    <h:outputText value="#{proyectoPC.proyectoActual.resultadosProyecto}"></h:outputText>
+                                </h:panelGrid>
+                            </p:tab>
 
-                <h:form>
-                    <p:tabView effect="" effectDuration="fast">
-
-                        <p:tab title="Descripción">
-                            <h:panelGrid columns="1"  cellpadding="1"  >
-                                <h:outputText value="#{proyectoPC.proyectoActual.descripcionDetalladaProyecto}"/>
-
-                            </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="Objetivos">
-                            <h:panelGrid columns="1" cellpadding="1">
-                                <h:outputText value="#{proyectoPC.proyectoActual.objetivosProyecto}"></h:outputText>
-                            </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="Resultados">
-                            <h:panelGrid columns="1" cellpadding="1">
-                                <h:outputText value="#{proyectoPC.proyectoActual.resultadosProyecto}"></h:outputText>
-                            </h:panelGrid>
-                        </p:tab>
-                    </p:tabView>
-                </h:form>
+                        </p:tabView>
+                    </h:form>
+                </div>
             </div>
         </div>
     </ui:define>

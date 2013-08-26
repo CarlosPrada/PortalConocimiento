@@ -17,47 +17,32 @@
         <div class="article">                                
             <h1><span>Relaciones Institucionales</span></h1>
         </div>
-        
+
         <div class="content"> 
             <div class="mainbarIzquierdo">
                 <p>El grupo cuenta con el apoyo bilateral tanto academico como estrategico de las siguentes  instituciones:</p> 
-                
+
                 <h3><h:outputText value="#{investigadorPC.investigadorActual.nombreInvestigador} " /> <h:outputText value="#{investigadorPC.investigadorActual.apellidoInvestigador}" /></h3>
                 <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{investigadorPC.investigadorActual.imageInvestigadorPath}.jsf" />
-               
+
                 <div class="mainbar600">
 
                     <h:form>
                         <p:tabView effect="" effectDuration="fast">
 
-                            <p:tab title="Biografía">
-                                <h:panelGrid columns="1"  cellpadding="1"  >
-                                    <p><h:outputText escape="false" value="#{investigadorPC.investigadorActual.informacionInvestigador}" /></p>
-                                </h:panelGrid>
-                            </p:tab>
-                            <p:tab title="Proyectos">
-                                <h:panelGrid columns="1" cellpadding="1">
-                                    <p:dataList value="#{investigadorPC.investigadorActual.proyectoInvestigadoresList}" var="proyectoInvestigador" >
-                                        <h:commandLink value="#{proyectoInvestigador.proyecto.nombreProyecto}" action="#{proyectoPC.goDetallesProyecto(proyectoInvestigador.proyecto)}" />
-                                    </p:dataList>
-                                </h:panelGrid>
-                            </p:tab>
-                            <p:tab title="Lineas de Investigación">
-                                <h:panelGrid columns="1" cellpadding="1">
-                                    <p:dataList value="#{investigadorPC.investigadorActual.lineasInvestigadorList}" var="lineasInvestigador" >
-                                        <h:commandLink value="#{lineasInvestigador.lineaInvestigacion.nombreLineaInvestigacion}" action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInvestigador.lineaInvestigacion)}" />
-
-                                    </p:dataList>
-                                </h:panelGrid>
-                            </p:tab>
-                            <p:tab title="Contacto">
-                                <h:panelGrid columns="1" cellpadding="1">
-                                    <span>Telefono: </span> #{investigadorPC.investigadorActual.telefonoInvestigador} <br/><br/>
-                                    <span>Celular: </span> #{investigadorPC.investigadorActual.celularInvestigador} <br/><br/>
-                                    <span>Fax: </span> #{investigadorPC.investigadorActual.faxInvestigador} <br/><br/>
-                                    <span>Correo ELectrónico: </span> #{investigadorPC.investigadorActual.correoInvestigador} <br/><br/>
-                                    <span>CvLAC: </span> <a href="#{investigadorPC.investigadorActual.cvlacInvestigador}" > ir CvLAC</a> <br/><br/>
-                                </h:panelGrid>
+                            <p:tab title="#{tipoInv.nombreTipoInvestigador}" >
+                                <p:dataGrid columns="2" paginator="true" rows="6" value="#{tipoInv.investigadorList}"  emptyMessage="No se encontraton registros" var="inv">
+                                    <div class="mainbarInvestigadores">
+                                        <div class="articleInvestigadores">  
+                                            <h1><h:outputText value="#{inv.nombreInvestigador} " /> <h:outputText value="#{inv.apellidoInvestigador}" /> </h1>
+                                            <h:graphicImage alt="" width="150" height="175" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
+                                            <h2><h:outputText value="#{inv.tituloInvestigador}"/> </h2>
+                                            <p>
+                                                <h:commandLink value="Ver detalles" action="#{investigadorPC.goDetallesInvestigador(inv)}" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </p:dataGrid>
                             </p:tab>
                         </p:tabView>
                     </h:form>
@@ -65,25 +50,25 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="content">            
-                <div class="mainbarIzquierdo">  
-                    <div class="mainbar600">
+            <div class="mainbarIzquierdo">  
+                <div class="mainbar600">
                     <div class="article">                                          
-  
+
                         <div ><img src="images/insert_image.png" alt="" width="400" height="150" /></div>                
                         <p>El grupo cuenta con el apoyo bilateral tanto academico como estrategico de las siguentes  instituciones:</p> 
                         <ul type="disc">
@@ -99,7 +84,7 @@
                     </div>
                 </div>      	
             </div>
-</div>
+        </div>
 
     </ui:define>
 </ui:composition>
