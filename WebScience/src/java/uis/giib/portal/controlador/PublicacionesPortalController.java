@@ -10,7 +10,7 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.Contenido;
 
 /**
  *
@@ -21,11 +21,11 @@ import uis.giib.entidades.Publicacion;
 public class PublicacionesPortalController implements Serializable {
 
     private DataModel listadoPublicaciones;
-    private Publicacion publicacionActual;
+    private Contenido publicacionActual;
     
     // LLama objeto encargado de hacer las consultas a la DB
     @EJB
-    private uis.giib.administrador.dao.PublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.ContenidoFacade ejbFacade;
     /**
      * Creates a new instance of ProyectoPortalController
      */
@@ -55,7 +55,7 @@ public class PublicacionesPortalController implements Serializable {
     
     public String goDetallesPublicacion(){
         
-        publicacionActual = (Publicacion) getListadoPublicaciones().getRowData();
+        publicacionActual = (Contenido) getListadoPublicaciones().getRowData();
         return "/portal/publicacionesDetalle.xhtml?faces-redirect=true";
      }
 
@@ -67,19 +67,19 @@ public class PublicacionesPortalController implements Serializable {
         this.listadoPublicaciones = listadoPublicaciones;
     }
 
-    public Publicacion getPublicacionActual() {
+    public Contenido getPublicacionActual() {
         return publicacionActual;
     }
 
-    public void setPublicacionActual(Publicacion publicacionActual) {
+    public void setPublicacionActual(Contenido publicacionActual) {
         this.publicacionActual = publicacionActual;
     }
 
-    public uis.giib.administrador.dao.PublicacionFacade getEjbFacade() {
+    public uis.giib.administrador.dao.ContenidoFacade getEjbFacade() {
         return ejbFacade;
     }
 
-    public void setEjbFacade(uis.giib.administrador.dao.PublicacionFacade ejbFacade) {
+    public void setEjbFacade(uis.giib.administrador.dao.ContenidoFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }
     

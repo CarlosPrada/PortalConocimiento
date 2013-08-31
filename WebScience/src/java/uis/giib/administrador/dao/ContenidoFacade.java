@@ -7,14 +7,14 @@ package uis.giib.administrador.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.Contenido;
 
 /**
  *
  * @author Carlos Humberto
  */
 @Stateless
-public class PublicacionFacade extends AbstractFacade<Publicacion> {
+public class ContenidoFacade extends AbstractFacade<Contenido> {
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -23,8 +23,8 @@ public class PublicacionFacade extends AbstractFacade<Publicacion> {
         return em;
     }
 
-    public PublicacionFacade() {
-        super(Publicacion.class);
+    public ContenidoFacade() {
+        super(Contenido.class);
     }
     
 }

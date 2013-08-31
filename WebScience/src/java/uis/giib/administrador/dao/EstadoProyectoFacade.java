@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import uis.giib.entidades.EstadoProyecto;
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.entidades.TipoContenido;
 
 /**
  *
@@ -29,11 +29,11 @@ public class EstadoProyectoFacade extends AbstractFacade<EstadoProyecto> {
         super(EstadoProyecto.class);
     }
     
-        public TipoPublicacion buscarProyectosPorEstado(Integer idEstado) {
+        public TipoContenido buscarProyectosPorEstado(Integer idEstado) {
         try {
             Query query = em.createNamedQuery("EstadoProyecto.findByIdEstadoProyecto");
             query.setParameter("idEstado", idEstado);
-            return (TipoPublicacion)query.getSingleResult();
+            return (TipoContenido)query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }

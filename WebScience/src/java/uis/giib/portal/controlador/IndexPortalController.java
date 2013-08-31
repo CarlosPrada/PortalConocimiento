@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import uis.giib.entidades.Proyecto;
-import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.Contenido;
 
 /**
  *
