@@ -7,7 +7,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title"> Quienes SOmos </ui:define>
+    <ui:define name="title"> Relaciones Institucionales </ui:define>
     <ui:insert name="header"></ui:insert>
     <ui:define name="libreriasJS"> </ui:define>
     <ui:define name="slider"> </ui:define>
@@ -18,73 +18,16 @@
             <h1><span>Relaciones Institucionales</span></h1>
         </div>
 
-        <div class="content"> 
-            <div class="mainbarIzquierdo">
-                <p>El grupo cuenta con el apoyo bilateral tanto academico como estrategico de las siguentes  instituciones:</p> 
-
-                <h3><h:outputText value="#{investigadorPC.investigadorActual.nombreInvestigador} " /> <h:outputText value="#{investigadorPC.investigadorActual.apellidoInvestigador}" /></h3>
-                <h:graphicImage alt="" width="300" height="250" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{investigadorPC.investigadorActual.imageInvestigadorPath}.jsf" />
-
-                <div class="mainbar600">
-
-                    <h:form>
-                        <p:tabView effect="" effectDuration="fast">
-
-                            <p:tab title="#{tipoInv.nombreTipoInvestigador}" >
-                                <p:dataGrid columns="2" paginator="true" rows="6" value="#{tipoInv.investigadorList}"  emptyMessage="No se encontraton registros" var="inv">
-                                    <div class="mainbarInvestigadores">
-                                        <div class="articleInvestigadores">  
-                                            <h1><h:outputText value="#{inv.nombreInvestigador} " /> <h:outputText value="#{inv.apellidoInvestigador}" /> </h1>
-                                            <h:graphicImage alt="" width="150" height="175" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
-                                            <h2><h:outputText value="#{inv.tituloInvestigador}"/> </h2>
-                                            <p>
-                                                <h:commandLink value="Ver detalles" action="#{investigadorPC.goDetallesInvestigador(inv)}" />
-                                            </p>
-                                        </div>
-                                    </div>
-                                </p:dataGrid>
-                            </p:tab>
-                        </p:tabView>
-                    </h:form>
-
+        <div class="content">
+            <div class="content_resize">
+                <div class="mainbarIzquierdo">     
+                    <h:form>      
+                        <p:dataGrid value="#{relacionesInstitucionalesPC.relacionesInstitucionales}" emptyMessage="No se encontraton registros"  var="rlcnesInsttcnles">
+                            <h3><span><h:outputText value="#{rlcnesInsttcnles.contenidoDetallado}" /> </span></h3>
+                        </p:dataGrid>
+                    </h:form>      
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="content">            
-            <div class="mainbarIzquierdo">  
-                <div class="mainbar600">
-                    <div class="article">                                          
-
-                        <div ><img src="images/insert_image.png" alt="" width="400" height="150" /></div>                
-                        <p>El grupo cuenta con el apoyo bilateral tanto academico como estrategico de las siguentes  instituciones:</p> 
-                        <ul type="disc">
-                            <li> Grupo de Patología Estructural Funcional y Clínica.</li>
-                            <li> Grupo de Oncología y Patología de Santander –Oncopat.</li>
-                            <li> Grupo de Neurociencias y Comportamiento.</li>
-                            <li> Grupo de Genética.</li>
-                            <li>  Grupo de Electrocardiografía.</li>
-                            <li>  Escuela de Enfermería UIS.</li>
-                            <li>  BIOSYSLTDA.</li>
-                        </ul>
-
-                    </div>
-                </div>      	
-            </div>
-        </div>
-
     </ui:define>
 </ui:composition>

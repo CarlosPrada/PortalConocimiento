@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><ui:insert name="title">Portal GIIB</ui:insert></title>
@@ -10,22 +11,25 @@
         <h:outputStylesheet library="css" name="style.css" />
         <h:outputStylesheet library="css" name="coin-slider.css" />
 
-        <ui:insert name="libreriasJS">
-            <h:outputScript library="js" name="jquery-1.4.2.min.js" />
-        </ui:insert>
 
         <h:outputScript library="js" name="cufon-yui.js" />
         <h:outputScript library="js" name="cufon-yanone.js" />
 
         <h:outputScript library="js" name="script.js"  />
-        <h:outputScript library="js" name="coin-slider.min.js"  />
-
-
-        <ui:param name="evento" value="Evento" />
+        <h:outputScript library="js" name="coin-slider.min.js"  />      
 
     </h:head>
 
     <h:body>
+        <h:form>
+            <p:growl id="messages" showDetail="true" sticky="true" />  
+
+            <p:idleMonitor timeout="600000">  
+                <p:ajax event="idle" listener="#{idleBean.logoutListener}" update="messages" />  
+                <p:ajax event="active" listener="#{idleBean.activeListener}" update="messages" />  
+            </p:idleMonitor>  
+        </h:form>
+
         <div class="main">
             <div class="header">
                 <div class="header_resize">
@@ -90,7 +94,7 @@
                                     <div class="col1">
                                         <ul class="colLeft">
                                             <li><h:commandLink action="#{eventosPC.goEventos()}" value="Eventos"></h:commandLink></li>
-                                             <li><h:commandLink action="#{noticiasPC.goNoticiasPortalController()}" value="Noticias"></h:commandLink></li>             
+                                            <li><h:commandLink action="#{noticiasPC.goNoticiasPortalController()}" value="Noticias"></h:commandLink></li>             
                                             <li><a href="galeria.html">Galeria</a></li>                                            
                                         </ul>
                                     </div>

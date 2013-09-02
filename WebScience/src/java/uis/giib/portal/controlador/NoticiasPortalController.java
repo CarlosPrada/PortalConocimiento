@@ -10,10 +10,10 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.administrador.dao.PublicacionFacade;
-import uis.giib.administrador.dao.TipoPublicacionFacade;
-import uis.giib.entidades.Publicacion;
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.administrador.dao.ContenidoFacade;
+import uis.giib.administrador.dao.TipoContenidoFacade;
+import uis.giib.entidades.Contenido;
+import uis.giib.entidades.TipoContenido;
 
 /**
  *
@@ -23,15 +23,15 @@ import uis.giib.entidades.TipoPublicacion;
 @SessionScoped
 public class NoticiasPortalController implements Serializable {
 
-    private DataModel<Publicacion> listadoNoticias;
-    private TipoPublicacion tipoPublicacion;
-    private Publicacion publicacionActual;
-        private Integer idTipo = new Integer(6);
+    private DataModel<Contenido> listadoNoticias;
+    private TipoContenido tipoContenido;
+    private Contenido contenidoActual;
+    private Integer idTipo = new Integer(6);
 
     
     // LLama objeto encargado de hacer las consultas a la DB
     @EJB
-    private uis.giib.administrador.dao.TipoPublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
 
     /**
      * Creates a new instance of ProyectoPortalController
@@ -41,8 +41,8 @@ public class NoticiasPortalController implements Serializable {
 
         try {
        
-            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
-            listadoNoticias = new ListDataModel(tipoPublicacion.getPublicacionList());
+            tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
+            listadoNoticias = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error listando Noticias!");
         }
@@ -50,8 +50,8 @@ public class NoticiasPortalController implements Serializable {
 
     public String goNoticiasPortalController() {
         try {
-             tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
-            listadoNoticias = new ListDataModel(tipoPublicacion.getPublicacionList());
+             tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
+            listadoNoticias = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error listando Noticias!");
         }
@@ -66,27 +66,27 @@ public class NoticiasPortalController implements Serializable {
         this.listadoNoticias = listadoNoticias;
     }
 
-    public Publicacion getPublicacionActual() {
-        return publicacionActual;
+    public Contenido getPublicacionActual() {
+        return contenidoActual;
     }
 
-    public void setPublicacionActual(Publicacion publicacionActual) {
-        this.publicacionActual = publicacionActual;
+    public void setPublicacionActual(Contenido publicacionActual) {
+        this.contenidoActual = publicacionActual;
     }
 
-    public TipoPublicacion getTipoPublicacion() {
-        return tipoPublicacion;
+    public TipoContenido getTipoPublicacion() {
+        return tipoContenido;
     }
 
-    public void setTipoPublicacion(TipoPublicacion tipoPublicacion) {
-        this.tipoPublicacion = tipoPublicacion;
+    public void setTipoPublicacion(TipoContenido tipoPublicacion) {
+        this.tipoContenido = tipoPublicacion;
     }
 
-    public TipoPublicacionFacade getEjbFacade() {
+    public TipoContenidoFacade getEjbFacade() {
         return ejbFacade;
     }
 
-    public void setEjbFacade(TipoPublicacionFacade ejbFacade) {
+    public void setEjbFacade(TipoContenidoFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }
 

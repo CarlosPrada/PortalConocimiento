@@ -25,37 +25,37 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Carlos
  */
 @Entity
-@Table(name = "tipo_publicacion")
+@Table(name = "tipo_contenido")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoPublicacion.findAll", query = "SELECT t FROM TipoPublicacion t"),
-    @NamedQuery(name = "TipoPublicacion.findByIdTipoPublicacion", query = "SELECT t FROM TipoPublicacion t WHERE t.idTipoPublicacion = :idTipoPublicacion"),
-    @NamedQuery(name = "TipoPublicacion.findByNombreTipoPublicacion", query = "SELECT t FROM TipoPublicacion t WHERE t.nombreTipoPublicacion = :nombreTipoPublicacion")})
-public class TipoPublicacion implements Serializable {
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "nombre_tipo_publicacion")
-    private String nombreTipoPublicacion;
+    @NamedQuery(name = "TipoContenido.findAll", query = "SELECT t FROM TipoContenido t"),
+    @NamedQuery(name = "TipoContenido.findByIdTipoPublicacion", query = "SELECT t FROM TipoContenido t WHERE t.idTipoPublicacion = :idTipoPublicacion"),
+    @NamedQuery(name = "TipoContenido.findByNombreTipoContenido", query = "SELECT t FROM TipoContenido t WHERE t.nombreTipoContenido = :nombreTipoContenido")})
+public class TipoContenido implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_tipo_publicacion")
     private Integer idTipoPublicacion;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "nombre_tipo_contenido")
+    private String nombreTipoContenido;
     @OneToMany(mappedBy = "idTipoPublicacion")
-    private List<Publicacion> publicacionList;
+    private List<Contenido> contenidoList;
 
-    public TipoPublicacion() {
+    public TipoContenido() {
     }
 
-    public TipoPublicacion(Integer idTipoPublicacion) {
+    public TipoContenido(Integer idTipoPublicacion) {
         this.idTipoPublicacion = idTipoPublicacion;
     }
 
-    public TipoPublicacion(Integer idTipoPublicacion, String nombreTipoPublicacion) {
+    public TipoContenido(Integer idTipoPublicacion, String nombreTipoContenido) {
         this.idTipoPublicacion = idTipoPublicacion;
-        this.nombreTipoPublicacion = nombreTipoPublicacion;
+        this.nombreTipoContenido = nombreTipoContenido;
     }
 
     public Integer getIdTipoPublicacion() {
@@ -66,22 +66,23 @@ public class TipoPublicacion implements Serializable {
         this.idTipoPublicacion = idTipoPublicacion;
     }
 
-    public String getNombreTipoPublicacion() {
-        return nombreTipoPublicacion;
+    public String getNombreTipoContenido() {
+        return nombreTipoContenido;
     }
 
-    public void setNombreTipoPublicacion(String nombreTipoPublicacion) {
-        this.nombreTipoPublicacion = nombreTipoPublicacion;
+    public void setNombreTipoContenido(String nombreTipoContenido) {
+        this.nombreTipoContenido = nombreTipoContenido;
     }
 
-    @XmlTransient
-    public List<Publicacion> getPublicacionList() {
-        return publicacionList;
+    public List<Contenido> getContenidoList() {
+        return contenidoList;
     }
 
-    public void setPublicacionList(List<Publicacion> publicacionList) {
-        this.publicacionList = publicacionList;
+    public void setContenidoList(List<Contenido> contenidoList) {
+        this.contenidoList = contenidoList;
     }
+
+
 
     @Override
     public int hashCode() {
@@ -93,10 +94,10 @@ public class TipoPublicacion implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoPublicacion)) {
+        if (!(object instanceof TipoContenido)) {
             return false;
         }
-        TipoPublicacion other = (TipoPublicacion) object;
+        TipoContenido other = (TipoContenido) object;
         if ((this.idTipoPublicacion == null && other.idTipoPublicacion != null) || (this.idTipoPublicacion != null && !this.idTipoPublicacion.equals(other.idTipoPublicacion))) {
             return false;
         }
@@ -105,6 +106,6 @@ public class TipoPublicacion implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoPublicacion[ idTipoPublicacion=" + idTipoPublicacion + " ]";
-    }    
+        return "uis.giib.entidades.TipoContenido[ idTipoPublicacion=" + idTipoPublicacion + " ]";
+    }   
 }

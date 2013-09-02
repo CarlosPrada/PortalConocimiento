@@ -5,7 +5,9 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +18,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +38,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ProduccionIntelectual.findByNombreProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.nombreProduccion = :nombreProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByEstadoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.estadoProduccion = :estadoProduccion")})
+
 public class ProduccionIntelectual implements Serializable {
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 65535)
+    @Column(name = "referencia_produccion")
+    private String referenciaProduccion;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,18 +62,15 @@ public class ProduccionIntelectual implements Serializable {
     @NotNull
     @Column(name = "agno_produccion")
     private int agnoProduccion;
-    @Lob
-    @Size(max = 65535)
-    @Column(name = "referencia_produccion")
-    private String referenciaProduccion;
+
     @Column(name = "estado_produccion")
     private Character estadoProduccion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produccionIntelectual")
+    private List<InvestigadorProduccion> investigadorProduccionList;
     @JoinColumn(name = "id_tipo_produccion", referencedColumnName = "id_tipo_produccion")
     @ManyToOne(optional = false)
     private TipoProduccion idTipoProduccion;
-    @JoinColumn(name = "id_autor_produccion", referencedColumnName = "usuario_investigador")
-    @ManyToOne(optional = false)
-    private Investigador idAutorProduccion;
+
 
     public ProduccionIntelectual() {
     }
@@ -124,14 +133,6 @@ public class ProduccionIntelectual implements Serializable {
         this.idTipoProduccion = idTipoProduccion;
     }
 
-    public Investigador getIdAutorProduccion() {
-        return idAutorProduccion;
-    }
-
-    public void setIdAutorProduccion(Investigador idAutorProduccion) {
-        this.idAutorProduccion = idAutorProduccion;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -155,6 +156,15 @@ public class ProduccionIntelectual implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.ProduccionIntelectual[ idProduccion=" + idProduccion + " ]";
+    }
+
+    @XmlTransient
+    public List<InvestigadorProduccion> getInvestigadorProduccionList() {
+        return investigadorProduccionList;
+    }
+
+    public void setInvestigadorProduccionList(List<InvestigadorProduccion> investigadorProduccionList) {
+        this.investigadorProduccionList = investigadorProduccionList;
     }
     
 }

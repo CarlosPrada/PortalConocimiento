@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.entidades.Publicacion;
 
 /**
  *
@@ -20,68 +19,67 @@ import uis.giib.entidades.Publicacion;
 @SessionScoped
 public class PublicacionesPortalController implements Serializable {
 
-    private DataModel listadoPublicaciones;
-    private Publicacion publicacionActual;
-    
-    // LLama objeto encargado de hacer las consultas a la DB
+    //Atributos
+    private DataModel listadoProduccionIntelectual;
+    private DataModel listaTipoProduccion;
     @EJB
-    private uis.giib.administrador.dao.PublicacionFacade ejbFacade;
-    /**
-     * Creates a new instance of ProyectoPortalController
-     */
-    
-    // en un ListDataModel colocamos todos los proyectos en la DB
+    private uis.giib.administrador.dao.ProduccionIntelectualFacade ejbFacadeProduccionIntelectual;
+    @EJB
+    private uis.giib.administrador.dao.TipoProduccionFacade ejbFacadeTipoProduccion;
+
+    //Constructor
     public PublicacionesPortalController() {
-        
-        try{
-        listadoPublicaciones = new ListDataModel(ejbFacade.findAll());
-        }catch(Exception e){
-            System.out.println("Error listando Publicaciones!");
-        }        
+        try {
+            listadoProduccionIntelectual = new ListDataModel(ejbFacadeProduccionIntelectual.findAll());
+            listaTipoProduccion = new ListDataModel(ejbFacadeTipoProduccion.findAll());
+        } catch (Exception e) {
+            System.out.println("Error listando la producción intelectual!" + e.getMessage());
+        }
     }
-    
+
     //Métodos de navegación
-    // usado cuando hacemos click en el menú 
-    
-    public String goPublicaciones(){
+    public String goPublicaciones() {
 
-        try{
-        listadoPublicaciones = new ListDataModel(ejbFacade.findAll());
-        }catch(Exception e){
-            System.out.println("Error listando Publicaciones!");
-        }        
-        return "/portal/publicaciones.xhtml?faces-redirect=true";        
+        try {
+            listadoProduccionIntelectual = new ListDataModel(ejbFacadeProduccionIntelectual.findAll());
+            listaTipoProduccion = new ListDataModel(ejbFacadeTipoProduccion.findAll());
+        } catch (Exception e) {
+            System.out.println("Error listando la producción intelectual!" + e.getMessage());
+        }
+        return "/portal/publicaciones.xhtml?faces-redirect=true";
     }
     
-    public String goDetallesPublicacion(){
-        
-        publicacionActual = (Publicacion) getListadoPublicaciones().getRowData();
-        return "/portal/publicacionesDetalle.xhtml?faces-redirect=true";
-     }
+    //Getters - Setters
 
-    public DataModel getListadoPublicaciones() {
-        return listadoPublicaciones;
+    public DataModel getListadoProduccionIntelectual() {
+        return listadoProduccionIntelectual;
     }
 
-    public void setListadoPublicaciones(DataModel listadoPublicaciones) {
-        this.listadoPublicaciones = listadoPublicaciones;
+    public void setListadoProduccionIntelectual(DataModel listadoProduccionIntelectual) {
+        this.listadoProduccionIntelectual = listadoProduccionIntelectual;
     }
 
-    public Publicacion getPublicacionActual() {
-        return publicacionActual;
+    public DataModel getListaTipoProduccion() {
+        return listaTipoProduccion;
     }
 
-    public void setPublicacionActual(Publicacion publicacionActual) {
-        this.publicacionActual = publicacionActual;
+    public void setListaTipoProduccion(DataModel listaTipoProduccion) {
+        this.listaTipoProduccion = listaTipoProduccion;
     }
 
-    public uis.giib.administrador.dao.PublicacionFacade getEjbFacade() {
-        return ejbFacade;
+    public uis.giib.administrador.dao.ProduccionIntelectualFacade getEjbFacadeProduccionIntelectual() {
+        return ejbFacadeProduccionIntelectual;
     }
 
-    public void setEjbFacade(uis.giib.administrador.dao.PublicacionFacade ejbFacade) {
-        this.ejbFacade = ejbFacade;
+    public void setEjbFacadeProduccionIntelectual(uis.giib.administrador.dao.ProduccionIntelectualFacade ejbFacadeProduccionIntelectual) {
+        this.ejbFacadeProduccionIntelectual = ejbFacadeProduccionIntelectual;
     }
-    
-    
+
+    public uis.giib.administrador.dao.TipoProduccionFacade getEjbFacadeTipoProduccion() {
+        return ejbFacadeTipoProduccion;
+    }
+
+    public void setEjbFacadeTipoProduccion(uis.giib.administrador.dao.TipoProduccionFacade ejbFacadeTipoProduccion) {
+        this.ejbFacadeTipoProduccion = ejbFacadeTipoProduccion;
+    }    
 }

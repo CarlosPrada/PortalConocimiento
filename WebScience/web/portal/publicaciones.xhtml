@@ -5,7 +5,7 @@
                 template="./../plantillaPortal.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
- 
+
     <ui:define name="title"> Publicaciones </ui:define>
     <ui:insert name="header"></ui:insert>
     <ui:define name="libreriasJS"> </ui:define>
@@ -17,8 +17,65 @@
             <h1><span>Publicaciones GIIB</span></h1>
         </div>
 
-        <h:form>            
-         
-        </h:form>
+        <div class="content">
+            <div class="content_resize">
+                <div class="mainbarIzquierdo">  
+
+                    <h:form>
+                        <p:tabView value="#{publicacionesPC.listaTipoProduccion}" var="tipoProd" >
+                            <p:tab title="#{tipoProd.nombreTipoProduccion}" >
+                                <p:scrollPanel style="width: 100%; height: 100%; border: none;" mode="native" >
+                                    <p:dataGrid columns="1" value="#{tipoProd.produccionIntelectualList}"  emptyMessage="No se encontraton registros" var="prod">
+                                        <h:outputText value="#{prod.referenciaProduccion} " /> 
+                                    </p:dataGrid>
+                                </p:scrollPanel>
+                            </p:tab>
+
+
+
+
+
+
+
+                            <!--<p:tab title="Artículos de Revistas">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Libros">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Capítulos de Libros">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Conferencias">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Proyectos de Pregrado">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Proyectos  de Posgrado">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>
+
+                            <p:tab title="Otros">
+                                <p:scrollPanel style="width: 596px;height: 231px;border: none;" mode="native" >
+                                </p:scrollPanel>
+                            </p:tab>-->
+
+                        </p:tabView>
+                    </h:form>
+                </div>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>

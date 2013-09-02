@@ -19,9 +19,9 @@ import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
-import uis.giib.administrador.dao.TipoPublicacionFacade;
-import uis.giib.entidades.Publicacion;
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.administrador.dao.TipoContenidoFacade;
+import uis.giib.entidades.Contenido;
+import uis.giib.entidades.TipoContenido;
 
 /**
  *
@@ -33,21 +33,21 @@ public class EventosPortalController implements Serializable {
 
     private ScheduleModel eventModel;
     private ScheduleEvent event = new DefaultScheduleEvent();
-    private DataModel<Publicacion> listadoPublicacionEventos;
-    private TipoPublicacion tipoPublicacion;
+    private DataModel<Contenido> listadoContenidoEventos;
+    private TipoContenido TipoContenido;
     private Integer idTipo = new Integer(1);
     @EJB
-    private uis.giib.administrador.dao.TipoPublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
 
     public EventosPortalController() {
         try {
-            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
-            listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
-            Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
+            TipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
+            listadoContenidoEventos = new ListDataModel(TipoContenido.getContenidoList());
+            Iterator<Contenido> it = listadoContenidoEventos.iterator();
             eventModel = new DefaultScheduleModel();
             while (it.hasNext()) {
-                Publicacion i = it.next();
-                eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
+                Contenido i = it.next();
+                eventModel.addEvent(new DefaultScheduleEvent(i.getTitulo(), i.getFechaInicioevento(), i.getFechaFinevento()));
             }
         } catch (Exception e) {
             System.out.println("Error listando investitadores!" + e.getLocalizedMessage());
@@ -58,13 +58,13 @@ public class EventosPortalController implements Serializable {
     public String goEventos() {
 
         try {
-            tipoPublicacion = ejbFacade.buscarPublicacionesPorTipo(idTipo);
-            listadoPublicacionEventos = new ListDataModel(tipoPublicacion.getPublicacionList());
-            Iterator<Publicacion> it = listadoPublicacionEventos.iterator();
+            TipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
+            listadoContenidoEventos = new ListDataModel(TipoContenido.getContenidoList());
+            Iterator<Contenido> it = listadoContenidoEventos.iterator();
             eventModel = new DefaultScheduleModel();
             while (it.hasNext()) {
-                Publicacion i = it.next();
-                eventModel.addEvent(new DefaultScheduleEvent(i.getContenidoPublicacion(), i.getFechaInicioeventoPublicacion(), i.getFechaFineventoPublicacion()));
+                Contenido i = it.next();
+                eventModel.addEvent(new DefaultScheduleEvent(i.getTitulo(), i.getFechaInicioevento(), i.getFechaFinevento()));
             }
         } catch (Exception e) {
             System.out.println("Error listando investitadores!" + e.getMessage());
@@ -72,28 +72,28 @@ public class EventosPortalController implements Serializable {
         return "/portal/eventos.xhtml?faces-redirect=true";
     }
    
-    public DataModel<Publicacion> getListadoPublicacionEventos() {
-        return listadoPublicacionEventos;
+    public DataModel<Contenido> getListadoPublicacionEventos() {
+        return listadoContenidoEventos;
     }
 
     public void setEventModel(ScheduleModel eventModel) {
         this.eventModel = eventModel;
     }
 
-    public TipoPublicacionFacade getEjbFacade() {
+    public TipoContenidoFacade getEjbFacade() {
         return ejbFacade;
     }
 
-    public void setListadoPublicacionEventos(DataModel<Publicacion> listadoPublicacionEventos) {
-        this.listadoPublicacionEventos = listadoPublicacionEventos;
+    public void setListadoPublicacionEventos(DataModel<Contenido> listadoPublicacionEventos) {
+        this.listadoContenidoEventos = listadoPublicacionEventos;
     }
 
-    public TipoPublicacion getTipoPublicacion() {
-        return tipoPublicacion;
+    public TipoContenido getTipoPublicacion() {
+        return TipoContenido;
     }
 
-    public void setTp(TipoPublicacion tipoPublicacion) {
-        this.tipoPublicacion = tipoPublicacion;
+    public void setTp(TipoContenido tipoPublicacion) {
+        this.TipoContenido = tipoPublicacion;
     }
 
     public Date getInitialDate() {
@@ -114,7 +114,7 @@ public class EventosPortalController implements Serializable {
         return calendar;
     }
 
-    public void setEjbFacade(TipoPublicacionFacade ejbFacade) {
+    public void setEjbFacade(TipoContenidoFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }
 

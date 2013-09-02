@@ -10,7 +10,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import uis.giib.entidades.Proyecto;
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.entidades.TipoContenido;
 
 /**
  *
