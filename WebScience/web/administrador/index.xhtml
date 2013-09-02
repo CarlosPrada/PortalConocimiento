@@ -50,49 +50,33 @@
             <table align="center" width="80%">
                 <tbody>
                     <tr>
-                        <td >
+                        <td>
                             <div id="header"> 
                                 <div id="title"> 
-                                    <h1>Administración de Contenido - Portal GIIB</h1> 
+                                    <h1>Administración de Contenido - Portal GIIB</h1> <br/><br/><br/><br/>
                                 </div> 
-                            </div> 
-
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
+                            </div>                             
                         </td>
                     </tr>
                     <tr>
                         <td>
-
                             <div align="center">
                                 <h:form id="form"> 
-                                    <div  >Bienvenido al administrador de contenido del Portal GIIB</div>
-                                    <br /><br />
-
-                                    <div >
-
+                                    <div>Bienvenido al administrador de contenido del Portal GIIB</div><br/><br/>
+                                    <div>
                                         <h:panelGrid columns="2"  width="373" style="margin-bottom:10px">  
                                             <f:facet name="header">  
                                                 <p:messages />  
                                             </f:facet>  
 
-                                            <h:outputLabel for="usuario" value="Usuario :" />  
-                                            <p:inputText id="usuario"   
-                                                         value="#{loginAuthentication.usuario.usuarioInvestigador}" />  
+                                            <h:outputLabel for="usuario" value="Usuario :" />                                     
+                                            <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" />  
 
-                                            <h:outputLabel for="contrasena" value="Contrase&ntilde;a :" />  
-                                            <p:inputText id="contrasena"   
-                                                         value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"   
-                                                         requiredMessage="Debe digitar su contrase&ntilde;a."/>  
+                                            <h:outputLabel for="contrasena" value="Contrase&ntilde;a :" />                                              
+                                            <p:inputText id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a."/>  
                                         </h:panelGrid>  
-
                                     </div>
-                                    <div style="margin-top:5px" >
-
-
-                                    </div>
+                                    <div style="margin-top:5px" ></div>
                                     <div class="buttondiv">
                                         <p:commandButton ajax="false" action="#{loginAuthentication.login}" value="Acceder" />
                                         <span id="mensajeCaja" style="display:none"> </span>
@@ -104,8 +88,5 @@
                 </tbody>
             </table>
         </center>
-
-
     </h:body>
 </html>
-

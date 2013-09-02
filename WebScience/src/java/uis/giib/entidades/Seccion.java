@@ -51,7 +51,7 @@ public class Seccion implements Serializable {
     @Column(name = "eliminado_seccion")
     private Character eliminadoSeccion;
     @OneToMany(mappedBy = "idSeccion")
-    private Collection<Publicacion> publicacionCollection;
+    private Collection<Contenido> publicacionCollection;
 
     public Seccion() {
     }
@@ -98,11 +98,11 @@ public class Seccion implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Publicacion> getPublicacionCollection() {
+    public Collection<Contenido> getPublicacionCollection() {
         return publicacionCollection;
     }
 
-    public void setPublicacionCollection(Collection<Publicacion> publicacionCollection) {
+    public void setPublicacionCollection(Collection<Contenido> publicacionCollection) {
         this.publicacionCollection = publicacionCollection;
     }
 

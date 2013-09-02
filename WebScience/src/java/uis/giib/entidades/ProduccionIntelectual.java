@@ -5,7 +5,10 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +16,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +40,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ProduccionIntelectual.findByNombreProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.nombreProduccion = :nombreProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByEstadoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.estadoProduccion = :estadoProduccion")})
+
 public class ProduccionIntelectual implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +64,8 @@ public class ProduccionIntelectual implements Serializable {
     private String referenciaProduccion;
     @Column(name = "estado_produccion")
     private Character estadoProduccion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produccionIntelectual")
+    private List<InvestigadorProduccion> investigadorProduccionList;
     @JoinColumn(name = "id_tipo_produccion", referencedColumnName = "id_tipo_produccion")
     @ManyToOne(optional = false)
     private TipoProduccion idTipoProduccion;
@@ -155,6 +165,15 @@ public class ProduccionIntelectual implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.ProduccionIntelectual[ idProduccion=" + idProduccion + " ]";
+    }
+
+    @XmlTransient
+    public List<InvestigadorProduccion> getInvestigadorProduccionList() {
+        return investigadorProduccionList;
+    }
+
+    public void setInvestigadorProduccionList(List<InvestigadorProduccion> investigadorProduccionList) {
+        this.investigadorProduccionList = investigadorProduccionList;
     }
     
 }

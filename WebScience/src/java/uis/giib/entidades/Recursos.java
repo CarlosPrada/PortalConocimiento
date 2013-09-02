@@ -37,7 +37,7 @@ public class Recursos implements Serializable {
     private Integer idRecurso;
     @JoinColumn(name = "id_publicacion", referencedColumnName = "id_publicacion")
     @ManyToOne(optional = false)
-    private Publicacion idPublicacion;
+    private Contenido idPublicacion;
     @JoinColumn(name = "id_multimedia", referencedColumnName = "id_multimedia")
     @ManyToOne
     private Multimedia idMultimedia;
@@ -57,11 +57,11 @@ public class Recursos implements Serializable {
         this.idRecurso = idRecurso;
     }
 
-    public Publicacion getIdPublicacion() {
+    public Contenido getIdPublicacion() {
         return idPublicacion;
     }
 
-    public void setIdPublicacion(Publicacion idPublicacion) {
+    public void setIdPublicacion(Contenido idPublicacion) {
         this.idPublicacion = idPublicacion;
     }
 

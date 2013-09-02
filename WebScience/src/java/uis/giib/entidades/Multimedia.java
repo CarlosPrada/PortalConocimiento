@@ -38,6 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Multimedia.findByEstadoMultimedia", query = "SELECT m FROM Multimedia m WHERE m.estadoMultimedia = :estadoMultimedia"),
     @NamedQuery(name = "Multimedia.findByEliminadoMultimedia", query = "SELECT m FROM Multimedia m WHERE m.eliminadoMultimedia = :eliminadoMultimedia")})
 public class Multimedia implements Serializable {
+    @OneToMany(mappedBy = "idMultimedia")
+    private Collection<Contenido> contenidoCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -160,6 +162,15 @@ public class Multimedia implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Multimedia[ idMultimedia=" + idMultimedia + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Contenido> getContenidoCollection() {
+        return contenidoCollection;
+    }
+
+    public void setContenidoCollection(Collection<Contenido> contenidoCollection) {
+        this.contenidoCollection = contenidoCollection;
     }
     
 }

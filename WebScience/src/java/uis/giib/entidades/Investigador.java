@@ -5,6 +5,7 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -12,7 +13,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,9 +37,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Investigador.findAll", query = "SELECT i FROM Investigador i"),
     @NamedQuery(name = "Investigador.findByUsuarioInvestigador", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador"),
     @NamedQuery(name = "Investigador.findByContrasenaInvestigador", query = "SELECT i FROM Investigador i WHERE i.contrasenaInvestigador = :contrasenaInvestigador"),
-    @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador"),
+    @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador" ),
+    //@NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador AND i.idNivelPermiso.idPermiso = 1" ),
     @NamedQuery(name = "Investigador.findByTituloInvestigador", query = "SELECT i FROM Investigador i WHERE i.tituloInvestigador = :tituloInvestigador")})
+
 public class Investigador implements Serializable {
+    
+    @Size(max = 40)
+    @Column(name = "fax_investigador")
+    private String faxInvestigador;
     @Size(max = 255)
     @Column(name = "image_investigador_path")
     private String imageInvestigadorPath;
@@ -93,17 +102,14 @@ public class Investigador implements Serializable {
     private String apellidoInvestigador;
     @Size(max = 100)
     @Column(name = "titulo_Investigador")
-    private String tituloInvestigador;
-    @Size(max = 40)
-    @Column(name = "fax_Investigador")
-    private String faxInvestigador;
+    private String tituloInvestigador;  
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
+    private List<InvestigadorProduccion> investigadorProduccionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
     private List<LineasInvestigador> lineasInvestigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
     private List<ProyectoInvestigadores> proyectoInvestigadoresList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAutorProduccion")
-    private List<ProduccionIntelectual> produccionIntelectualList;
     @JoinColumn(name = "id_tipo_investigador", referencedColumnName = "id_tipo_investigador")
     @ManyToOne(optional = false)
     private TipoInvestigador idTipoInvestigador;
@@ -268,14 +274,6 @@ public class Investigador implements Serializable {
         this.proyectoInvestigadoresList = proyectoInvestigadoresList;
     }
 
-    @XmlTransient
-    public List<ProduccionIntelectual> getProduccionIntelectualList() {
-        return produccionIntelectualList;
-    }
-
-    public void setProduccionIntelectualList(List<ProduccionIntelectual> produccionIntelectualList) {
-        this.produccionIntelectualList = produccionIntelectualList;
-    }   
 
     public TipoInvestigador getIdTipoInvestigador() {
         return idTipoInvestigador;
@@ -317,5 +315,17 @@ public class Investigador implements Serializable {
     public String toString() {
         return "uis.giib.entidades.Investigador[ usuarioInvestigador=" + usuarioInvestigador + " ]";
     }
+
+    @XmlTransient
+    public List<InvestigadorProduccion> getInvestigadorProduccionList() {
+        return investigadorProduccionList;
+    }
+
+    public void setInvestigadorProduccionList(List<InvestigadorProduccion> investigadorProduccionList) {
+        this.investigadorProduccionList = investigadorProduccionList;
+    }
+
+
+
     
 }

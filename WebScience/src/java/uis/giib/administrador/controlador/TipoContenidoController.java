@@ -1,9 +1,9 @@
 package uis.giib.administrador.controlador;
 
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.entidades.TipoContenido;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
-import uis.giib.administrador.dao.TipoPublicacionFacade;
+import uis.giib.administrador.dao.TipoContenidoFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -20,27 +20,27 @@ import javax.faces.model.SelectItem;
 
 @Named("tipoPublicacionController")
 @SessionScoped
-public class TipoPublicacionController implements Serializable {
+public class TipoContenidoController implements Serializable {
 
-    private TipoPublicacion current;
+    private TipoContenido current;
     private DataModel items = null;
     @EJB
-    private uis.giib.administrador.dao.TipoPublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public TipoPublicacionController() {
+    public TipoContenidoController() {
     }
 
-    public TipoPublicacion getSelected() {
+    public TipoContenido getSelected() {
         if (current == null) {
-            current = new TipoPublicacion();
+            current = new TipoContenido();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private TipoPublicacionFacade getFacade() {
+    private TipoContenidoFacade getFacade() {
         return ejbFacade;
     }
 
@@ -67,13 +67,13 @@ public class TipoPublicacionController implements Serializable {
     }
 
     public String prepareView() {
-        current = (TipoPublicacion) getItems().getRowData();
+        current = (TipoContenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new TipoPublicacion();
+        current = new TipoContenido();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -90,7 +90,7 @@ public class TipoPublicacionController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (TipoPublicacion) getItems().getRowData();
+        current = (TipoContenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -107,7 +107,7 @@ public class TipoPublicacionController implements Serializable {
     }
 
     public String destroy() {
-        current = (TipoPublicacion) getItems().getRowData();
+        current = (TipoContenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -187,11 +187,11 @@ public class TipoPublicacionController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public TipoPublicacion getTipoPublicacion(java.lang.Integer id) {
+    public TipoContenido getTipoPublicacion(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = TipoPublicacion.class)
+    @FacesConverter(forClass = TipoContenido.class)
     public static class TipoPublicacionControllerConverter implements Converter {
 
         @Override
@@ -199,7 +199,7 @@ public class TipoPublicacionController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            TipoPublicacionController controller = (TipoPublicacionController) facesContext.getApplication().getELResolver().
+            TipoContenidoController controller = (TipoContenidoController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "tipoPublicacionController");
             return controller.getTipoPublicacion(getKey(value));
         }
@@ -221,11 +221,11 @@ public class TipoPublicacionController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof TipoPublicacion) {
-                TipoPublicacion o = (TipoPublicacion) object;
+            if (object instanceof TipoContenido) {
+                TipoContenido o = (TipoContenido) object;
                 return getStringKey(o.getIdTipoPublicacion());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + TipoPublicacion.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + TipoContenido.class.getName());
             }
         }
     }

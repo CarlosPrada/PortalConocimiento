@@ -13,27 +13,26 @@
 
     <ui:define name="body">
 
-        <div class="article">                                
+        <div class="article">
             <h1><span>Quines Somos</span></h1>
         </div>
 
         <div class="content">
             <div class="content_resize">
-                <div class="mainbarIzquierdo">     
+                <div class="mainbarIzquierdo">
+                    <h:form>
+                        <p:dataGrid value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
+                            <h3><span><h:outputText value="#{qunsSms.contenidoDetallado}" /> </span></h3>
+                        </p:dataGrid>
+                    </h:form>
 
-                    <p:dataGrid value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
-                        <h3><span><h:outputText value="#{qunsSms.contenidoResumidoPublicacion}" /> </span></h3>
-                    </p:dataGrid>
-
-                    <!--<p:fieldset legend="Quienes Somos" >  
-                        <h:panelGrid columns="2" cellpadding="10"> 
-                            <h:outputText value="#{quienesSomosPC.quinesSomos}" />  
-                        </h:panelGrid>  
-                    </p:fieldset>  -->   
+                    <!--<p:fieet legend="Quienes Somos" >
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <h:outputText value="#{quienesSomosPC.quinesSomos}" />
+                        </h:panelGrid>
+                    </p:fieldset>  -->
                 </div>
-
             </div>
-            <div class="clr"></div>
         </div>
     </ui:define>
 </ui:composition>
