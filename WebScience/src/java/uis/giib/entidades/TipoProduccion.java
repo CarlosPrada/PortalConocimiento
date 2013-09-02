@@ -6,7 +6,6 @@ package uis.giib.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -50,7 +49,7 @@ public class TipoProduccion implements Serializable {
     @Column(name = "estado_tipo_produccion")
     private Character estadoTipoProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoProduccion")
-    private List<ProduccionIntelectual> produccionIntelectualList;
+    private Collection<ProduccionIntelectual> produccionIntelectualCollection;
 
     public TipoProduccion() {
     }
@@ -88,6 +87,14 @@ public class TipoProduccion implements Serializable {
         this.estadoTipoProduccion = estadoTipoProduccion;
     }
 
+    @XmlTransient
+    public Collection<ProduccionIntelectual> getProduccionIntelectualCollection() {
+        return produccionIntelectualCollection;
+    }
+
+    public void setProduccionIntelectualCollection(Collection<ProduccionIntelectual> produccionIntelectualCollection) {
+        this.produccionIntelectualCollection = produccionIntelectualCollection;
+    }
 
     @Override
     public int hashCode() {
@@ -112,14 +119,6 @@ public class TipoProduccion implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.TipoProduccion[ idTipoProduccion=" + idTipoProduccion + " ]";
-    }
-
-    public List<ProduccionIntelectual> getProduccionIntelectualList() {
-        return produccionIntelectualList;
-    }
-
-    public void setProduccionIntelectualList(List<ProduccionIntelectual> produccionIntelectualList) {
-        this.produccionIntelectualList = produccionIntelectualList;
     }
     
 }
