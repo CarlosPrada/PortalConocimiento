@@ -1,9 +1,9 @@
 package uis.giib.administrador.controlador;
 
-import uis.giib.entidades.Publicacion;
+import uis.giib.entidades.Contenido;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
-import uis.giib.administrador.dao.PublicacionFacade;
+import uis.giib.administrador.dao.ContenidoFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -22,25 +22,25 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class PublicacionController implements Serializable {
 
-    private Publicacion current;
+    private Contenido current;
     private DataModel items = null;
     @EJB
-    private uis.giib.administrador.dao.PublicacionFacade ejbFacade;
+    private uis.giib.administrador.dao.ContenidoFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public PublicacionController() {
     }
 
-    public Publicacion getSelected() {
+    public Contenido getSelected() {
         if (current == null) {
-            current = new Publicacion();
+            current = new Contenido();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private PublicacionFacade getFacade() {
+    private ContenidoFacade getFacade() {
         return ejbFacade;
     }
 
@@ -67,13 +67,13 @@ public class PublicacionController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Publicacion) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Publicacion();
+        current = new Contenido();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -90,7 +90,7 @@ public class PublicacionController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Publicacion) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -107,7 +107,7 @@ public class PublicacionController implements Serializable {
     }
 
     public String destroy() {
-        current = (Publicacion) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -187,11 +187,11 @@ public class PublicacionController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Publicacion getPublicacion(java.lang.Integer id) {
+    public Contenido getPublicacion(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Publicacion.class)
+    @FacesConverter(forClass = Contenido.class)
     public static class PublicacionControllerConverter implements Converter {
 
         @Override
@@ -221,11 +221,11 @@ public class PublicacionController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Publicacion) {
-                Publicacion o = (Publicacion) object;
+            if (object instanceof Contenido) {
+                Contenido o = (Contenido) object;
                 return getStringKey(o.getIdPublicacion());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Publicacion.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Contenido.class.getName());
             }
         }
     }

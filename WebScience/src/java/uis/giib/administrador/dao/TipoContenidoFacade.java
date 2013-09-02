@@ -10,15 +10,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import uis.giib.entidades.Publicacion;
-import uis.giib.entidades.TipoPublicacion;
+import uis.giib.entidades.Contenido;
+import uis.giib.entidades.TipoContenido;
 
 /**
  *
  * @author Carlos Humberto
  */
 @Stateless
-public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
+public class TipoContenidoFacade extends AbstractFacade<TipoContenido> {
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -27,26 +27,26 @@ public class TipoPublicacionFacade extends AbstractFacade<TipoPublicacion> {
         return em;
     }
 
-    public TipoPublicacionFacade() {
-        super(TipoPublicacion.class);
+    public TipoContenidoFacade() {
+        super(TipoContenido.class);
     }
     
-    public Publicacion findByNombreTipoPublicacion(String nombreTipoPublicacion) {
+    public Contenido findByNombreTipoPublicacion(String nombreTipoPublicacion) {
 
         try {
             Query query = em.createNamedQuery("TipoPublicacion.findByNombreTipoPublicacion");
             query.setParameter("nombreTipoPublicacion", nombreTipoPublicacion);
-            return (Publicacion) query.getSingleResult();
+            return (Contenido) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
     }
     
-    public TipoPublicacion buscarPublicacionesPorTipo(Integer idTipoPublicacion) {
+    public TipoContenido buscarContenidoPorTipo(Integer idTipoContenido) {
         try {
-            Query query = em.createNamedQuery("TipoPublicacion.findByIdTipoPublicacion");
-            query.setParameter("idTipoPublicacion", idTipoPublicacion);
-            return (TipoPublicacion)query.getSingleResult();
+            Query query = em.createNamedQuery("TipoContenido.findByIdTipoPublicacion");
+            query.setParameter("idTipoPublicacion", idTipoContenido);
+            return (TipoContenido)query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }

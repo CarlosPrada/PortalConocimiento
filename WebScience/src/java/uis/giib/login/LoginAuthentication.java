@@ -14,6 +14,8 @@ import uis.giib.administrador.dao.InvestigadorFacade;
 import uis.giib.entidades.Investigador;
 
 /**
+ * COntorlador para verificar que los datos usados en la autenticación sean los
+ * correctos
  *
  * @author User
  */
@@ -40,22 +42,25 @@ public class LoginAuthentication implements Serializable {
     }
 
     /**
+     * Método que realiza la consulta y verifica que los datos de ID de usuario
+     * y Contraseña coincidan.
+     *
      * @return Investigador
      */
     public String login() {
 
         usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
+        //usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador(), getUsuario().getIdNivelPermiso().getIdPermiso());
 
         if (usuarioAutenticado != null) {
             loggedIn = true;
             return "inicio.xhtml?faces-redirect=true";
         } else {
             FacesContext facesContext = FacesContext.getCurrentInstance();
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al iniciar sesión","Verifique su usuario y contraseña");
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al iniciar sesión", "Verifique su usuario y contraseña");
             facesContext.addMessage(null, facesMessage);
             return null;
         }
-
     }
 
     public String logout() {
@@ -65,6 +70,16 @@ public class LoginAuthentication implements Serializable {
         loggedIn = false;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "index.xhtml?faces-redirect=true";
+    }
+
+    public boolean isValidarUsuarioAdmin() {
+
+        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
+
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

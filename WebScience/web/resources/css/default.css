@@ -97,6 +97,13 @@ a {
 	width: 100%;
 }
 
+#dashboard tr {
+	width:33%;
+	margin: 0px 2em 5em 0px;
+	padding: 5px 2em 5em;
+	vertical-align: top;
+}
+
 .dashitem {
 	width:33%;
 	margin: 0px 2em 5em 0px;
@@ -107,10 +114,21 @@ a {
 .dashitem:hover {
 }
 
+#dashboard tr a {
+	padding-top:2px;
+	padding-bottom: 10px;
+	display: block;	
+}
+
 .dashitem a {
 	padding-top:2px;
 	padding-bottom: 10px;
 	display: block;	
+}
+
+#dashboard img, #dashlocalesPopup h2 img {
+	float: left;
+	padding-right:10px;
 }
 
 .dashitem img, #dashlocalesPopup h2 img {
