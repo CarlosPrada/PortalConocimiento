@@ -50,7 +50,7 @@ public class LoginAuthentication implements Serializable {
     public String login() {
 
         usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
-        //usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador(), getUsuario().getIdNivelPermiso().getIdPermiso());
+        //usuarioA utenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador(), getUsuario().getIdNivelPermiso().getIdPermiso());
 
         if (usuarioAutenticado != null) {
             loggedIn = true;
