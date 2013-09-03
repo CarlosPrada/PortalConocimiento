@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-=======
-=======
->>>>>>> 9677455c3ec8f8bfdcf2be74ec319ab63284358b
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
-        <file>
-            <url>src/java/uis/giib/portal/controlador/InvestigadorPortalController.java</url>
-            <bookmark id="2">
-                <name/>
-                <line>4</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>src/java/uis/giib/entidades/LineasInvestigadorPK.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>0</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-<<<<<<< HEAD
->>>>>>> 9677455c3ec8f8bfdcf2be74ec319ab63284358b
-=======
->>>>>>> 9677455c3ec8f8bfdcf2be74ec319ab63284358b
 </project-private>

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.login;
 
 import javax.inject.Named;
@@ -17,7 +13,7 @@ import uis.giib.entidades.Investigador;
  * COntorlador para verificar que los datos usados en la autenticación sean los
  * correctos
  *
- * @author User
+ * @author Carlos Prada
  */
 @Named(value = "loginAuthentication")
 @SessionScoped
@@ -30,7 +26,7 @@ public class LoginAuthentication implements Serializable {
     private boolean loggedIn = false;
 
     /**
-     * Creates a new instance of LoginAuthentication
+     * Constructor LoginAuthentication
      */
     public LoginAuthentication() {
         usuario = new Investigador();
@@ -64,7 +60,6 @@ public class LoginAuthentication implements Serializable {
     }
 
     public String logout() {
-
         usuario = new Investigador();
         usuarioAutenticado = null;
         loggedIn = false;
@@ -72,17 +67,21 @@ public class LoginAuthentication implements Serializable {
         return "index.xhtml?faces-redirect=true";
     }
 
-    public boolean isValidarUsuarioAdmin() {
-
-        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
+    /**
+     * Método para verificar los permizos de admisnitración del usuario autenticado
+     * @return boolean true o false
+     */
+    public boolean isValidarUsuario() {
+        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1){
 
             return true;
         } else {
             return false;
         }
-
     }
 
+    // getters - Setters
+    
     /**
      * @return the usuario
      */
