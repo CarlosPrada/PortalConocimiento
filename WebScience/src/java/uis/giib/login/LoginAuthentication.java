@@ -13,7 +13,7 @@ import uis.giib.entidades.Investigador;
  * COntorlador para verificar que los datos usados en la autenticación sean los
  * correctos
  *
- * @author Carlos Prada
+ * @author Carlos David Prada Remolina
  */
 @Named(value = "loginAuthentication")
 @SessionScoped
@@ -24,6 +24,7 @@ public class LoginAuthentication implements Serializable {
     private Investigador usuario;
     private Investigador usuarioAutenticado;
     private boolean loggedIn = false;
+    private boolean[] arrayRender = new boolean[8];
 
     /**
      * Constructor LoginAuthentication
@@ -44,16 +45,14 @@ public class LoginAuthentication implements Serializable {
      * @return Investigador
      */
     public String login() {
-
-        usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
-        //usuarioA utenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador(), getUsuario().getIdNivelPermiso().getIdPermiso());
-
+        
+        ValidarUsuario();
         if (usuarioAutenticado != null) {
             loggedIn = true;
             return "inicio.xhtml?faces-redirect=true";
         } else {
             FacesContext facesContext = FacesContext.getCurrentInstance();
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al iniciar sesión", "Verifique su usuario y contraseña");
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "!Usted no cuenta con permisos Suficientes!", "Verifique su usuario y contraseña");
             facesContext.addMessage(null, facesMessage);
             return null;
         }
@@ -64,19 +63,52 @@ public class LoginAuthentication implements Serializable {
         usuarioAutenticado = null;
         loggedIn = false;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index.xhtml?faces-redirect=true";
+        return "indexAdministracion.xhtml?faces-redirect=true";
     }
 
     /**
-     * Método para verificar los permizos de admisnitración del usuario autenticado
+     * Método para verificar los permizos de admisnitración del usuario
+     * autenticado
+     *
      * @return boolean true o false
      */
-    public boolean isValidarUsuario() {
-        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1){
-
-            return true;
-        } else {
-            return false;
+    public void ValidarUsuario() {
+        usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
+        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
+            this.arrayRender[0] = true;
+            this.arrayRender[1] = true;
+            this.arrayRender[2] = true;
+            this.arrayRender[3] = true;
+            this.arrayRender[4] = true;
+            this.arrayRender[5] = true;
+            this.arrayRender[6] = true;
+            this.arrayRender[7] = true;
+            
+        } 
+        else {
+            if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
+                this.arrayRender[0] = true;
+                this.arrayRender[1] = true;
+                this.arrayRender[2] = true;
+                this.arrayRender[3] = false;
+                this.arrayRender[4] = false;
+                this.arrayRender[5] = false;
+                this.arrayRender[6] = false;
+                this.arrayRender[7] = false;
+                
+            }
+            else{
+                this.usuarioAutenticado = null;
+                this.arrayRender[0] = false;
+                this.arrayRender[1] = false;
+                this.arrayRender[2] = false;
+                this.arrayRender[3] = false;
+                this.arrayRender[4] = false;
+                this.arrayRender[5] = false;
+                this.arrayRender[6] = false;
+                this.arrayRender[7] = false;
+                            
+            }
         }
     }
 
@@ -122,5 +154,13 @@ public class LoginAuthentication implements Serializable {
      */
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
+    }
+
+    public boolean[] getArrayRender() {
+        return arrayRender;
+    }
+
+    public void setArrayRender(boolean[] arrayRender) {
+        this.arrayRender = arrayRender;
     }
 }

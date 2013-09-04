@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
@@ -10,7 +6,8 @@ import java.io.Serializable;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * 
  */
 @Named(value = "administradorPC")
 @SessionScoped
@@ -27,8 +24,6 @@ public class AdministradorPortalController implements Serializable {
         }catch(Exception e){
             System.out.println("Error administrador");
         }        
-        return "/administrador/index.xhtml?faces-redirect=truel";        
-    }    
-    
-    
+        return "/administrador/indexAdministracion.xhtml?faces-redirect=truel";        
+    } 
 }

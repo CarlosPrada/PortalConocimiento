@@ -17,7 +17,7 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListInvestigadorEmpty}" rendered="#{investigadorController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{investigadorController.items.rowCount > 0}">
-                    <p:dataTable value="#{investigadorController.items}" paginator="true" rows="10" var="item">
+                    <p:dataTable value="#{investigadorController.items}" paginator="true" rows="30" var="item">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_usuarioInvestigador}"/>
@@ -31,42 +31,70 @@
                             </f:facet>
                             <h:outputText value="#{item.nombreInvestigador}"/>
                         </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInvestigadorTitle_apellidoInvestigador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidoInvestigador}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInvestigadorTitle_generoInvestigador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.generoInvestigador}"/>
+                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_telefonoInvestigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.telefonoInvestigador}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_celularInvestigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.celularInvestigador}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_correoInvestigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.correoInvestigador}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_idNivelPermiso}"/>
                             </f:facet>
                             <h:outputText value="#{item.idNivelPermiso.nombrePermiso}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_idTipoInvestigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.idTipoInvestigador.nombreTipoInvestigador}"/>
                         </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInvestigadorTitle_tituloInvestigador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tituloInvestigador}"/>
+                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_estadoInvestigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.estadoInvestigador}"/>
-                        </p:column>                        
+                        </p:column>  
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
@@ -83,7 +111,7 @@
                 <h:commandLink action="#{investigadorController.prepareCreate}" value="#{bundle.ListInvestigadorCreateLink}"/>
                 <br />
                 <br />
-                
+
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>
             </h:form>
         </ui:define>
