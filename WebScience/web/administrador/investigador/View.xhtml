@@ -52,10 +52,10 @@
                     <h:outputText value="#{investigadorController.selected.cvlacInvestigador}" title="#{bundle.ViewInvestigadorTitle_cvlacInvestigador}"/>
 
                     <h:outputText value="#{bundle.ViewInvestigadorLabel_idTipoInvestigador}"/>
-                    <h:outputText value="#{investigadorController.selected.idTipoInvestigador}" title="#{bundle.ViewInvestigadorTitle_idTipoInvestigador}"/>
+                    <h:outputText value="#{investigadorController.selected.idTipoInvestigador.nombreTipoInvestigador}" title="#{bundle.ViewInvestigadorTitle_idTipoInvestigador}"/>
 
                     <h:outputText value="#{bundle.ViewInvestigadorLabel_idNivelPermiso}"/>
-                    <h:outputText value="#{investigadorController.selected.idNivelPermiso}" title="#{bundle.ViewInvestigadorTitle_idNivelPermiso}"/>
+                    <h:outputText value="#{investigadorController.selected.idNivelPermiso.nombrePermiso}" title="#{bundle.ViewInvestigadorTitle_idNivelPermiso}"/>
 
                     <h:outputText value="#{bundle.ViewInvestigadorLabel_imagenPathInvestigador}"/>
                     <h:outputText value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.ViewInvestigadorTitle_imagenPathInvestigador}"/>
@@ -73,15 +73,9 @@
                 <br />
                 <h:link outcome="Edit" value="#{bundle.ViewInvestigadorEditLink}"/>
                 <br />
-                <h:commandLink action="#{investigadorController.prepareCreate}" value="#{bundle.ViewInvestigadorCreateLink}" />
-                <br />
                 <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.ViewInvestigadorShowAllLink}"/>
                 <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewInvestigadorIndexLink}"/>
-
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>

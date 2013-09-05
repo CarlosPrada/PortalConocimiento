@@ -4,9 +4,12 @@
  */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import uis.giib.entidades.TipoInvestigador;
 
 /**
@@ -26,5 +29,16 @@ public class TipoInvestigadorFacade extends AbstractFacade<TipoInvestigador> {
     public TipoInvestigadorFacade() {
         super(TipoInvestigador.class);
     }
+    
+    public List<TipoInvestigador> findAllNombreTipoInvestigador() {
+
+        try {
+            Query query = em.createNamedQuery("TipoPublicacion.findAllNombreTipoInvestigador");
+            return (List<TipoInvestigador>) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+    
     
 }

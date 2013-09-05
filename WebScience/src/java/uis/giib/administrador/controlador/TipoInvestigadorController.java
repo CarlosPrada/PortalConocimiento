@@ -6,6 +6,9 @@ import uis.giib.administrador.controlador.util.PaginationHelper;
 import uis.giib.administrador.dao.TipoInvestigadorFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -184,6 +187,22 @@ public class TipoInvestigadorController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+
+    public SelectItem[] getItemsAvailableSelectOneNombreTipo() {
+        List<TipoInvestigador> tipoInvestigadorList = ejbFacade.findAll();
+        Iterator<TipoInvestigador> it = tipoInvestigadorList.iterator();
+        List<String> nombreTipoInvestigador = new ArrayList<String>();
+
+        int cont = 0;
+        while (it.hasNext()) {
+            TipoInvestigador i = it.next();
+            cont++;
+            System.out.println("FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+            //nombreTipoInvestigador.add(cont, i.getNombreTipoInvestigador());
+            
+        }
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 

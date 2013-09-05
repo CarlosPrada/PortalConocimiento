@@ -40,18 +40,5 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
         } catch (NoResultException e) {
             return null;
         }
-    }
-        /*public Investigador loginAdministrador(String user, String password, Integer nivelPermiso) {
-
-        try {
-            Query query = em.createNamedQuery("Investigador.findByLoginParameters");
-            query.setParameter("usuarioInvestigador", user);
-            query.setParameter("contrasenaInvestigador", password);
-            query.setParameter("idNivelPermiso.idPermiso", nivelPermiso);
-            return (Investigador) query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }*/
-    
+    }    
 }
