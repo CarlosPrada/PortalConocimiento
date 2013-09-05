@@ -54,7 +54,7 @@ public class Proyecto implements Serializable {
     private String nombreProyecto;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 70)
+    @Size(min = 1, max = 90)
     @Column(name = "descripcion_resumida_proyecto")
     private String descripcionResumidaProyecto;
     @Column(name = "eliminado_proyecto")
