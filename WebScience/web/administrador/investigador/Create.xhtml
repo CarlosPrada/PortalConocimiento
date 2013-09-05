@@ -17,49 +17,69 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_usuarioInvestigador}" for="usuarioInvestigador" />
-                    <h:inputText id="usuarioInvestigador" value="#{investigadorController.selected.usuarioInvestigador}" title="#{bundle.CreateInvestigadorTitle_usuarioInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_usuarioInvestigador}"/>
+                    <h:inputText id="usuarioInvestigador" value="#{investigadorController.selected.usuarioInvestigador}" title="#{bundle.CreateInvestigadorTitle_usuarioInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_usuarioInvestigador}" size="40"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_contrasenaInvestigador}" for="contrasenaInvestigador" />
-                    <h:inputText id="contrasenaInvestigador" value="#{investigadorController.selected.contrasenaInvestigador}" title="#{bundle.CreateInvestigadorTitle_contrasenaInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_contrasenaInvestigador}"/>
+                    <h:inputText id="contrasenaInvestigador" value="#{investigadorController.selected.contrasenaInvestigador}" title="#{bundle.CreateInvestigadorTitle_contrasenaInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_contrasenaInvestigador}" size="40"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_nombreInvestigador}" for="nombreInvestigador" />
-                    <h:inputText id="nombreInvestigador" value="#{investigadorController.selected.nombreInvestigador}" title="#{bundle.CreateInvestigadorTitle_nombreInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_nombreInvestigador}"/>
-                    
-                    <h:outputLabel value="Información del investigador" for="informacionInvestigador" />
-                    <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="800px" uiColor="#aed0ea"/>
-                    
+                    <h:inputText id="nombreInvestigador" value="#{investigadorController.selected.nombreInvestigador}" title="#{bundle.CreateInvestigadorTitle_nombreInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_nombreInvestigador}" size="40"/>
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_apellidoInvestigador}" for="nombreInvestigador" />
+                    <h:inputText id="apellidoInvestigador" value="#{investigadorController.selected.apellidoInvestigador}" title="#{bundle.CreateInvestigadorTitle_apellidoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_apellidoInvestigador}" size="40"/>
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_tituloInvestigador}" for="nombreInvestigador" />
+                    <h:inputText id="tituloInvestigador" value="#{investigadorController.selected.tituloInvestigador}" title="#{bundle.CreateInvestigadorTitle_tituloInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_tituloInvestigador}" size="105"/>
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_informacionInvestigador}" for="informacionInvestigador" />
+                    <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="850px" uiColor="#aed0ea"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_telefonoInvestigador}" for="telefonoInvestigador" />
-                    <h:inputText id="telefonoInvestigador" value="#{investigadorController.selected.telefonoInvestigador}" title="#{bundle.CreateInvestigadorTitle_telefonoInvestigador}" />
+                    <h:inputText id="telefonoInvestigador" value="#{investigadorController.selected.telefonoInvestigador}" title="#{bundle.CreateInvestigadorTitle_telefonoInvestigador}" size="25"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_celularInvestigador}" for="celularInvestigador" />
-                    <h:inputText id="celularInvestigador" value="#{investigadorController.selected.celularInvestigador}" title="#{bundle.CreateInvestigadorTitle_celularInvestigador}" />
+                    <h:inputText id="celularInvestigador" value="#{investigadorController.selected.celularInvestigador}" title="#{bundle.CreateInvestigadorTitle_celularInvestigador}" size="25"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_correoInvestigador}" for="correoInvestigador" />
-                    <h:inputText id="correoInvestigador" value="#{investigadorController.selected.correoInvestigador}" title="#{bundle.CreateInvestigadorTitle_correoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_correoInvestigador}"/>
+                    <h:inputText id="correoInvestigador" value="#{investigadorController.selected.correoInvestigador}" title="#{bundle.CreateInvestigadorTitle_correoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_correoInvestigador}" size="55"/>
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_faxInvestigador}" for="faxInvestigador" />
+                    <h:inputText id="faxInvestigador" value="#{investigadorController.selected.faxInvestigador}" title="#{bundle.CreateInvestigadorTitle_faxInvestigador}" required="true" size="45"/>
+                    
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_generoInvestigador}" for="generoInvestigador" />
                     <h:inputText id="generoInvestigador" value="#{investigadorController.selected.generoInvestigador}" title="#{bundle.CreateInvestigadorTitle_generoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_generoInvestigador}"/>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_cvlacInvestigador}" for="cvlacInvestigador" />
-                    <h:inputText id="cvlacInvestigador" value="#{investigadorController.selected.cvlacInvestigador}" title="#{bundle.CreateInvestigadorTitle_cvlacInvestigador}" />
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_estadoInvestigador}" for="estadoInvestigador" />
-                    <h:inputText id="estadoInvestigador" value="#{investigadorController.selected.estadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_estadoInvestigador}" />
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_eliminadoInvestigador}" for="eliminadoInvestigador" />
-                    <h:inputText id="eliminadoInvestigador" value="#{investigadorController.selected.eliminadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_eliminadoInvestigador}" />
+                    <h:inputText id="cvlacInvestigador" value="#{investigadorController.selected.cvlacInvestigador}" title="#{bundle.CreateInvestigadorTitle_cvlacInvestigador}" size="160" />
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idTipoInvestigador}" for="idTipoInvestigador" />
                     <h:selectOneMenu id="idTipoInvestigador" value="#{investigadorController.selected.idTipoInvestigador}" title="#{bundle.CreateInvestigadorTitle_idTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idTipoInvestigador}">
                         <f:selectItems value="#{tipoInvestigadorController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idNivelPermiso}" for="idNivelPermiso" />
                     <h:selectOneMenu id="idNivelPermiso" value="#{investigadorController.selected.idNivelPermiso}" title="#{bundle.CreateInvestigadorTitle_idNivelPermiso}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idNivelPermiso}">
                         <f:selectItems value="#{permisoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
+                    <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_estadoInvestigador}" for="estadoInvestigador" />
+                    <h:inputText id="estadoInvestigador" value="#{investigadorController.selected.estadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_estadoInvestigador}" />
+
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_eliminadoInvestigador}" for="eliminadoInvestigador" />
+                    <h:inputText id="eliminadoInvestigador" value="#{investigadorController.selected.eliminadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_eliminadoInvestigador}" />
+
                 </h:panelGrid>
-                <br />
+                
+                <br/>
                 <h:commandLink action="#{investigadorController.create}" value="#{bundle.CreateInvestigadorSaveLink}" />
-                <br />
-                <br />
+                <br/><br/>
                 <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.CreateInvestigadorShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateInvestigadorIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>

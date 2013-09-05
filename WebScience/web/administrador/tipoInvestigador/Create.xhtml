@@ -16,20 +16,17 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_idTipoInvestigador}" for="idTipoInvestigador" />
-                    <h:inputText id="idTipoInvestigador" value="#{tipoInvestigadorController.selected.idTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_idTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_idTipoInvestigador}"/>
+                    <h:inputText id="idTipoInvestigador" value="#{tipoInvestigadorController.selected.idTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_idTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_idTipoInvestigador}" size="5"/>
                     <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_nombreTipoInvestigador}" for="nombreTipoInvestigador" />
-                    <h:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_nombreTipoInvestigador}"/>
+                    <h:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
                     <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
-                    <h:inputText id="descripcionTipoInvestigador" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_descripcionTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_descripcionTipoInvestigador}"/>
+                    <h:inputText id="descripcionTipoInvestigador" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_descripcionTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_descripcionTipoInvestigador}" size="150"/>
                 </h:panelGrid>
-                <br />
+                <br/>
                 <h:commandLink action="#{tipoInvestigadorController.create}" value="#{bundle.CreateTipoInvestigadorSaveLink}" />
-                <br />
-                <br />
+                <br/><br/>
                 <h:commandLink action="#{tipoInvestigadorController.prepareList}" value="#{bundle.CreateTipoInvestigadorShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateTipoInvestigadorIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>
