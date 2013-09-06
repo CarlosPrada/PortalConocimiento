@@ -59,7 +59,7 @@ public class LineaInvestigacion implements Serializable {
     private String nombreLineaInvestigacion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 65535)
+    @Size(min = 1, max =766 )
     @Column(name = "descripcion_linea_investigacion")
     private String descripcionLineaInvestigacion;
     @Column(name = "detalle_linea_de_investigacion")
