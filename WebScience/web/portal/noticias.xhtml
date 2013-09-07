@@ -15,14 +15,16 @@
         <h:form>  
 
             <p:growl id="growl" showDetail="true"/>  
-            <h3>Noticias Grupo de Investigacion de Ingeneria Biomedica </h3> 
-            <p:fieldset legend="Noticias" >  
-
+            
+            
+            <p:fieldset legend="NOTICIAS" > 
+                  
 
                 <p:dataGrid    columns="3" paginator="true" rows="1" value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
                     <div class="mainbarDerecho">
                         <h:graphicImage alt="" width="150" height="200" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
                         <h:outputText value="#{noticias.titulo}" /> 
+                        <br/><h:outputText value="#{noticias.fechaInicioevento}" /> 
                         <br/><h:outputText value="#{noticias.contenidoDetallado}" />
                     </div>
                 </p:dataGrid>

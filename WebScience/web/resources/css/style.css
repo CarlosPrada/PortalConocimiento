@@ -147,7 +147,7 @@ h1 small {
 }
 .content .mainbarIzquierdo {
     margin:0;
-    padding:0 0 10px 20px;ar
+    padding:0 0 10px 20px;
     float:right;
     width:960px;
 }
@@ -257,6 +257,16 @@ h1 small {
     font-size:20px;
     line-height:1.2em;
     color:#161616;
+}   
+  h4 /*estilo de letra negra */ {
+    
+    margin-top:0em;
+    margin-bottom:1em;
+    padding-top:0;
+    text-align:left;
+    font-size:20px;
+    line-height:1.2em;
+    color:#000000;
 }
 .mainbarDerecho  p, .mainbar600  p,.content .mainbarIzquierdo  p, .content .mainbar440  p , .mainbarInvestigadores p{
     text-align:justify;
