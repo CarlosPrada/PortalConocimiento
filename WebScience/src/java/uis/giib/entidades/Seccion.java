@@ -12,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -33,11 +31,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Seccion.findAll", query = "SELECT s FROM Seccion s"),
     @NamedQuery(name = "Seccion.findByIdSeccion", query = "SELECT s FROM Seccion s WHERE s.idSeccion = :idSeccion"),
-    @NamedQuery(name = "Seccion.findByNombreSeccion", query = "SELECT s FROM Seccion s WHERE s.nombreSeccion = :nombreSeccion")})
+    @NamedQuery(name = "Seccion.findByNombreSeccion", query = "SELECT s FROM Seccion s WHERE s.nombreSeccion = :nombreSeccion"),
+    @NamedQuery(name = "Seccion.findByEstadoSeccion", query = "SELECT s FROM Seccion s WHERE s.estadoSeccion = :estadoSeccion"),
+    @NamedQuery(name = "Seccion.findByEliminadoSeccion", query = "SELECT s FROM Seccion s WHERE s.eliminadoSeccion = :eliminadoSeccion")})
 public class Seccion implements Serializable {
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +46,10 @@ public class Seccion implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "nombre_seccion")
     private String nombreSeccion;
+    @Column(name = "estado_seccion")
+    private Character estadoSeccion;
+    @Column(name = "eliminado_seccion")
+    private Character eliminadoSeccion;
     @OneToMany(mappedBy = "idSeccion")
     private Collection<Contenido> publicacionCollection;
 
@@ -78,7 +79,23 @@ public class Seccion implements Serializable {
 
     public void setNombreSeccion(String nombreSeccion) {
         this.nombreSeccion = nombreSeccion;
-    }    
+    }
+
+    public Character getEstadoSeccion() {
+        return estadoSeccion;
+    }
+
+    public void setEstadoSeccion(Character estadoSeccion) {
+        this.estadoSeccion = estadoSeccion;
+    }
+
+    public Character getEliminadoSeccion() {
+        return eliminadoSeccion;
+    }
+
+    public void setEliminadoSeccion(Character eliminadoSeccion) {
+        this.eliminadoSeccion = eliminadoSeccion;
+    }
 
     @XmlTransient
     public Collection<Contenido> getPublicacionCollection() {
@@ -112,14 +129,6 @@ public class Seccion implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Seccion[ idSeccion=" + idSeccion + " ]";
-    }
-
-    public EstadoGeneral getIdEstado() {
-        return idEstado;
-    }
-
-    public void setIdEstado(EstadoGeneral idEstado) {
-        this.idEstado = idEstado;
     }
     
 }

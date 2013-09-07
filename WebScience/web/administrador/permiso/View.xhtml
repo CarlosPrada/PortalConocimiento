@@ -17,20 +17,26 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewPermisoLabel_idPermiso}"/>
                     <h:outputText value="#{permisoController.selected.idPermiso}" title="#{bundle.ViewPermisoTitle_idPermiso}"/>
-                    
                     <h:outputText value="#{bundle.ViewPermisoLabel_nombrePermiso}"/>
                     <h:outputText value="#{permisoController.selected.nombrePermiso}" title="#{bundle.ViewPermisoTitle_nombrePermiso}"/>
-                    
                     <h:outputText value="#{bundle.ViewPermisoLabel_descripcionPermiso}"/>
                     <h:outputText value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.ViewPermisoTitle_descripcionPermiso}"/>
                 </h:panelGrid>
-                <br/>
+                <br />
                 <h:commandLink action="#{permisoController.destroyAndView}" value="#{bundle.ViewPermisoDestroyLink}"/>
-                <br/><br/>                
+                <br />
+                <br />
                 <h:link outcome="Edit" value="#{bundle.ViewPermisoEditLink}"/>
-                <br/>               
+                <br />
+                <h:commandLink action="#{permisoController.prepareCreate}" value="#{bundle.ViewPermisoCreateLink}" />
+                <br />
                 <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.ViewPermisoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPermisoIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>
+
 </html>

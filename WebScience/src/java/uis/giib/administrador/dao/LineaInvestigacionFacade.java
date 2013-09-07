@@ -11,7 +11,7 @@ import uis.giib.entidades.LineaInvestigacion;
 
 /**
  *
- * @author Carlos
+ * @author Carlos Humberto
  */
 @Stateless
 public class LineaInvestigacionFacade extends AbstractFacade<LineaInvestigacion> {

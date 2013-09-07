@@ -109,19 +109,23 @@
                     </p:dataTable>
                 </h:panelGroup>
 
-                <br/><br/>
-                <h:commandLink action="#{investigadorController.prepareCreate}" value="#{bundle.ListInvestigadorCreateLink}"/>
-                <br/><br/>
+
                 <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
                 <h:link outcome="/administrador/tipoInvestigador/#{tipoInvestigadorController.prepareList()}" value="Administrar Tipo de Investigador"/>
                 : Permite administrar los Tipos de Investigadores existentes en el sistema.
+
                 <br/><br/>
                 <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
                 <h:link outcome="/administrador/permiso/#{permisoController.prepareList()}" value="Administrar Permisos"/>
                 : Permite administrar la configuración de permisos en el sistema.
 
                 <br/><br/><br/>
+                <h:commandLink action="#{investigadorController.prepareCreate}" value="#{bundle.ListInvestigadorCreateLink}"/>
+                <br/>
+                <br/>
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>
+
+
 
             </h:form>
         </ui:define>

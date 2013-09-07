@@ -16,20 +16,22 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreatePermisoLabel_idPermiso}" for="idPermiso" />
-                    <h:inputText id="idPermiso" value="#{permisoController.selected.idPermiso}" title="#{bundle.CreatePermisoTitle_idPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_idPermiso}" size="5"/>
-                   
+                    <h:inputText id="idPermiso" value="#{permisoController.selected.idPermiso}" title="#{bundle.CreatePermisoTitle_idPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_idPermiso}"/>
                     <h:outputLabel value="#{bundle.CreatePermisoLabel_nombrePermiso}" for="nombrePermiso" />
-                    <h:inputText id="nombrePermiso" value="#{permisoController.selected.nombrePermiso}" title="#{bundle.CreatePermisoTitle_nombrePermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_nombrePermiso}" size="35"/>
-                    
+                    <h:inputText id="nombrePermiso" value="#{permisoController.selected.nombrePermiso}" title="#{bundle.CreatePermisoTitle_nombrePermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_nombrePermiso}"/>
                     <h:outputLabel value="#{bundle.CreatePermisoLabel_descripcionPermiso}" for="descripcionPermiso" />
-                    <h:inputText id="descripcionPermiso" value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.CreatePermisoTitle_descripcionPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_descripcionPermiso}" size="155"/>
+                    <h:inputText id="descripcionPermiso" value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.CreatePermisoTitle_descripcionPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_descripcionPermiso}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{permisoController.create}" value="#{bundle.CreatePermisoSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.CreatePermisoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePermisoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
+
 </html>
