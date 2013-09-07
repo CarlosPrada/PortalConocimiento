@@ -15,6 +15,10 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_detallelineadeinvestigacion}" for="detallelineadeinvestigacion" />
+                    <h:inputText id="detallelineadeinvestigacion" value="#{lineaInvestigacionController.selected.detallelineadeinvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_detallelineadeinvestigacion}" />
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_imagenLineaInvestigacion}" for="imagenLineaInvestigacion" />
+                    <h:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_imagenLineaInvestigacion}" />
                     <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_idLineaInvestigacion}" for="idLineaInvestigacion" />
                     <h:inputText id="idLineaInvestigacion" value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_idLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_idLineaInvestigacion}"/>
                     <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_nombreLineaInvestigacion}" for="nombreLineaInvestigacion" />

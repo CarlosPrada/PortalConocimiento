@@ -17,7 +17,7 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListPermisoEmpty}" rendered="#{permisoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{permisoController.items.rowCount > 0}">
-                     <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" >
+                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" style="width:500px;" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_idPermiso}"/>
@@ -48,13 +48,11 @@
                         </p:column>
                     </p:dataTable>
                 </h:panelGroup>
-                <br />
+                <br/>
                 <h:commandLink action="#{permisoController.prepareCreate}" value="#{bundle.ListPermisoCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListPermisoIndexLink}"/>
+                <br/><br/>
+                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListPermisoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>
