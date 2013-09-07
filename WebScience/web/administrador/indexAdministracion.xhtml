@@ -1,9 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      template="./../plantillaPortal.xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:define name="title"> Administración </ui:define>
+    <ui:define name="libreriasJS"> </ui:define>
+    <ui:define name="header">Administración</ui:define>
+    <ui:define name="slider"></ui:define>
+    
     <h:head>
         <title>Administrador de contenido</title>
         <h:outputStylesheet library="css"  name="default.css" />
@@ -44,7 +52,7 @@
 
         </style>
     </h:head>
-    <h:body>
+    <ui:define name="body">
 
         <center>
             <table align="center" width="80%">
@@ -88,5 +96,5 @@
                 </tbody>
             </table>
         </center>
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>
