@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "multimedia")
@@ -38,6 +38,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Multimedia.findByEstadoMultimedia", query = "SELECT m FROM Multimedia m WHERE m.estadoMultimedia = :estadoMultimedia"),
     @NamedQuery(name = "Multimedia.findByEliminadoMultimedia", query = "SELECT m FROM Multimedia m WHERE m.eliminadoMultimedia = :eliminadoMultimedia")})
 public class Multimedia implements Serializable {
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 400)
+    @Column(name = "url_multimedia")
+    private String urlMultimedia;
     @OneToMany(mappedBy = "idMultimedia")
     private Collection<Contenido> contenidoCollection;
     private static final long serialVersionUID = 1L;
@@ -171,6 +176,14 @@ public class Multimedia implements Serializable {
 
     public void setContenidoCollection(Collection<Contenido> contenidoCollection) {
         this.contenidoCollection = contenidoCollection;
+    }
+
+    public String getUrlMultimedia() {
+        return urlMultimedia;
+    }
+
+    public void setUrlMultimedia(String urlMultimedia) {
+        this.urlMultimedia = urlMultimedia;
     }
     
 }

@@ -47,7 +47,7 @@
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_faxInvestigador}" for="faxInvestigador" />
                     <h:inputText id="faxInvestigador" value="#{investigadorController.selected.faxInvestigador}" title="#{bundle.CreateInvestigadorTitle_faxInvestigador}" required="true" size="45"/>
-                    
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_generoInvestigador}" for="generoInvestigador" />
                     <h:inputText id="generoInvestigador" value="#{investigadorController.selected.generoInvestigador}" title="#{bundle.CreateInvestigadorTitle_generoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_generoInvestigador}"/>
 
@@ -63,18 +63,17 @@
                     <h:selectOneMenu id="idNivelPermiso" value="#{investigadorController.selected.idNivelPermiso}" title="#{bundle.CreateInvestigadorTitle_idNivelPermiso}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idNivelPermiso}">
                         <f:selectItems value="#{permisoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_estadoInvestigador}" for="estadoInvestigador" />
-                    <h:inputText id="estadoInvestigador" value="#{investigadorController.selected.estadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_estadoInvestigador}" />
-
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_eliminadoInvestigador}" for="eliminadoInvestigador" />
-                    <h:inputText id="eliminadoInvestigador" value="#{investigadorController.selected.eliminadoInvestigador}" title="#{bundle.CreateInvestigadorTitle_eliminadoInvestigador}" />
+                    <h:selectOneMenu id="idEstado" value="#{estadoGeneralController.selected.idEstado}" title="#{bundle.CreateInvestigadorTitle_idNivelPermiso}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idNivelPermiso}">
+                        <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
 
                 </h:panelGrid>
-                
+
                 <br/>
                 <h:commandLink action="#{investigadorController.create}" value="#{bundle.CreateInvestigadorSaveLink}" />
                 <br/><br/>

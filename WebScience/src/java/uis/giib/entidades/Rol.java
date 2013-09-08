@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r"),
     @NamedQuery(name = "Rol.findByIdRol", query = "SELECT r FROM Rol r WHERE r.idRol = :idRol"),
     @NamedQuery(name = "Rol.findByNombreRol", query = "SELECT r FROM Rol r WHERE r.nombreRol = :nombreRol"),
-    @NamedQuery(name = "Rol.findByDescripcionRol", query = "SELECT r FROM Rol r WHERE r.descripcionRol = :descripcionRol"),
-    @NamedQuery(name = "Rol.findByEstadoRol", query = "SELECT r FROM Rol r WHERE r.estadoRol = :estadoRol")})
+    @NamedQuery(name = "Rol.findByDescripcionRol", query = "SELECT r FROM Rol r WHERE r.descripcionRol = :descripcionRol")})
 public class Rol implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -52,8 +51,6 @@ public class Rol implements Serializable {
     @Size(min = 1, max = 150)
     @Column(name = "descripcion_rol")
     private String descripcionRol;
-    @Column(name = "estado_rol")
-    private Character estadoRol;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRol")
     private Collection<ProyectoInvestigadores> proyectoInvestigadoresCollection;
 
@@ -92,14 +89,6 @@ public class Rol implements Serializable {
 
     public void setDescripcionRol(String descripcionRol) {
         this.descripcionRol = descripcionRol;
-    }
-
-    public Character getEstadoRol() {
-        return estadoRol;
-    }
-
-    public void setEstadoRol(Character estadoRol) {
-        this.estadoRol = estadoRol;
     }
 
     @XmlTransient

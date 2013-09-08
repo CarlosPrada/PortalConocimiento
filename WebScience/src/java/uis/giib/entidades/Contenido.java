@@ -6,7 +6,9 @@ package uis.giib.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,16 +19,18 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "contenido")
@@ -37,10 +41,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Contenido.findByFechaInicioevento", query = "SELECT c FROM Contenido c WHERE c.fechaInicioevento = :fechaInicioevento"),
     @NamedQuery(name = "Contenido.findByFechaFinevento", query = "SELECT c FROM Contenido c WHERE c.fechaFinevento = :fechaFinevento"),
     @NamedQuery(name = "Contenido.findByFechaDespublicar", query = "SELECT c FROM Contenido c WHERE c.fechaDespublicar = :fechaDespublicar"),
-    @NamedQuery(name = "Contenido.findByEstadoContenido", query = "SELECT c FROM Contenido c WHERE c.estadoContenido = :estadoContenido"),
-    @NamedQuery(name = "Contenido.findByEliminadoContenido", query = "SELECT c FROM Contenido c WHERE c.eliminadoContenido = :eliminadoContenido"),
     @NamedQuery(name = "Contenido.findByTitulo", query = "SELECT c FROM Contenido c WHERE c.titulo = :titulo")})
 public class Contenido implements Serializable {
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPublicacion")
+    private List<Recursos> recursosList;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,10 +69,6 @@ public class Contenido implements Serializable {
     @Column(name = "fecha_despublicar")
     @Temporal(TemporalType.DATE)
     private Date fechaDespublicar;
-    @Column(name = "estado_contenido")
-    private Character estadoContenido;
-    @Column(name = "eliminado_contenido")
-    private Character eliminadoContenido;
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "titulo")
@@ -138,23 +141,7 @@ public class Contenido implements Serializable {
 
     public void setFechaDespublicar(Date fechaDespublicar) {
         this.fechaDespublicar = fechaDespublicar;
-    }
-
-    public Character getEstadoContenido() {
-        return estadoContenido;
-    }
-
-    public void setEstadoContenido(Character estadoContenido) {
-        this.estadoContenido = estadoContenido;
-    }
-
-    public Character getEliminadoContenido() {
-        return eliminadoContenido;
-    }
-
-    public void setEliminadoContenido(Character eliminadoContenido) {
-        this.eliminadoContenido = eliminadoContenido;
-    }
+    }   
 
     public String getTitulo() {
         return titulo;
@@ -219,6 +206,23 @@ public class Contenido implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Contenido[ idPublicacion=" + idPublicacion + " ]";
+    }
+
+    public EstadoGeneral getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(EstadoGeneral idEstado) {
+        this.idEstado = idEstado;
+    }
+
+    @XmlTransient
+    public List<Recursos> getRecursosList() {
+        return recursosList;
+    }
+
+    public void setRecursosList(List<Recursos> recursosList) {
+        this.recursosList = recursosList;
     }
     
 }

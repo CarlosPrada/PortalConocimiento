@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -27,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "produccion_intelectual")
@@ -36,17 +32,20 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "ProduccionIntelectual.findAll", query = "SELECT p FROM ProduccionIntelectual p"),
     @NamedQuery(name = "ProduccionIntelectual.findByIdProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.idProduccion = :idProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByNombreProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.nombreProduccion = :nombreProduccion"),
-    @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion"),
-    @NamedQuery(name = "ProduccionIntelectual.findByEstadoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.estadoProduccion = :estadoProduccion")})
+    @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion")})
 
 public class ProduccionIntelectual implements Serializable {
+    @Column(name = "agno_produccion")
+    private Integer agnoProduccion;
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
     @Basic(optional = false)
     @NotNull
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "referencia_produccion")
     private String referenciaProduccion;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,13 +57,6 @@ public class ProduccionIntelectual implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "nombre_produccion")
     private String nombreProduccion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "agno_produccion")
-    private int agnoProduccion;
-
-    @Column(name = "estado_produccion")
-    private Character estadoProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produccionIntelectual")
     private List<InvestigadorProduccion> investigadorProduccionList;
     @JoinColumn(name = "id_tipo_produccion", referencedColumnName = "id_tipo_produccion")
@@ -117,14 +109,6 @@ public class ProduccionIntelectual implements Serializable {
         this.referenciaProduccion = referenciaProduccion;
     }
 
-    public Character getEstadoProduccion() {
-        return estadoProduccion;
-    }
-
-    public void setEstadoProduccion(Character estadoProduccion) {
-        this.estadoProduccion = estadoProduccion;
-    }
-
     public TipoProduccion getIdTipoProduccion() {
         return idTipoProduccion;
     }
@@ -166,5 +150,14 @@ public class ProduccionIntelectual implements Serializable {
     public void setInvestigadorProduccionList(List<InvestigadorProduccion> investigadorProduccionList) {
         this.investigadorProduccionList = investigadorProduccionList;
     }
+
+    public EstadoGeneral getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(EstadoGeneral idEstado) {
+        this.idEstado = idEstado;
+    }
+    
     
 }

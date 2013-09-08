@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -122,7 +118,7 @@ public class Permiso implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Permiso[ idPermiso=" + idPermiso + " ]";
+        return "[" + idPermiso + "] - " + nombrePermiso;
     }
     
 }

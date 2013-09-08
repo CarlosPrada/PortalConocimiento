@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -25,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "seccion")
@@ -35,9 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Seccion.findByIdSeccion", query = "SELECT s FROM Seccion s WHERE s.idSeccion = :idSeccion"),
     @NamedQuery(name = "Seccion.findByNombreSeccion", query = "SELECT s FROM Seccion s WHERE s.nombreSeccion = :nombreSeccion")})
 public class Seccion implements Serializable {
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,6 +45,9 @@ public class Seccion implements Serializable {
     private String nombreSeccion;
     @OneToMany(mappedBy = "idSeccion")
     private Collection<Contenido> publicacionCollection;
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
 
     public Seccion() {
     }
@@ -78,7 +75,7 @@ public class Seccion implements Serializable {
 
     public void setNombreSeccion(String nombreSeccion) {
         this.nombreSeccion = nombreSeccion;
-    }    
+    }
 
     @XmlTransient
     public Collection<Contenido> getPublicacionCollection() {
@@ -121,5 +118,4 @@ public class Seccion implements Serializable {
     public void setIdEstado(EstadoGeneral idEstado) {
         this.idEstado = idEstado;
     }
-    
 }

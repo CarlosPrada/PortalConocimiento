@@ -34,17 +34,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Investigador.findAll", query = "SELECT i FROM Investigador i"),
     @NamedQuery(name = "Investigador.findByUsuarioInvestigador", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador"),
     @NamedQuery(name = "Investigador.findByContrasenaInvestigador", query = "SELECT i FROM Investigador i WHERE i.contrasenaInvestigador = :contrasenaInvestigador"),
-    @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador" ),
+    @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador"),
     @NamedQuery(name = "Investigador.findByTituloInvestigador", query = "SELECT i FROM Investigador i WHERE i.tituloInvestigador = :tituloInvestigador")})
-
 public class Investigador implements Serializable {
-    
-    @Size(max = 40)
-    @Column(name = "fax_investigador")
-    private String faxInvestigador;
-    @Size(max = 255)
-    @Column(name = "image_investigador_path")
-    private String imageInvestigadorPath;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -87,10 +80,6 @@ public class Investigador implements Serializable {
     @Size(max = 150)
     @Column(name = "cvlac_investigador")
     private String cvlacInvestigador;
-    @Column(name = "estado_investigador")
-    private Character estadoInvestigador;
-    @Column(name = "eliminado_investigador")
-    private Character eliminadoInvestigador;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -98,8 +87,17 @@ public class Investigador implements Serializable {
     private String apellidoInvestigador;
     @Size(max = 100)
     @Column(name = "titulo_Investigador")
-    private String tituloInvestigador;  
+    private String tituloInvestigador;
+    @Size(max = 40)
+    @Column(name = "fax_investigador")
+    private String faxInvestigador;
+    @Size(max = 255)
+    @Column(name = "image_investigador_path")
+    private String imageInvestigadorPath;
     
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
     private List<InvestigadorProduccion> investigadorProduccionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "investigador")
@@ -112,7 +110,6 @@ public class Investigador implements Serializable {
     @JoinColumn(name = "id_nivel_permiso", referencedColumnName = "id_permiso")
     @ManyToOne(optional = false)
     private Permiso idNivelPermiso;
-    
 
     public Investigador() {
     }
@@ -130,7 +127,7 @@ public class Investigador implements Serializable {
         this.generoInvestigador = generoInvestigador;
         this.apellidoInvestigador = apellidoInvestigador;
     }
-    
+
     // Getters - Setters
     public String getFaxInvestigador() {
         return faxInvestigador;
@@ -139,7 +136,7 @@ public class Investigador implements Serializable {
     public void setFaxInvestigador(String faxInvestigador) {
         this.faxInvestigador = faxInvestigador;
     }
-    
+
     public String getImageInvestigadorPath() {
         return imageInvestigadorPath;
     }
@@ -220,22 +217,6 @@ public class Investigador implements Serializable {
         this.cvlacInvestigador = cvlacInvestigador;
     }
 
-    public Character getEstadoInvestigador() {
-        return estadoInvestigador;
-    }
-
-    public void setEstadoInvestigador(Character estadoInvestigador) {
-        this.estadoInvestigador = estadoInvestigador;
-    }
-
-    public Character getEliminadoInvestigador() {
-        return eliminadoInvestigador;
-    }
-
-    public void setEliminadoInvestigador(Character eliminadoInvestigador) {
-        this.eliminadoInvestigador = eliminadoInvestigador;
-    }
-
     public String getApellidoInvestigador() {
         return apellidoInvestigador;
     }
@@ -269,7 +250,6 @@ public class Investigador implements Serializable {
     public void setProyectoInvestigadoresList(List<ProyectoInvestigadores> proyectoInvestigadoresList) {
         this.proyectoInvestigadoresList = proyectoInvestigadoresList;
     }
-
 
     public TipoInvestigador getIdTipoInvestigador() {
         return idTipoInvestigador;
@@ -321,7 +301,11 @@ public class Investigador implements Serializable {
         this.investigadorProduccionList = investigadorProduccionList;
     }
 
+    public EstadoGeneral getIdEstado() {
+        return idEstado;
+    }
 
-
-    
+    public void setIdEstado(EstadoGeneral idEstado) {
+        this.idEstado = idEstado;
+    }
 }

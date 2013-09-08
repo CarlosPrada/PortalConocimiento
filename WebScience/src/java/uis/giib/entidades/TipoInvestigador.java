@@ -123,7 +123,7 @@ public class TipoInvestigador implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoInvestigador[ idTipoInvestigador=" + idTipoInvestigador + " ]";
+        return "[" + idTipoInvestigador + "] - " + nombreTipoInvestigador;
     }
     
 }

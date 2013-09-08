@@ -1,11 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package uis.giib.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,8 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByIdEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.idEstado = :idEstado"),
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private Collection<Seccion> seccionCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +44,20 @@ public class EstadoGeneral implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "nombre_estado")
     private String nombreEstado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Contenido> contenidoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstadoGeneral")
+    private List<Proyecto> proyectoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<LineaInvestigacion> lineaInvestigacionList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Producto> productoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<ProduccionIntelectual> produccionIntelectualList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Investigador> investigadorList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private Collection<Seccion> seccionCollection;
 
     public EstadoGeneral() {
     }
@@ -76,6 +87,69 @@ public class EstadoGeneral implements Serializable {
         this.nombreEstado = nombreEstado;
     }
 
+    @XmlTransient
+    public Collection<Seccion> getSeccionCollection() {
+        return seccionCollection;
+    }
+
+    public void setSeccionCollection(Collection<Seccion> seccionCollection) {
+        this.seccionCollection = seccionCollection;
+    }
+
+    @XmlTransient
+    public List<Contenido> getContenidoList() {
+        return contenidoList;
+    }
+
+    public void setContenidoList(List<Contenido> contenidoList) {
+        this.contenidoList = contenidoList;
+    }
+
+    @XmlTransient
+    public List<Proyecto> getProyectoList() {
+        return proyectoList;
+    }
+
+    public void setProyectoList(List<Proyecto> proyectoList) {
+        this.proyectoList = proyectoList;
+    }
+
+    @XmlTransient
+    public List<LineaInvestigacion> getLineaInvestigacionList() {
+        return lineaInvestigacionList;
+    }
+
+    public void setLineaInvestigacionList(List<LineaInvestigacion> lineaInvestigacionList) {
+        this.lineaInvestigacionList = lineaInvestigacionList;
+    }
+
+    @XmlTransient
+    public List<Producto> getProductoList() {
+        return productoList;
+    }
+
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
+    }
+
+    @XmlTransient
+    public List<ProduccionIntelectual> getProduccionIntelectualList() {
+        return produccionIntelectualList;
+    }
+
+    public void setProduccionIntelectualList(List<ProduccionIntelectual> produccionIntelectualList) {
+        this.produccionIntelectualList = produccionIntelectualList;
+    }
+
+    @XmlTransient
+    public List<Investigador> getInvestigadorList() {
+        return investigadorList;
+    }
+
+    public void setInvestigadorList(List<Investigador> investigadorList) {
+        this.investigadorList = investigadorList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -98,16 +172,6 @@ public class EstadoGeneral implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.EstadoGeneral[ idEstado=" + idEstado + " ]";
+        return "[" + idEstado + "] - " + nombreEstado;
     }
-
-    @XmlTransient
-    public Collection<Seccion> getSeccionCollection() {
-        return seccionCollection;
-    }
-
-    public void setSeccionCollection(Collection<Seccion> seccionCollection) {
-        this.seccionCollection = seccionCollection;
-    }
-    
 }

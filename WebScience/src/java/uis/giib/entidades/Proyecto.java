@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -27,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "proyecto")
@@ -37,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Proyecto.findByIdProyecto", query = "SELECT p FROM Proyecto p WHERE p.idProyecto = :idProyecto"),
     @NamedQuery(name = "Proyecto.findByNombreProyecto", query = "SELECT p FROM Proyecto p WHERE p.nombreProyecto = :nombreProyecto"),
     @NamedQuery(name = "Proyecto.findByDescripcionResumidaProyecto", query = "SELECT p FROM Proyecto p WHERE p.descripcionResumidaProyecto = :descripcionResumidaProyecto"),
-    @NamedQuery(name = "TipoProyecto.findByIdTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.idTipoProyecto = :idTipoProyecto"),
-    @NamedQuery(name = "Proyecto.findByEliminadoProyecto", query = "SELECT p FROM Proyecto p WHERE p.eliminadoProyecto = :eliminadoProyecto")})
+    @NamedQuery(name = "TipoProyecto.findByIdTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.idTipoProyecto = :idTipoProyecto")})
 public class Proyecto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,8 +52,6 @@ public class Proyecto implements Serializable {
     @Size(min = 1, max = 90)
     @Column(name = "descripcion_resumida_proyecto")
     private String descripcionResumidaProyecto;
-    @Column(name = "eliminado_proyecto")
-    private Character eliminadoProyecto;
     @Basic(optional = false)
     @NotNull
     @Lob
@@ -91,6 +84,11 @@ public class Proyecto implements Serializable {
     @JoinColumn(name = "id_linea", referencedColumnName = "id_linea_investigacion")
     @ManyToOne(optional = false)
     private LineaInvestigacion idLinea;
+    @JoinColumn(name = "id_estado_general", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstadoGeneral;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProyecto")
+    private List<Producto> productoList;
 
     public Proyecto() {
     }
@@ -116,7 +114,7 @@ public class Proyecto implements Serializable {
     public void setProyectoInvestigadoresList(List<ProyectoInvestigadores> proyectoInvestigadoresList) {
         this.proyectoInvestigadoresList = proyectoInvestigadoresList;
     }
-    
+
     public String getImagenProyecto() {
         return imagenProyecto;
     }
@@ -124,7 +122,7 @@ public class Proyecto implements Serializable {
     public void setImagenProyecto(String imagenProyecto) {
         this.imagenProyecto = imagenProyecto;
     }
-    
+
     public Integer getIdProyecto() {
         return idProyecto;
     }
@@ -147,14 +145,6 @@ public class Proyecto implements Serializable {
 
     public void setDescripcionResumidaProyecto(String descripcionResumidaProyecto) {
         this.descripcionResumidaProyecto = descripcionResumidaProyecto;
-    }
-
-    public Character getEliminadoProyecto() {
-        return eliminadoProyecto;
-    }
-
-    public void setEliminadoProyecto(Character eliminadoProyecto) {
-        this.eliminadoProyecto = eliminadoProyecto;
     }
 
     public String getDescripcionDetalladaProyecto() {
@@ -228,5 +218,22 @@ public class Proyecto implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Proyecto[ idProyecto=" + idProyecto + " ]";
+    }
+
+    public EstadoGeneral getIdEstadoGeneral() {
+        return idEstadoGeneral;
+    }
+
+    public void setIdEstadoGeneral(EstadoGeneral idEstadoGeneral) {
+        this.idEstadoGeneral = idEstadoGeneral;
+    }
+
+    @XmlTransient
+    public List<Producto> getProductoList() {
+        return productoList;
+    }
+
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
     }
 }

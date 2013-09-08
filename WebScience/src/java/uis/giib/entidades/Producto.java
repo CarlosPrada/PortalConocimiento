@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -22,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "producto")
@@ -31,10 +27,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p"),
     @NamedQuery(name = "Producto.findByIdProducto", query = "SELECT p FROM Producto p WHERE p.idProducto = :idProducto"),
     @NamedQuery(name = "Producto.findByNombreProducto", query = "SELECT p FROM Producto p WHERE p.nombreProducto = :nombreProducto"),
-    @NamedQuery(name = "Producto.findByDescripcionProducto", query = "SELECT p FROM Producto p WHERE p.descripcionProducto = :descripcionProducto"),
-    @NamedQuery(name = "Producto.findByEstadoProducto", query = "SELECT p FROM Producto p WHERE p.estadoProducto = :estadoProducto"),
-    @NamedQuery(name = "Producto.findByEliminadoProducto", query = "SELECT p FROM Producto p WHERE p.eliminadoProducto = :eliminadoProducto")})
+    @NamedQuery(name = "Producto.findByDescripcionProducto", query = "SELECT p FROM Producto p WHERE p.descripcionProducto = :descripcionProducto")})
 public class Producto implements Serializable {
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,10 +48,6 @@ public class Producto implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "descripcion_producto")
     private String descripcionProducto;
-    @Column(name = "estado_producto")
-    private Character estadoProducto;
-    @Column(name = "eliminado_producto")
-    private Character eliminadoProducto;
     @JoinColumn(name = "id_proyecto", referencedColumnName = "id_proyecto")
     @ManyToOne(optional = false)
     private Proyecto idProyecto;
@@ -96,22 +89,6 @@ public class Producto implements Serializable {
         this.descripcionProducto = descripcionProducto;
     }
 
-    public Character getEstadoProducto() {
-        return estadoProducto;
-    }
-
-    public void setEstadoProducto(Character estadoProducto) {
-        this.estadoProducto = estadoProducto;
-    }
-
-    public Character getEliminadoProducto() {
-        return eliminadoProducto;
-    }
-
-    public void setEliminadoProducto(Character eliminadoProducto) {
-        this.eliminadoProducto = eliminadoProducto;
-    }
-
     public Proyecto getIdProyecto() {
         return idProyecto;
     }
@@ -143,6 +120,14 @@ public class Producto implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Producto[ idProducto=" + idProducto + " ]";
+    }
+
+    public EstadoGeneral getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(EstadoGeneral idEstado) {
+        this.idEstado = idEstado;
     }
     
 }
