@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title><ui:insert name="title">Portal GIIB</ui:insert></title>
+        <h6><title><ui:insert name="title">Portal GIIB</ui:insert></title></h6>
 
         <h:outputStylesheet library="css" name="style.css" />
         <h:outputStylesheet library="css" name="coin-slider.css" />
@@ -16,8 +16,9 @@
         <h:outputScript library="js" name="cufon-yanone.js" />
 
         <h:outputScript library="js" name="script.js"  />
-        <h:outputScript library="js" name="coin-slider.min.js"  />      
+        <h:outputScript library="js" name="coin-slider.min.js"  />   
 
+        
     </h:head>
 
     <h:body>
@@ -30,6 +31,7 @@
             </p:idleMonitor>  
         </h:form>
 
+
         <div class="main">
             <div class="header">
                 <div class="header_resize">
@@ -40,6 +42,14 @@
                         </h1>
                     </div>
                     <div class="clr"></div>
+                  <!-- <h5><h:panelGrid columns="2"  width="373" style="margin-bottom:10px ">  
+            <h:outputLabel for="usuario" value="Usuario :" />                                     
+            <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" />  
+
+            <h:outputLabel for="contrasena" value="Contrase&ntilde;a :" />                                              
+            <p:inputText id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a."/>  
+        </h:panelGrid>  
+        </h5>-->
 
                     <div class="menuHolder">
                         <div class="clr"></div>
@@ -123,6 +133,7 @@
                             <div class="clr"></div>
                         </div>
                         <div class="clr"></div>
+
 
                     </ui:insert>
                 </div>
