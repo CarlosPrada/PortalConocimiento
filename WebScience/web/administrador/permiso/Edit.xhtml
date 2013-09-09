@@ -10,23 +10,29 @@
             <h:outputText value="#{bundle.EditPermisoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+
+            <h:outputLabel value="#{bundle.IDPermiso}" for="usuarioInvestigador" /><br/>
+            <h:outputLabel value="#{bundle.Requerido}" for="usuarioInvestigador" />   
+            <br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditPermisoLabel_idPermiso}" for="idPermiso" />
-                    <h:inputText id="idPermiso" value="#{permisoController.selected.idPermiso}" title="#{bundle.EditPermisoTitle_idPermiso}" required="true" requiredMessage="#{bundle.EditPermisoRequiredMessage_idPermiso}" size="5"/>
-                    
+
                     <h:outputLabel value="#{bundle.EditPermisoLabel_nombrePermiso}" for="nombrePermiso" />
                     <h:inputText id="nombrePermiso" value="#{permisoController.selected.nombrePermiso}" title="#{bundle.EditPermisoTitle_nombrePermiso}" required="true" requiredMessage="#{bundle.EditPermisoRequiredMessage_nombrePermiso}" size="35"/>
-                    
+
                     <h:outputLabel value="#{bundle.EditPermisoLabel_descripcionPermiso}" for="descripcionPermiso" />
                     <h:inputText id="descripcionPermiso" value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.EditPermisoTitle_descripcionPermiso}" required="true" requiredMessage="#{bundle.EditPermisoRequiredMessage_descripcionPermiso}" size="155"/>
+
                 </h:panelGrid>
                 <h:commandLink action="#{permisoController.update}" value="#{bundle.EditPermisoSaveLink}"/>
                 <br/><br/>
                 <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.EditPermisoShowAllLink}" immediate="true"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -10,17 +10,23 @@
             <h:outputText value="#{bundle.EditTipoInvestigadorTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <h:outputLabel value="#{bundle.IDTipoInvestigador}" for="usuarioInvestigador" /><br/>
+            <h:outputLabel value="#{bundle.Requerido}" for="usuarioInvestigador" /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTipoInvestigadorLabel_idTipoInvestigador}" for="idTipoInvestigador" />
-                    <h:inputText id="idTipoInvestigador" value="#{tipoInvestigadorController.selected.idTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_idTipoInvestigador}" required="true" requiredMessage="#{bundle.EditTipoInvestigadorRequiredMessage_idTipoInvestigador}" size="5"/>
+
                     <h:outputLabel value="#{bundle.EditTipoInvestigadorLabel_nombreTipoInvestigador}" for="nombreTipoInvestigador" />
                     <h:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.EditTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
+
                     <h:outputLabel value="#{bundle.EditTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
                     <h:inputText id="descripcionTipoInvestigador" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_descripcionTipoInvestigador}" required="true" requiredMessage="#{bundle.EditTipoInvestigadorRequiredMessage_descripcionTipoInvestigador}" size="150"/>
+
                 </h:panelGrid>
                 <h:commandLink action="#{tipoInvestigadorController.update}" value="#{bundle.EditTipoInvestigadorSaveLink}"/>
                 <br/><br/>

@@ -10,19 +10,24 @@
             <h:outputText value="#{bundle.CreatePermisoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+
+            <h:outputLabel value="#{bundle.IDTipoInvestigador}" for="usuarioInvestigador" /><br/>
+            <h:outputLabel value="#{bundle.Requerido}" for="usuarioInvestigador" />   
+            <br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePermisoLabel_idPermiso}" for="idPermiso" />
-                    <h:inputText id="idPermiso" value="#{permisoController.selected.idPermiso}" title="#{bundle.CreatePermisoTitle_idPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_idPermiso}" size="5"/>
-                   
+
                     <h:outputLabel value="#{bundle.CreatePermisoLabel_nombrePermiso}" for="nombrePermiso" />
                     <h:inputText id="nombrePermiso" value="#{permisoController.selected.nombrePermiso}" title="#{bundle.CreatePermisoTitle_nombrePermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_nombrePermiso}" size="35"/>
-                    
+
                     <h:outputLabel value="#{bundle.CreatePermisoLabel_descripcionPermiso}" for="descripcionPermiso" />
                     <h:inputText id="descripcionPermiso" value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.CreatePermisoTitle_descripcionPermiso}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_descripcionPermiso}" size="155"/>
+
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{permisoController.create}" value="#{bundle.CreatePermisoSaveLink}" />
@@ -30,6 +35,7 @@
                 <br />
                 <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.CreatePermisoShowAllLink}" immediate="true"/>
             </h:form>
+
         </ui:define>
     </ui:composition>
 </html>

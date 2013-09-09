@@ -10,15 +10,20 @@
             <h:outputText value="#{bundle.CreateTipoInvestigadorTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+
+            <h:outputLabel value="#{bundle.IDTipoInvestigador}" for="usuarioInvestigador" /><br/>
+            <h:outputLabel value="#{bundle.Requerido}" for="usuarioInvestigador" /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_idTipoInvestigador}" for="idTipoInvestigador" />
-                    <h:inputText id="idTipoInvestigador" value="#{tipoInvestigadorController.selected.idTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_idTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_idTipoInvestigador}" size="5"/>
+
                     <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_nombreTipoInvestigador}" for="nombreTipoInvestigador" />
                     <h:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
+
                     <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
                     <h:inputText id="descripcionTipoInvestigador" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_descripcionTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_descripcionTipoInvestigador}" size="150"/>
                 </h:panelGrid>

@@ -59,20 +59,14 @@
 
                     <h:outputText value="#{bundle.ViewInvestigadorLabel_imagenPathInvestigador}"/>
                     <h:outputText value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.ViewInvestigadorTitle_imagenPathInvestigador}"/>
-                    
-                    <h:outputText value="#{bundle.ViewInvestigadorLabel_estadoInvestigador}"/>
-                    <h:outputText value="#{investigadorController.selected.estadoInvestigador}" title="#{bundle.ViewInvestigadorTitle_estadoInvestigador}"/>
 
-                    <h:outputText value="#{bundle.ViewInvestigadorLabel_eliminadoInvestigador}"/>
-                    <h:outputText value="#{investigadorController.selected.eliminadoInvestigador}" title="#{bundle.ViewInvestigadorTitle_eliminadoInvestigador}"/>
+                    <h:outputText value="#{bundle.ViewInvestigadorLabel_estadoInvestigador}"/>
+                    <h:outputText value="#{investigadorController.selected.idEstado.nombreEstado}" title="#{bundle.ViewInvestigadorTitle_estadoInvestigador}"/>
 
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{investigadorController.destroyAndView}" value="#{bundle.ViewInvestigadorDestroyLink}"/>
-                <br />
-                <br />
                 <h:link outcome="Edit" value="#{bundle.ViewInvestigadorEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.ViewInvestigadorShowAllLink}"/>
                 <br />
             </h:form>

@@ -11,31 +11,38 @@
             <h:outputText value="#{bundle.ListPermisoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+
             <h:form >
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+
                 <h:outputText escape="false" value="#{bundle.ListPermisoEmpty}" rendered="#{permisoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{permisoController.items.rowCount > 0}">
                     <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" style="width:500px;" >
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_idPermiso}"/>
                             </f:facet>
                             <h:outputText value="#{item.idPermiso}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_nombrePermiso}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombrePermiso}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_descripcionPermiso}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionPermiso}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
@@ -43,15 +50,15 @@
                             <h:commandLink action="#{permisoController.prepareView}" value="#{bundle.ListPermisoViewLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{permisoController.prepareEdit}" value="#{bundle.ListPermisoEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{permisoController.destroy}" value="#{bundle.ListPermisoDestroyLink}"/>
                         </p:column>
+
                     </p:dataTable>
                 </h:panelGroup>
                 <br/>
                 <h:commandLink action="#{permisoController.prepareCreate}" value="#{bundle.ListPermisoCreateLink}"/>
                 <br/><br/>
                 <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListPermisoIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -24,9 +24,7 @@
                     <h:outputText value="#{bundle.ViewPermisoLabel_descripcionPermiso}"/>
                     <h:outputText value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.ViewPermisoTitle_descripcionPermiso}"/>
                 </h:panelGrid>
-                <br/>
-                <h:commandLink action="#{permisoController.destroyAndView}" value="#{bundle.ViewPermisoDestroyLink}"/>
-                <br/><br/>                
+                <br/>                
                 <h:link outcome="Edit" value="#{bundle.ViewPermisoEditLink}"/>
                 <br/>               
                 <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.ViewPermisoShowAllLink}"/>
