@@ -14,11 +14,27 @@
     <ui:define name="body">
 
         <div class="article">                                
-            <h1><span>Herramientas Software</span></h1>
-        </div>
+           <h1><span>Herramientas Software</span></h1>
+        <div class="content">
+            <div class="content_resize">
+                <div class="mainbarIzquierdo">
+                    <h:form>
+                        <p:dataGrid value="#{herramientasSoftwarePC.herramientaSoftware}" emptyMessage="No se encontraton registros"  var="HS">
+                            <span>Herramienta software: </span> <a href="#{HS.contenidoDetallado}" > ir </a> <br/><br/>
+                           <!-- <h3><span><br> <li><h:commandLink value="#{HS.contenidoDetallado}" /></li> </br></span></h3>-->
+                            
+                        </p:dataGrid>
+                    </h:form>
+                       
+                </div> 
+                 </div> 
+                     </div> 
+                
+                    </div> 
+               
         
-        Enlaces a Herramientas software.
-
-
-    </ui:define>
+           
+               
+   
+</ui:define>
 </ui:composition>

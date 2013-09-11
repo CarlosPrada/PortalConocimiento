@@ -25,7 +25,7 @@ import uis.giib.entidades.TipoContenido;
 
 /**
  *
- * @author Carlos David Prada Remolina
+ * @author Carlos David Prada Remolina Y CRIS
  */
 @Named(value = "eventosPC")
 @SessionScoped
@@ -35,7 +35,7 @@ public class EventosPortalController implements Serializable {
     private ScheduleEvent event = new DefaultScheduleEvent();
     private DataModel<Contenido> listadoContenidoEventos;
     private TipoContenido TipoContenido;
-    private Integer idTipo = new Integer(1);
+    private Integer idTipo = new Integer(4);
     @EJB
     private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
 
