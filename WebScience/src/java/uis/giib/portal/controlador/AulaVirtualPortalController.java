@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
@@ -12,50 +16,47 @@ import uis.giib.entidades.TipoContenido;
 
 /**
  *
- * @author Carlos David Prada Remolina y cristhian ruiz
+ * @author cristhian ruiz
  */
-@Named(value = "herramientasSoftwarePC")
+@Named(value = "AulaVirtualesPortalController")
 @SessionScoped
-public class HerramientasSoftwarePortalController implements Serializable {
-
-    private DataModel<Contenido> HerramientasSoftware;
-    private TipoContenido tipoContenido;
-    private Integer idTipo = new Integer(4);
+public class AulaVirtualPortalController implements Serializable {
+     private DataModel<Contenido> AulaVirtual;
+   private TipoContenido tipoContenido;
+    private Integer idTipo = new Integer(5);
     @EJB
     private uis.giib.administrador.dao.TipoContenidoFacade ejbTipoContenido;
-//Constructor
 
-    public void HerramientasSoftwarePortalController() {
-
+    /**Constructor*/
+    public void AulaVirtualPortalController() {
+        
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            HerramientasSoftware = new ListDataModel(tipoContenido.getContenidoList());
+            AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
-            System.out.println("Error de herramientas software!" + e.getCause());
+            System.out.println("Error de AulaVirtual!" + e.getCause());
         }
-
+    
 
     }
 //Métodos de navegación
     // usado cuando hacemos click en el menú 
-
-    public String goHerramientasSoftware() {
+    public String goAulaVirtual() {
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            HerramientasSoftware = new ListDataModel(tipoContenido.getContenidoList());
+            AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
-            System.out.println("Error de HerramientasSoftware!" + e.getCause());
+            System.out.println("Error de AulaVirtual!" + e.getCause());
         }
-        return "/portal/herramientasSoftware.xhtml?faces-redirect=true";
+        return "/portal/aulaVirtual.xhtml?faces-redirect=true";
     }
 
-    public DataModel<Contenido> getHerramientaSoftware() {
-        return HerramientasSoftware;
-
+    public DataModel<Contenido> getAulaVirtual() {
+        return AulaVirtual;
     }
 
-    public void setHerramientaSoftware(DataModel<Contenido> herramientaSoftware) {
-        this.HerramientasSoftware = herramientaSoftware;
+    public void setAulaVirtual(DataModel<Contenido> AulaVirtual) {
+        this.AulaVirtual = AulaVirtual;
     }
 
     public TipoContenido getTipoContenido() {
@@ -74,14 +75,6 @@ public class HerramientasSoftwarePortalController implements Serializable {
         this.idTipo = idTipo;
     }
 
-    public DataModel<Contenido> getHerramientasSoftware() {
-        return HerramientasSoftware;
-    }
-
-    public void setHerramientasSoftware(DataModel<Contenido> HerramientasSoftware) {
-        this.HerramientasSoftware = HerramientasSoftware;
-    }
-
     public TipoContenidoFacade getEjbTipoContenido() {
         return ejbTipoContenido;
     }
@@ -89,4 +82,8 @@ public class HerramientasSoftwarePortalController implements Serializable {
     public void setEjbTipoContenido(TipoContenidoFacade ejbTipoContenido) {
         this.ejbTipoContenido = ejbTipoContenido;
     }
+
+    
+    
+    
 }

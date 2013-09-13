@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
@@ -12,50 +16,47 @@ import uis.giib.entidades.TipoContenido;
 
 /**
  *
- * @author Carlos David Prada Remolina y cristhian ruiz
+ * @author cristhian
  */
-@Named(value = "herramientasSoftwarePC")
+@Named(value = "ReferenciasBibliograficasPortalController")
 @SessionScoped
-public class HerramientasSoftwarePortalController implements Serializable {
+public class ReferenciasBibliograficasPortalController implements Serializable {
 
-    private DataModel<Contenido> HerramientasSoftware;
+    private DataModel<Contenido> ReferenciasBibliograficas;
     private TipoContenido tipoContenido;
-    private Integer idTipo = new Integer(4);
+    private Integer idTipo = new Integer(7);
     @EJB
     private uis.giib.administrador.dao.TipoContenidoFacade ejbTipoContenido;
-//Constructor
 
-    public void HerramientasSoftwarePortalController() {
-
+    //Constructor
+    public void ReferenciasBibliograficasPortalController() {
+        
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            HerramientasSoftware = new ListDataModel(tipoContenido.getContenidoList());
+            ReferenciasBibliograficas = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
-            System.out.println("Error de herramientas software!" + e.getCause());
+            System.out.println("Error de ReferenciasBibliograficas!" + e.getCause());
         }
-
-
-    }
-//Métodos de navegación
+    //Métodos de navegación
     // usado cuando hacemos click en el menú 
-
-    public String goHerramientasSoftware() {
+   
+    }
+    public String goReferenciasBibliograficas (){
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            HerramientasSoftware = new ListDataModel(tipoContenido.getContenidoList());
+           ReferenciasBibliograficas = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
-            System.out.println("Error de HerramientasSoftware!" + e.getCause());
+            System.out.println("Error de Referencias Bibliograficas!" + e.getCause());
         }
-        return "/portal/herramientasSoftware.xhtml?faces-redirect=true";
+        return "/portal/referenciasBibliograficas.xhtml?faces-redirect=true";
     }
 
-    public DataModel<Contenido> getHerramientaSoftware() {
-        return HerramientasSoftware;
-
+    public DataModel<Contenido> getReferenciasBibliograficas() {
+        return ReferenciasBibliograficas;
     }
 
-    public void setHerramientaSoftware(DataModel<Contenido> herramientaSoftware) {
-        this.HerramientasSoftware = herramientaSoftware;
+    public void setReferenciasBibliograficas(DataModel<Contenido> ReferenciasBibliograficas) {
+        this.ReferenciasBibliograficas = ReferenciasBibliograficas;
     }
 
     public TipoContenido getTipoContenido() {
@@ -74,14 +75,6 @@ public class HerramientasSoftwarePortalController implements Serializable {
         this.idTipo = idTipo;
     }
 
-    public DataModel<Contenido> getHerramientasSoftware() {
-        return HerramientasSoftware;
-    }
-
-    public void setHerramientasSoftware(DataModel<Contenido> HerramientasSoftware) {
-        this.HerramientasSoftware = HerramientasSoftware;
-    }
-
     public TipoContenidoFacade getEjbTipoContenido() {
         return ejbTipoContenido;
     }
@@ -89,4 +82,5 @@ public class HerramientasSoftwarePortalController implements Serializable {
     public void setEjbTipoContenido(TipoContenidoFacade ejbTipoContenido) {
         this.ejbTipoContenido = ejbTipoContenido;
     }
+
 }
