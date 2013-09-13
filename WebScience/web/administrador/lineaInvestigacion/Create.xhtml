@@ -3,43 +3,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ck="http://code.google.com/ck-jsf-editor">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateLineaInvestigacionTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+
+            <h:outputLabel value="#{bundle.IDLineaInvestigacion}" /><br/>
+            <h:outputLabel value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
+
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_detallelineadeinvestigacion}" for="detallelineadeinvestigacion" />
-                    <h:inputText id="detallelineadeinvestigacion" value="#{lineaInvestigacionController.selected.detallelineadeinvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_detallelineadeinvestigacion}" />
-                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_imagenLineaInvestigacion}" for="imagenLineaInvestigacion" />
-                    <h:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_imagenLineaInvestigacion}" />
-                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_idLineaInvestigacion}" for="idLineaInvestigacion" />
-                    <h:inputText id="idLineaInvestigacion" value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_idLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_idLineaInvestigacion}"/>
+
                     <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_nombreLineaInvestigacion}" for="nombreLineaInvestigacion" />
-                    <h:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}"/>
+                    <h:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}" size="55"/>
+
                     <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_descripcionLineaInvestigacion}" for="descripcionLineaInvestigacion" />
-                    <h:inputText id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_descripcionLineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_descripcionLineaInvestigacion}"/>
-                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_estadoLineaInvestigacion}" for="estadoLineaInvestigacion" />
-                    <h:inputText id="estadoLineaInvestigacion" value="#{lineaInvestigacionController.selected.estadoLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_estadoLineaInvestigacion}" />
-                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_eliminadoLineaInvestigacion}" for="eliminadoLineaInvestigacion" />
-                    <h:inputText id="eliminadoLineaInvestigacion" value="#{lineaInvestigacionController.selected.eliminadoLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_eliminadoLineaInvestigacion}" />
+                    <ck:editor id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" width="850px" uiColor="#aed0ea"  required="true" requiredMessage="#{bundle.CreateLineaInvestigacionRequiredMessage_descripcionLineaInvestigacion}"/>
+                    
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_detalleLineaInvestigacion}" for="descripcionLineaInvestigacion" />
+                    <ck:editor id="detalleLineaInvestigacion" value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" width="850px" uiColor="#aed0ea"  />
+                   
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_imagenLineaInvestigacion}" for="imagenLineaInvestigacion" />
+                    <h:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_imagenLineaInvestigacion}" size="105"/>
+
+                    <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_idEstado}" />
+                    <h:selectOneMenu id="idEstado" value="#{lineaInvestigacionController.selected.idEstado}"  required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_idEstado}">
+                        <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{lineaInvestigacionController.create}" value="#{bundle.CreateLineaInvestigacionSaveLink}" />
-                <br />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.CreateLineaInvestigacionShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateLineaInvestigacionIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>
 
 </html>
+

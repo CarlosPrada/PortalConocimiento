@@ -82,8 +82,8 @@ public class ProyectoInvestigadoresController implements Serializable {
 
     public String create() {
         try {
-            current.getProyectoInvestigadoresPK().setIdProyectoInvestigacion(current.getProyecto().getIdProyecto());
             current.getProyectoInvestigadoresPK().setIdInvestigador(current.getInvestigador().getUsuarioInvestigador());
+            current.getProyectoInvestigadoresPK().setIdProyectoInvestigacion(current.getProyecto().getIdProyecto());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProyectoInvestigadoresCreated"));
             return prepareCreate();
@@ -101,8 +101,8 @@ public class ProyectoInvestigadoresController implements Serializable {
 
     public String update() {
         try {
-            current.getProyectoInvestigadoresPK().setIdProyectoInvestigacion(current.getProyecto().getIdProyecto());
             current.getProyectoInvestigadoresPK().setIdInvestigador(current.getInvestigador().getUsuarioInvestigador());
+            current.getProyectoInvestigadoresPK().setIdProyectoInvestigacion(current.getProyecto().getIdProyecto());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProyectoInvestigadoresUpdated"));
             return "View";

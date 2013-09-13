@@ -11,7 +11,7 @@ import uis.giib.entidades.TipoProyecto;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class TipoProyectoFacade extends AbstractFacade<TipoProyecto> {

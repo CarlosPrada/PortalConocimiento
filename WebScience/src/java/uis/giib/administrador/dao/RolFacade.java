@@ -11,7 +11,7 @@ import uis.giib.entidades.Rol;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class RolFacade extends AbstractFacade<Rol> {

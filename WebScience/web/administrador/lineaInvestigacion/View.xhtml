@@ -15,34 +15,32 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_detallelineadeinvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.detallelineadeinvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_detallelineadeinvestigacion}"/>
-                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_imagenLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
+
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_idLineaInvestigacion}"/>
                     <h:outputText value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_idLineaInvestigacion}"/>
+
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_nombreLineaInvestigacion}"/>
                     <h:outputText value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_nombreLineaInvestigacion}"/>
+
+                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_detalleLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_detalleLineaInvestigacion}"/>
+
+                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_imagenLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
+
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_descripcionLineaInvestigacion}"/>
                     <h:outputText value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_descripcionLineaInvestigacion}"/>
-                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_estadoLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.estadoLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_estadoLineaInvestigacion}"/>
-                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_eliminadoLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.eliminadoLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_eliminadoLineaInvestigacion}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{lineaInvestigacionController.destroyAndView}" value="#{bundle.ViewLineaInvestigacionDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewLineaInvestigacionEditLink}"/>
-                <br />
-                <h:commandLink action="#{lineaInvestigacionController.prepareCreate}" value="#{bundle.ViewLineaInvestigacionCreateLink}" />
-                <br />
-                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewLineaInvestigacionIndexLink}"/>
 
+                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_idEstado}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.idEstado}" title="#{bundle.ViewLineaInvestigacionTitle_estadoLineaInvestigacion}"/>
+
+                </h:panelGrid>
+                <br /><br /> 
+                <h:commandLink action="#{lineaInvestigacionController.prepareCreate}" value="#{bundle.ViewLineaInvestigacionCreateLink}" />
+                <br /><br />
+                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
+                <br /><br />
+                
             </h:form>
         </ui:define>
     </ui:composition>

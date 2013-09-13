@@ -18,11 +18,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada remolina
  */
 @Entity
 @Table(name = "estado_proyecto")
@@ -91,7 +90,7 @@ public class EstadoProyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.EstadoProyecto[ idEstadoProyecto=" + idEstadoProyecto + " ]";
+        return "[" + idEstadoProyecto + "] - " + nombreEstadoProyecto;
     }
 
     public List<Proyecto> getProyectoList() {

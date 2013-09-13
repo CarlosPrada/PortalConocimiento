@@ -72,7 +72,7 @@
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_estadoInvestigador}" for="estadoInvestigador" />
-                    <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}" title="#{bundle.CreateInvestigadorTitle_idNivelPermiso}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idTipoInvestigador}">
+                    <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 

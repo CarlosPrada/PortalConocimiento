@@ -39,9 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "LineaInvestigacion.findByDescripcionLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.descripcionLineaInvestigacion = :descripcionLineaInvestigacion")})
 public class LineaInvestigacion implements Serializable {
 
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,17 +52,20 @@ public class LineaInvestigacion implements Serializable {
     private String nombreLineaInvestigacion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 766)
+    @Size(min = 1, max = 65000)
     @Column(name = "descripcion_linea_investigacion")
     private String descripcionLineaInvestigacion;
-    @Column(name = "detalle_linea_de_investigacion")
-    private String detallelineadeinvestigacion;
-    @Column(name = "imagen_linea_de_investigacion")
+    @Column(name = "detalle_linea_investigacion")
+    private String detalleLineaInvestigacion;
+    @Column(name = "imagen_linea_investigacion")
     private String imagenLineaInvestigacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaInvestigacion")
     private List<LineasInvestigador> lineasInvestigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLinea")
     private List<Proyecto> proyectoList;
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
 
     public LineaInvestigacion() {
     }
@@ -80,6 +80,8 @@ public class LineaInvestigacion implements Serializable {
         this.descripcionLineaInvestigacion = descripcionLineaInvestigacion;
     }
 
+    // Getter - Setter
+    
     public String getImagenLineaInvestigacion() {
         return imagenLineaInvestigacion;
     }
@@ -126,15 +128,7 @@ public class LineaInvestigacion implements Serializable {
 
     public void setDescripcionLineaInvestigacion(String descripcionLineaInvestigacion) {
         this.descripcionLineaInvestigacion = descripcionLineaInvestigacion;
-    }
-
-    public String getDetallelineadeinvestigacion() {
-        return detallelineadeinvestigacion;
-    }
-
-    public void setDetallelineadeinvestigacion(String detallelineadeinvestigacion) {
-        this.detallelineadeinvestigacion = detallelineadeinvestigacion;
-    }
+    }   
 
     @Override
     public int hashCode() {
@@ -158,7 +152,7 @@ public class LineaInvestigacion implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.LineaInvestigacion[ idLineaInvestigacion=" + idLineaInvestigacion + " ]";
+        return "[" + idLineaInvestigacion + "] - " + nombreLineaInvestigacion;
     }
 
     public EstadoGeneral getIdEstado() {
@@ -167,5 +161,13 @@ public class LineaInvestigacion implements Serializable {
 
     public void setIdEstado(EstadoGeneral idEstado) {
         this.idEstado = idEstado;
+    }
+
+    public String getDetalleLineaInvestigacion() {
+        return detalleLineaInvestigacion;
+    }
+
+    public void setDetalleLineaInvestigacion(String detalleLineaInvestigacion) {
+        this.detalleLineaInvestigacion = detalleLineaInvestigacion;
     }
 }

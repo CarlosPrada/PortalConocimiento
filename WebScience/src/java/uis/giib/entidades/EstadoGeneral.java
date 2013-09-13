@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada remolina
  */
 @Entity
 @Table(name = "estado_general")
@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByIdEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.idEstado = :idEstado"),
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -51,7 +52,7 @@ public class EstadoGeneral implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<LineaInvestigacion> lineaInvestigacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private List<Producto> productoList;
+    private List<ProductoProyecto> productoProyectoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<ProduccionIntelectual> produccionIntelectualList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
@@ -122,16 +123,6 @@ public class EstadoGeneral implements Serializable {
     public void setLineaInvestigacionList(List<LineaInvestigacion> lineaInvestigacionList) {
         this.lineaInvestigacionList = lineaInvestigacionList;
     }
-
-    @XmlTransient
-    public List<Producto> getProductoList() {
-        return productoList;
-    }
-
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
-    }
-
     @XmlTransient
     public List<ProduccionIntelectual> getProduccionIntelectualList() {
         return produccionIntelectualList;
@@ -173,5 +164,14 @@ public class EstadoGeneral implements Serializable {
     @Override
     public String toString() {
         return "[" + idEstado + "] - " + nombreEstado;
+    }
+
+    @XmlTransient
+    public List<ProductoProyecto> getProductoProyectoList() {
+        return productoProyectoList;
+    }
+
+    public void setProductoProyectoList(List<ProductoProyecto> productoProyectoList) {
+        this.productoProyectoList = productoProyectoList;
     }
 }

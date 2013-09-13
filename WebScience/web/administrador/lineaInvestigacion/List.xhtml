@@ -17,66 +17,67 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListLineaInvestigacionEmpty}" rendered="#{lineaInvestigacionController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{lineaInvestigacionController.items.rowCount > 0}">
-                    <p:dataTable value="#{lineaInvestigacionController.items}" paginator="true" rows="30" var="item" style="width:100%;" resizableColumns="true">
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_detallelineadeinvestigacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.detallelineadeinvestigacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imagenLineaInvestigacion}"/>
-                        </p:column>
-                        <p:column>
+
+                    <p:dataTable value="#{lineaInvestigacionController.items}" paginator="true" rows="30" var="item"  resizableColumns="true" style="width:1600px;">
+
+                        <p:column width="110">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLineaInvestigacionTitle_idLineaInvestigacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.idLineaInvestigacion}"/>
                         </p:column>
-                        <p:column>
+
+                        <p:column width="280">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLineaInvestigacionTitle_nombreLineaInvestigacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreLineaInvestigacion}"/>
                         </p:column>
-                        <p:column>
+
+                        <p:column width="280">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLineaInvestigacionTitle_descripcionLineaInvestigacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionLineaInvestigacion}"/>
                         </p:column>
-                        <p:column>
+
+                        <p:column width="280">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_estadoLineaInvestigacion}"/>
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_detallelineadeinvestigacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadoLineaInvestigacion}"/>
+                            <h:outputText value="#{item.detalleLineaInvestigacion}"/>
                         </p:column>
-                        <p:column>
+
+                        <p:column width="260">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_eliminadoLineaInvestigacion}"/>
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.eliminadoLineaInvestigacion}"/>
+                            <h:outputText value="#{item.imagenLineaInvestigacion}"/>
                         </p:column>
-                        <p:column>
+
+                        <p:column width="80">                       
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_idEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstado}"/>
+                        </p:column>
+
+                        <p:column width="80">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{lineaInvestigacionController.prepareView}" value="#{bundle.ListLineaInvestigacionViewLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{lineaInvestigacionController.prepareEdit}" value="#{bundle.ListLineaInvestigacionEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{lineaInvestigacionController.destroy}" value="#{bundle.ListLineaInvestigacionDestroyLink}"/>
                         </p:column>
+
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{lineaInvestigacionController.prepareCreate}" value="#{bundle.ListLineaInvestigacionCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListLineaInvestigacionIndexLink}"/>
+                <br /><br />
+                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListLineaInvestigacionIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

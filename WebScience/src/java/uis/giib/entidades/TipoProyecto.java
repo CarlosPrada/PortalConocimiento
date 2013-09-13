@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TipoProyecto.findByNombreTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.nombreTipoProyecto = :nombreTipoProyecto"),
     @NamedQuery(name = "TipoProyecto.findByDescripcionTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.descripcionTipoProyecto = :descripcionTipoProyecto")})
 public class TipoProyecto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -123,7 +124,6 @@ public class TipoProyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoProyecto[ idTipoProyecto=" + idTipoProyecto + " ]";
+        return "[" + idTipoProyecto + "] - " + nombreTipoProyecto;
     }
-    
 }

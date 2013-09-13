@@ -44,31 +44,27 @@ public class Proyecto implements Serializable {
     private Integer idProyecto;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 21)
+    @Size(min = 1, max = 200)
     @Column(name = "nombre_proyecto")
     private String nombreProyecto;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 90)
     @Column(name = "descripcion_resumida_proyecto")
     private String descripcionResumidaProyecto;
     @Basic(optional = false)
-    @NotNull
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "descripcion_detallada_proyecto")
     private String descripcionDetalladaProyecto;
-    @Size(max = 50)
+    @Size(max = 200)
     @Column(name = "imagen_proyecto")
     private String imagenProyecto;
     @Basic(optional = false)
-    @NotNull
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "objetivos_proyecto")
     private String objetivosProyecto;
     @Basic(optional = false)
-    @NotNull
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "resultados_proyecto")
@@ -88,7 +84,7 @@ public class Proyecto implements Serializable {
     @ManyToOne(optional = false)
     private EstadoGeneral idEstadoGeneral;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProyecto")
-    private List<Producto> productoList;
+    private List<ProductoProyecto> productoProyectoList;
 
     public Proyecto() {
     }
@@ -229,11 +225,11 @@ public class Proyecto implements Serializable {
     }
 
     @XmlTransient
-    public List<Producto> getProductoList() {
-        return productoList;
+    public List<ProductoProyecto> getProductoProyectoList() {
+        return productoProyectoList;
     }
 
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
+    public void setProductoProyectoList(List<ProductoProyecto> productoProyectoList) {
+        this.productoProyectoList = productoProyectoList;
     }
 }

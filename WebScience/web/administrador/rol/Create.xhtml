@@ -21,8 +21,6 @@
                     <h:inputText id="nombreRol" value="#{rolController.selected.nombreRol}" title="#{bundle.CreateRolTitle_nombreRol}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_nombreRol}"/>
                     <h:outputLabel value="#{bundle.CreateRolLabel_descripcionRol}" for="descripcionRol" />
                     <h:inputText id="descripcionRol" value="#{rolController.selected.descripcionRol}" title="#{bundle.CreateRolTitle_descripcionRol}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_descripcionRol}"/>
-                    <h:outputLabel value="#{bundle.CreateRolLabel_estadoRol}" for="estadoRol" />
-                    <h:inputText id="estadoRol" value="#{rolController.selected.estadoRol}" title="#{bundle.CreateRolTitle_estadoRol}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{rolController.create}" value="#{bundle.CreateRolSaveLink}" />

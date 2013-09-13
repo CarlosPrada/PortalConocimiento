@@ -6,15 +6,12 @@ package uis.giib.administrador.dao;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import uis.giib.entidades.Proyecto;
-import uis.giib.entidades.TipoContenido;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class ProyectoFacade extends AbstractFacade<Proyecto> {
@@ -28,16 +25,6 @@ public class ProyectoFacade extends AbstractFacade<Proyecto> {
 
     public ProyectoFacade() {
         super(Proyecto.class);
-    }
-    
-            public Proyecto buscarProyectosPorEstado(Integer idEstado) {
-        try {
-            Query query = em.createNamedQuery("Proyecto.findByIdEstadoProyecto");
-            query.setParameter("idEstado", idEstado);
-            return (Proyecto)query.getResultList();
-        } catch (NoResultException e) {
-            return null;
-        }
     }
     
 }
