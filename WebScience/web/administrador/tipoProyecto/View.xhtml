@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,26 +15,24 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_idTipoProyecto}"/>
                     <h:outputText value="#{tipoProyectoController.selected.idTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_idTipoProyecto}"/>
+                    
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_nombreTipoProyecto}"/>
                     <h:outputText value="#{tipoProyectoController.selected.nombreTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_nombreTipoProyecto}"/>
+                    
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_descripcionTipoProyecto}"/>
                     <h:outputText value="#{tipoProyectoController.selected.descripcionTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_descripcionTipoProyecto}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{tipoProyectoController.destroyAndView}" value="#{bundle.ViewTipoProyectoDestroyLink}"/>
-                <br />
-                <br />
+                </p:panelGrid>
+               
+                <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewTipoProyectoEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{tipoProyectoController.prepareCreate}" value="#{bundle.ViewTipoProyectoCreateLink}" />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{tipoProyectoController.prepareList}" value="#{bundle.ViewTipoProyectoShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewTipoProyectoIndexLink}"/>
+                <br /><br />
 
             </h:form>
         </ui:define>

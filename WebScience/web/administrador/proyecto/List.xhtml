@@ -19,11 +19,9 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-
                 <h:outputText escape="false" value="#{bundle.ListProyectoEmpty}" rendered="#{proyectoController.items.rowCount == 0}"/>
 
                 <h:panelGroup rendered="#{proyectoController.items.rowCount > 0}">
-
                     <p:dataTable value="#{proyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:1850px;">
 
                         <p:column width="60">
@@ -116,9 +114,25 @@
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{proyectoController.prepareCreate}" value="#{bundle.ListProyectoCreateLink}"/>
+
+                <br /><br />
+                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
+                <h:link outcome="/administrador/productoProyecto/#{productoProyectoController.prepareList()}" value="Administrar Productos de Proyectos de Investigación"/>
+                : Permite administrar los Productos resultado de Proyectos de Investigación.
+
+                <br /><br />
+                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
+                <h:link outcome="/administrador/estadoProyecto/#{estadoProyectoController.prepareList()}" value="Administrar Estados de Proyectos de Investigación"/>
+                : Permite administrar los posibles Estados de los Proyectos de Investigación.
+
+                <br /><br />
+                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
+                <h:link outcome="/administrador/tipoProyecto/#{tipoProyectoController.prepareList()}" value="Administrar Tipos de Proyectos de Investigación"/>
+                : Permite administrar los posibles Tipos de los Proyectos de Investigación.
+
                 <br /><br />
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>
-                
+
             </h:form>
         </ui:define>
     </ui:composition>

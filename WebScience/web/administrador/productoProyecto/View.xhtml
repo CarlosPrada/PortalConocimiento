@@ -6,40 +6,45 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewProductoProyectoTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idProducto}"/>
                     <h:outputText value="#{productoProyectoController.selected.idProducto}" title="#{bundle.ViewProductoProyectoTitle_idProducto}"/>
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_nombreProducto}"/>
                     <h:outputText value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.ViewProductoProyectoTitle_nombreProducto}"/>
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_descripcionProducto}"/>
                     <h:outputText value="#{productoProyectoController.selected.descripcionProducto}" title="#{bundle.ViewProductoProyectoTitle_descripcionProducto}"/>
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_enlaceProducto}"/>
                     <h:outputText value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.ViewProductoProyectoTitle_enlaceProducto}"/>
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idEstado}"/>
-                    <h:outputText value="#{productoProyectoController.selected.idEstado}" title="#{bundle.ViewProductoProyectoTitle_idEstado}"/>
+                    <h:outputText value="#{productoProyectoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewProductoProyectoTitle_idEstado}"/>
+
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idProyecto}"/>
-                    <h:outputText value="#{productoProyectoController.selected.idProyecto}" title="#{bundle.ViewProductoProyectoTitle_idProyecto}"/>
+                    <h:outputText value="#{productoProyectoController.selected.idProyecto.nombreProyecto}" title="#{bundle.ViewProductoProyectoTitle_idProyecto}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{productoProyectoController.destroyAndView}" value="#{bundle.ViewProductoProyectoDestroyLink}"/>
-                <br />
-                <br />
+
+                <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewProductoProyectoEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{productoProyectoController.prepareCreate}" value="#{bundle.ViewProductoProyectoCreateLink}" />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{productoProyectoController.prepareList}" value="#{bundle.ViewProductoProyectoShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewProductoProyectoIndexLink}"/>
 
             </h:form>
         </ui:define>

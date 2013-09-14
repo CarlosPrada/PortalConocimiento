@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -21,11 +16,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "tipo_produccion")
@@ -33,9 +27,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "TipoProduccion.findAll", query = "SELECT t FROM TipoProduccion t"),
     @NamedQuery(name = "TipoProduccion.findByIdTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.idTipoProduccion = :idTipoProduccion"),
-    @NamedQuery(name = "TipoProduccion.findByNombreTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.nombreTipoProduccion = :nombreTipoProduccion"),
-    @NamedQuery(name = "TipoProduccion.findByEstadoTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.estadoTipoProduccion = :estadoTipoProduccion")})
+    @NamedQuery(name = "TipoProduccion.findByNombreTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.nombreTipoProduccion = :nombreTipoProduccion")})
 public class TipoProduccion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,11 +38,9 @@ public class TipoProduccion implements Serializable {
     private Integer idTipoProduccion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "nombre_tipo_produccion")
     private String nombreTipoProduccion;
-    @Column(name = "estado_tipo_produccion")
-    private Character estadoTipoProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoProduccion")
     private List<ProduccionIntelectual> produccionIntelectualList;
 
@@ -80,15 +72,6 @@ public class TipoProduccion implements Serializable {
         this.nombreTipoProduccion = nombreTipoProduccion;
     }
 
-    public Character getEstadoTipoProduccion() {
-        return estadoTipoProduccion;
-    }
-
-    public void setEstadoTipoProduccion(Character estadoTipoProduccion) {
-        this.estadoTipoProduccion = estadoTipoProduccion;
-    }
-
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -111,7 +94,7 @@ public class TipoProduccion implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoProduccion[ idTipoProduccion=" + idTipoProduccion + " ]";
+        return "[" + idTipoProduccion + "] - " + nombreTipoProduccion;
     }
 
     public List<ProduccionIntelectual> getProduccionIntelectualList() {
@@ -121,5 +104,4 @@ public class TipoProduccion implements Serializable {
     public void setProduccionIntelectualList(List<ProduccionIntelectual> produccionIntelectualList) {
         this.produccionIntelectualList = produccionIntelectualList;
     }
-    
 }

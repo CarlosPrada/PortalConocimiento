@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,35 +15,32 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.idProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_idProduccion}"/>
+                    
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_nombreProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.nombreProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_nombreProduccion}"/>
+                    
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_agnoProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.agnoProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_agnoProduccion}"/>
+                    
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_referenciaProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.referenciaProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_referenciaProduccion}"/>
-                    <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_estadoProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.estadoProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_estadoProduccion}"/>
-                    <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idAutorProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.idAutorProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_idAutorProduccion}"/>
+                    
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idTipoProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.idTipoProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_idTipoProduccion}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{produccionIntelectualController.destroyAndView}" value="#{bundle.ViewProduccionIntelectualDestroyLink}"/>
-                <br />
-                <br />
+                    
+                    <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idEstado}"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.idEstado}" title="#{bundle.ViewProduccionIntelectualTitle_idEstado}"/>
+                </p:panelGrid>
+                
+                <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewProduccionIntelectualEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{produccionIntelectualController.prepareCreate}" value="#{bundle.ViewProduccionIntelectualCreateLink}" />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{produccionIntelectualController.prepareList}" value="#{bundle.ViewProduccionIntelectualShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewProduccionIntelectualIndexLink}"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

@@ -213,7 +213,7 @@ public class Proyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Proyecto[ idProyecto=" + idProyecto + " ]";
+        return "[" + idProyecto + "] - " + nombreProyecto;
     }
 
     public EstadoGeneral getIdEstadoGeneral() {

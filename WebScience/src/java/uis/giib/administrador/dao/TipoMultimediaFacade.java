@@ -11,7 +11,7 @@ import uis.giib.entidades.TipoMultimedia;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class TipoMultimediaFacade extends AbstractFacade<TipoMultimedia> {

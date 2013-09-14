@@ -4,21 +4,20 @@
  */
 package uis.giib.administrador.dao;
 
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import uis.giib.entidades.Contenido;
 import uis.giib.entidades.TipoContenido;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class TipoContenidoFacade extends AbstractFacade<TipoContenido> {
+
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -30,23 +29,12 @@ public class TipoContenidoFacade extends AbstractFacade<TipoContenido> {
     public TipoContenidoFacade() {
         super(TipoContenido.class);
     }
-    
-    public Contenido findByNombreTipoPublicacion(String nombreTipoPublicacion) {
 
-        try {
-            Query query = em.createNamedQuery("TipoPublicacion.findByNombreTipoPublicacion");
-            query.setParameter("nombreTipoPublicacion", nombreTipoPublicacion);
-            return (Contenido) query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-    
     public TipoContenido buscarContenidoPorTipo(Integer idTipoContenido) {
         try {
             Query query = em.createNamedQuery("TipoContenido.findByIdTipoPublicacion");
             query.setParameter("idTipoPublicacion", idTipoContenido);
-            return (TipoContenido)query.getSingleResult();
+            return (TipoContenido) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }

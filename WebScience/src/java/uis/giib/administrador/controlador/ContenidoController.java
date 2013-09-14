@@ -1,9 +1,9 @@
 package uis.giib.administrador.controlador;
 
-import uis.giib.entidades.TipoContenido;
+import uis.giib.entidades.Contenido;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
-import uis.giib.administrador.dao.TipoContenidoFacade;
+import uis.giib.administrador.dao.ContenidoFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -18,29 +18,29 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("tipoContenidoController")
+@Named("contenidoController")
 @SessionScoped
-public class TipoContenidoController implements Serializable {
+public class ContenidoController implements Serializable {
 
-    private TipoContenido current;
+    private Contenido current;
     private DataModel items = null;
     @EJB
-    private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
+    private uis.giib.administrador.dao.ContenidoFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public TipoContenidoController() {
+    public ContenidoController() {
     }
 
-    public TipoContenido getSelected() {
+    public Contenido getSelected() {
         if (current == null) {
-            current = new TipoContenido();
+            current = new Contenido();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private TipoContenidoFacade getFacade() {
+    private ContenidoFacade getFacade() {
         return ejbFacade;
     }
 
@@ -67,13 +67,13 @@ public class TipoContenidoController implements Serializable {
     }
 
     public String prepareView() {
-        current = (TipoContenido) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new TipoContenido();
+        current = new Contenido();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -81,7 +81,7 @@ public class TipoContenidoController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TipoContenidoCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContenidoCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -90,7 +90,7 @@ public class TipoContenidoController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (TipoContenido) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -98,7 +98,7 @@ public class TipoContenidoController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TipoContenidoUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContenidoUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -107,7 +107,7 @@ public class TipoContenidoController implements Serializable {
     }
 
     public String destroy() {
-        current = (TipoContenido) getItems().getRowData();
+        current = (Contenido) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -131,7 +131,7 @@ public class TipoContenidoController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TipoContenidoDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContenidoDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -187,21 +187,21 @@ public class TipoContenidoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public TipoContenido getTipoContenido(java.lang.Integer id) {
+    public Contenido getContenido(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = TipoContenido.class)
-    public static class TipoContenidoControllerConverter implements Converter {
+    @FacesConverter(forClass = Contenido.class)
+    public static class ContenidoControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            TipoContenidoController controller = (TipoContenidoController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "tipoContenidoController");
-            return controller.getTipoContenido(getKey(value));
+            ContenidoController controller = (ContenidoController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "contenidoController");
+            return controller.getContenido(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -221,11 +221,11 @@ public class TipoContenidoController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof TipoContenido) {
-                TipoContenido o = (TipoContenido) object;
-                return getStringKey(o.getIdTipoPublicacion());
+            if (object instanceof Contenido) {
+                Contenido o = (Contenido) object;
+                return getStringKey(o.getIdPublicacion());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + TipoContenido.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Contenido.class.getName());
             }
         }
     }

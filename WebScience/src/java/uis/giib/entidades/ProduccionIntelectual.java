@@ -16,7 +16,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -33,15 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "ProduccionIntelectual.findByIdProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.idProduccion = :idProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByNombreProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.nombreProduccion = :nombreProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion")})
-
 public class ProduccionIntelectual implements Serializable {
-    @Column(name = "agno_produccion")
-    private Integer agnoProduccion;
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
-    @Basic(optional = false)
-    @NotNull
+
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "referencia_produccion")
@@ -52,17 +44,19 @@ public class ProduccionIntelectual implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_produccion")
     private Integer idProduccion;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 200)
+    @Size(max = 300)
     @Column(name = "nombre_produccion")
     private String nombreProduccion;
+    @Column(name = "agno_produccion")
+    private Integer agnoProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produccionIntelectual")
     private List<InvestigadorProduccion> investigadorProduccionList;
     @JoinColumn(name = "id_tipo_produccion", referencedColumnName = "id_tipo_produccion")
     @ManyToOne(optional = false)
     private TipoProduccion idTipoProduccion;
-
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
 
     public ProduccionIntelectual() {
     }
@@ -91,14 +85,6 @@ public class ProduccionIntelectual implements Serializable {
 
     public void setNombreProduccion(String nombreProduccion) {
         this.nombreProduccion = nombreProduccion;
-    }
-
-    public int getAgnoProduccion() {
-        return agnoProduccion;
-    }
-
-    public void setAgnoProduccion(int agnoProduccion) {
-        this.agnoProduccion = agnoProduccion;
     }
 
     public String getReferenciaProduccion() {
@@ -158,6 +144,13 @@ public class ProduccionIntelectual implements Serializable {
     public void setIdEstado(EstadoGeneral idEstado) {
         this.idEstado = idEstado;
     }
-    
+
+    public Integer getAgnoProduccion() {
+        return agnoProduccion;
+    }
+
+    public void setAgnoProduccion(Integer agnoProduccion) {
+        this.agnoProduccion = agnoProduccion;
+    }
     
 }

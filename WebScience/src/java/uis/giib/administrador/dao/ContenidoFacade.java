@@ -11,7 +11,7 @@ import uis.giib.entidades.Contenido;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class ContenidoFacade extends AbstractFacade<Contenido> {

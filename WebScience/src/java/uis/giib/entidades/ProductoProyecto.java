@@ -39,14 +39,14 @@ public class ProductoProyecto implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_producto")
     private Integer idProducto;
-    @Size(max = 40)
+    @Size(max = 150)
     @Column(name = "nombre_producto")
     private String nombreProducto;
     @Lob
     @Size(max = 65535)
     @Column(name = "descripcion_producto")
     private String descripcionProducto;
-    @Size(max = 200)
+    @Size(max = 500)
     @Column(name = "enlace_producto")
     private String enlaceProducto;
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")

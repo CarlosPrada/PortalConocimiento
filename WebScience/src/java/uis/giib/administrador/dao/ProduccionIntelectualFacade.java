@@ -11,7 +11,7 @@ import uis.giib.entidades.ProduccionIntelectual;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class ProduccionIntelectualFacade extends AbstractFacade<ProduccionIntelectual> {

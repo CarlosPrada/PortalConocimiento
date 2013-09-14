@@ -3,76 +3,87 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ListProductoProyectoTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+
+            <h:form >
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+
                 <h:outputText escape="false" value="#{bundle.ListProductoProyectoEmpty}" rendered="#{productoProyectoController.items.rowCount == 0}"/>
+
                 <h:panelGroup rendered="#{productoProyectoController.items.rowCount > 0}">
-                    <h:outputText value="#{productoProyectoController.pagination.pageFirstItem + 1}..#{productoProyectoController.pagination.pageLastItem + 1}/#{productoProyectoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{productoProyectoController.previous}" value="#{bundle.Previous} #{productoProyectoController.pagination.pageSize}" rendered="#{productoProyectoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{productoProyectoController.next}" value="#{bundle.Next} #{productoProyectoController.pagination.pageSize}" rendered="#{productoProyectoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{productoProyectoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:dataTable value="#{productoProyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
+
+                        <p:column width="60">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_idProducto}"/>
                             </f:facet>
                             <h:outputText value="#{item.idProducto}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="100">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_nombreProducto}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreProducto}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="290">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_descripcionProducto}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionProducto}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="290">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_enlaceProducto}"/>
                             </f:facet>
                             <h:outputText value="#{item.enlaceProducto}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="60">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_idEstado}"/>
                             </f:facet>
                             <h:outputText value="#{item.idEstado}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="60">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_idProyecto}"/>
                             </f:facet>
                             <h:outputText value="#{item.idProyecto}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column width="60">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{productoProyectoController.prepareView}" value="#{bundle.ListProductoProyectoViewLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{productoProyectoController.prepareEdit}" value="#{bundle.ListProductoProyectoEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{productoProyectoController.destroy}" value="#{bundle.ListProductoProyectoDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{productoProyectoController.prepareCreate}" value="#{bundle.ListProductoProyectoCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListProductoProyectoIndexLink}"/>
+                <br /><br />
+                <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListProductoProyectoIndexLink}"/>
+
+
             </h:form>
         </ui:define>
     </ui:composition>

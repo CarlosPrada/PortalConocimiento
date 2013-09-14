@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,27 +15,20 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewTipoProduccionLabel_idTipoProduccion}"/>
                     <h:outputText value="#{tipoProduccionController.selected.idTipoProduccion}" title="#{bundle.ViewTipoProduccionTitle_idTipoProduccion}"/>
+                    
                     <h:outputText value="#{bundle.ViewTipoProduccionLabel_nombreTipoProduccion}"/>
                     <h:outputText value="#{tipoProduccionController.selected.nombreTipoProduccion}" title="#{bundle.ViewTipoProduccionTitle_nombreTipoProduccion}"/>
-                    <h:outputText value="#{bundle.ViewTipoProduccionLabel_estadoTipoProduccion}"/>
-                    <h:outputText value="#{tipoProduccionController.selected.estadoTipoProduccion}" title="#{bundle.ViewTipoProduccionTitle_estadoTipoProduccion}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{tipoProduccionController.destroyAndView}" value="#{bundle.ViewTipoProduccionDestroyLink}"/>
-                <br />
-                <br />
+                </p:panelGrid>
+                
+                <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewTipoProduccionEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{tipoProduccionController.prepareCreate}" value="#{bundle.ViewTipoProduccionCreateLink}" />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{tipoProduccionController.prepareList}" value="#{bundle.ViewTipoProduccionShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewTipoProduccionIndexLink}"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

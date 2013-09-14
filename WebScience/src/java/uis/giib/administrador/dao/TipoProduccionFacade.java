@@ -11,7 +11,7 @@ import uis.giib.entidades.TipoProduccion;
 
 /**
  *
- * @author Carlos Humberto
+ * @author Carlos
  */
 @Stateless
 public class TipoProduccionFacade extends AbstractFacade<TipoProduccion> {

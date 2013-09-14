@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -23,7 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -43,21 +38,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Contenido.findByFechaDespublicar", query = "SELECT c FROM Contenido c WHERE c.fechaDespublicar = :fechaDespublicar"),
     @NamedQuery(name = "Contenido.findByTitulo", query = "SELECT c FROM Contenido c WHERE c.titulo = :titulo")})
 public class Contenido implements Serializable {
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPublicacion")
-    private List<Recursos> recursosList;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_publicacion")
     private Integer idPublicacion;
-    @Basic(optional = false)
-    @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "contenido_resumido")
     private String contenidoResumido;
     @Column(name = "fecha_inicioevento")
@@ -69,14 +58,11 @@ public class Contenido implements Serializable {
     @Column(name = "fecha_despublicar")
     @Temporal(TemporalType.DATE)
     private Date fechaDespublicar;
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "titulo")
     private String titulo;
-    @Basic(optional = false)
-    @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "contenido_detallado")
     private String contenidoDetallado;
     @JoinColumn(name = "id_multimedia", referencedColumnName = "id_multimedia")
@@ -88,6 +74,11 @@ public class Contenido implements Serializable {
     @JoinColumn(name = "id_seccion", referencedColumnName = "id_seccion")
     @ManyToOne
     private Seccion idSeccion;
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
+    @ManyToOne(optional = false)
+    private EstadoGeneral idEstado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPublicacion")
+    private List<Recursos> recursosList;
 
     public Contenido() {
     }
@@ -141,7 +132,7 @@ public class Contenido implements Serializable {
 
     public void setFechaDespublicar(Date fechaDespublicar) {
         this.fechaDespublicar = fechaDespublicar;
-    }   
+    }
 
     public String getTitulo() {
         return titulo;
@@ -224,5 +215,4 @@ public class Contenido implements Serializable {
     public void setRecursosList(List<Recursos> recursosList) {
         this.recursosList = recursosList;
     }
-    
 }

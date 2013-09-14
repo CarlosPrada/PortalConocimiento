@@ -17,17 +17,16 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateEstadoProyectoLabel_idEstadoProyecto}" for="idEstadoProyecto" />
                     <h:inputText id="idEstadoProyecto" value="#{estadoProyectoController.selected.idEstadoProyecto}" title="#{bundle.CreateEstadoProyectoTitle_idEstadoProyecto}" required="true" requiredMessage="#{bundle.CreateEstadoProyectoRequiredMessage_idEstadoProyecto}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateEstadoProyectoLabel_nombreEstadoProyecto}" for="nombreEstadoProyecto" />
                     <h:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" title="#{bundle.CreateEstadoProyectoTitle_nombreEstadoProyecto}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{estadoProyectoController.create}" value="#{bundle.CreateEstadoProyectoSaveLink}" />
-                <br />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{estadoProyectoController.prepareList}" value="#{bundle.CreateEstadoProyectoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateEstadoProyectoIndexLink}"/>
+                <br /><br />
+                
             </h:form>
         </ui:define>
     </ui:composition>

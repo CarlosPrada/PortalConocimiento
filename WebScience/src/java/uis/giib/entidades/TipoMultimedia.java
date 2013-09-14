@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,11 +14,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "tipo_multimedia")
@@ -44,7 +39,7 @@ public class TipoMultimedia implements Serializable {
     @Column(name = "nombre_tipo_multimedia")
     private String nombreTipoMultimedia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoMultimedia")
-    private Collection<Multimedia> multimediaCollection;
+    private List<Multimedia> multimediaCollection;
 
     public TipoMultimedia() {
     }
@@ -74,15 +69,6 @@ public class TipoMultimedia implements Serializable {
         this.nombreTipoMultimedia = nombreTipoMultimedia;
     }
 
-    @XmlTransient
-    public Collection<Multimedia> getMultimediaCollection() {
-        return multimediaCollection;
-    }
-
-    public void setMultimediaCollection(Collection<Multimedia> multimediaCollection) {
-        this.multimediaCollection = multimediaCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -106,6 +92,14 @@ public class TipoMultimedia implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.TipoMultimedia[ idTipoMultimedia=" + idTipoMultimedia + " ]";
+    }
+
+    public List<Multimedia> getMultimediaCollection() {
+        return multimediaCollection;
+    }
+
+    public void setMultimediaCollection(List<Multimedia> multimediaCollection) {
+        this.multimediaCollection = multimediaCollection;
     }
     
 }

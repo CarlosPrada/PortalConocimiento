@@ -14,21 +14,21 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
+                
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditEstadoProyectoLabel_idEstadoProyecto}" for="idEstadoProyecto" />
                     <h:inputText id="idEstadoProyecto" value="#{estadoProyectoController.selected.idEstadoProyecto}" title="#{bundle.EditEstadoProyectoTitle_idEstadoProyecto}" required="true" requiredMessage="#{bundle.EditEstadoProyectoRequiredMessage_idEstadoProyecto}"/>
+                    
                     <h:outputLabel value="#{bundle.EditEstadoProyectoLabel_nombreEstadoProyecto}" for="nombreEstadoProyecto" />
                     <h:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" title="#{bundle.EditEstadoProyectoTitle_nombreEstadoProyecto}" />
                 </h:panelGrid>
+                
                 <h:commandLink action="#{estadoProyectoController.update}" value="#{bundle.EditEstadoProyectoSaveLink}"/>
-                <br />
-                <br />
+                <br /><br />
                 <h:link outcome="View" value="#{bundle.EditEstadoProyectoViewLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{estadoProyectoController.prepareList}" value="#{bundle.EditEstadoProyectoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditEstadoProyectoIndexLink}" />
+                <br /><br />
             </h:form>
         </ui:define>
     </ui:composition>
