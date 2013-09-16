@@ -27,7 +27,7 @@ p {
     margin:0 ;
     margin-top: 0;
     padding:0 0 8px 0;
-        
+
 
 }
 
@@ -51,18 +51,31 @@ a {
     padding:0;
     float:left;
     width:auto;
-    height:103px;
+    height:103px
 }
 h5  {
-    margin-left: 70em;
-   
+    margin-left: 82em;
+    margin-top: 0em;
+    margin-right: 0em;
+    margin-bottom: 0em;
+     
     
-}
+
+
+
+    }
+    h7  {
+    margin-left: 75em;
+    margin-top: 0em;
+    }
 h6  {
-   
+
     margin-top: 1em;
-   
-    
+
+
+}p9
+{ 
+  font-size: 20px; 
 }
 
 h1 {
@@ -216,7 +229,7 @@ h1 small {
     text-align:left;
     font-size:35px;
     line-height:1.2em;
-    
+
     color:#161616;
 }
 
@@ -270,8 +283,8 @@ h1 small {
     line-height:1.2em;
     color:#161616;
 }   
-  h4 /*estilo de letra negra */ {
-    
+h4 /*estilo de letra negra */ {
+
     margin-top:0em;
     margin-bottom:1em;
     padding-top:0;
@@ -310,7 +323,7 @@ h1 small {
     margin:1em;
     padding:0px;
     height:210px;
-    
+
     background:repeat-x left bottom;
     padding:30px; 
     background-color: #FFFFFF; 
