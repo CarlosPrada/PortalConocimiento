@@ -91,7 +91,7 @@ public class TipoMultimedia implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoMultimedia[ idTipoMultimedia=" + idTipoMultimedia + " ]";
+        return "[" + idTipoMultimedia + "] - " + nombreTipoMultimedia;
     }
 
     public List<Multimedia> getMultimediaCollection() {

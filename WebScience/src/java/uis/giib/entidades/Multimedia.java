@@ -1,4 +1,3 @@
-
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -37,7 +36,7 @@ public class Multimedia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_multimedia")
     private Integer idMultimedia;
-    @Size(max = 500)
+    @Size(max = 800)
     @Column(name = "url_multimedia")
     private String urlMultimedia;
     @Size(max = 50)
@@ -78,11 +77,7 @@ public class Multimedia implements Serializable {
     public void setNombreMultimedia(String nombreMultimedia) {
         this.nombreMultimedia = nombreMultimedia;
     }    
-
-
-
-
-
+    
     public TipoMultimedia getIdTipoMultimedia() {
         return idTipoMultimedia;
     }
@@ -139,6 +134,4 @@ public class Multimedia implements Serializable {
     public void setContenidoCollection(List<Contenido> contenidoCollection) {
         this.contenidoCollection = contenidoCollection;
     }
-    
-    
 }

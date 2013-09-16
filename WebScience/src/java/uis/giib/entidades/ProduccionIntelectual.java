@@ -125,7 +125,7 @@ public class ProduccionIntelectual implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.ProduccionIntelectual[ idProduccion=" + idProduccion + " ]";
+        return "[" + idProduccion + "] - " + nombreProduccion;
     }
 
     @XmlTransient

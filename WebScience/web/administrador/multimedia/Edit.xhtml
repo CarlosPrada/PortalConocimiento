@@ -6,35 +6,40 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.EditMultimediaTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditMultimediaLabel_idMultimedia}" for="idMultimedia" />
                     <h:inputText id="idMultimedia" value="#{multimediaController.selected.idMultimedia}" title="#{bundle.EditMultimediaTitle_idMultimedia}" required="true" requiredMessage="#{bundle.EditMultimediaRequiredMessage_idMultimedia}"/>
+
                     <h:outputLabel value="#{bundle.EditMultimediaLabel_nombreMultimedia}" for="nombreMultimedia" />
-                    <h:inputText id="nombreMultimedia" value="#{multimediaController.selected.nombreMultimedia}" title="#{bundle.EditMultimediaTitle_nombreMultimedia}" />
+                    <h:inputText id="nombreMultimedia" value="#{multimediaController.selected.nombreMultimedia}" title="#{bundle.EditMultimediaTitle_nombreMultimedia}" size="55"/>
+
+                    <h:outputLabel value="#{bundle.EditMultimediaLabel_urlMultimedia}" for="urlMultimedia" />
+                    <h:inputTextarea rows="6" cols="90" value="#{multimediaController.selected.urlMultimedia}" />
+
                     <h:outputLabel value="#{bundle.EditMultimediaLabel_idTipoMultimedia}" for="idTipoMultimedia" />
                     <h:selectOneMenu id="idTipoMultimedia" value="#{multimediaController.selected.idTipoMultimedia}" title="#{bundle.EditMultimediaTitle_idTipoMultimedia}" required="true" requiredMessage="#{bundle.EditMultimediaRequiredMessage_idTipoMultimedia}">
                         <f:selectItems value="#{tipoMultimediaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditMultimediaLabel_urlMultimedia}" for="urlMultimedia" />
-                    <h:inputText id="urlMultimedia" value="#{multimediaController.selected.urlMultimedia}" title="#{bundle.EditMultimediaTitle_urlMultimedia}" />
+
                 </h:panelGrid>
                 <h:commandLink action="#{multimediaController.update}" value="#{bundle.EditMultimediaSaveLink}"/>
-                <br />
-                <br />
+                <br /><br />
                 <h:link outcome="View" value="#{bundle.EditMultimediaViewLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{multimediaController.prepareList}" value="#{bundle.EditMultimediaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditMultimediaIndexLink}" />
+
             </h:form>
         </ui:define>
     </ui:composition>

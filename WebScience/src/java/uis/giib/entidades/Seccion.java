@@ -108,7 +108,7 @@ public class Seccion implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Seccion[ idSeccion=" + idSeccion + " ]";
+        return "[" + idSeccion + "] - " + nombreSeccion;
     }
 
     public EstadoGeneral getIdEstado() {

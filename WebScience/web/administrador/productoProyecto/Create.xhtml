@@ -34,7 +34,7 @@
                     <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="850px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
-                    <h:inputTextarea rows="4" cols="60" id="descripcionProducto2" value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
+                    <h:inputTextarea rows="4" cols="60" value="#{productoProyectoController.selected.enlaceProducto}" />
                     
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.CreateProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idEstado}">

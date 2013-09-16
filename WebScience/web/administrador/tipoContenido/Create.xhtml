@@ -6,28 +6,30 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+        
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateTipoContenidoTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTipoContenidoLabel_idTipoPublicacion}" for="idTipoPublicacion" />
-                    <h:inputText id="idTipoPublicacion" value="#{tipoContenidoController.selected.idTipoPublicacion}" title="#{bundle.CreateTipoContenidoTitle_idTipoPublicacion}" required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_idTipoPublicacion}"/>
+                    <h:outputLabel value="#{bundle.CreateTipoContenidoLabel_idTipoContenido}" for="idTipoPublicacion" />
+                    <h:inputText id="idTipoPublicacion" value="#{tipoContenidoController.selected.idTipoPublicacion}"  required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_idTipoContenido}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateTipoContenidoLabel_nombreTipoContenido}" for="nombreTipoContenido" />
-                    <h:inputText id="nombreTipoContenido" value="#{tipoContenidoController.selected.nombreTipoContenido}" title="#{bundle.CreateTipoContenidoTitle_nombreTipoContenido}" required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_nombreTipoContenido}"/>
+                    <h:inputText id="nombreTipoContenido" value="#{tipoContenidoController.selected.nombreTipoContenido}" title="#{bundle.CreateTipoContenidoTitle_nombreTipoContenido}" required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_nombreTipoContenido}" size="55"/>
                 </h:panelGrid>
+                
                 <br />
                 <h:commandLink action="#{tipoContenidoController.create}" value="#{bundle.CreateTipoContenidoSaveLink}" />
-                <br />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{tipoContenidoController.prepareList}" value="#{bundle.CreateTipoContenidoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateTipoContenidoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

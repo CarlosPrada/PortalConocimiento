@@ -133,7 +133,7 @@ public class ProductoProyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.ProductoProyecto[ idProducto=" + idProducto + " ]";
+        return "[" + idProducto + "] - " + nombreProducto;
     }
     
 }

@@ -95,7 +95,7 @@ public class Recursos implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Recursos[ idRecurso=" + idRecurso + " ]";
+        return "[" + idRecurso + "] - " ;
     }
     
 }

@@ -196,7 +196,7 @@ public class Contenido implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Contenido[ idPublicacion=" + idPublicacion + " ]";
+        return "[" + idPublicacion + "] - " + titulo;
     }
 
     public EstadoGeneral getIdEstado() {

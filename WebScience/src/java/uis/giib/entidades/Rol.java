@@ -122,7 +122,7 @@ public class Rol implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Rol[ idRol=" + idRol + " ]";
+        return "[" + idRol + "] - " + nombreRol;
     }
     
 }

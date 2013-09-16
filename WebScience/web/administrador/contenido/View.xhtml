@@ -3,22 +3,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewContenidoTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idPublicacion}"/>
-                    <h:outputText value="#{contenidoController.selected.idPublicacion}" title="#{bundle.ViewContenidoTitle_idPublicacion}"/>
+                <p:panelGrid columns="2">
+
+                    <h:outputText value="#{bundle.ViewContenidoLabel_idContenido}"/>
+                    <h:outputText value="#{contenidoController.selected.idPublicacion}"/>
+
+                    <h:outputText value="#{bundle.ViewContenidoLabel_titulo}"/>
+                    <h:outputText value="#{contenidoController.selected.titulo}" title="#{bundle.ViewContenidoTitle_titulo}"/>
+
                     <h:outputText value="#{bundle.ViewContenidoLabel_contenidoResumido}"/>
                     <h:outputText value="#{contenidoController.selected.contenidoResumido}" title="#{bundle.ViewContenidoTitle_contenidoResumido}"/>
+
+                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoDetallado}"/>
+                    <h:outputText value="#{contenidoController.selected.contenidoDetallado}" title="#{bundle.ViewContenidoTitle_contenidoDetallado}"/>
+                    
+                    <h:outputText value="#{bundle.ViewContenidoLabel_idMultimedia}"/>
+                    <h:outputText value="#{contenidoController.selected.idMultimedia.nombreMultimedia}" title="#{bundle.ViewContenidoTitle_idMultimedia}"/>
+                    
+                    <h:outputText value="#{bundle.ViewContenidoLabel_idTipoContenido}"/>
+                    <h:outputText value="#{contenidoController.selected.idTipoPublicacion.nombreTipoContenido}" />
+                    
+                    <h:outputText value="#{bundle.ViewContenidoLabel_idSeccion}"/>
+                    <h:outputText value="#{contenidoController.selected.idSeccion.nombreSeccion}" title="#{bundle.ViewContenidoTitle_idSeccion}"/>
+                    
+                    <h:outputText value="#{bundle.ViewContenidoLabel_idEstado}"/>
+                    <h:outputText value="#{contenidoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewContenidoTitle_idEstado}"/>
+
                     <h:outputText value="#{bundle.ViewContenidoLabel_fechaInicioevento}"/>
                     <h:outputText value="#{contenidoController.selected.fechaInicioevento}" title="#{bundle.ViewContenidoTitle_fechaInicioevento}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -31,31 +57,15 @@
                     <h:outputText value="#{contenidoController.selected.fechaDespublicar}" title="#{bundle.ViewContenidoTitle_fechaDespublicar}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_titulo}"/>
-                    <h:outputText value="#{contenidoController.selected.titulo}" title="#{bundle.ViewContenidoTitle_titulo}"/>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoDetallado}"/>
-                    <h:outputText value="#{contenidoController.selected.contenidoDetallado}" title="#{bundle.ViewContenidoTitle_contenidoDetallado}"/>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idMultimedia}"/>
-                    <h:outputText value="#{contenidoController.selected.idMultimedia}" title="#{bundle.ViewContenidoTitle_idMultimedia}"/>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idTipoPublicacion}"/>
-                    <h:outputText value="#{contenidoController.selected.idTipoPublicacion}" title="#{bundle.ViewContenidoTitle_idTipoPublicacion}"/>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idSeccion}"/>
-                    <h:outputText value="#{contenidoController.selected.idSeccion}" title="#{bundle.ViewContenidoTitle_idSeccion}"/>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idEstado}"/>
-                    <h:outputText value="#{contenidoController.selected.idEstado}" title="#{bundle.ViewContenidoTitle_idEstado}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{contenidoController.destroyAndView}" value="#{bundle.ViewContenidoDestroyLink}"/>
-                <br />
-                <br />
+                    
+                </p:panelGrid>
+               
+                <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewContenidoEditLink}"/>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{contenidoController.prepareCreate}" value="#{bundle.ViewContenidoCreateLink}" />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{contenidoController.prepareList}" value="#{bundle.ViewContenidoShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewContenidoIndexLink}"/>
 
             </h:form>
         </ui:define>

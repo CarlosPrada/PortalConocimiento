@@ -34,7 +34,7 @@ public class TipoContenido implements Serializable {
     private Integer idTipoPublicacion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(max = 50)
     @Column(name = "nombre_tipo_contenido")
     private String nombreTipoContenido;
     @OneToMany(mappedBy = "idTipoPublicacion")
@@ -100,6 +100,6 @@ public class TipoContenido implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.TipoContenido[ idTipoPublicacion=" + idTipoPublicacion + " ]";
+        return "[" + idTipoPublicacion + "] - " + nombreTipoContenido;
     }   
 }
