@@ -7,19 +7,23 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ListInvestigadorTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
             <h:form>
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+
                 
-                <h:outputText escape="false" value="#{bundle.ListInvestigadorEmpty}" rendered="#{investigadorController.items.rowCount == 0}"/>
 
                 <h:panelGroup rendered="#{investigadorController.items.rowCount > 0}">
                     <p:dataTable value="#{investigadorController.items}" paginator="true" rows="30" var="item" >
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_usuarioInvestigador}"/>
@@ -92,9 +96,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInvestigadorTitle_estadoInvestigador}"/>
+                                <h:outputText value="#{bundle.ListInvestigadorTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>  
 
                         <p:column>
@@ -105,6 +109,7 @@
                             <h:outputText value=" "/>
                             <h:commandLink action="#{investigadorController.prepareEdit}" value="#{bundle.ListInvestigadorEditLink}"/>
                         </p:column>
+
                     </p:dataTable>
                 </h:panelGroup>
 
@@ -114,10 +119,31 @@
                 <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
                 <h:link outcome="/administrador/tipoInvestigador/#{tipoInvestigadorController.prepareList()}" value="Administrar Tipo de Investigador"/>
                 : Permite administrar los Tipos de Investigadores existentes en el sistema.
+
                 <br/><br/>
                 <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
                 <h:link outcome="/administrador/permiso/#{permisoController.prepareList()}" value="Administrar Permisos"/>
                 : Permite administrar la configuración de permisos en el sistema.
+
+                <br/><br/>
+                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
+                <h:link outcome="/administrador/rol/#{rolController.prepareList()}" value="Administrar Roles de Investigación"/>
+                : Permite administrar los Roles de Investigación que desempeñan los Investigadores.
+
+                <br/><br/>
+                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
+                <h:link outcome="/administrador/investigadorProduccion/#{investigadorProduccionController.prepareList()}" value="Asignar Producción Intelectual a Investigadores"/>
+                : Permite asignar la Producción Intelectual a sus respectivos Investigadores.
+
+                <br/><br/>
+                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
+                <h:link outcome="/administrador/lineasInvestigador/#{lineasInvestigadorController.prepareList()}" value="Asignar Líneas de Investigación a Investigadores"/>
+                : Permite asignar Líneas de Investigación a Investigadores
+
+                <br/><br/>
+                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
+                <h:link outcome="/administrador/proyectoInvestigadores/#{proyectoInvestigadoresController.prepareList()}" value="Asignar Proyectos a Investigadores"/>
+                : Permite asignar Proyectos a Investigadores
 
                 <br/><br/><br/>
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>

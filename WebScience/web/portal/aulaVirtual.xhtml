@@ -14,30 +14,30 @@
     <ui:define name="body">
 
         <div class="article">                                
-           <h1><span>AulaVirtual</span></h1>
-        <div class="content">
-            <div class="content_resize">
-                <div class="mainbarIzquierdo">
-                    <h:form>
-                        <p:dataGrid value="#{AulaVirtualesPortalController.aulaVirtual}" emptyMessage="No se encontraton registros"  var="HS">
-                           
-                       <a href="#{HS.titulo}" target="_blank">#{HS.titulo}</a> 
-                      
-                            
-                           
-                           
-                        </p:dataGrid>
-                    </h:form>
-                       
-                </div> 
-                 </div> 
-                     </div> 
-                
+            <h1><span>AulaVirtual</span></h1>
+            <div class="content">
+                <div class="content_resize">
+                    <div class="mainbarIzquierdo">
+                        <h:form>
+                            <p:dataGrid value="#{AulaVirtualesPortalController.aulaVirtual}" emptyMessage="No se encontraton registros"  var="HS">
+
+                                <a href="#{HS.titulo}" target="_blank">#{HS.titulo}</a> 
+
+
+
+
+                            </p:dataGrid>
+                        </h:form>
+
                     </div> 
-               
-        
-           
-               
-   
-</ui:define>
+                </div> 
+            </div> 
+
+        </div> 
+
+
+
+
+
+    </ui:define>
 </ui:composition>

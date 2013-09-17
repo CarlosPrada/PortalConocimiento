@@ -13,7 +13,7 @@
         </ui:define>
         <ui:define name="body">
             
-            <h:outputLabel value="#{bundle.Requerido}" for="usuarioInvestigador" /><br/><br/><br/>
+            <h:outputText value="#{bundle.Requerido}" /><br/><br/><br/>
             
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -38,7 +38,7 @@
                     <h:inputText id="tituloInvestigador" value="#{investigadorController.selected.tituloInvestigador}" title="#{bundle.CreateInvestigadorTitle_tituloInvestigador}" size="105"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_informacionInvestigador}" for="informacionInvestigador" />
-                    <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="850px" uiColor="#aed0ea"  requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_informacionInvestigador}"/>
+                    <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="850px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_telefonoInvestigador}" for="telefonoInvestigador" />
                     <h:inputText id="telefonoInvestigador" value="#{investigadorController.selected.telefonoInvestigador}" title="#{bundle.CreateInvestigadorTitle_telefonoInvestigador}" size="25"/>
@@ -47,13 +47,13 @@
                     <h:inputText id="celularInvestigador" value="#{investigadorController.selected.celularInvestigador}" title="#{bundle.CreateInvestigadorTitle_celularInvestigador}" size="25"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_correoInvestigador}" for="correoInvestigador" />
-                    <h:inputText id="correoInvestigador" value="#{investigadorController.selected.correoInvestigador}" title="#{bundle.CreateInvestigadorTitle_correoInvestigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_correoInvestigador}" size="55"/>
+                    <h:inputText id="correoInvestigador" value="#{investigadorController.selected.correoInvestigador}" title="#{bundle.CreateInvestigadorTitle_correoInvestigador}" size="55"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_faxInvestigador}" for="faxInvestigador" />
                     <h:inputText id="faxInvestigador" value="#{investigadorController.selected.faxInvestigador}" title="#{bundle.CreateInvestigadorTitle_faxInvestigador}" size="45"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_generoInvestigador}" for="generoInvestigador" />
-                    <h:inputText id="generoInvestigador" value="#{investigadorController.selected.generoInvestigador}" title="#{bundle.CreateInvestigadorTitle_generoInvestigador}" required="true"  requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_generoInvestigador}"/>
+                    <h:inputText id="generoInvestigador" value="#{investigadorController.selected.generoInvestigador}" title="#{bundle.CreateInvestigadorTitle_generoInvestigador}" />
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_cvlacInvestigador}" for="cvlacInvestigador" />
                     <h:inputText id="cvlacInvestigador" value="#{investigadorController.selected.cvlacInvestigador}" title="#{bundle.CreateInvestigadorTitle_cvlacInvestigador}" size="160" />
@@ -71,7 +71,7 @@
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
 
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_estadoInvestigador}" for="estadoInvestigador" />
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}" for="estadoInvestigador" />
                     <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>

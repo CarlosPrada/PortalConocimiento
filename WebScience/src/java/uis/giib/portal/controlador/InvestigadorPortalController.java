@@ -25,6 +25,7 @@ public class InvestigadorPortalController implements Serializable {
     private DataModel listadoInvestigadores;
     private DataModel listaTiposInvestigador;
     private Investigador investigadorActual;
+    private Integer idEstado = new Integer(1);
     @EJB
     private uis.giib.administrador.dao.InvestigadorFacade ejbFacadeInvestigador;    
     @EJB
@@ -34,10 +35,10 @@ public class InvestigadorPortalController implements Serializable {
     public InvestigadorPortalController() {
         
         try{
-        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findAll());
+        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findByIdEstado(idEstado));
         listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());
         }catch(Exception e){
-            System.out.println("Error listando investitadores!");
+            System.out.println("Error listando investitadores!" + e.getLocalizedMessage() + " " + e.getMessage());
         }        
     }
     
@@ -50,10 +51,10 @@ public class InvestigadorPortalController implements Serializable {
     public String goInvestigadores(){
 
         try{
-        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findAll());
+        listadoInvestigadores = new ListDataModel(ejbFacadeInvestigador.findByIdEstado(idEstado));
         listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll()); 
         }catch(Exception e){
-            System.out.println("Error listando investitadores!");
+            System.out.println("Error listando investitadores!" + e.getLocalizedMessage() + " " + e.getMessage());
         }        
         return "/portal/investigadores.xhtm?faces-redirect=truel";        
     }    
@@ -122,4 +123,12 @@ public class InvestigadorPortalController implements Serializable {
     public void setEjbFacade(InvestigadorFacade ejbFacade) {
         this.ejbFacadeInvestigador = ejbFacade;
     }    
+
+    public Integer getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(Integer idEstado) {
+        this.idEstado = idEstado;
+    }
 }

@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Investigador.findByUsuarioInvestigador", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador"),
     @NamedQuery(name = "Investigador.findByContrasenaInvestigador", query = "SELECT i FROM Investigador i WHERE i.contrasenaInvestigador = :contrasenaInvestigador"),
     @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador"),
+    @NamedQuery(name = "Investigador.findByIdEstado", query = "SELECT i FROM Investigador i WHERE i.idEstado = :idEstado"),
     @NamedQuery(name = "Investigador.findByTituloInvestigador", query = "SELECT i FROM Investigador i WHERE i.tituloInvestigador = :tituloInvestigador")})
 public class Investigador implements Serializable {
 
@@ -53,6 +54,9 @@ public class Investigador implements Serializable {
     private String nombreInvestigador;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "apellido_investigador")
+    private String apellidoInvestigador;
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "informacion_investigador")
@@ -63,24 +67,15 @@ public class Investigador implements Serializable {
     @Size(max = 20)
     @Column(name = "celular_investigador")
     private String celularInvestigador;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "correo_investigador")
     private String correoInvestigador;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 1)
     @Column(name = "genero_investigador")
     private String generoInvestigador;
     @Size(max = 150)
     @Column(name = "cvlac_investigador")
     private String cvlacInvestigador;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "apellido_investigador")
-    private String apellidoInvestigador;
     @Size(max = 100)
     @Column(name = "titulo_Investigador")
     private String tituloInvestigador;
@@ -90,7 +85,6 @@ public class Investigador implements Serializable {
     @Size(max = 255)
     @Column(name = "image_investigador_path")
     private String imageInvestigadorPath;
-    
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
     @ManyToOne(optional = false)
     private EstadoGeneral idEstado;
@@ -285,7 +279,7 @@ public class Investigador implements Serializable {
 
     @Override
     public String toString() {
-        return "uis.giib.entidades.Investigador[ usuarioInvestigador=" + usuarioInvestigador + " ]";
+        return nombreInvestigador + " " + apellidoInvestigador;
     }
 
     @XmlTransient

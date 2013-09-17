@@ -4,6 +4,7 @@
  */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -38,6 +39,18 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
             query.setParameter("contrasenaInvestigador", password);
             return (Investigador) query.getSingleResult();
         } catch (NoResultException e) {
+            return null;
+        }
+    }  
+    
+    public List<Investigador> findByIdEstado(Integer idEstado) {
+
+        try {
+            Query query = em.createNamedQuery("Investigador.findByIdEstado");
+            query.setParameter("idEstado", idEstado);
+            return (List<Investigador>) query.getResultList();
+        } catch (NoResultException e) {
+            System.out.println("Error en la consulta findByIdEstado!" + e.getLocalizedMessage());
             return null;
         }
     }    

@@ -19,10 +19,10 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListProduccionIntelectualEmpty}" rendered="#{produccionIntelectualController.items.rowCount == 0}"/>
+                
                 <h:panelGroup rendered="#{produccionIntelectualController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{produccionIntelectualController.items}" paginator="true" rows="60" var="item" resizableColumns="true" style="width:1290px;">
+                    <p:dataTable value="#{produccionIntelectualController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:1290px;">
 
                         <p:column width="90">
                             <f:facet name="header">

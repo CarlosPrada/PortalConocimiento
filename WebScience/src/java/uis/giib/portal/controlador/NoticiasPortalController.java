@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.administrador.dao.ContenidoFacade;
 import uis.giib.administrador.dao.TipoContenidoFacade;
 import uis.giib.entidades.Contenido;
 import uis.giib.entidades.TipoContenido;
@@ -27,8 +26,6 @@ public class NoticiasPortalController implements Serializable {
     private TipoContenido tipoContenido;
     private Contenido contenidoActual;
     private Integer idTipo = new Integer(6);
-
-    
     // LLama objeto encargado de hacer las consultas a la DB
     @EJB
     private uis.giib.administrador.dao.TipoContenidoFacade ejbFacade;
@@ -40,7 +37,7 @@ public class NoticiasPortalController implements Serializable {
     public NoticiasPortalController() {
 
         try {
-       
+
             tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
             listadoNoticias = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
@@ -50,7 +47,7 @@ public class NoticiasPortalController implements Serializable {
 
     public String goNoticiasPortalController() {
         try {
-             tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
+            tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
             listadoNoticias = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error listando Noticias!");
@@ -89,8 +86,6 @@ public class NoticiasPortalController implements Serializable {
     public void setEjbFacade(TipoContenidoFacade ejbFacade) {
         this.ejbFacade = ejbFacade;
     }
-
-   
 
     public Integer getIdTipo() {
         return idTipo;

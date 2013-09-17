@@ -6,32 +6,38 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateLineasInvestigadorTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
+            <h:outputText value="#{bundle.Requerido}"/><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
+
                     <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" title="#{bundle.CreateLineasInvestigadorTitle_investigador}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
+                    <h:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                     <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_lineaInvestigacion}" for="lineaInvestigacion" />
                     <h:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" title="#{bundle.CreateLineasInvestigadorTitle_lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                 </h:panelGrid>
-                <br />
+                <br /><br />
                 <h:commandLink action="#{lineasInvestigadorController.create}" value="#{bundle.CreateLineasInvestigadorSaveLink}" />
-                <br />
-                <br />
+                <br /><br />
                 <h:commandLink action="#{lineasInvestigadorController.prepareList}" value="#{bundle.CreateLineasInvestigadorShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateLineasInvestigadorIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

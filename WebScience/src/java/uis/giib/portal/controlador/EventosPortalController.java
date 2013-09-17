@@ -50,7 +50,7 @@ public class EventosPortalController implements Serializable {
                 eventModel.addEvent(new DefaultScheduleEvent(i.getTitulo(), i.getFechaInicioevento(), i.getFechaFinevento()));
             }
         } catch (Exception e) {
-            System.out.println("Error listando investitadores!" + e.getLocalizedMessage());
+            System.out.println("Error listando investitadores!" + e.getLocalizedMessage() + " " + e.getMessage());
         }
     }
 
