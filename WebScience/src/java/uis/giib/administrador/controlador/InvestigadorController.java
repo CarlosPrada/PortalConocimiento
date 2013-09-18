@@ -30,6 +30,8 @@ public class InvestigadorController extends AbstractController implements Serial
 
     public InvestigadorController() {
     }
+  
+    
 
     public Investigador getSelected() {
         if (current == null) {
