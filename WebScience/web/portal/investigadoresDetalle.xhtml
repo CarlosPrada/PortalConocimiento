@@ -27,6 +27,7 @@
                                     <p><h:outputText escape="false" value="#{investigadorPC.investigadorActual.informacionInvestigador}" /></p>
                                 </h:panelGrid>
                             </p:tab>
+
                             <p:tab title="Proyectos">
                                 <h:panelGrid columns="1" cellpadding="1">
                                     <p:dataList value="#{investigadorPC.investigadorActual.proyectoInvestigadoresList}" var="proyectoInvestigador" >
@@ -34,14 +35,23 @@
                                     </p:dataList>
                                 </h:panelGrid>
                             </p:tab>
+
                             <p:tab title="Lineas de Investigación">
                                 <h:panelGrid columns="1" cellpadding="1">
                                     <p:dataList value="#{investigadorPC.investigadorActual.lineasInvestigadorList}" var="lineasInvestigador" >
                                         <h:commandLink value="#{lineasInvestigador.lineaInvestigacion.nombreLineaInvestigacion}" action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInvestigador.lineaInvestigacion)}" />
-
                                     </p:dataList>
                                 </h:panelGrid>
                             </p:tab>
+                            
+                            <p:tab title="Producción Intelectual">
+                                <h:panelGrid columns="1" cellpadding="1">
+                                    <p:dataList value="#{investigadorPC.investigadorActual.investigadorProduccionList}" var="investigadorProduccion" >
+                                        <h:commandLink value="#{investigadorProduccion.produccionIntelectual.nombreProduccion}" action="#{investigadorProduccion.produccionIntelectual.urlProduccion}" />
+                                    </p:dataList>
+                                </h:panelGrid>
+                            </p:tab>
+
                             <p:tab title="Contacto">
                                 <h:panelGrid columns="1" cellpadding="1">
                                     <span>Telefono: </span> #{investigadorPC.investigadorActual.telefonoInvestigador} <br/><br/>
@@ -51,6 +61,7 @@
                                     <span>CvLAC: </span> <a href="#{investigadorPC.investigadorActual.cvlacInvestigador}" > ir CvLAC</a> <br/><br/>
                                 </h:panelGrid>
                             </p:tab>
+
                         </p:tabView>
                     </h:form>
 

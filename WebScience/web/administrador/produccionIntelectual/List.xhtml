@@ -19,7 +19,7 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                
+
                 <h:panelGroup rendered="#{produccionIntelectualController.items.rowCount > 0}">
 
                     <p:dataTable value="#{produccionIntelectualController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:1290px;">
@@ -50,6 +50,13 @@
                                 <h:outputText value="#{bundle.ListProduccionIntelectualTitle_referenciaProduccion}"/>
                             </f:facet>
                             <h:outputText value="#{item.referenciaProduccion}"/>
+                        </p:column>
+
+                        <p:column >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProduccionIntelectualTitle_urlProduccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.urlProduccion}"/>
                         </p:column>
 
                         <p:column width="100">

@@ -1,4 +1,3 @@
-
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -32,7 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByIdEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.idEstado = :idEstado"),
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Bibliografia> bibliografiaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -173,5 +173,14 @@ public class EstadoGeneral implements Serializable {
 
     public void setProductoProyectoList(List<ProductoProyecto> productoProyectoList) {
         this.productoProyectoList = productoProyectoList;
+    }
+
+    @XmlTransient
+    public List<Bibliografia> getBibliografiaList() {
+        return bibliografiaList;
+    }
+
+    public void setBibliografiaList(List<Bibliografia> bibliografiaList) {
+        this.bibliografiaList = bibliografiaList;
     }
 }

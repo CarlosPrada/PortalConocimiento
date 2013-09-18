@@ -1,45 +1,46 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.LineaInvestigacionFacade;
+import uis.giib.entidades.EstadoGeneral;
 import uis.giib.entidades.LineaInvestigacion;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Named(value = "lineasInvestigacionPC")
 @SessionScoped
 public class LineasInvestigacionPortalController implements Serializable {
 
-    private DataModel listadoLineasInvestigacion;
+    private List<LineaInvestigacion> listadoLineasInvestigacion;
     private LineaInvestigacion lineasInvestigacionActual;
+    private EstadoGeneral estadoGeneral;
+    private Integer idEstado = new Integer(1);
     @EJB
-    private uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacade;
+    private uis.giib.administrador.dao.EstadoGeneralFacade ejbFacadeEstadoGeneral;
+    @EJB
+    private uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacadeLineaInvestigacion;
 
-    //consyructor
+    //Constructor
     public LineasInvestigacionPortalController() {
-        try {
-            listadoLineasInvestigacion = new ListDataModel(ejbFacade.findAll());
-        } catch (Exception e) {
-            System.out.println("Error listando las Líneas de Investigaión!");
-        }
+        /*try {
+         listadoLineasInvestigacion = new ListDataModel(ejbFacade.findAll());
+         } catch (Exception e) {
+         System.out.println("Error listando las Líneas de Investigaión!");
+         }*/
     }
 
     //Métodos de navegación
     public String goLineasInvestigacion() {
 
         try {
-            listadoLineasInvestigacion = new ListDataModel(ejbFacade.findAll());
+            estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
+            listadoLineasInvestigacion = estadoGeneral.getLineaInvestigacionList();
         } catch (Exception e) {
             System.out.println("Error listando las Líneas de Investigaión!");
         }
@@ -65,19 +66,51 @@ public class LineasInvestigacionPortalController implements Serializable {
         this.lineasInvestigacionActual = lineasInvestigacionActual;
     }
 
-    public DataModel getListadoLineasInvestigacion() {
+    public List<LineaInvestigacion> getListadoLineasInvestigacion() {
         return listadoLineasInvestigacion;
     }
 
-    public void setListadoLineasInvestigacion(DataModel listadoLineasInvestigacion) {
+    public void setListadoLineasInvestigacion(List<LineaInvestigacion> listadoLineasInvestigacion) {
         this.listadoLineasInvestigacion = listadoLineasInvestigacion;
     }
 
     public LineaInvestigacionFacade getEjbFacade() {
-        return ejbFacade;
+        return ejbFacadeLineaInvestigacion;
     }
 
     public void setEjbFacade(LineaInvestigacionFacade ejbFacade) {
-        this.ejbFacade = ejbFacade;
+        this.ejbFacadeLineaInvestigacion = ejbFacade;
+    }
+
+    public EstadoGeneral getEstadoGeneral() {
+        return estadoGeneral;
+    }
+
+    public void setEstadoGeneral(EstadoGeneral estadoGeneral) {
+        this.estadoGeneral = estadoGeneral;
+    }
+
+    public Integer getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(Integer idEstado) {
+        this.idEstado = idEstado;
+    }
+
+    public uis.giib.administrador.dao.EstadoGeneralFacade getEjbFacadeEstadoGeneral() {
+        return ejbFacadeEstadoGeneral;
+    }
+
+    public void setEjbFacadeEstadoGeneral(uis.giib.administrador.dao.EstadoGeneralFacade ejbFacadeEstadoGeneral) {
+        this.ejbFacadeEstadoGeneral = ejbFacadeEstadoGeneral;
+    }
+
+    public uis.giib.administrador.dao.LineaInvestigacionFacade getEjbFacadeLineaInvestigacion() {
+        return ejbFacadeLineaInvestigacion;
+    }
+
+    public void setEjbFacadeLineaInvestigacion(uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacadeLineaInvestigacion) {
+        this.ejbFacadeLineaInvestigacion = ejbFacadeLineaInvestigacion;
     }
 }

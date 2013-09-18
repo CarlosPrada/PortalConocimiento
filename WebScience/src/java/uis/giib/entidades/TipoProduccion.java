@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TipoProduccion.findByIdTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.idTipoProduccion = :idTipoProduccion"),
     @NamedQuery(name = "TipoProduccion.findByNombreTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.nombreTipoProduccion = :nombreTipoProduccion")})
 public class TipoProduccion implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoBibliografia")
+    private List<Bibliografia> bibliografiaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -103,5 +106,14 @@ public class TipoProduccion implements Serializable {
 
     public void setProduccionIntelectualList(List<ProduccionIntelectual> produccionIntelectualList) {
         this.produccionIntelectualList = produccionIntelectualList;
+    }
+
+    @XmlTransient
+    public List<Bibliografia> getBibliografiaList() {
+        return bibliografiaList;
+    }
+
+    public void setBibliografiaList(List<Bibliografia> bibliografiaList) {
+        this.bibliografiaList = bibliografiaList;
     }
 }

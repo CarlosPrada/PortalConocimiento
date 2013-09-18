@@ -49,6 +49,9 @@ public class ProduccionIntelectual implements Serializable {
     private String nombreProduccion;
     @Column(name = "agno_produccion")
     private Integer agnoProduccion;
+    @Size(max = 800)
+    @Column(name = "url_produccion")
+    private String urlProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produccionIntelectual")
     private List<InvestigadorProduccion> investigadorProduccionList;
     @JoinColumn(name = "id_tipo_produccion", referencedColumnName = "id_tipo_produccion")
@@ -152,5 +155,12 @@ public class ProduccionIntelectual implements Serializable {
     public void setAgnoProduccion(Integer agnoProduccion) {
         this.agnoProduccion = agnoProduccion;
     }
-    
+
+    public String getUrlProduccion() {
+        return urlProduccion;
+    }
+
+    public void setUrlProduccion(String urlProduccion) {
+        this.urlProduccion = urlProduccion;
+    }
 }

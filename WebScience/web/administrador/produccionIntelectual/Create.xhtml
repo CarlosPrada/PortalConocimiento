@@ -24,7 +24,7 @@
                     <h:inputText id="idProduccion" value="#{produccionIntelectualController.selected.idProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_idProduccion}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idProduccion}"/>
 
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
-                    <h:inputTextarea rows="4" cols="90" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
+                    <h:inputTextarea rows="5" cols="60" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
 
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_agnoProduccion}" for="agnoProduccion" />
                     <h:inputText id="agnoProduccion" value="#{produccionIntelectualController.selected.agnoProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_agnoProduccion}" />
@@ -32,6 +32,9 @@
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_referenciaProduccion}" for="referenciaProduccion" />
                     <ck:editor id="referenciaProduccion" value="#{produccionIntelectualController.selected.referenciaProduccion}" width="850px" uiColor="#aed0ea"  />
 
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_urlProduccion}" for="nombreProduccion" />
+                    <h:inputTextarea rows="7" cols="80" id="urlProduccion" value="#{produccionIntelectualController.selected.urlProduccion}"  />
+                    
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idTipoProduccion}" for="idTipoProduccion" />
                     <h:selectOneMenu id="idTipoProduccion" value="#{produccionIntelectualController.selected.idTipoProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_idTipoProduccion}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idTipoProduccion}">
                         <f:selectItems value="#{tipoProduccionController.itemsAvailableSelectOne}"/>

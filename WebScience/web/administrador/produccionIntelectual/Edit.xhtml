@@ -24,7 +24,7 @@
                     <h:inputText id="idProduccion" value="#{produccionIntelectualController.selected.idProduccion}" title="#{bundle.EditProduccionIntelectualTitle_idProduccion}" required="true" requiredMessage="#{bundle.EditProduccionIntelectualRequiredMessage_idProduccion}"/>
 
                     <h:outputLabel value="#{bundle.EditProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
-                    <h:inputTextarea rows="4" cols="90" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
+                    <h:inputTextarea rows="5" cols="60" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
 
                     <h:outputLabel value="#{bundle.EditProduccionIntelectualLabel_agnoProduccion}" for="agnoProduccion" />
                     <h:inputText id="agnoProduccion" value="#{produccionIntelectualController.selected.agnoProduccion}" title="#{bundle.EditProduccionIntelectualTitle_agnoProduccion}" />
@@ -32,6 +32,9 @@
                     <h:outputLabel value="#{bundle.EditProduccionIntelectualLabel_referenciaProduccion}" for="referenciaProduccion" />
                     <ck:editor id="referenciaProduccion" value="#{produccionIntelectualController.selected.referenciaProduccion}" width="850px" uiColor="#aed0ea"  />
 
+                    <h:outputLabel value="#{bundle.EditProduccionIntelectualLabel_urlProduccion}" for="nombreProduccion" />
+                    <h:inputTextarea rows="7" cols="80" id="urlProduccion" value="#{produccionIntelectualController.selected.urlProduccion}"  />
+                    
                     <h:outputLabel value="#{bundle.EditProduccionIntelectualLabel_idTipoProduccion}" for="idTipoProduccion" />
                     <h:selectOneMenu id="idTipoProduccion" value="#{produccionIntelectualController.selected.idTipoProduccion}" title="#{bundle.EditProduccionIntelectualTitle_idTipoProduccion}" required="true" requiredMessage="#{bundle.EditProduccionIntelectualRequiredMessage_idTipoProduccion}">
                         <f:selectItems value="#{tipoProduccionController.itemsAvailableSelectOne}"/>
@@ -41,6 +44,7 @@
                     <h:selectOneMenu id="idEstado" value="#{produccionIntelectualController.selected.idEstado}" title="#{bundle.EditProduccionIntelectualTitle_idEstado}" required="true" requiredMessage="#{bundle.EditProduccionIntelectualRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    
                 </h:panelGrid>
 
                 <h:commandLink action="#{produccionIntelectualController.update}" value="#{bundle.EditProduccionIntelectualSaveLink}"/>

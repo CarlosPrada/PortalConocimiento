@@ -18,7 +18,7 @@
             
             <p:fieldset legend="NOTICIAS" > 
                 
-                <p:dataGrid    columns="3" paginator="true" rows="1" value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                <p:dataGrid    columns="1" paginator="true" rows="3" value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
                     <div class="mainbarDerecho">
                         <h:graphicImage alt="" width="150" height="200" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
                         <h:outputText value="#{noticias.titulo}" /> 
