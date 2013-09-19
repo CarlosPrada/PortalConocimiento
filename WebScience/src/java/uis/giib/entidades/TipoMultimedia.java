@@ -6,6 +6,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -27,10 +29,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TipoMultimedia.findByIdTipoMultimedia", query = "SELECT t FROM TipoMultimedia t WHERE t.idTipoMultimedia = :idTipoMultimedia"),
     @NamedQuery(name = "TipoMultimedia.findByNombreTipoMultimedia", query = "SELECT t FROM TipoMultimedia t WHERE t.nombreTipoMultimedia = :nombreTipoMultimedia")})
 public class TipoMultimedia implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_tipo_multimedia")
     private Integer idTipoMultimedia;
     @Basic(optional = false)
@@ -101,5 +104,4 @@ public class TipoMultimedia implements Serializable {
     public void setMultimediaCollection(List<Multimedia> multimediaCollection) {
         this.multimediaCollection = multimediaCollection;
     }
-    
 }

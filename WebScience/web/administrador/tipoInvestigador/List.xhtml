@@ -7,49 +7,44 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ListTipoInvestigadorTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
             <h:form >
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListTipoInvestigadorEmpty}" rendered="#{tipoInvestigadorController.items.rowCount == 0}"/>
-               
+
                 <h:panelGroup rendered="#{tipoInvestigadorController.items.rowCount > 0}">
                     <p:dataTable value="#{tipoInvestigadorController.items}" paginator="true" var="item" rows="30" style="width:600px;" >
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_idTipoInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idTipoInvestigador}"/>
-                        </p:column>
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_nombreTipoInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreTipoInvestigador}"/>
-                        </p:column>
-                        
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionTipoInvestigador}"/>
-                        </p:column>
-                        
-                        <p:column>
+
+                        <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{tipoInvestigadorController.prepareView}" value="#{bundle.ListTipoInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{tipoInvestigadorController.prepareEdit}" value="#{bundle.ListTipoInvestigadorEditLink}"/>
-                            
                         </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_nombreTipoInvestigador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreTipoInvestigador}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcionTipoInvestigador}"/>
+                        </p:column>
+
                     </p:dataTable>
                 </h:panelGroup>
                 <br />

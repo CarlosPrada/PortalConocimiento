@@ -20,12 +20,15 @@
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{tipoMultimediaController.items.rowCount > 0}">
-                    <p:dataTable value="#{tipoMultimediaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:500px;">
-                        <p:column>
+                    <p:dataTable value="#{tipoMultimediaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:400px;">
+                      
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoMultimediaTitle_idTipoMultimedia}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTipoMultimedia}"/>
+                            <h:commandLink action="#{tipoMultimediaController.prepareView}" value="#{bundle.ListTipoMultimediaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoMultimediaController.prepareEdit}" value="#{bundle.ListTipoMultimediaEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -33,15 +36,6 @@
                                 <h:outputText value="#{bundle.ListTipoMultimediaTitle_nombreTipoMultimedia}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreTipoMultimedia}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{tipoMultimediaController.prepareView}" value="#{bundle.ListTipoMultimediaViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoMultimediaController.prepareEdit}" value="#{bundle.ListTipoMultimediaEditLink}"/>
                         </p:column>
 
                     </p:dataTable>

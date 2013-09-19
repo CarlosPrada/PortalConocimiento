@@ -6,30 +6,32 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
-        
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateTipoMultimediaTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
-            
+
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTipoMultimediaLabel_idTipoMultimedia}" for="idTipoMultimedia" />
-                    <h:inputText id="idTipoMultimedia" value="#{tipoMultimediaController.selected.idTipoMultimedia}" title="#{bundle.CreateTipoMultimediaTitle_idTipoMultimedia}" required="true" requiredMessage="#{bundle.CreateTipoMultimediaRequiredMessage_idTipoMultimedia}"/>
-                    
+
                     <h:outputLabel value="#{bundle.CreateTipoMultimediaLabel_nombreTipoMultimedia}" for="nombreTipoMultimedia" />
                     <h:inputText id="nombreTipoMultimedia" value="#{tipoMultimediaController.selected.nombreTipoMultimedia}" title="#{bundle.CreateTipoMultimediaTitle_nombreTipoMultimedia}" required="true" requiredMessage="#{bundle.CreateTipoMultimediaRequiredMessage_nombreTipoMultimedia}" size="55"/>
+
                 </h:panelGrid>
                 <br /><br />
                 <h:commandLink action="#{tipoMultimediaController.create}" value="#{bundle.CreateTipoMultimediaSaveLink}" />
                 <br /><br />
                 <h:commandLink action="#{tipoMultimediaController.prepareList}" value="#{bundle.CreateTipoMultimediaShowAllLink}" immediate="true"/>
             </h:form>
-            
+
         </ui:define>
     </ui:composition>
 

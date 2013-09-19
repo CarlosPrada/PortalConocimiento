@@ -19,9 +19,7 @@
         </div>
 
         <h:form id="form" >
-           <!-- <p:dataGrid value="#{eventosPC.listadoPublicacionEventos}" emptyMessage="No se encontraton registros"  var="prueba">
-                <h3><span><h:outputText value="#{prueba.idPublicacion}" /> </span></h3>
-            </p:dataGrid>-->
+
             <p:growl id="messages" showDetail="true" /> 
             <p:schedule id="schedule" value="#{eventosPC.eventModel}" widgetVar="myschedule"  draggable="false" >  
                 <p:ajax event="dateSelect" listener="#{eventosPC.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show()" />  
