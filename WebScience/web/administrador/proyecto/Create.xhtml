@@ -14,8 +14,7 @@
 
         <ui:define name="body">
 
-            <h:outputText value="#{bundle.Requerdio}" /><br/>
-            <h:outputText value="#{bundle.IDProyecto}" /><br/><br/><br/>
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -25,8 +24,8 @@
                 <h:panelGrid columns="2">    
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_nombreProyecto}" for="nombreProyecto" />
-                    <h:inputText id="nombreProyecto" value="#{proyectoController.selected.nombreProyecto}" title="#{bundle.CreateProyectoTitle_nombreProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_nombreProyecto}" size="210"/>
-
+                    <h:inputTextarea rows="3" cols="70" id="nombreProyecto" value="#{proyectoController.selected.nombreProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_nombreProyecto}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_descripcionResumidaProyecto}" for="descripcionResumidaProyecto" />
                     <h:inputText id="descripcionResumidaProyecto" value="#{proyectoController.selected.descripcionResumidaProyecto}" title="#{bundle.CreateProyectoTitle_descripcionResumidaProyecto}" size="100"/>
 
@@ -40,7 +39,7 @@
                     <ck:editor id="resultadosProyecto" value="#{proyectoController.selected.resultadosProyecto}" width="850px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_imagenProyecto}" for="imagenProyecto" />
-                    <h:inputText id="imagenProyecto" value="#{proyectoController.selected.imagenProyecto}" title="#{bundle.CreateProyectoTitle_imagenProyecto}" size="210"/>
+                    <h:inputText id="imagenProyecto" value="#{proyectoController.selected.imagenProyecto}" title="#{bundle.CreateProyectoTitle_imagenProyecto}" size="55"/>
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_idTipoProyecto}" for="idTipoProyecto" />
                     <h:selectOneMenu id="idTipoProyecto" value="#{proyectoController.selected.idTipoProyecto}" title="#{bundle.CreateProyectoTitle_idTipoProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_idTipoProyecto}">
@@ -63,7 +62,7 @@
                     </h:selectOneMenu>
 
                 </h:panelGrid>
-                
+
                 <br /><br />
                 <h:commandLink action="#{proyectoController.create}" value="#{bundle.CreateProyectoSaveLink}" />
                 <br /><br />

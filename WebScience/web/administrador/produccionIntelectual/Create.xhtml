@@ -13,6 +13,8 @@
         </ui:define>
 
         <ui:define name="body">
+            
+             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -20,10 +22,8 @@
 
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idProduccion}" for="idProduccion" />
-                    <h:inputText id="idProduccion" value="#{produccionIntelectualController.selected.idProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_idProduccion}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idProduccion}"/>
-
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
+                    
+                                        <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
                     <h:inputTextarea rows="5" cols="60" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
 
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_agnoProduccion}" for="agnoProduccion" />

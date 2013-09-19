@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -16,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "proyecto_investigadores")

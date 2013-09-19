@@ -20,11 +20,10 @@
 
             <h:form>
                 <p:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewTipoContenidoLabel_idTipoContenido}"/>
-                    <h:outputText value="#{tipoContenidoController.selected.idTipoPublicacion}" />
 
                     <h:outputText value="#{bundle.ViewTipoContenidoLabel_nombreTipoContenido}"/>
                     <h:outputText value="#{tipoContenidoController.selected.nombreTipoContenido}" title="#{bundle.ViewTipoContenidoTitle_nombreTipoContenido}"/>
+               
                 </p:panelGrid>
                 <br /><br />
                 <h:link outcome="Edit" value="#{bundle.ViewTipoContenidoEditLink}"/>

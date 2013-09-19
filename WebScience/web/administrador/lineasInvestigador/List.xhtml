@@ -24,6 +24,15 @@
 
                     <p:dataTable value="#{lineasInvestigadorController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:700px;">
 
+                        <p:column width="80">
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{lineasInvestigadorController.prepareView}" value="#{bundle.ListLineasInvestigadorViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{lineasInvestigadorController.prepareEdit}" value="#{bundle.ListLineasInvestigadorEditLink}"/>
+                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLineasInvestigadorTitle_investigador}"/>
@@ -37,16 +46,7 @@
                             </f:facet>
                             <h:outputText value="#{item.lineaInvestigacion.nombreLineaInvestigacion}"/>
                         </p:column>
-
-                        <p:column width="80">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{lineasInvestigadorController.prepareView}" value="#{bundle.ListLineasInvestigadorViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{lineasInvestigadorController.prepareEdit}" value="#{bundle.ListLineasInvestigadorEditLink}"/>
-                        </p:column>
-
+                        
                     </p:dataTable>
                 </h:panelGroup>
                 <br />

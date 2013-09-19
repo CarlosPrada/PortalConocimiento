@@ -14,8 +14,7 @@
 
         <ui:define name="body">
 
-            <h:outputText value="#{bundle.Requerido}" /><br/>
-            <h:outputText value="#{bundle.IDProductoProyecto}" /><br/><br/><br/>
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -24,9 +23,6 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idProducto}" for="idProducto" />
-                    <h:inputText id="idProducto" value="#{productoProyectoController.selected.idProducto}" title="#{bundle.CreateProductoProyectoTitle_idProducto}" required="true" requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idProducto}"/>
-
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
                     <h:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.CreateProductoProyectoTitle_nombreProducto}"  size="155"/>
 
@@ -34,8 +30,8 @@
                     <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="850px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
-                    <h:inputTextarea rows="4" cols="60" value="#{productoProyectoController.selected.enlaceProducto}" />
-                    
+                    <h:inputTextarea rows="7" cols="80" value="#{productoProyectoController.selected.enlaceProducto}" />
+
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.CreateProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>

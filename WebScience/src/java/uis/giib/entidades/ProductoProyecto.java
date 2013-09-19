@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -22,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "producto_proyecto")
@@ -46,7 +42,7 @@ public class ProductoProyecto implements Serializable {
     @Size(max = 65535)
     @Column(name = "descripcion_producto")
     private String descripcionProducto;
-    @Size(max = 500)
+    @Size(max = 800)
     @Column(name = "enlace_producto")
     private String enlaceProducto;
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")

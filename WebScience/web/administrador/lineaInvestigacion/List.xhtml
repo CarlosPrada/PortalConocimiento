@@ -7,24 +7,31 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+        
         <ui:define name="title">
             <h:outputText value="#{bundle.ListLineaInvestigacionTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+            
             <h:form >
+                
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+                
                 <h:outputText escape="false" value="#{bundle.ListLineaInvestigacionEmpty}" rendered="#{lineaInvestigacionController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{lineaInvestigacionController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{lineaInvestigacionController.items}" paginator="true" rows="30" var="item"  resizableColumns="true" style="width:1600px;">
+                    <p:dataTable value="#{lineaInvestigacionController.items}" paginator="true" rows="30" var="item"  resizableColumns="true" >
 
-                        <p:column width="110">
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_idLineaInvestigacion}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idLineaInvestigacion}"/>
+                            <h:commandLink action="#{lineaInvestigacionController.prepareView}" value="#{bundle.ListLineaInvestigacionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{lineaInvestigacionController.prepareEdit}" value="#{bundle.ListLineaInvestigacionEditLink}"/>
                         </p:column>
 
                         <p:column width="280">
@@ -48,28 +55,14 @@
                             <h:outputText value="#{item.detalleLineaInvestigacion}"/>
                         </p:column>
 
-                        <p:column width="260">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imagenLineaInvestigacion}"/>
-                        </p:column>
-
                         <p:column width="80">                       
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLineaInvestigacionTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>
 
-                        <p:column width="80">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{lineaInvestigacionController.prepareView}" value="#{bundle.ListLineaInvestigacionViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{lineaInvestigacionController.prepareEdit}" value="#{bundle.ListLineaInvestigacionEditLink}"/>
-                        </p:column>
+
 
                     </p:dataTable>
                 </h:panelGroup>

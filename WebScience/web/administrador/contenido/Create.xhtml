@@ -33,7 +33,7 @@
                     <ck:editor id="contenidoDetallado" value="#{contenidoController.selected.contenidoDetallado}" width="850px" uiColor="#aed0ea" />
                     
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_idMultimedia}" for="idMultimedia" />
-                    <h:selectOneMenu id="idMultimedia" value="#{contenidoController.selected.idMultimedia}" required="true" requiredMessage="#{bundle.CreateContenidoRequiredMessage_idMultimedia}" >
+                    <h:selectOneMenu id="idMultimedia" value="#{contenidoController.selected.idMultimedia}" >
                         <f:selectItems value="#{multimediaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 

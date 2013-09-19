@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -24,7 +20,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "rol")
@@ -43,12 +39,10 @@ public class Rol implements Serializable {
     private Integer idRol;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 40)
+    @Size(max = 40)
     @Column(name = "nombre_rol")
     private String nombreRol;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
+    @Size(max = 150)
     @Column(name = "descripcion_rol")
     private String descripcionRol;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRol")

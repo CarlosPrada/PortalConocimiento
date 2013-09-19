@@ -13,14 +13,14 @@
 
         <ui:define name="body">
 
+            <h:outputText value="#{bundle.Requerido}"/><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateMultimediaLabel_idMultimedia}" for="idMultimedia" />
-                    <h:inputText id="idMultimedia" value="#{multimediaController.selected.idMultimedia}" title="#{bundle.CreateMultimediaTitle_idMultimedia}" required="true" requiredMessage="#{bundle.CreateMultimediaRequiredMessage_idMultimedia}"/>
+                <h:panelGrid columns="2">   
 
                     <h:outputLabel value="#{bundle.CreateMultimediaLabel_nombreMultimedia}" for="nombreMultimedia" />
                     <h:inputText id="nombreMultimedia" value="#{multimediaController.selected.nombreMultimedia}" title="#{bundle.CreateMultimediaTitle_nombreMultimedia}" size="55"/>

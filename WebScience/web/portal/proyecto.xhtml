@@ -27,7 +27,7 @@
                         <div class="mainbarInvestigadores">
                             <div class="articleInvestigadores">  
 
-                                <h3><span><h:outputText value="#{proyecto.nombreProyecto}"/></span></h3>
+                                <h3><span><h:outputText value="#{proyecto.nombreProyecto}" escape="false"/></span></h3>
                                 <h:graphicImage alt="" width="150" height="120" url="/WebScience/javax.faces.resource/images/ImagenProyecto/#{proyecto.imagenProyecto}.jsf" />
                                 <p><h:outputText value="#{proyecto.descripcionResumidaProyecto}"/> </p>
                                 <p><br/><h:commandLink value="Ver detalles" action="#{proyectoPC.goDetallesProyecto(proyecto)}" /></p>

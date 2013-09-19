@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "permiso")
@@ -39,12 +39,10 @@ public class Permiso implements Serializable {
     private Integer idPermiso;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(min = 1, max = 50)
     @Column(name = "nombre_permiso")
     private String nombrePermiso;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
+    @Size(max = 500)
     @Column(name = "descripcion_permiso")
     private String descripcionPermiso;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idNivelPermiso")

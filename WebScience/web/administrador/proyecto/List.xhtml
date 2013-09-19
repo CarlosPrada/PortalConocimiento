@@ -19,16 +19,17 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListProyectoEmpty}" rendered="#{proyectoController.items.rowCount == 0}"/>
 
                 <h:panelGroup rendered="#{proyectoController.items.rowCount > 0}">
-                    <p:dataTable value="#{proyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:1850px;">
+                    <p:dataTable value="#{proyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true">
 
-                        <p:column width="60">
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idProyecto}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idProyecto}"/>
+                            <h:commandLink action="#{proyectoController.prepareView}" value="#{bundle.ListProyectoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{proyectoController.prepareEdit}" value="#{bundle.ListProyectoEditLink}"/>
                         </p:column>
 
                         <p:column width="170">
@@ -38,76 +39,39 @@
                             <h:outputText value="#{item.nombreProyecto}"/>
                         </p:column>
 
-                        <p:column width="200">
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProyectoTitle_descripcionResumidaProyecto}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionResumidaProyecto}"/>
                         </p:column>
-
-                        <p:column width="200">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_descripcionDetalladaProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionDetalladaProyecto}"/>
-                        </p:column>
-
-                        <p:column width="130">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_objetivosProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.objetivosProyecto}"/>
-                        </p:column>
-
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_resultadosProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.resultadosProyecto}"/>
-                        </p:column>
-
-                        <p:column width="200">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_imagenProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imagenProyecto}"/>
-                        </p:column>
-
+                       
                         <p:column width="100">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProyectoTitle_idTipoProyecto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTipoProyecto}"/>
+                            <h:outputText value="#{item.idTipoProyecto.nombreTipoProyecto}"/>
                         </p:column>
 
-                        <p:column width="100">
+                        <p:column width="80">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProyectoTitle_idEstadoProyecto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstadoProyecto}"/>
+                            <h:outputText value="#{item.idEstadoProyecto.nombreEstadoProyecto}"/>
+                        </p:column>
+
+                        <p:column width="150">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProyectoTitle_idLinea}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idLinea.nombreLineaInvestigacion}"/>
                         </p:column>
 
                         <p:column width="60">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idLinea}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idLinea}"/>
-                        </p:column>
-
-                        <p:column width="100">
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProyectoTitle_idEstadoGeneral}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstadoGeneral}"/>
-                        </p:column>
-
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{proyectoController.prepareView}" value="#{bundle.ListProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{proyectoController.prepareEdit}" value="#{bundle.ListProyectoEditLink}"/>
+                            <h:outputText value="#{item.idEstadoGeneral.nombreEstado}"/>
                         </p:column>
 
                     </p:dataTable>

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -17,7 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -41,6 +36,7 @@ public class EstadoProyecto implements Serializable {
     @Column(name = "id_estado_proyecto")
     private Integer idEstadoProyecto;
     @Size(max = 50)
+    @Basic(optional = false)
     @Column(name = "nombre_estado_proyecto")
     private String nombreEstadoProyecto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstadoProyecto")

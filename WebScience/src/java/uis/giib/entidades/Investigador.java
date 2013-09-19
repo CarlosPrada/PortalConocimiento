@@ -58,7 +58,7 @@ public class Investigador implements Serializable {
     @Column(name = "apellido_investigador")
     private String apellidoInvestigador;
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "informacion_investigador")
     private String informacionInvestigador;
     @Size(max = 21)
@@ -67,10 +67,10 @@ public class Investigador implements Serializable {
     @Size(max = 20)
     @Column(name = "celular_investigador")
     private String celularInvestigador;
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "correo_investigador")
     private String correoInvestigador;
-    @Size(min = 1, max = 1)
+    @Size(max = 1)
     @Column(name = "genero_investigador")
     private String generoInvestigador;
     @Size(max = 150)

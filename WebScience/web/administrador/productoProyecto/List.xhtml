@@ -25,11 +25,13 @@
                 <h:panelGroup rendered="#{productoProyectoController.items.rowCount > 0}">
                     <p:dataTable value="#{productoProyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
 
-                        <p:column width="60">
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_idProducto}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idProducto}"/>
+                            <h:commandLink action="#{productoProyectoController.prepareView}" value="#{bundle.ListProductoProyectoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{productoProyectoController.prepareEdit}" value="#{bundle.ListProductoProyectoEditLink}"/>
                         </p:column>
 
                         <p:column width="100">
@@ -57,24 +59,17 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>
 
-                        <p:column width="60">
+                        <p:column width="200">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductoProyectoTitle_idProyecto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idProyecto}"/>
+                            <h:outputText value="#{item.idProyecto.nombreProyecto}"/>
                         </p:column>
 
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{productoProyectoController.prepareView}" value="#{bundle.ListProductoProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{productoProyectoController.prepareEdit}" value="#{bundle.ListProductoProyectoEditLink}"/>
-                        </p:column>
+
 
                     </p:dataTable>
                 </h:panelGroup>

@@ -13,17 +13,18 @@
         
         <ui:define name="body">
             
+             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTipoContenidoLabel_idTipoContenido}" for="idTipoPublicacion" />
-                    <h:inputText id="idTipoPublicacion" value="#{tipoContenidoController.selected.idTipoPublicacion}"  required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_idTipoContenido}"/>
                     
                     <h:outputLabel value="#{bundle.CreateTipoContenidoLabel_nombreTipoContenido}" for="nombreTipoContenido" />
                     <h:inputText id="nombreTipoContenido" value="#{tipoContenidoController.selected.nombreTipoContenido}" title="#{bundle.CreateTipoContenidoTitle_nombreTipoContenido}" required="true" requiredMessage="#{bundle.CreateTipoContenidoRequiredMessage_nombreTipoContenido}" size="55"/>
+               
                 </h:panelGrid>
                 
                 <br />

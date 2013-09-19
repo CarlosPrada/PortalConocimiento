@@ -20,16 +20,17 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListRolEmpty}" rendered="#{rolController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{rolController.items.rowCount > 0}">
 
                     <p:dataTable value="#{rolController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:700px;">
 
                         <p:column width="60">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolTitle_idRol}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idRol}"/>
+                            <h:commandLink action="#{rolController.prepareView}" value="#{bundle.ListRolViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{rolController.prepareEdit}" value="#{bundle.ListRolEditLink}"/>
                         </p:column>
 
                         <p:column width="190">
@@ -44,15 +45,6 @@
                                 <h:outputText value="#{bundle.ListRolTitle_descripcionRol}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionRol}"/>
-                        </p:column>
-
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{rolController.prepareView}" value="#{bundle.ListRolViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{rolController.prepareEdit}" value="#{bundle.ListRolEditLink}"/>
                         </p:column>
 
                     </p:dataTable>

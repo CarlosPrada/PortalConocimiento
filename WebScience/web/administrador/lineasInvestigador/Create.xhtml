@@ -28,7 +28,7 @@
                     </h:selectOneMenu>
 
                     <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_lineaInvestigacion}" for="lineaInvestigacion" />
-                    <h:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" title="#{bundle.CreateLineasInvestigadorTitle_lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
+                    <h:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 

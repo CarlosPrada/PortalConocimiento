@@ -44,16 +44,16 @@ public class Proyecto implements Serializable {
     private Integer idProyecto;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
+    @Size(max = 200)
     @Column(name = "nombre_proyecto")
     private String nombreProyecto;
     @Basic(optional = false)
-    @Size(min = 1, max = 90)
+    @Size(max = 90)
     @Column(name = "descripcion_resumida_proyecto")
     private String descripcionResumidaProyecto;
     @Basic(optional = false)
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size( max = 65535)
     @Column(name = "descripcion_detallada_proyecto")
     private String descripcionDetalladaProyecto;
     @Size(max = 200)
@@ -61,12 +61,12 @@ public class Proyecto implements Serializable {
     private String imagenProyecto;
     @Basic(optional = false)
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "objetivos_proyecto")
     private String objetivosProyecto;
     @Basic(optional = false)
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "resultados_proyecto")
     private String resultadosProyecto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proyecto")

@@ -7,9 +7,11 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ListPermisoTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
 
             <h:form >
@@ -18,18 +20,19 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListPermisoEmpty}" rendered="#{permisoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{permisoController.items.rowCount > 0}">
-                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" style="width:500px;" >
+                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" style="width:900px;" >
 
-                        <p:column>
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPermisoTitle_idPermiso}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idPermiso}"/>
+                            <h:commandLink action="#{permisoController.prepareView}" value="#{bundle.ListPermisoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{permisoController.prepareEdit}" value="#{bundle.ListPermisoEditLink}"/>
                         </p:column>
 
-                        <p:column>
+                        <p:column width="100">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_nombrePermiso}"/>
                             </f:facet>
@@ -41,15 +44,6 @@
                                 <h:outputText value="#{bundle.ListPermisoTitle_descripcionPermiso}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionPermiso}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{permisoController.prepareView}" value="#{bundle.ListPermisoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{permisoController.prepareEdit}" value="#{bundle.ListPermisoEditLink}"/>
                         </p:column>
 
                     </p:dataTable>

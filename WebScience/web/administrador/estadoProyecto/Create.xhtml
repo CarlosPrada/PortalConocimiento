@@ -23,7 +23,7 @@
                 <h:panelGrid columns="2"> 
                     
                     <h:outputLabel value="#{bundle.CreateEstadoProyectoLabel_nombreEstadoProyecto}" for="nombreEstadoProyecto" />
-                    <h:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" title="#{bundle.CreateEstadoProyectoTitle_nombreEstadoProyecto}" />
+                    <h:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" required="true" requiredMessage="#{bundle.CreateEstadoProyectoRequiredMessage_idEstadoProyecto}" />
                 
                 </h:panelGrid>
                 <br />

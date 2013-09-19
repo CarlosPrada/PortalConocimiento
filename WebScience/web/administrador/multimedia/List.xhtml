@@ -22,12 +22,16 @@
                 <h:panelGroup rendered="#{multimediaController.items.rowCount > 0}">
 
                     <p:dataTable value="#{multimediaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:1000px;">
-                        <p:column width="80">
+
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMultimediaTitle_idMultimedia}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idMultimedia}"/>
+                            <h:commandLink action="#{multimediaController.prepareView}" value="#{bundle.ListMultimediaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{multimediaController.prepareEdit}" value="#{bundle.ListMultimediaEditLink}"/>
                         </p:column>
+
 
                         <p:column width="120">
                             <f:facet name="header">
@@ -43,21 +47,14 @@
                             <h:outputText value="#{item.urlMultimedia}"/>
                         </p:column>
 
-                        <p:column width="100">
+                        <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMultimediaTitle_idTipoMultimedia}"/>
                             </f:facet>
                             <h:outputText value="#{item.idTipoMultimedia.nombreTipoMultimedia}"/>
                         </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{multimediaController.prepareView}" value="#{bundle.ListMultimediaViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{multimediaController.prepareEdit}" value="#{bundle.ListMultimediaEditLink}"/>
-                        </p:column>
+
 
                     </p:dataTable>
                 </h:panelGroup>

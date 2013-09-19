@@ -14,8 +14,7 @@
 
         <ui:define name="body">
 
-            <h:outputText value="#{bundle.Requerido}" /><br/>
-            <h:outputText value="#{bundle.IDProductoProyecto}" /><br/><br/><br/>
+ <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -24,10 +23,7 @@
             <h:form>
 
                 <h:panelGrid columns="2">
-
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idProducto}" for="idProducto" />
-                    <h:inputText id="idProducto" value="#{productoProyectoController.selected.idProducto}" title="#{bundle.EditProductoProyectoTitle_idProducto}" required="true" requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idProducto}"/>
-
+                    
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
                     <h:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.EditProductoProyectoTitle_nombreProducto}" size="155"/>
 
@@ -35,7 +31,7 @@
                     <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="850px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
-                    <h:inputTextarea rows="4" cols="60" id="descripcionProducto2" value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
+                    <h:inputTextarea rows="7" cols="80" id="descripcionProducto2" value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
                     
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.EditProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idEstado}">

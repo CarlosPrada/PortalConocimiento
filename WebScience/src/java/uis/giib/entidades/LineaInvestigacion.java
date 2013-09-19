@@ -42,13 +42,12 @@ public class LineaInvestigacion implements Serializable {
     @Column(name = "id_linea_investigacion")
     private Integer idLineaInvestigacion;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre_linea_investigacion")
     private String nombreLineaInvestigacion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 65000)
+    @Size(max = 65000)
     @Column(name = "descripcion_linea_investigacion")
     private String descripcionLineaInvestigacion;
     @Column(name = "detalle_linea_investigacion")

@@ -34,10 +34,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion")})
 public class ProduccionIntelectual implements Serializable {
 
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "referencia_produccion")
-    private String referenciaProduccion;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +45,10 @@ public class ProduccionIntelectual implements Serializable {
     private String nombreProduccion;
     @Column(name = "agno_produccion")
     private Integer agnoProduccion;
+    @Lob
+    @Size(max = 65535)
+    @Column(name = "referencia_produccion")
+    private String referenciaProduccion;
     @Size(max = 800)
     @Column(name = "url_produccion")
     private String urlProduccion;

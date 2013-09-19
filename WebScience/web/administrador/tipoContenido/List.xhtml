@@ -18,29 +18,11 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-
-                <h:outputText escape="false" value="#{bundle.ListTipoContenidoEmpty}" rendered="#{tipoContenidoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{tipoContenidoController.items.rowCount > 0}">
-                    <h:outputText value="#{tipoContenidoController.pagination.pageFirstItem + 1}..#{tipoContenidoController.pagination.pageLastItem + 1}/#{tipoContenidoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{tipoContenidoController.previous}" value="#{bundle.Previous} #{tipoContenidoController.pagination.pageSize}" rendered="#{tipoContenidoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{tipoContenidoController.next}" value="#{bundle.Next} #{tipoContenidoController.pagination.pageSize}" rendered="#{tipoContenidoController.pagination.hasNextPage}"/>&nbsp;
-                    
-                    <p:dataTable value="#{tipoContenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:400px;">>
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoContenidoTitle_idTipoContenido}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idTipoPublicacion}"/>
-                        </p:column>
-
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoContenidoTitle_nombreTipoContenido}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreTipoContenido}"/>
-                        </p:column>
-
-                        <p:column>
+                
+                <h:panelGroup rendered="#{tipoContenidoController.items.rowCount > 0}">                                       
+                    <p:dataTable value="#{tipoContenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:300px;">>
+                        
+                        <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -49,6 +31,13 @@
                             <h:commandLink action="#{tipoContenidoController.prepareEdit}" value="#{bundle.ListTipoContenidoEditLink}"/>
                         </p:column>
 
+                        <p:column width="150">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoContenidoTitle_nombreTipoContenido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreTipoContenido}"/>
+                        </p:column>
+                        
                     </p:dataTable>
                 </h:panelGroup>
                 <br />

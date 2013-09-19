@@ -21,12 +21,22 @@
                 <h:outputText escape="false" value="#{bundle.ListInvestigadorProduccionEmpty}" rendered="#{investigadorProduccionController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{investigadorProduccionController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{investigadorProduccionController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:500px;">
+                    <p:dataTable value="#{investigadorProduccionController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:1230px;">
+
+                        <p:column width="70">
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{investigadorProduccionController.prepareView}" value="#{bundle.ListInvestigadorProduccionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{investigadorProduccionController.prepareEdit}" value="#{bundle.ListInvestigadorProduccionEditLink}"/>
+                        </p:column>
+
                         <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorProduccionTitle_produccionIntelectual}"/>
                             </f:facet>
-                            <h:outputText value="#{item.produccionIntelectual}"/>
+                            <h:outputText value="#{item.produccionIntelectual.nombreProduccion}"/>
                         </p:column>
 
                         <p:column width="200">
@@ -34,15 +44,6 @@
                                 <h:outputText value="#{bundle.ListInvestigadorProduccionTitle_investigador}"/>
                             </f:facet>
                             <h:outputText value="#{item.investigador.nombreInvestigador} #{item.investigador.apellidoInvestigador}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{investigadorProduccionController.prepareView}" value="#{bundle.ListInvestigadorProduccionViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{investigadorProduccionController.prepareEdit}" value="#{bundle.ListInvestigadorProduccionEditLink}"/>
                         </p:column>
 
                     </p:dataTable>

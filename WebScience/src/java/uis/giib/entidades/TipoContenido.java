@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -26,10 +28,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TipoContenido.findByIdTipoPublicacion", query = "SELECT t FROM TipoContenido t WHERE t.idTipoPublicacion = :idTipoPublicacion"),
     @NamedQuery(name = "TipoContenido.findByNombreTipoContenido", query = "SELECT t FROM TipoContenido t WHERE t.nombreTipoContenido = :nombreTipoContenido")})
 public class TipoContenido implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_tipo_publicacion")
     private Integer idTipoPublicacion;
     @Basic(optional = false)
@@ -76,8 +79,6 @@ public class TipoContenido implements Serializable {
         this.contenidoList = contenidoList;
     }
 
-
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -101,5 +102,5 @@ public class TipoContenido implements Serializable {
     @Override
     public String toString() {
         return "[" + idTipoPublicacion + "] - " + nombreTipoContenido;
-    }   
+    }
 }
