@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import uis.giib.entidades.Investigador;
 import uis.giib.entidades.TipoInvestigador;
 
 /**
@@ -39,6 +40,13 @@ public class TipoInvestigadorFacade extends AbstractFacade<TipoInvestigador> {
             return null;
         }
     }
+
+    
+    public List<TipoInvestigador> listarInvestigadores() {
+        Query query = em.createNamedQuery("SELECT t FROM TipoInvestigador t WHERE t.investigadorList.idEstado.idEstado=1");
+        return query.getResultList();
+    }
+    
     
     
 }

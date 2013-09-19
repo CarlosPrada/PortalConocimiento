@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Carlos David Prada Remolina 
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "bibliografia")
@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Bibliografia.findByReferenciaBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.referenciaBibliografia = :referenciaBibliografia"),
     @NamedQuery(name = "Bibliografia.findByUrlBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.urlBibliografia = :urlBibliografia")})
 public class Bibliografia implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,6 +58,9 @@ public class Bibliografia implements Serializable {
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
     @ManyToOne(optional = false)
     private EstadoGeneral idEstado;
+    @JoinColumn(name = "id_linea", referencedColumnName = "id_linea_investigacion")
+    @ManyToOne(optional = false)
+    private LineaInvestigacion idLinea;
 
     public Bibliografia() {
     }
@@ -145,5 +149,12 @@ public class Bibliografia implements Serializable {
     public String toString() {
         return "uis.giib.entidades.Bibliografia[ idBibliografia=" + idBibliografia + " ]";
     }
-    
+
+    public LineaInvestigacion getIdLinea() {
+        return idLinea;
+    }
+
+    public void setIdLinea(LineaInvestigacion idLinea) {
+        this.idLinea = idLinea;
+    }
 }

@@ -13,6 +13,8 @@
         </ui:define>
 
         <ui:define name="body">
+            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -20,9 +22,7 @@
 
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_idContenido}" for="idPublicacion" />
-                    <h:inputText id="idPublicacion" value="#{contenidoController.selected.idPublicacion}" required="true" requiredMessage="#{bundle.EditContenidoRequiredMessage_idContenido}"/>
-
+                    
                     <h:outputLabel value="#{bundle.EditContenidoLabel_titulo}" for="titulo" />
                     <h:inputText id="titulo" value="#{contenidoController.selected.titulo}" title="#{bundle.EditContenidoTitle_titulo}" size="55"/>
 
@@ -40,11 +40,6 @@
                     <h:outputLabel value="#{bundle.EditContenidoLabel_idTipoContenido}" for="idTipoPublicacion" />
                     <h:selectOneMenu id="idTipoPublicacion" value="#{contenidoController.selected.idTipoPublicacion}">
                         <f:selectItems value="#{tipoContenidoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_idSeccion}" for="idSeccion" />
-                    <h:selectOneMenu id="idSeccion" value="#{contenidoController.selected.idSeccion}" title="#{bundle.EditContenidoTitle_idSeccion}" >
-                        <f:selectItems value="#{seccionController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 
                     <h:outputLabel value="#{bundle.EditContenidoLabel_idEstado}" for="idEstado" />

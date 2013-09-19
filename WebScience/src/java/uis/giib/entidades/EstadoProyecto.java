@@ -10,6 +10,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -31,10 +33,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EstadoProyecto.findByIdEstadoProyecto", query = "SELECT e FROM EstadoProyecto e WHERE e.idEstadoProyecto = :idEstadoProyecto"),
     @NamedQuery(name = "EstadoProyecto.findByNombreEstadoProyecto", query = "SELECT e FROM EstadoProyecto e WHERE e.nombreEstadoProyecto = :nombreEstadoProyecto")})
 public class EstadoProyecto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id_estado_proyecto")
     private Integer idEstadoProyecto;
     @Size(max = 50)
@@ -65,8 +68,6 @@ public class EstadoProyecto implements Serializable {
     public void setNombreEstadoProyecto(String nombreEstadoProyecto) {
         this.nombreEstadoProyecto = nombreEstadoProyecto;
     }
-
-
 
     @Override
     public int hashCode() {
@@ -100,5 +101,4 @@ public class EstadoProyecto implements Serializable {
     public void setProyectoList(List<Proyecto> proyectoList) {
         this.proyectoList = proyectoList;
     }
-    
 }

@@ -5,6 +5,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import uis.giib.administrador.dao.LineaInvestigacionFacade;
 import uis.giib.entidades.EstadoGeneral;
 import uis.giib.entidades.LineaInvestigacion;
@@ -17,7 +19,8 @@ import uis.giib.entidades.LineaInvestigacion;
 @SessionScoped
 public class LineasInvestigacionPortalController implements Serializable {
 
-    private List<LineaInvestigacion> listadoLineasInvestigacion;
+    //private List<LineaInvestigacion> listadoLineasInvestigacion;
+    private DataModel<LineaInvestigacion> listadoLineasInvestigacion;
     private LineaInvestigacion lineasInvestigacionActual;
     private EstadoGeneral estadoGeneral;
     private Integer idEstado = new Integer(1);
@@ -38,12 +41,14 @@ public class LineasInvestigacionPortalController implements Serializable {
     //Métodos de navegación
     public String goLineasInvestigacion() {
 
-        try {
-            estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
-            listadoLineasInvestigacion = estadoGeneral.getLineaInvestigacionList();
-        } catch (Exception e) {
-            System.out.println("Error listando las Líneas de Investigaión!");
-        }
+        listadoLineasInvestigacion = new ListDataModel(ejbFacadeLineaInvestigacion.findAll());
+
+        /*try {
+         estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
+         listadoLineasInvestigacion = estadoGeneral.getLineaInvestigacionList();
+         } catch (Exception e) {
+         System.out.println("Error listando las Líneas de Investigaión!");
+         }*/
         return "/portal/lineasInvestigacion.xhtml?faces-redirect=true";
     }
 
@@ -65,14 +70,16 @@ public class LineasInvestigacionPortalController implements Serializable {
     public void setLineasInvestigacionActual(LineaInvestigacion lineasInvestigacionActual) {
         this.lineasInvestigacionActual = lineasInvestigacionActual;
     }
+    
+    
 
-    public List<LineaInvestigacion> getListadoLineasInvestigacion() {
+   /* public List<LineaInvestigacion> getListadoLineasInvestigacion() {
         return listadoLineasInvestigacion;
     }
 
     public void setListadoLineasInvestigacion(List<LineaInvestigacion> listadoLineasInvestigacion) {
         this.listadoLineasInvestigacion = listadoLineasInvestigacion;
-    }
+    }*/
 
     public LineaInvestigacionFacade getEjbFacade() {
         return ejbFacadeLineaInvestigacion;
@@ -112,5 +119,13 @@ public class LineasInvestigacionPortalController implements Serializable {
 
     public void setEjbFacadeLineaInvestigacion(uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacadeLineaInvestigacion) {
         this.ejbFacadeLineaInvestigacion = ejbFacadeLineaInvestigacion;
+    }
+
+    public DataModel<LineaInvestigacion> getListadoLineasInvestigacion() {
+        return listadoLineasInvestigacion;
+    }
+
+    public void setListadoLineasInvestigacion(DataModel<LineaInvestigacion> listadoLineasInvestigacion) {
+        this.listadoLineasInvestigacion = listadoLineasInvestigacion;
     }
 }

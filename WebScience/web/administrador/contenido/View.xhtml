@@ -21,27 +21,21 @@
             <h:form>
                 <p:panelGrid columns="2">
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idContenido}"/>
-                    <h:outputText value="#{contenidoController.selected.idPublicacion}"/>
-
                     <h:outputText value="#{bundle.ViewContenidoLabel_titulo}"/>
                     <h:outputText value="#{contenidoController.selected.titulo}" title="#{bundle.ViewContenidoTitle_titulo}"/>
 
                     <h:outputText value="#{bundle.ViewContenidoLabel_contenidoResumido}"/>
-                    <h:outputText value="#{contenidoController.selected.contenidoResumido}" title="#{bundle.ViewContenidoTitle_contenidoResumido}"/>
+                    <h:outputText value="#{contenidoController.selected.contenidoResumido}" escape="false" title="#{bundle.ViewContenidoTitle_contenidoResumido}"/>
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoDetallado}"/>
-                    <h:outputText value="#{contenidoController.selected.contenidoDetallado}" title="#{bundle.ViewContenidoTitle_contenidoDetallado}"/>
+                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoDetallado}" />
+                    <h:outputText value="#{contenidoController.selected.contenidoDetallado}" escape="false" title="#{bundle.ViewContenidoTitle_contenidoDetallado}"/>
                     
                     <h:outputText value="#{bundle.ViewContenidoLabel_idMultimedia}"/>
                     <h:outputText value="#{contenidoController.selected.idMultimedia.nombreMultimedia}" title="#{bundle.ViewContenidoTitle_idMultimedia}"/>
                     
                     <h:outputText value="#{bundle.ViewContenidoLabel_idTipoContenido}"/>
                     <h:outputText value="#{contenidoController.selected.idTipoPublicacion.nombreTipoContenido}" />
-                    
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idSeccion}"/>
-                    <h:outputText value="#{contenidoController.selected.idSeccion.nombreSeccion}" title="#{bundle.ViewContenidoTitle_idSeccion}"/>
-                    
+                                        
                     <h:outputText value="#{bundle.ViewContenidoLabel_idEstado}"/>
                     <h:outputText value="#{contenidoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewContenidoTitle_idEstado}"/>
 

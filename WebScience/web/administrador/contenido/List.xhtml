@@ -23,12 +23,15 @@
                 <h:outputText escape="false" value="#{bundle.ListContenidoEmpty}" rendered="#{contenidoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{contenidoController.items.rowCount > 0}">                   
 
-                    <p:dataTable value="#{contenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:2000px;">
-                        <p:column width="80">
+                    <p:dataTable value="#{contenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
+                      
+                        <p:column width="70">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_idContenido}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idPublicacion}"/>
+                            <h:commandLink action="#{contenidoController.prepareView}" value="#{bundle.ListContenidoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}"/>
                         </p:column>
 
                         <p:column width="200">
@@ -38,14 +41,14 @@
                             <h:outputText value="#{item.titulo}"/>
                         </p:column>
 
-                        <p:column width="400">
+                        <p:column width="250">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContenidoTitle_contenidoResumido}"/>
                             </f:facet>
                             <h:outputText value="#{item.contenidoResumido}"/>
                         </p:column>
 
-                        <p:column width="400">
+                        <p:column width="250">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContenidoTitle_contenidoDetallado}"/>
                             </f:facet>
@@ -56,64 +59,21 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContenidoTitle_idMultimedia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idMultimedia}"/>
+                            <h:outputText value="#{item.idMultimedia.nombreMultimedia}"/>
                         </p:column>
 
-                        <p:column width="90">
+                        <p:column width="120">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContenidoTitle_idTipoContenido}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTipoPublicacion}"/>
-                        </p:column>
-
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_idSeccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idSeccion}"/>
+                            <h:outputText value="#{item.idTipoPublicacion.nombreTipoContenido}"/>
                         </p:column>
 
                         <p:column width="60">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContenidoTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
-                        </p:column>
-
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_fechaInicioevento}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaInicioevento}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_fechaFinevento}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaFinevento}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_fechaDespublicar}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaDespublicar}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>                        
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{contenidoController.prepareView}" value="#{bundle.ListContenidoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}"/>
+                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>
 
                     </p:dataTable>

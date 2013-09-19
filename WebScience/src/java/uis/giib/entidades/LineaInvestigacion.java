@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -61,6 +62,8 @@ public class LineaInvestigacion implements Serializable {
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
     @ManyToOne(optional = false)
     private EstadoGeneral idEstado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLinea")
+    private List<Bibliografia> bibliografiaList;
 
     public LineaInvestigacion() {
     }
@@ -76,7 +79,6 @@ public class LineaInvestigacion implements Serializable {
     }
 
     // Getter - Setter
-    
     public String getImagenLineaInvestigacion() {
         return imagenLineaInvestigacion;
     }
@@ -123,7 +125,7 @@ public class LineaInvestigacion implements Serializable {
 
     public void setDescripcionLineaInvestigacion(String descripcionLineaInvestigacion) {
         this.descripcionLineaInvestigacion = descripcionLineaInvestigacion;
-    }   
+    }
 
     @Override
     public int hashCode() {
@@ -164,5 +166,14 @@ public class LineaInvestigacion implements Serializable {
 
     public void setDetalleLineaInvestigacion(String detalleLineaInvestigacion) {
         this.detalleLineaInvestigacion = detalleLineaInvestigacion;
+    }
+
+    @XmlTransient
+    public List<Bibliografia> getBibliografiaList() {
+        return bibliografiaList;
+    }
+
+    public void setBibliografiaList(List<Bibliografia> bibliografiaList) {
+        this.bibliografiaList = bibliografiaList;
     }
 }

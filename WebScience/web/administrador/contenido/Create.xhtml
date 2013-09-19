@@ -7,18 +7,22 @@
       xmlns:ck="http://code.google.com/ck-jsf-editor">
 
     <ui:composition template="/template.xhtml">
+        
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateContenidoTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateContenidoLabel_idContenido}" for="idPublicacion" />
-                    <h:inputText id="idPublicacion" value="#{contenidoController.selected.idPublicacion}" title="#{bundle.CreateContenidoTitle_idContenido}" required="true" requiredMessage="#{bundle.CreateContenidoRequiredMessage_idContenido}"/>
-
+                   
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_titulo}" for="titulo" />
                     <h:inputText id="titulo" value="#{contenidoController.selected.titulo}" title="#{bundle.CreateContenidoTitle_titulo}"  size="55"/>
 
@@ -36,11 +40,6 @@
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_idTipoContenido}" for="idTipoPublicacion" />
                     <h:selectOneMenu id="idTipoPublicacion" value="#{contenidoController.selected.idTipoPublicacion}" required="true" requiredMessage="#{bundle.CreateContenidoRequiredMessage_idTipoContenido}" >
                         <f:selectItems value="#{tipoContenidoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-
-                    <h:outputLabel value="#{bundle.CreateContenidoLabel_idSeccion}" for="idSeccion" />
-                    <h:selectOneMenu id="idSeccion" value="#{contenidoController.selected.idSeccion}" title="#{bundle.CreateContenidoTitle_idSeccion}" >
-                        <f:selectItems value="#{seccionController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_idEstado}" for="idEstado" />

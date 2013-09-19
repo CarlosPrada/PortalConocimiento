@@ -30,8 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TipoProduccion.findByIdTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.idTipoProduccion = :idTipoProduccion"),
     @NamedQuery(name = "TipoProduccion.findByNombreTipoProduccion", query = "SELECT t FROM TipoProduccion t WHERE t.nombreTipoProduccion = :nombreTipoProduccion")})
 public class TipoProduccion implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoBibliografia")
-    private List<Bibliografia> bibliografiaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,6 +44,8 @@ public class TipoProduccion implements Serializable {
     private String nombreTipoProduccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoProduccion")
     private List<ProduccionIntelectual> produccionIntelectualList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoBibliografia")
+    private List<Bibliografia> bibliografiaList;
 
     public TipoProduccion() {
     }

@@ -7,19 +7,17 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.administrador.dao.TipoContenidoFacade;
-import uis.giib.entidades.Contenido;
-import uis.giib.entidades.TipoContenido;
+
 
 /**
  * @author Carlos David Prada Remolina
  * @author cristhian
  */
-@Named(value = "BibliografiaPC")
+@Named(value = "bibliografiaPC")
 @SessionScoped
 public class BibliografiaPortalController implements Serializable {
 
-    //Atributos
+    //Atributos 
     private DataModel listadoBibliografia;
     private DataModel listaTipoBibliografia;
     @EJB

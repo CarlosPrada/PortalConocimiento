@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
@@ -13,7 +9,7 @@ import javax.faces.model.ListDataModel;
 
 /**
  *
- * @author Carlos
+ * @author Carlos Prada Remolina
  */
 @Named(value = "publicacionesPC")
 @SessionScoped

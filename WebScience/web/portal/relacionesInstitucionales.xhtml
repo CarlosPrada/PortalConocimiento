@@ -23,7 +23,7 @@
                 <div class="mainbarIzquierdo">     
                     <h:form>      
                         <p:dataGrid value="#{relacionesInstitucionalesPC.relacionesInstitucionales}" emptyMessage="No se encontraton registros"  var="rlcnesInsttcnles">
-                            <h3><span><h:outputText value="#{rlcnesInsttcnles.contenidoDetallado}" /> </span></h3>
+                            <h3><span><h:outputText value="#{rlcnesInsttcnles.contenidoDetallado}" escape="false"/> </span></h3>
                         </p:dataGrid>
                     </h:form>      
                 </div>

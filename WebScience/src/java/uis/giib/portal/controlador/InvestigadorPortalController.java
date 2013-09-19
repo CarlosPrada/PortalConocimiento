@@ -68,7 +68,7 @@ public class InvestigadorPortalController implements Serializable {
         try {
             //estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
             listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());
-            Iterator<TipoInvestigador> tipoInvIterator = listaTiposInvestigador.iterator();
+            /*Iterator<TipoInvestigador> tipoInvIterator = listaTiposInvestigador.iterator();
 
             while (tipoInvIterator.hasNext()) {
                 TipoInvestigador tipoInv = tipoInvIterator.next();
@@ -96,7 +96,7 @@ public class InvestigadorPortalController implements Serializable {
                     System.out.println("Fin de la lista de Investigadores");
                 }
                 tipoInv.setInvestigadorList(listadoInvestigadores);
-            }
+            */
         } catch (Exception e) {
             System.out.println("Error listando investitadores GoInvestigador!" + e.getLocalizedMessage() + " " + e.getMessage());
         }
