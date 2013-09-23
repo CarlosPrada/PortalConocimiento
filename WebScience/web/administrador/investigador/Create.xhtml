@@ -5,16 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+       >
 
     <ui:composition template="/template.xhtml">
 
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateInvestigadorTitle}"></h:outputText>
         </ui:define>
-
-
-
         <ui:define name="body">
 
             <h:outputText value="#{bundle.Requerido}" /><br/><br/><br/>
@@ -43,7 +41,8 @@
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_informacionInvestigador}" for="informacionInvestigador" />
                     <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="850px" uiColor="#aed0ea"  />
-
+                    
+                    
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_telefonoInvestigador}" for="telefonoInvestigador" />
                     <h:inputText id="telefonoInvestigador" value="#{investigadorController.selected.telefonoInvestigador}" title="#{bundle.CreateInvestigadorTitle_telefonoInvestigador}" size="25"/>
 

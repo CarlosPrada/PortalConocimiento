@@ -24,7 +24,7 @@
                 <h:panelGroup rendered="#{contenidoController.items.rowCount > 0}">                   
 
                     <p:dataTable value="#{contenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
-                      
+
                         <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
@@ -90,6 +90,11 @@
                 <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
                 <h:link outcome="/administrador/multimedia/#{multimediaController.prepareList()}" value="Administrar Multimedias de los Contenidos"/>
                 : Permite administrar los Multimedia de los Contenidos existentes.
+
+                <br /><br />
+                <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
+                <h:link outcome="/administrador/evento/#{eventoController.prepareList()}" value="Administrar Eventos"/>
+                : Permite administrar los Eventos del grupo.
 
                 <br /><br />
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListContenidoIndexLink}"/>

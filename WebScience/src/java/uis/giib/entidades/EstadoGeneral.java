@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Evento> eventoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<Bibliografia> bibliografiaList;
 
     private static final long serialVersionUID = 1L;
@@ -182,5 +184,14 @@ public class EstadoGeneral implements Serializable {
 
     public void setBibliografiaList(List<Bibliografia> bibliografiaList) {
         this.bibliografiaList = bibliografiaList;
+    }
+
+    @XmlTransient
+    public List<Evento> getEventoList() {
+        return eventoList;
+    }
+
+    public void setEventoList(List<Evento> eventoList) {
+        this.eventoList = eventoList;
     }
 }
