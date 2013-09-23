@@ -35,14 +35,26 @@
             <div class="header">
                 <div class="header_resize">
                     <div class="logo">
+                        
                         <h1>
-                            <a href="index.html"><small></small> <span>GIIB</span></a>
-                            <ui:insert name="header">Default Title</ui:insert>
+                            
+                            <a href="index.jsf"><small></small> <span><img src="#{resource['images/portal/logonn.png']}"> </img></span></a>
+                            <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
+                            
+                           
                         </h1>
+                      <a  href="index.jsf"><small></small> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
+                         <a href="https://www.facebook.com/groups/114952768532406/" target="_black"><small></small> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
+                        
+                        
                     </div>
-                    <div id="fb-root">
+                    
+                    
+                     <div id="fb-root">
 
-                        <!-- redes sociales-->
+
+                        <!-- redes sociales mirar por q no sale -->
+                   
 
                         <script type="text/javascript">
                             (function() {
@@ -57,6 +69,7 @@
                         </script>
                         <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
                         <div class="fb-like"></div>
+                        
 
                         <h5>
                             <div class="fb-like" data-href="http://biomedica.uis.edu.co/portal/GIIB/index.html" data-width="292" data-send="true"></div> </h5>
@@ -71,9 +84,10 @@
                         <h5><p9> <a href="javascript:window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'')">Compartir en Twitter</a></p9></h5>
 
                         <!-- encabezado de aqui para abajo-->
-
+                        
 
                     </div>
+                    
 
                     <div class="clr"></div>
 
@@ -145,6 +159,13 @@
                                     </h:commandLink>
                                 </li>
                             </ul>
+                             <ul class="nav">
+                                <li>
+                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" >
+                                        <b>Con</b>
+                                    </h:commandLink>
+                                </li>
+                             </ul>
                         </h:form>
                     </div>
                     <div class="clr"></div>
@@ -179,34 +200,33 @@
         <div class="fbg">
             <div class="fbg_resize">
                 <div class="col c1">
-                    <h2><span>Sitios de Interés</span></h2>
+                      <h2><span>Institucionales</span></h2>
                     <ul class="fbg_ul">
-                        <li><a href="#">Enlace.</a></li>
-                        <li><a href="#">Enlace.</a></li>
-                        <li><a href="#">Enlace.</a></li>
+                        <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
+                        <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
+                        <li><a href="http://cormoran.uis.edu.co/eisi/" target="_blank">EISI-WEB</a></li>
                     </ul>
                 </div>
                 <div class="col c2">
-                    <h2><span>Sitios de Interés</span></h2>
+                    <h11><h2>Grupos de investigación de la EISI</h2>
                     <ul class="fbg_ul">
-                        <li><a href="#">Enlace.</a></li>
-                        <li><a href="#">Enlace.</a></li>
-                        <li><a href="#">Enlace.</a></li>
-                    </ul>
+                        <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
+                        <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
+                       
+                        
+                    </ul></h11> 
                 </div>
-                <div class="col c3">
-                    <h2><span>Contáctenos</span></h2>
-                    <p class="contact_info">
-                        <span>Dirección:</span><br />
-                        <span>Telefono:</span> <br />
-                    </p>
-                </div>
+            
+                     
+                      
+                    
+                
                 <div class="clr"></div>
             </div>
         </div>
         <div class="footer">
             <div class="footer_resize">
-                <p class="lf">&copy; Sitio web del Grupo  GIIB Copyright 2013 </p>
+                <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
                 <div style="clear:both;"></div>
             </div>
         </div>
