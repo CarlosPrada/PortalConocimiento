@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnlacesWebTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEnlacesWebEmpty}" rendered="#{enlacesWebController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{enlacesWebController.items.rowCount > 0}">
+                    <h:outputText value="#{enlacesWebController.pagination.pageFirstItem + 1}..#{enlacesWebController.pagination.pageLastItem + 1}/#{enlacesWebController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{enlacesWebController.previous}" value="#{bundle.Previous} #{enlacesWebController.pagination.pageSize}" rendered="#{enlacesWebController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{enlacesWebController.next}" value="#{bundle.Next} #{enlacesWebController.pagination.pageSize}" rendered="#{enlacesWebController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{enlacesWebController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnlacesWebTitle_nombreEnlace}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEnlace}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnlacesWebTitle_enlace}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enlace}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnlacesWebTitle_idEnlace}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEnlace}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnlacesWebTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{enlacesWebController.prepareView}" value="#{bundle.ListEnlacesWebViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enlacesWebController.prepareEdit}" value="#{bundle.ListEnlacesWebEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enlacesWebController.destroy}" value="#{bundle.ListEnlacesWebDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{enlacesWebController.prepareCreate}" value="#{bundle.ListEnlacesWebCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEnlacesWebIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

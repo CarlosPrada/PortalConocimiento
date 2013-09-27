@@ -22,7 +22,11 @@ h2 {
     font-size:30px;
     font-weight:normal;
     color:#353c46;
+
 }
+
+
+
 p {
     margin:0 ;
     margin-top: 0;
@@ -94,6 +98,11 @@ font-size: 40px;
 
 
 p10{
+font-size: 20px;
+ font-family: serif; 
+ color:#000000;
+}
+ p12{
 font-size: 20px;
  font-family: serif; 
  color:#000000;
