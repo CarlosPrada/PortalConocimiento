@@ -9,7 +9,7 @@ import uis.giib.entidades.EnlacesWeb;
 
 /**
  *
- * @author Carlos Prada - crisyhian ruiz
+ * @author Carlos David Prada Remolina - crisyhian ruiz
  */
 @Named(value = "enlacesWebPC")
 @SessionScoped
@@ -17,7 +17,6 @@ public class EnlacesWebPortalController implements Serializable {
 
     // Atributos
     private EnlacesWeb enlacesWeb;
-    //private Integer idTipo = new Integer(4);
     @EJB
     private uis.giib.administrador.dao.EnlacesWebFacade ejbEnlacesWeb;
 

@@ -9,29 +9,24 @@
 
     <ui:define name="title">Noticias</ui:define>
     <ui:define name="libreriasJS"></ui:define>
-
     <ui:define name="slider"></ui:define>
 
     <ui:define name="body">
+
+        <div class="article">                                
+            <h1><span>Noticias</span></h1>  
+        </div>
         <h:form>  
 
-            <p:growl id="growl" showDetail="true"/>  
-
-            <p:fieldset legend="NOTICIAS" > 
-
-                <p:dataGrid    columns="1" paginator="true" rows="3" value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
-                    <div class="mainbarDerecho">
-                        <h:graphicImage alt="" width="150" height="200" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
-                        <p12><h:outputText value="#{noticias.titulo}" escape="false" /> </p12>
-                        <br/>
-                        <h:outputText value="#{noticias.fechaInicioevento}" escape="false" >
-                            <f:convertDateTime pattern="yyyy/MM/dd" />
-                        </h:outputText> 
-                        <br/><h:outputText value="#{noticias.contenidoDetallado}" escape="false" />
-                    </div>
-                </p:dataGrid>
-
-            </p:fieldset> 
+            <p:dataGrid  rows="3" columns="1" paginator="true"  value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                <div class="mainbarDerecho">                        
+                    <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
+                    <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
+                        <f:convertDateTime pattern="yyyy/MM/dd" />
+                    </h:outputText> <br/><br/>
+                    <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
+                </div>
+            </p:dataGrid>
 
         </h:form> 
     </ui:define>

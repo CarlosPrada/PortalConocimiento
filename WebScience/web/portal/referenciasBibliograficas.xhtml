@@ -31,12 +31,13 @@
                                     <p:dataGrid columns="1" value="#{tipoBibli.bibliografiaList}"  emptyMessage="No se encontraton registros" var="bibli">
                                         <h:outputText value="#{bibli.referenciaBibliografia} " /> 
                                         <h:outputLink value="#{bibli.urlBibliografia}">Abstract</h:outputLink>
+                                        <hr/>
                                     </p:dataGrid>
                                 </p:scrollPanel>
 
                             </p:tab>
                         </p:tabView>
-                        
+
                     </h:form>
 
                 </div>

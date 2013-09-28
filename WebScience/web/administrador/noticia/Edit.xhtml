@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNoticiaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_idNoticia}" for="idNoticia" />
+                    <h:inputText id="idNoticia" value="#{noticiaController.selected.idNoticia}" title="#{bundle.EditNoticiaTitle_idNoticia}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_idNoticia}"/>
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_tituloNoticia}" for="tituloNoticia" />
+                    <h:inputTextarea rows="4" cols="30" id="tituloNoticia" value="#{noticiaController.selected.tituloNoticia}" title="#{bundle.EditNoticiaTitle_tituloNoticia}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_tituloNoticia}"/>
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_contenidoNoticia}" for="contenidoNoticia" />
+                    <h:inputTextarea rows="4" cols="30" id="contenidoNoticia" value="#{noticiaController.selected.contenidoNoticia}" title="#{bundle.EditNoticiaTitle_contenidoNoticia}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_contenidoNoticia}"/>
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_fechaPublicacionNoticia}" for="fechaPublicacionNoticia" />
+                    <h:inputText id="fechaPublicacionNoticia" value="#{noticiaController.selected.fechaPublicacionNoticia}" title="#{bundle.EditNoticiaTitle_fechaPublicacionNoticia}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" value="#{noticiaController.selected.idEstado}" title="#{bundle.EditNoticiaTitle_idEstado}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_idEstado}">
+                        <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{noticiaController.update}" value="#{bundle.EditNoticiaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditNoticiaViewLink}"/>
+                <br />
+                <h:commandLink action="#{noticiaController.prepareList}" value="#{bundle.EditNoticiaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditNoticiaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -9,7 +9,7 @@
     <ui:composition template="/template.xhtml">
 
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListContenidoTitle}"></h:outputText>
+            <h:outputText value="/#{bundle.ListContenidoTitle}"></h:outputText>
         </ui:define>
 
         <ui:define name="body">
@@ -25,13 +25,17 @@
 
                     <p:dataTable value="#{contenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
 
-                        <p:column width="70">
+                        <p:column width="250">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{contenidoController.prepareView}" value="#{bundle.ListContenidoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}"/>
+                            <h:commandButton action="#{contenidoController.prepareView()}" value="#{bundle.ListContenidoViewLink}" />
+                            <h:outputText value=" "/>                            
+                            <h:commandButton action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}"  />
+
+                            <p:commandButton action="#{contenidoController.prepareView()}" value="#{bundle.ListContenidoViewLink}" icon="ui-icon-search"/>
+                            <h:outputText value=" "/>                            
+                            <p:commandButton action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}" icon="ui-icon-pencil" />
                         </p:column>
 
                         <p:column width="200">
@@ -79,7 +83,8 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{contenidoController.prepareCreate}" value="#{bundle.ListContenidoCreateLink}"/>
+                <h:commandButton action="#{contenidoController.prepareCreate}" value="#{bundle.ListContenidoCreateLink}"/>
+                <p:commandButton action="#{contenidoController.prepareCreate}" value="#{bundle.ListContenidoCreateLink}" icon="ui-icon-document"/>
 
                 <br /><br />
                 <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 

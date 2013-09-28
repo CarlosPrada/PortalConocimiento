@@ -728,7 +728,7 @@ a {
 /*Menu*/
 
 .menuHolder {
-    margin:20px 0 0 0; 
+    margin:10px 0 0 0; 
     text-align:center; 
     position:relative; 
     height:40px; 
@@ -764,7 +764,7 @@ a {
 .menuHolder ul.nav li {
     float:left; 
     display:block; 
-    padding:0 4px;
+    padding:0 0px;
 }
 .menuHolder ul.nav > li {
     -moz-transform-style: preserve-3d;
