@@ -31,12 +31,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByIdEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.idEstado = :idEstado"),
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private List<Noticia> noticiaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private List<Evento> eventoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private List<Bibliografia> bibliografiaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -63,6 +57,12 @@ public class EstadoGeneral implements Serializable {
     private List<Investigador> investigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private Collection<Seccion> seccionCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Noticia> noticiaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Evento> eventoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    private List<Bibliografia> bibliografiaList;
 
     public EstadoGeneral() {
     }
@@ -127,6 +127,7 @@ public class EstadoGeneral implements Serializable {
     public void setLineaInvestigacionList(List<LineaInvestigacion> lineaInvestigacionList) {
         this.lineaInvestigacionList = lineaInvestigacionList;
     }
+
     @XmlTransient
     public List<ProduccionIntelectual> getProduccionIntelectualList() {
         return produccionIntelectualList;

@@ -23,13 +23,11 @@ public class NoticiasPortalController implements Serializable {
 
     public NoticiasPortalController() {
 
-        /*try {
-
-         tipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
-         listadoNoticias = new ListDataModel(tipoContenido.getContenidoList());
-         } catch (Exception e) {
-         System.out.println("Error listando Noticias!");
-         }*/
+        try {
+            listadoNoticias = new ListDataModel(ejbNoticia.findAll());
+        } catch (Exception e) {
+            System.out.println("Error al listar noticias");
+        }
     }
 
     public String goNoticiasPortalController() {

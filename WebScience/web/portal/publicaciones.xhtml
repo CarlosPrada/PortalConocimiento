@@ -29,7 +29,7 @@
                                     <p:dataGrid columns="1" value="#{tipoProd.produccionIntelectualList}"  emptyMessage="No se encontraton registros" var="prod">
                                         <h:outputText value="#{prod.referenciaProduccion}" escape="false" /> 
                                         <h:outputLink value="#{prod.urlProduccion}">Abstract</h:outputLink>
-                                        <hr/>
+                                        <p:separator />
                                     </p:dataGrid>
                                 </p:scrollPanel>
 

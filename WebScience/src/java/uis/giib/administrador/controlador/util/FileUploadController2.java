@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.controlador.util;
 
 import javax.inject.Named;
@@ -24,11 +20,11 @@ import org.primefaces.event.FileUploadEvent;
  */
 @Named(value = "fileUploadController")
 @RequestScoped
-public class FileUploadController {
+public class FileUploadController2 {
 
     private String destination = "D:\\tmp\\";
 
-    public FileUploadController() {
+    public FileUploadController2() {
     }
 
     public void upload(FileUploadEvent event) {

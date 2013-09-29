@@ -44,12 +44,26 @@ public class LoginAuthentication implements Serializable {
      *
      * @return Investigador
      */
-    public String login() {
-        
+    public String loginAdministracion() {
+
         ValidarUsuario();
         if (usuarioAutenticado != null) {
             loggedIn = true;
             return "inicio.xhtml?faces-redirect=true";
+        } else {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "!Usted no cuenta con permisos Suficientes!", "Verifique su usuario y contraseña");
+            facesContext.addMessage(null, facesMessage);
+            return null;
+        }
+    }
+
+    public String loginPortal() {
+
+        ValidarUsuario();
+        if (usuarioAutenticado != null) {
+            loggedIn = true;
+            return "/portal/index.xhtml?faces-redirect=true";
         } else {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "!Usted no cuenta con permisos Suficientes!", "Verifique su usuario y contraseña");
@@ -83,9 +97,8 @@ public class LoginAuthentication implements Serializable {
             this.arrayRender[5] = true;
             this.arrayRender[6] = true;
             this.arrayRender[7] = true;
-            
-        } 
-        else {
+
+        } else {
             if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
                 this.arrayRender[0] = true;
                 this.arrayRender[1] = true;
@@ -95,9 +108,8 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[5] = false;
                 this.arrayRender[6] = false;
                 this.arrayRender[7] = false;
-                
-            }
-            else{
+
+            } else {
                 this.usuarioAutenticado = null;
                 this.arrayRender[0] = false;
                 this.arrayRender[1] = false;
@@ -107,13 +119,12 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[5] = false;
                 this.arrayRender[6] = false;
                 this.arrayRender[7] = false;
-                            
+
             }
         }
     }
 
     // getters - Setters
-    
     /**
      * @return the usuario
      */

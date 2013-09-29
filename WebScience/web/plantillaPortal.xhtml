@@ -3,8 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h6><title><ui:insert name="title">Portal GIIB</ui:insert></title></h6>
@@ -29,7 +30,7 @@
                 <p:ajax event="active" listener="#{idleBean.activeListener}" update="messages" />
             </p:idleMonitor>
         </h:form>
-        
+
         <div class="main">
             <div class="header">
                 <div class="header_resize">
@@ -43,9 +44,9 @@
 
                         <a  href="index.jsf"><small></small> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
                         <a href="https://www.facebook.com/groups/114952768532406/" target="_black"><small></small> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
-                       
+
                     </div> 
-                    
+
                     <div id="fb-root">
                         <!-- redes sociales mirar por q no sale -->
                         <script type="text/javascript">
@@ -74,7 +75,7 @@
                         <h5><p9> <a href="javascript:window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'')">Compartir en Twitter</a></p9></h5>
 
                     </div>
-                   
+
                     <div class="clr"></div>
                     <div class="menuHolder">
                         <div class="clr"></div>
@@ -193,9 +194,31 @@
                             <ul class="fbg_ul">
                                 <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
                                 <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
+                            </ul>
+                        </h11> 
+                    </div>  
 
-                            </ul></h11> 
-                    </div>                    
+                    <div class="col c3">
+                        <h2><span>Institucionales</span></h2>
+                        <ul class="fbg_ul">
+
+                            <h:panelGrid columns="2" cellpadding="5">  
+
+                                <h:outputLabel for="usuario" value="Usuario:" />                                     
+                                <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" size="30" />  
+
+                                <h:outputLabel for="contrasena" value="Contrase&ntilde;a:" />                                              
+                                <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a." size="30"/>  
+
+                                <div class="buttondiv">
+                                    <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión" />
+                                    <span id="mensajeCaja" style="display:none"> </span>
+                                </div> 
+                                
+                            </h:panelGrid> 
+
+                        </ul>
+                    </div>
 
                     <div class="clr"></div>
                 </div>

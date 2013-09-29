@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ck="http://code.google.com/ck-jsf-editor"
-       >
+      >
 
     <ui:composition template="/template.xhtml">
 
@@ -41,8 +41,7 @@
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_informacionInvestigador}" for="informacionInvestigador" />
                     <ck:editor id="informacionInvestigador" value="#{investigadorController.selected.informacionInvestigador}" width="850px" uiColor="#aed0ea"  />
-                    
-                    
+
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_telefonoInvestigador}" for="telefonoInvestigador" />
                     <h:inputText id="telefonoInvestigador" value="#{investigadorController.selected.telefonoInvestigador}" title="#{bundle.CreateInvestigadorTitle_telefonoInvestigador}" size="25"/>
 
@@ -73,6 +72,11 @@
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
+
+                    <p:fileUpload fileUploadListener="#{fileBrowserController.handleFileUpload}" mode="advanced" update="messages" auto="true" sizeLimit="1000000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" value="#{investigadorController.selected.imageInvestigadorPath}"/>  
+
+                    <p:growl id="messages" showDetail="true"/>  
+
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}" for="estadoInvestigador" />
                     <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">

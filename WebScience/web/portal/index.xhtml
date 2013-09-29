@@ -15,7 +15,7 @@
             <div class="article">
                 <h:form>  
 
-                    <p:dataGrid  rows="3" columns="1" paginator="true"  value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                    <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
                         <div class="mainbarDerecho">                        
                             <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
                             <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
@@ -23,7 +23,7 @@
                             </h:outputText> <br/><br/>
                             <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
                         </div>
-                    </p:dataGrid>
+                    </p:dataGrid   >
                     
                 </h:form> 
             </div>
