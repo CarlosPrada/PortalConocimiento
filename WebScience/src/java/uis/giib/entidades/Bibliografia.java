@@ -28,8 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Bibliografia.findAll", query = "SELECT b FROM Bibliografia b"),
     @NamedQuery(name = "Bibliografia.findByIdBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.idBibliografia = :idBibliografia"),
-    @NamedQuery(name = "Bibliografia.findByNomnreBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.nomnreBibliografia = :nomnreBibliografia"),
-    @NamedQuery(name = "Bibliografia.findByAgnoBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.agnoBibliografia = :agnoBibliografia"),
+    @NamedQuery(name = "Bibliografia.findByNombreBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.nombreBibliografia = :nombreBibliografia"),
+    @NamedQuery(name = "Bibliografia.findByAñoBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.añoBibliografia = :añoBibliografia"),
     @NamedQuery(name = "Bibliografia.findByReferenciaBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.referenciaBibliografia = :referenciaBibliografia"),
     @NamedQuery(name = "Bibliografia.findByUrlBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.urlBibliografia = :urlBibliografia")})
 public class Bibliografia implements Serializable {
@@ -41,11 +41,11 @@ public class Bibliografia implements Serializable {
     @Column(name = "id_bibliografia")
     private Integer idBibliografia;
     @Size(max = 500)
-    @Column(name = "nomnre_bibliografia")
-    private String nomnreBibliografia;
-    @Column(name = "agno_bibliografia")
+    @Column(name = "nombre_bibliografia")
+    private String nombreBibliografia;
+    @Column(name = "año_bibliografia")
     @Temporal(TemporalType.DATE)
-    private Date agnoBibliografia;
+    private Date añoBibliografia;
     @Size(max = 800)
     @Column(name = "referencia_bibliografia")
     private String referenciaBibliografia;
@@ -77,20 +77,20 @@ public class Bibliografia implements Serializable {
         this.idBibliografia = idBibliografia;
     }
 
-    public String getNomnreBibliografia() {
-        return nomnreBibliografia;
+    public String getNombreBibliografia() {
+        return nombreBibliografia;
     }
 
-    public void setNomnreBibliografia(String nomnreBibliografia) {
-        this.nomnreBibliografia = nomnreBibliografia;
+    public void setNombreBibliografia(String nomnreBibliografia) {
+        this.nombreBibliografia = nomnreBibliografia;
     }
 
-    public Date getAgnoBibliografia() {
-        return agnoBibliografia;
+    public Date getAñoBibliografia() {
+        return añoBibliografia;
     }
 
-    public void setAgnoBibliografia(Date agnoBibliografia) {
-        this.agnoBibliografia = agnoBibliografia;
+    public void setAñoBibliografia(Date agnoBibliografia) {
+        this.añoBibliografia = agnoBibliografia;
     }
 
     public String getReferenciaBibliografia() {
