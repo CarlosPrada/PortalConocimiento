@@ -30,8 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n"),
     @NamedQuery(name = "Noticia.findByIdNoticia", query = "SELECT n FROM Noticia n WHERE n.idNoticia = :idNoticia"),
+    @NamedQuery(name = "Noticia.findByEstado", query = "SELECT noti FROM Noticia noti JOIN noti.idEstado notest WHERE notest.idEstado = 1"),
     @NamedQuery(name = "Noticia.findByFechaPublicacionNoticia", query = "SELECT n FROM Noticia n WHERE n.fechaPublicacionNoticia = :fechaPublicacionNoticia")})
 public class Noticia implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -133,5 +135,5 @@ public class Noticia implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Noticia[ idNoticia=" + idNoticia + " ]";
-    }    
+    }
 }

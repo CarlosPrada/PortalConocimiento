@@ -31,8 +31,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TipoInvestigador.findByNombreTipoInvestigador", query = "SELECT t FROM TipoInvestigador t WHERE t.nombreTipoInvestigador = :nombreTipoInvestigador"),
     @NamedQuery(name = "TipoInvestigador.findAllNombreTipoInvestigador", query = "SELECT t.nombreTipoInvestigador FROM TipoInvestigador t "),
     @NamedQuery(name = "TipoInvestigador.findByDescripcionTipoInvestigador", query = "SELECT t FROM TipoInvestigador t WHERE t.descripcionTipoInvestigador = :descripcionTipoInvestigador")})
+//@NamedQuery(name = "TipoInvestigador.findInvestigadorByEstado", query = "SELECT tipoinv FROM TipoInvestigador tipoinv JOIN tipoinv.investigadorList invlist JOIN invlist.idEstado invest WHERE invest.idEstado = 1")})
 public class TipoInvestigador implements Serializable {
-     private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -121,5 +123,4 @@ public class TipoInvestigador implements Serializable {
     public String toString() {
         return "[" + idTipoInvestigador + "] - " + nombreTipoInvestigador;
     }
-    
 }

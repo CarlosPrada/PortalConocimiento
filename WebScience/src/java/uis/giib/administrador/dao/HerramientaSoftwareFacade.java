@@ -6,14 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import uis.giib.entidades.Proyecto;
+import uis.giib.entidades.HerramientaSoftware;
 
 /**
  *
  * @author Carlos David Prada Remolina
  */
 @Stateless
-public class ProyectoFacade extends AbstractFacade<Proyecto> {
+public class HerramientaSoftwareFacade extends AbstractFacade<HerramientaSoftware> {
 
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
@@ -23,17 +23,16 @@ public class ProyectoFacade extends AbstractFacade<Proyecto> {
         return em;
     }
 
-    public ProyectoFacade() {
-        super(Proyecto.class);
+    public HerramientaSoftwareFacade() {
+        super(HerramientaSoftware.class);
     }
 
-    public List<Proyecto> listarProyecto() {
+    public List<HerramientaSoftware> listarHerramientaSoftware() {
         try {
-            Query query = em.createNamedQuery("Proyecto.findByEstado");
-            return (List<Proyecto>) query.getResultList();
+            Query query = em.createNamedQuery("HerramientaSoftware.findHerramientaSoftwareByEstado");
+            return (List<HerramientaSoftware>) query.getResultList();
         } catch (NoResultException e) {
             return null;
         }
-
     }
 }

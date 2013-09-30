@@ -16,18 +16,24 @@
         <div class="article">                                
             <h1><span>Noticias</span></h1>  
         </div>
+
         <h:form>  
 
-            <p:dataGrid  rows="3" columns="1" paginator="true"  value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
-                <div class="mainbarDerecho">                        
+            <div class="mainbarDerecho">  
+
+                <p:dataGrid  rows="3" columns="1" paginator="true"  value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+
                     <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
                     <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
                         <f:convertDateTime pattern="yyyy/MM/dd" />
                     </h:outputText> <br/><br/>
                     <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
-                </div>
-            </p:dataGrid>
+                    <p:separator />
+                </p:dataGrid>
+
+            </div>
 
         </h:form> 
+
     </ui:define>
 </ui:composition>

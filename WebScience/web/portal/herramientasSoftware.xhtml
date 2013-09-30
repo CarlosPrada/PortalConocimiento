@@ -13,31 +13,29 @@
 
     <ui:define name="body">
 
-        <div class="article">                                
-            <h1><span>Herramientas Software</span></h1>
-            <div class="content">
-                <div class="content_resize">
-                    <div class="mainbarIzquierdo">
-                        <h:form>
-                            <p:dataGrid value="#{herramientasSoftwarePC.herramientaSoftware}" emptyMessage="No se encontraton registros"  var="HS">
+        <h:form>
 
-                                <a href="#{HS.titulo}" target="_blank">#{HS.titulo}</a> 
-                                <h3><h:outputText value="#{HS.contenidoDetallado}" /> </h3>
+            <div class="article">                                
+                <h1><span>Herramientas Software</span></h1>                                 
+            </div>
 
+            <p:dataGrid columns="2" paginator="true" rows="4" value="#{herramientasSoftwarePC.listadoHerramientaSoftware}"  emptyMessage="No se encontraton registros" var="lisths">
+                
+                <div clas="content">
+                    <div class="mainbar440">
+                        <div class="article">
+                            
+                            <h2><h:commandLink value="#{lisths.nombreHerramienta}" action="#{lisths.urlHerramienta}" /></h2><br/>
+                            <h:graphicImage alt="" width="400" height="180" url="/WebScience/javax.faces.resource/images/ImagenInvestigador/#{lisths.imagenHerramienta}.jsf" /><br/><br/>
+                            <h:outputText value="#{lisths.descripcionHerramienta}" escape="false" />
 
-
-                            </p:dataGrid>
-                        </h:form>
-
-                    </div> 
-                </div> 
-            </div> 
-
-        </div> 
-
-
-
-
+                        </div>
+                    </div>
+                </div>
+                
+            </p:dataGrid>
+            
+        </h:form>
 
     </ui:define>
 </ui:composition>

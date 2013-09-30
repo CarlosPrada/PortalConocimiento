@@ -29,8 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Bibliografia.findAll", query = "SELECT b FROM Bibliografia b"),
     @NamedQuery(name = "Bibliografia.findByIdBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.idBibliografia = :idBibliografia"),
     @NamedQuery(name = "Bibliografia.findByNombreBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.nombreBibliografia = :nombreBibliografia"),
-    @NamedQuery(name = "Bibliografia.findByAñoBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.añoBibliografia = :añoBibliografia"),
+    @NamedQuery(name = "Bibliografia.findByAñoBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.agnoBibliografia = :agnoBibliografia"),
     @NamedQuery(name = "Bibliografia.findByReferenciaBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.referenciaBibliografia = :referenciaBibliografia"),
+    @NamedQuery(name = "Bibliografia.findBibliografiaByEstado", query = "SELECT bibli FROM Bibliografia bibli JOIN bibli.idEstado bibliest WHERE bibliest.idEstado = 1"),
     @NamedQuery(name = "Bibliografia.findByUrlBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.urlBibliografia = :urlBibliografia")})
 public class Bibliografia implements Serializable {
 
@@ -43,9 +44,9 @@ public class Bibliografia implements Serializable {
     @Size(max = 500)
     @Column(name = "nombre_bibliografia")
     private String nombreBibliografia;
-    @Column(name = "año_bibliografia")
+    @Column(name = "agno_bibliografia")
     @Temporal(TemporalType.DATE)
-    private Date añoBibliografia;
+    private Date agnoBibliografia;
     @Size(max = 800)
     @Column(name = "referencia_bibliografia")
     private String referenciaBibliografia;
@@ -83,14 +84,6 @@ public class Bibliografia implements Serializable {
 
     public void setNombreBibliografia(String nomnreBibliografia) {
         this.nombreBibliografia = nomnreBibliografia;
-    }
-
-    public Date getAñoBibliografia() {
-        return añoBibliografia;
-    }
-
-    public void setAñoBibliografia(Date agnoBibliografia) {
-        this.añoBibliografia = agnoBibliografia;
     }
 
     public String getReferenciaBibliografia() {
@@ -156,5 +149,13 @@ public class Bibliografia implements Serializable {
 
     public void setIdLinea(LineaInvestigacion idLinea) {
         this.idLinea = idLinea;
+    }
+
+    public Date getAgnoBibliografia() {
+        return agnoBibliografia;
+    }
+
+    public void setAgnoBibliografia(Date agnoBibliografia) {
+        this.agnoBibliografia = agnoBibliografia;
     }
 }

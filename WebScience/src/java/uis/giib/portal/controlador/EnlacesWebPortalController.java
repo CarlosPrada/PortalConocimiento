@@ -1,7 +1,6 @@
 package uis.giib.portal.controlador;
 
 import java.io.Serializable;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -9,7 +8,7 @@ import uis.giib.entidades.EnlacesWeb;
 
 /**
  *
- * @author Carlos David Prada Remolina - crisyhian ruiz
+ * @author Carlos David Prada Remolina crisyhian ruiz
  */
 @Named(value = "enlacesWebPC")
 @SessionScoped
@@ -17,18 +16,26 @@ public class EnlacesWebPortalController implements Serializable {
 
     // Atributos
     private EnlacesWeb enlacesWeb;
+    private Integer idAulaVirtual = new Integer(1);
     @EJB
     private uis.giib.administrador.dao.EnlacesWebFacade ejbEnlacesWeb;
 
-    //Constructor
-    public EnlacesWebPortalController() {
-        enlacesWeb = ejbEnlacesWeb.buscarEnlaceWebPorID(1);
+    //Constructor    
+    public EnlacesWebPortalController() {        
     }
 
-    // Métodos de navegación
-    @PostConstruct
-    public void enlaceWebPageUIS() {
+    // Métodos 
+    public String enlaceAulaVirtual() {
+        try {
+            enlacesWeb = ejbEnlacesWeb.buscarEnlaceWebPorID(idAulaVirtual);
+        } catch (Exception e) {
+            System.out.println("Error consultando el enlace Aula Virtual!" + e.getMessage());
+        }
+        //return enlacesWeb.getEnlace();
+        return enlacesWeb.getEnlace();
+    }
 
+    public void enlaceWebPageUIS() {
         enlacesWeb = ejbEnlacesWeb.buscarEnlaceWebPorID(1);
     }
 
@@ -39,6 +46,14 @@ public class EnlacesWebPortalController implements Serializable {
 
     public void setEnlacesWeb(EnlacesWeb enlacesWeb) {
         this.enlacesWeb = enlacesWeb;
+    }
+
+    public Integer getIdAulaVirtual() {
+        return idAulaVirtual;
+    }
+
+    public void setIdAulaVirtual(Integer idAulaVirtual) {
+        this.idAulaVirtual = idAulaVirtual;
     }
 
     public uis.giib.administrador.dao.EnlacesWebFacade getEjbEnlacesWeb() {

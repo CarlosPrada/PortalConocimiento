@@ -29,6 +29,7 @@
                 <p:ajax event="idle" listener="#{idleBean.logoutListener}" update="messages" />
                 <p:ajax event="active" listener="#{idleBean.activeListener}" update="messages" />
             </p:idleMonitor>
+
         </h:form>
 
         <div class="main">
@@ -36,44 +37,19 @@
                 <div class="header_resize">
                     <div class="logo"> 
 
+                        <!--LOGO - Grupo-->
                         <h1>                            
                             <a href="index.jsf"><small></small> <span><img src="#{resource['images/portal/logonn.png']}"> </img></span></a>
                             <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
                         </h1>
-
-
+                        
+                        <!--Facebook - Twitter-->
                         <a  href="index.jsf"><small></small> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
                         <a href="https://www.facebook.com/groups/114952768532406/" target="_black"><small></small> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
 
                     </div> 
 
-                    <div id="fb-root">
-                        <!-- redes sociales mirar por q no sale -->
-                        <script type="text/javascript">
-                            (function() {
-                                var element = document.createElement('script');
-                                element.type = "text/javascript";
-                                element.async = true;
-                                element.id = "facebook-jssdk"
-                                element.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
-                                var s = document.getElementsByTagName('script')[0];
-                                s.parentNode.insertBefore(element, s);
-                            })();
-                        </script>
-                        <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-                        <div class="fb-like"></div>
-                        <h5>
-                            <div class="fb-like" data-href="http://biomedica.uis.edu.co/portal/GIIB/index.html" data-width="292" data-send="true"></div> </h5>
-
-                        <!-- segunda opcion twitter-->
-                        <script type="text/javascript">
-                            var dir = window.document.URL;
-                            var dir2 = encodeURIComponent(dir);
-                            var tit = window.document.title;
-                            var tit2 = encodeURIComponent(tit);
-                        </script>
-                        <h5><p9> <a href="javascript:window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'')">Compartir en Twitter</a></p9></h5>
-
+                    <div id="fb-root">                        
                     </div>
 
                     <div class="clr"></div>
@@ -130,7 +106,7 @@
                                             <li><h:commandLink action="#{eventosPC.goEventos()}" value="Eventos"></h:commandLink></li>
                                             <li><h:commandLink action="#{noticiasPC.goNoticiasPortalController()}" value="Noticias"></h:commandLink></li>
                                             <li><h:commandLink action="#{herramientasSoftwarePC.goHerramientasSoftware()}" value="Herramientas Software"></h:commandLink></li>
-                                            <li><h:commandLink action="#{AulaVirtualesPortalController.goAulaVirtual()}" value="Aula Virtual"></h:commandLink></li>
+                                            <li><h:outputLink  value="#{enlacesWebPC.enlaceAulaVirtual()}">Aula Virtual</h:outputLink></li>
                                             <li><h:commandLink action="#{bibliografiaPC.goBibliografia()}" value="Bibliografía"></h:commandLink></li>
                                         </ul>
                                     </div>
@@ -214,7 +190,7 @@
                                     <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión" />
                                     <span id="mensajeCaja" style="display:none"> </span>
                                 </div> 
-                                
+
                             </h:panelGrid> 
 
                         </ul>

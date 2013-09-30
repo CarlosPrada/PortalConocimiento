@@ -13,19 +13,21 @@
 
         <div class="mainbar660">
             <div class="article">
-                <h:form>  
+                 
+                    <h:form>  
 
-                    <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
-                        <div class="mainbarDerecho">                        
+                        <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
+
                             <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
                             <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
                                 <f:convertDateTime pattern="yyyy/MM/dd" />
                             </h:outputText> <br/><br/>
                             <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
-                        </div>
-                    </p:dataGrid   >
-                    
-                </h:form> 
+
+                        </p:dataGrid>
+
+                    </h:form> 
+                
             </div>
         </div>
 
@@ -46,7 +48,7 @@
                     <li><a href="">Destacado</a><br /></li>
                 </ul>
             </div>
-            
+
         </div>
     </ui:define>
 </ui:composition>

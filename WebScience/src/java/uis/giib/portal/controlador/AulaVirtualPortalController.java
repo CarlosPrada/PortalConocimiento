@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
@@ -15,32 +11,35 @@ import uis.giib.entidades.Contenido;
 import uis.giib.entidades.TipoContenido;
 
 /**
- *
+ * @author Carlos David Prada Remolina
  * @author cristhian ruiz
  */
 @Named(value = "AulaVirtualesPortalController")
 @SessionScoped
 public class AulaVirtualPortalController implements Serializable {
-     private DataModel<Contenido> AulaVirtual;
-   private TipoContenido tipoContenido;
+
+    //Atributos
+    private DataModel<Contenido> AulaVirtual;
+    private TipoContenido tipoContenido;
     private Integer idTipo = new Integer(5);
     @EJB
     private uis.giib.administrador.dao.TipoContenidoFacade ejbTipoContenido;
 
-    /**Constructor*/
+    // Constructor
     public void AulaVirtualPortalController() {
-        
+
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
             AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error de AulaVirtual!" + e.getCause());
         }
-    
+
 
     }
 //Métodos de navegación
     // usado cuando hacemos click en el menú 
+
     public String goAulaVirtual() {
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
@@ -82,8 +81,4 @@ public class AulaVirtualPortalController implements Serializable {
     public void setEjbTipoContenido(TipoContenidoFacade ejbTipoContenido) {
         this.ejbTipoContenido = ejbTipoContenido;
     }
-
-    
-    
-    
 }

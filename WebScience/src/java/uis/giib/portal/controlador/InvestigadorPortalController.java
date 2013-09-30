@@ -8,7 +8,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import uis.giib.administrador.dao.TipoInvestigadorFacade;
 import uis.giib.entidades.Investigador;
 import uis.giib.entidades.TipoInvestigador;
 
@@ -21,40 +20,16 @@ import uis.giib.entidades.TipoInvestigador;
 public class InvestigadorPortalController implements Serializable {
 
     //Atributos
-    private List<Investigador> listadoInvestigadores;
-    private List<Investigador> listadoInvestigadoresaux;
+    private List<Investigador> listadoInvestigador;
     private DataModel listaTiposInvestigador;
     private Investigador investigadorActual;
-    private Integer idEstado = new Integer(1);
     @EJB
-    private uis.giib.administrador.dao.TipoInvestigadorFacade ejbFacadeTipoInvestigador;
+    private uis.giib.administrador.dao.TipoInvestigadorFacade ejbTipoInvestigador;
+    @EJB
+    private uis.giib.administrador.dao.InvestigadorFacade ejbInvestigador;
 
     //constructor
     public InvestigadorPortalController() {
-
-        /*try {
-         estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
-         listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());
-
-         Iterator<TipoInvestigador> tipoInv = listaTiposInvestigador.iterator();
-         while (tipoInv.hasNext()) {
-         TipoInvestigador i = tipoInv.next();
-         listadoInvestigadores = i.getInvestigadorList();
-
-         Iterator<Investigador> investigadorIterator = listadoInvestigadores.iterator();
-         while (investigadorIterator.hasNext()) {
-         Investigador inv = investigadorIterator.next();
-
-         if (inv.getIdEstado().getIdEstado() != idEstado) {
-         listadoInvestigadores.remove(inv);
-         }
-         }
-         i.setInvestigadorList(listadoInvestigadores);
-         }
-
-         } catch (Exception e) {
-         System.out.println("Error listando investitadores Constructor!" + e.getLocalizedMessage() + " " + e.getMessage());
-         }*/
     }
 
     //Métodos de navegación
@@ -66,37 +41,15 @@ public class InvestigadorPortalController implements Serializable {
     public String goInvestigadores() {
 
         try {
-            //estadoGeneral = ejbFacadeEstadoGeneral.findByIdEstado(idEstado);
-            listaTiposInvestigador = new ListDataModel(ejbFacadeTipoInvestigador.findAll());
-            /*Iterator<TipoInvestigador> tipoInvIterator = listaTiposInvestigador.iterator();
+            listaTiposInvestigador = new ListDataModel(ejbTipoInvestigador.findAll());
+            listadoInvestigador = ejbInvestigador.listarInvestigadores();
+            Iterator<TipoInvestigador> tipoInvIterator = listaTiposInvestigador.iterator();
 
             while (tipoInvIterator.hasNext()) {
                 TipoInvestigador tipoInv = tipoInvIterator.next();
-                listadoInvestigadores = tipoInv.getInvestigadorList();
-                listadoInvestigadoresaux = listadoInvestigadores;
-                Iterator<Investigador> investigadorIterator = listadoInvestigadores.iterator();
+                tipoInv.getInvestigadorList().retainAll(listadoInvestigador);
+            }
 
-                try {
-                    while (investigadorIterator.hasNext()) {
-                        Investigador inv = investigadorIterator.next();
-
-                        System.out.println(inv.getNombreInvestigador());
-                        System.out.println(inv.getIdEstado().getNombreEstado());
-                        System.out.println(tipoInv.getNombreTipoInvestigador());
-
-                        if (inv.getIdEstado().getIdEstado().intValue() != idEstado.intValue()) {
-                            listadoInvestigadores.remove(inv);
-                        }
-
-                        System.out.println(inv.getNombreInvestigador());
-                        System.out.println(inv.getIdEstado().getNombreEstado());
-                        System.out.println(tipoInv.getNombreTipoInvestigador());
-                    }
-                } catch (Exception e) {
-                    System.out.println("Fin de la lista de Investigadores");
-                }
-                tipoInv.setInvestigadorList(listadoInvestigadores);
-            */
         } catch (Exception e) {
             System.out.println("Error listando investitadores GoInvestigador!" + e.getLocalizedMessage() + " " + e.getMessage());
         }
@@ -120,21 +73,13 @@ public class InvestigadorPortalController implements Serializable {
         return "/portal/investigadoresDetalle.xhtml?faces-redirect=true";
     }
 
-    // Getters - Setters
-    public TipoInvestigadorFacade getEjbFacadeTipoInvestigador() {
-        return ejbFacadeTipoInvestigador;
+    // Getters - Setters   
+    public List<Investigador> getListadoInvestigador() {
+        return listadoInvestigador;
     }
 
-    public void setEjbFacadeTipoInvestigador(TipoInvestigadorFacade ejbFacadeTipoInvestigador) {
-        this.ejbFacadeTipoInvestigador = ejbFacadeTipoInvestigador;
-    }
-
-    public List<Investigador> getListadoInvestigadores() {
-        return listadoInvestigadores;
-    }
-
-    public void setListadoInvestigadores(List<Investigador> listadoInvestigadores) {
-        this.listadoInvestigadores = listadoInvestigadores;
+    public void setListadoInvestigador(List<Investigador> listadoInvestigador) {
+        this.listadoInvestigador = listadoInvestigador;
     }
 
     public DataModel getListaTiposInvestigador() {
@@ -153,19 +98,19 @@ public class InvestigadorPortalController implements Serializable {
         this.investigadorActual = investigadorActual;
     }
 
-    public Integer getIdEstado() {
-        return idEstado;
+    public uis.giib.administrador.dao.TipoInvestigadorFacade getEjbTipoInvestigador() {
+        return ejbTipoInvestigador;
     }
 
-    public void setIdEstado(Integer idEstado) {
-        this.idEstado = idEstado;
+    public void setEjbTipoInvestigador(uis.giib.administrador.dao.TipoInvestigadorFacade ejbTipoInvestigador) {
+        this.ejbTipoInvestigador = ejbTipoInvestigador;
     }
 
-    public List<Investigador> getListadoInvestigadoresaux() {
-        return listadoInvestigadoresaux;
+    public uis.giib.administrador.dao.InvestigadorFacade getEjbInvestigador() {
+        return ejbInvestigador;
     }
 
-    public void setListadoInvestigadoresaux(List<Investigador> listadoInvestigadoresaux) {
-        this.listadoInvestigadoresaux = listadoInvestigadoresaux;
+    public void setEjbInvestigador(uis.giib.administrador.dao.InvestigadorFacade ejbInvestigador) {
+        this.ejbInvestigador = ejbInvestigador;
     }
 }

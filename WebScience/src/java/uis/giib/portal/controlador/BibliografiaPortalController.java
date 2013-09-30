@@ -1,13 +1,15 @@
-
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-
+import uis.giib.entidades.Bibliografia;
+import uis.giib.entidades.TipoProduccion;
 
 /**
  * @author Carlos David Prada Remolina
@@ -18,12 +20,12 @@ import javax.faces.model.ListDataModel;
 public class BibliografiaPortalController implements Serializable {
 
     //Atributos 
-    private DataModel listadoBibliografia;
+    private List<Bibliografia> listadoBibliografia;
     private DataModel listaTipoBibliografia;
     @EJB
-    private uis.giib.administrador.dao.ProduccionIntelectualFacade ejbFacadeBibliografia;
+    private uis.giib.administrador.dao.BibliografiaFacade ejbBibliografia;
     @EJB
-    private uis.giib.administrador.dao.TipoProduccionFacade ejbFacadeTipoProduccion;
+    private uis.giib.administrador.dao.TipoProduccionFacade ejbTipoProduccion;
 
     //Constructor
     public void BibliografiaPortalController() {
@@ -31,22 +33,30 @@ public class BibliografiaPortalController implements Serializable {
 
     //Métodos de Navegación
     public String goBibliografia() {
+
         try {
-            listadoBibliografia = new ListDataModel(ejbFacadeBibliografia.findAll());
-            listaTipoBibliografia = new ListDataModel(ejbFacadeTipoProduccion.findAll());
+            listaTipoBibliografia = new ListDataModel(ejbTipoProduccion.findAll());
+            listadoBibliografia = ejbBibliografia.listarBibliografia();
+            Iterator<TipoProduccion> tipoProdIterator = listaTipoBibliografia.iterator();
+
+            while (tipoProdIterator.hasNext()) {
+                TipoProduccion tipoProd = tipoProdIterator.next();
+                tipoProd.getBibliografiaList().retainAll(listadoBibliografia);
+            }
+
         } catch (Exception e) {
-            System.out.println("Error listando la producción intelectual!" + e.getMessage());
+            System.out.println("Error listando la Bibliografóa!" + e.getMessage());
         }
+
         return "/portal/referenciasBibliograficas.xhtml?faces-redirect=true";
     }
-    
-    //Getters - Setters
 
-    public DataModel getListadoBibliografia() {
+    //Getters - Setters
+    public List<Bibliografia> getListadoBibliografia() {
         return listadoBibliografia;
     }
 
-    public void setListadoBibliografia(DataModel listadoBibliografia) {
+    public void setListadoBibliografia(List<Bibliografia> listadoBibliografia) {
         this.listadoBibliografia = listadoBibliografia;
     }
 
@@ -58,19 +68,19 @@ public class BibliografiaPortalController implements Serializable {
         this.listaTipoBibliografia = listaTipoBibliografia;
     }
 
-    public uis.giib.administrador.dao.ProduccionIntelectualFacade getEjbFacadeBibliografia() {
-        return ejbFacadeBibliografia;
+    public uis.giib.administrador.dao.BibliografiaFacade getEjbBibliografia() {
+        return ejbBibliografia;
     }
 
-    public void setEjbFacadeBibliografia(uis.giib.administrador.dao.ProduccionIntelectualFacade ejbFacadeBibliografia) {
-        this.ejbFacadeBibliografia = ejbFacadeBibliografia;
+    public void setEjbBibliografia(uis.giib.administrador.dao.BibliografiaFacade ejbBibliografia) {
+        this.ejbBibliografia = ejbBibliografia;
     }
 
-    public uis.giib.administrador.dao.TipoProduccionFacade getEjbFacadeTipoProduccion() {
-        return ejbFacadeTipoProduccion;
+    public uis.giib.administrador.dao.TipoProduccionFacade getEjbTipoProduccion() {
+        return ejbTipoProduccion;
     }
 
-    public void setEjbFacadeTipoProduccion(uis.giib.administrador.dao.TipoProduccionFacade ejbFacadeTipoProduccion) {
-        this.ejbFacadeTipoProduccion = ejbFacadeTipoProduccion;
+    public void setEjbTipoProduccion(uis.giib.administrador.dao.TipoProduccionFacade ejbTipoProduccion) {
+        this.ejbTipoProduccion = ejbTipoProduccion;
     }
 }

@@ -1,17 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import uis.giib.entidades.Noticia;
 
 /**
  *
- * @author Carlos
+ * @author Carlos David Prada Remolina
  */
 @Stateless
 public class NoticiaFacade extends AbstractFacade<Noticia> {
@@ -26,5 +25,14 @@ public class NoticiaFacade extends AbstractFacade<Noticia> {
     public NoticiaFacade() {
         super(Noticia.class);
     }
+    
+    public List<Noticia> listarNoticias() {
+        try {
+            Query query = em.createNamedQuery("Noticia.findByEstado");
+            return (List<Noticia>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }    
     
 }

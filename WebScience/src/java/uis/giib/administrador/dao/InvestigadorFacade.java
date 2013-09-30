@@ -39,4 +39,12 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
         }
     }
     
+    public List<Investigador> listarInvestigadores() {
+        try {
+            Query query = em.createNamedQuery("Investigador.findInvestigadorByEstado");
+            return (List<Investigador>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }    
 }

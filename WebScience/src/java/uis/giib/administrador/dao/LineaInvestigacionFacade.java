@@ -4,9 +4,12 @@
  */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import uis.giib.entidades.LineaInvestigacion;
 
 /**
@@ -15,6 +18,7 @@ import uis.giib.entidades.LineaInvestigacion;
  */
 @Stateless
 public class LineaInvestigacionFacade extends AbstractFacade<LineaInvestigacion> {
+
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -26,5 +30,13 @@ public class LineaInvestigacionFacade extends AbstractFacade<LineaInvestigacion>
     public LineaInvestigacionFacade() {
         super(LineaInvestigacion.class);
     }
-    
+
+    public List<LineaInvestigacion> listarLineaInvestigacion() {
+        try {
+            Query query = em.createNamedQuery("LineaInvestigacion.findLineaInvestigacionByEstado");
+            return (List<LineaInvestigacion>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

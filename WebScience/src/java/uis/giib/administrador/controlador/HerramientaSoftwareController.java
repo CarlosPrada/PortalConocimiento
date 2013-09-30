@@ -1,9 +1,9 @@
 package uis.giib.administrador.controlador;
 
-import uis.giib.entidades.Evento;
+import uis.giib.entidades.HerramientaSoftware;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
-import uis.giib.administrador.dao.EventoFacade;
+import uis.giib.administrador.dao.HerramientaSoftwareFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -18,29 +18,29 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("eventoController")
+@Named("herramientaSoftwareController")
 @SessionScoped
-public class EventoController implements Serializable {
+public class HerramientaSoftwareController implements Serializable {
 
-    private Evento current;
+    private HerramientaSoftware current;
     private DataModel items = null;
     @EJB
-    private uis.giib.administrador.dao.EventoFacade ejbFacade;
+    private uis.giib.administrador.dao.HerramientaSoftwareFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public EventoController() {
+    public HerramientaSoftwareController() {
     }
 
-    public Evento getSelected() {
+    public HerramientaSoftware getSelected() {
         if (current == null) {
-            current = new Evento();
+            current = new HerramientaSoftware();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private EventoFacade getFacade() {
+    private HerramientaSoftwareFacade getFacade() {
         return ejbFacade;
     }
 
@@ -67,13 +67,13 @@ public class EventoController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Evento) getItems().getRowData();
+        current = (HerramientaSoftware) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Evento();
+        current = new HerramientaSoftware();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -81,7 +81,7 @@ public class EventoController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EventoCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HerramientaSoftwareCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -90,7 +90,7 @@ public class EventoController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Evento) getItems().getRowData();
+        current = (HerramientaSoftware) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -98,7 +98,7 @@ public class EventoController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EventoUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HerramientaSoftwareUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -107,7 +107,7 @@ public class EventoController implements Serializable {
     }
 
     public String destroy() {
-        current = (Evento) getItems().getRowData();
+        current = (HerramientaSoftware) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -131,7 +131,7 @@ public class EventoController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EventoDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HerramientaSoftwareDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -187,21 +187,21 @@ public class EventoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Evento getEvento(java.lang.Integer id) {
+    public HerramientaSoftware getHerramientaSoftware(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Evento.class)
-    public static class EventoControllerConverter implements Converter {
+    @FacesConverter(forClass = HerramientaSoftware.class)
+    public static class HerramientaSoftwareControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            EventoController controller = (EventoController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "eventoController");
-            return controller.getEvento(getKey(value));
+            HerramientaSoftwareController controller = (HerramientaSoftwareController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "herramientaSoftwareController");
+            return controller.getHerramientaSoftware(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -221,11 +221,11 @@ public class EventoController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Evento) {
-                Evento o = (Evento) object;
-                return getStringKey(o.getIdEvento());
+            if (object instanceof HerramientaSoftware) {
+                HerramientaSoftware o = (HerramientaSoftware) object;
+                return getStringKey(o.getIdHerramienta());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Evento.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + HerramientaSoftware.class.getName());
             }
         }
     }

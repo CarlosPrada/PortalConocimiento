@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -20,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author USUARIO
+ * @author Carlos David Prada Remolina
  */
 @Entity
 @Table(name = "enlaces_web")
@@ -32,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EnlacesWeb.findByIdEnlace", query = "SELECT e FROM EnlacesWeb e WHERE e.idEnlace = :idEnlace"),
     @NamedQuery(name = "EnlacesWeb.findByDescripcion", query = "SELECT e FROM EnlacesWeb e WHERE e.descripcion = :descripcion")})
 public class EnlacesWeb implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
@@ -121,5 +118,4 @@ public class EnlacesWeb implements Serializable {
     public String toString() {
         return "uis.giib.entidades.EnlacesWeb[ idEnlace=" + idEnlace + " ]";
     }
-    
 }

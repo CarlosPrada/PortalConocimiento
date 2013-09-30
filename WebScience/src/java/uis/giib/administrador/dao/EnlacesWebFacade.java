@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
 import javax.ejb.Stateless;
@@ -12,7 +8,7 @@ import javax.persistence.Query;
 import uis.giib.entidades.EnlacesWeb;
 
 /**
- *
+ * @author Carlos David Prada Remolina
  * @author cristhian ruiz
  */
 @Stateless
@@ -38,5 +34,5 @@ public class EnlacesWebFacade extends AbstractFacade<EnlacesWeb> {
         } catch (NoResultException e) {
             return null;
         }
-    }
+    }   
 }

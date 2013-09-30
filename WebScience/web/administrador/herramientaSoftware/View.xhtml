@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewHerramientaSoftwareTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_idHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.idHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_idHerramienta}"/>
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_nombreHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.nombreHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_nombreHerramienta}"/>
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_urlHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.urlHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_urlHerramienta}"/>
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_descripcionHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.descripcionHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_descripcionHerramienta}"/>
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_imagenHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.imagenHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_imagenHerramienta}"/>
+                    <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_idEstado}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.idEstado}" title="#{bundle.ViewHerramientaSoftwareTitle_idEstado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{herramientaSoftwareController.destroyAndView}" value="#{bundle.ViewHerramientaSoftwareDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewHerramientaSoftwareEditLink}"/>
+                <br />
+                <h:commandLink action="#{herramientaSoftwareController.prepareCreate}" value="#{bundle.ViewHerramientaSoftwareCreateLink}" />
+                <br />
+                <h:commandLink action="#{herramientaSoftwareController.prepareList}" value="#{bundle.ViewHerramientaSoftwareShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewHerramientaSoftwareIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
