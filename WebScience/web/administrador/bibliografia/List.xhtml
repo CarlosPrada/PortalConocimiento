@@ -35,7 +35,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_nomnreBibliografia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nomnreBibliografia}"/>
+                            <h:outputText value="#{item.nombreBibliografia}"/>
                         </p:column>
 
                         <p:column>
@@ -87,7 +87,7 @@
                 <br /><br />
                 <h:commandLink action="#{bibliografiaController.prepareCreate}" value="#{bundle.ListBibliografiaCreateLink}"/>
                 <br /><br />
-                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListBibliografiaIndexLink}"/>
+                <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListBibliografiaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

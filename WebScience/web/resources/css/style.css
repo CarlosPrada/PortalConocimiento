@@ -25,8 +25,6 @@ h2 {
 
 }
 
-
-
 p {
     margin:0 ;
     margin-top: 0;
@@ -43,13 +41,16 @@ a {
     margin:0;
     padding:0;
 }
+
 .header {
 }
+
 .header_resize {
     margin:0 auto;
     padding:0;
     width:960px;
 }
+
 .logo {
     margin:0;
     padding:0;
@@ -57,64 +58,57 @@ a {
     width:auto;
     height:103px
 }
+
 h5  {
     margin-left: 75em;
     margin-top: 0em;
     margin-right: 0em;
     margin-bottom: 0em;
-     
-    
+}
 
-
-
-    }
-    h11  {
+h11  {
     margin-left: 60em;
-    }
-    h12  {
+}
+
+h12  {
     margin-left: 60em;
-    
-    
+}
 
-
-
-    }
-    h7  {
+h7  {
     margin-left: 75em;
     margin-top: 0em;
-    }
+}
+
 h6  {
-
     margin-top: 1em;
-
 }
- p11{
-font-size: 40px;
- font-family: serif; 
- color:#000000;
+
+p11{
+    font-size: 40px;
+    font-family: serif; 
+    color:#000000;
 }
- 
-
-
 
 p10{
-font-size: 20px;
- font-family: serif; 
- color:#000000;
+    font-size: 20px;
+    font-family: serif; 
+    color:#000000;
 }
- p12{
-font-size: 20px;
- font-family: serif; 
- color:#000000;
+
+p12{
+    font-size: 20px;
+    font-family: serif; 
+    color:#000000;
 }
-p9
-{ 
-  font-size: 20px; 
+
+p9{ 
+    font-size: 20px; 
 }
-p15
-{ 
-  text-transform: lowercase; 
+
+p15{ 
+    text-transform: lowercase; 
 }
+
 h1 {
     margin:0;
     margin-top: 0;
@@ -125,12 +119,15 @@ h1 {
     text-transform:uppercase;
     text-align:left;
 }
+
 h1 a, h1 a:hover {
     color:#00a3e0;
     text-decoration:none;
 }
+
 h1 span {
 }
+
 h1 small {
     display:block;
     margin:0;
@@ -368,14 +365,6 @@ h4 /*estilo de letra negra */ {
     border: 2px solid #0D2AA1;
 
 }
-/*.marco1 { 
-    padding:0px; 
-        background-color: #f5f5f5; 
-   width: 300px; 
-   border: 2px solid #999999;
-        
-  
-}*/
 
 .mainbarInvestigadores .articleInvestigadores h1{
     margin-bottom: -12px;
@@ -408,8 +397,6 @@ h4 /*estilo de letra negra */ {
     background:repeat-x left bottom;	
 }
 
-.content .mainbarIzquierdo .post_content {
-}
 .content .mainbarIzquierdo .post_content strong, .content .mainbarDerecho .post_content strong, .content .mainbar440 .post_content strong  {
     color:#161616;
 }
@@ -726,6 +713,42 @@ ol li .send {
 a {
     outline:none;
 }
+
+/*Administración*/
+
+.buttondiv {
+    margin-top: 10px;
+}
+.mensajeCaja{
+    position:absolute;
+    width:300px;
+    margin-left:30px;
+    border:1px solid #c93;
+    background:#ffc;
+    padding:3px;
+}
+.mensajeCaja0k{
+    position:absolute;
+    width:auto;
+    margin-left:30px;
+    border:1px solid #349534;
+    background:#C9FFCA;
+    padding:3px;
+    font-weight:bold;
+    color:#008000;
+
+}
+.mensajeCajaError{
+    position:absolute;
+    width:auto;
+    margin-left:30px;
+    border:1px solid #CC0000;
+    background:#F7CBCA;
+    padding:3px;
+    font-weight:bold;
+    color:#CC0000;
+}
+
 
 
 /*Menu*/

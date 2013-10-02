@@ -50,12 +50,6 @@
                             Permite administrar los proyectos de investigación.
                         </h:column>
 
-                        <h:column rendered="#{loginAuthentication.arrayRender[2]}">
-                            <img src="#{resource['images/admin/dash/dep.gif']}" alt=""/>     
-                            <h:link outcome="/administrador/bibliografia/#{bibliografiaController.prepareList()}" value="Gestión de Referencias Bibliográficas"/>
-                            Gestiona de referencias bibliográficas aportadas por otros investigadores.
-                        </h:column>
-
                         <h:column rendered="#{loginAuthentication.arrayRender[3]}">
                             <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
                             <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}" value="Gestión de Investigadores"/>
@@ -67,13 +61,13 @@
                             <h:link outcome="/administrador/lineaInvestigacion/#{lineaInvestigacionController.prepareList()}" value="Gestión de Líneas de Investigación"/>
                             Permite administrar las líneas de investigación del grupo.
                         </h:column>
-                        
+
                         <h:column rendered="#{loginAuthentication.arrayRender[5]}">
                             <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
                             <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}" value="Gestión de Producción Intelectual"/>
                             Gestionar productos de investigación por proyecto.
                         </h:column>   
-                        
+
                         <h:column rendered="#{loginAuthentication.arrayRender[6]}">
                             <img src="#{resource['images/admin/dash/updates.gif']}" alt=""/> 
                             <a href=''> 

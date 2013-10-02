@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,38 +38,67 @@
 
                         <!--LOGO - Grupo-->
                         <h1>                            
-                            <a href="index.jsf"><small></small> <span><img src="#{resource['images/portal/logonn.png']}"> </img></span></a>
+                            <a href="/index.jsf"><span><img src="#{resource['images/portal/logonn.png']}"> </img></span></a>
                             <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
                         </h1>
-                        
+
                         <!--Facebook - Twitter-->
-                        <a  href="index.jsf"><small></small> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
-                        <a href="https://www.facebook.com/groups/114952768532406/" target="_black"><small></small> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
+                        <a href="/index.jsf"> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
+                        <a href="https://www.facebook.com/groups/114952768532406/" target="_black"> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
 
-                    </div> 
+                    </div>
+                    
+                    <div align="right">
+                        
+                        <h:form id="loginForm" rendered="#{!loginAuthentication.loggedIn}">
+                            <h:panelGrid columns="2" cellpadding="5" >  
 
-                    <div id="fb-root">                        
+                                <h:outputLabel for="usuario" value="Usuario:" />                                     
+                                <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" size="25" />  
+
+                                <h:outputLabel for="contrasena" value="Contrase&ntilde;a:" />                                              
+                                <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a." size="25"/>  
+
+                                <div class="buttondiv">
+                                    <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión"  update="loginForm, :logoutForm"/>
+                                </div>  
+
+                            </h:panelGrid> 
+                        </h:form >
+
+                        <h:form id="logoutForm" rendered="#{loginAuthentication.loggedIn}">                           
+                            <h:panelGrid columns="2" cellpadding="5" >  
+
+                                <h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" />
+                                <p:commandLink value="(Editar Perfil)" action="#{perfilUsuarioC.goEditarPerfil(  #loginAuthentication.usuarioAutenticado  )}" update=":loginForm, logoutForm" /> 
+                                <p:commandLink value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logoutPortal()}" update=":loginForm, logoutForm" /> 
+
+                            </h:panelGrid>
+                        </h:form>
+
                     </div>
 
                     <div class="clr"></div>
-                    <div class="menuHolder">
-                        <div class="clr"></div>
-                        <div class="searchform">
-                            <form id="formsearch" name="formsearch" method="post" action="#">
-                                <span>
-                                    <input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="100" value="Buscar..." type="text" />
-                                </span>
-                                <h13> <input name="button_search" src="#{resource['images/portal/search.gif']}" class="button_search" type="image" /></h13>
 
-                            </form>
+                    <!--MENÚ-->
+                    <div class="menuHolder"> 
+
+                        <!-- BUSCADOR -->
+                        <div class="searchform">
+                            <h:form id="formsearch">
+
+                                <h:inputText id="editbox_search"  value="Buscar..."    />
+
+                                <p:commandButton   icon="ui-icon-disk" />  
+                                <input name="button_search" src="#{resource['images/portal/search.gif']}" class="button_search" type="image" />  
+
+                            </h:form>
                         </div>
 
                         <h:form>
                             <ul class="nav">
                                 <li>
-                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" >
-                                        <b>Inicio</b>
-                                    </h:commandLink>
+                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" ><b>Inicio</b></h:commandLink>
                                 </li>
                                 <li><a class="top-a" ><b>Grupo</b></a>
                                     <div class="col1">
@@ -78,27 +106,15 @@
                                             <li><h:commandLink action="#{quienesSomosPC.goQuienesSomos()}" value="Quienes Somos" /></li>
                                             <li><h:commandLink action="#{investigadorPC.goInvestigadores()}" value="Investigadores" /></li>
                                             <li><h:commandLink action="#{lineasInvestigacionPC.goLineasInvestigacion()}" value="Líneas Investigación" /></li>
-                                            <li><h:commandLink action="#{relacionesInstitucionalesPC.goRelacionesInstitucionales()}" value="Relaciones Institucioanles" /></li>
+                                            <li><h:commandLink action="#{relacionesInstitucionalesPC.goRelacionesInstitucionales()}" value="Relaciones Institucionales" /></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li>
-                                    <h:commandLink styleClass="top-a"  action="#{publicacionesPC.goPublicaciones()}" >
-                                        <b>Publicaciones</b>
-                                    </h:commandLink>
+                                    <h:commandLink styleClass="top-a"  action="#{publicacionesPC.goPublicaciones()}" > <b>Publicaciones</b> </h:commandLink>
                                 </li>
                                 <li>
-                                    <h:commandLink styleClass="top-a" action="#{proyectoPC.goProyectos()}" >
-                                        <b>Proyectos</b>
-                                    </h:commandLink>
-                                </li>
-                                <li>
-                                    <div class="col1">
-                                        <ul class="colLeft">
-                                            <li><a href="Calendario.html">Calendario</a></li>
-                                            <li><a href="investigadores.html">En Curso</a></li>
-                                        </ul>
-                                    </div>
+                                    <h:commandLink styleClass="top-a" action="#{proyectoPC.goProyectos()}" > <b>Proyectos</b> </h:commandLink>
                                 </li>
                                 <li><a class="top-a" ><b>Comunidad</b></a>
                                     <div class="col1">
@@ -112,101 +128,85 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <h:commandLink styleClass="top-a" action="#{administradorPC.goAdministrar()}" >
-                                        <b>Administrar</b>
-                                    </h:commandLink>
+                                    <h:commandLink styleClass="top-a" action="#{administradorPC.goAdministrar()}" > <b>Administrar</b> </h:commandLink>
                                 </li>
                             </ul>
                             <ul class="nav">
                                 <li>
-                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" ><b>Contactenos</b></h:commandLink>
+                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" > <b>Contactenos</b> </h:commandLink>
                                 </li>
                             </ul>
+
                         </h:form>
-                    </div>
-                    <div class="clr"></div>
+                    </div>                    
 
-
+                    <!--SLIDER-->
                     <ui:insert name="slider">
                         <div class="slider">
                             <div id="coin-slider">
+
                                 <a href="#"><img src="#{resource['images/portal/slide1.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
                                         Mensaje.</span></a>
                                 <a href="#"><img src="#{resource['images/portal/slide2.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
                                         Mensaje.</span></a>
                                 <a href="#"><img src="#{resource['images/portal/slide3.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
-                                        Mensaje.</span></a> </div>
-                            <div class="clr"></div>
+                                        Mensaje.</span></a> 
+                            </div>
                         </div>
-                        <div class="clr"></div>
-
                     </ui:insert>
-                </div>
+                </div>     
             </div>
+
+            <!--BODY-->
             <div class="content">
                 <div class="content_resize">
 
-                    <ui:insert name="body">
+                    <ui:insert name="body"></ui:insert>
 
-                    </ui:insert>
                 </div>
-            </div>
+            </div>            
             <div class="clr"></div>
         </div>
 
-        <h:form>
-            <div class="fbg">
-                <div class="fbg_resize">
-                    <div class="col c1">
-                        <h2><span>Institucionales</span></h2>
-                        <ul class="fbg_ul">
-                            <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
-                            <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
-                            <li><a href="http://cormoran.uis.edu.co/eisi/" target="_blank">EISI-WEB</a></li>
-                        </ul>
-                    </div>
-                    <div class="col c2">
-                        <h11><h2>Grupos de investigación de la EISI</h2>
-                            <ul class="fbg_ul">
-                                <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
-                                <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
-                            </ul>
-                        </h11> 
-                    </div>  
+        <!--PIE DE PÁGINA-->
 
-                    <div class="col c3">
-                        <h2><span>Institucionales</span></h2>
-                        <ul class="fbg_ul">
-
-                            <h:panelGrid columns="2" cellpadding="5">  
-
-                                <h:outputLabel for="usuario" value="Usuario:" />                                     
-                                <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" size="30" />  
-
-                                <h:outputLabel for="contrasena" value="Contrase&ntilde;a:" />                                              
-                                <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a." size="30"/>  
-
-                                <div class="buttondiv">
-                                    <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión" />
-                                    <span id="mensajeCaja" style="display:none"> </span>
-                                </div> 
-
-                            </h:panelGrid> 
-
-                        </ul>
-                    </div>
-
-                    <div class="clr"></div>
+        <div class="fbg">
+            <div class="fbg_resize">
+                <div class="col c1">
+                    <h2><span>Enlaces Institucionales</span></h2>
+                    <ul class="fbg_ul">
+                        <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
+                        <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
+                        <li><a href="http://cormoran.uis.edu.co/eisi/" target="_blank">EISI-WEB</a></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="footer">
-                <div class="footer_resize">
-                    <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
-                    <div style="clear:both;"></div>
+                <div class="col c2">
+                    <h11><h2>Grupos de investigación EISI</h2>
+                        <ul class="fbg_ul">
+                            <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
+                            <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
+                        </ul>
+                    </h11> 
+                </div>  
+
+                <div class="col c3">
+                    <ul class="fbg_ul">
+
+
+
+                    </ul>
                 </div>
+
+                <div class="clr"></div>
             </div>
-        </h:form>
+        </div>
+        <div class="footer">
+            <div class="footer_resize">
+                <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
 
     </h:body>
-
 </html>

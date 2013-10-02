@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 template="./../plantillaPortal.xhtml"
@@ -28,7 +28,7 @@
                                 <p:scrollPanel style="width: 100%; height: 100%; border: none;" mode="native" >
                                     <p:dataGrid columns="1" value="#{tipoProd.produccionIntelectualList}"  emptyMessage="No se encontraton registros" var="prod">
                                         <h:outputText value="#{prod.referenciaProduccion}" escape="false" /> 
-                                        <h:outputLink value="#{prod.urlProduccion}">Más</h:outputLink>
+                                        <h:outputLink value="#{prod.urlProduccion}" target=" _blank">Más</h:outputLink>
                                         <p:separator />
                                     </p:dataGrid>
                                 </p:scrollPanel>

@@ -4,21 +4,27 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import java.util.Date;
+import java.util.Iterator;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.inject.Named;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
+import uis.giib.entidades.Evento;
 
 /**
  *
- * @author Carlos David Prada Remolina Y CRIS
+ * @author Carlos David Prada Remolina
  */
 @Named(value = "eventosPC")
 @SessionScoped
@@ -26,25 +32,37 @@ public class EventosPortalController implements Serializable {
 
     private ScheduleModel eventModel;
     private ScheduleEvent event = new DefaultScheduleEvent();
+    private DataModel listadoEvento;
+    @EJB
+    private uis.giib.administrador.dao.EventoFacade ejbEvento;
 
     //Constructor
     public EventosPortalController() {
-        /*try {
-         TipoContenido = ejbFacade.buscarContenidoPorTipo(idTipo);
-         listadoContenidoEventos = new ListDataModel(TipoContenido.getContenidoList());
-         Iterator<Contenido> it = listadoContenidoEventos.iterator();
-         eventModel = new DefaultScheduleModel();
-         while (it.hasNext()) {
-         Contenido i = it.next();
-         eventModel.addEvent(new DefaultScheduleEvent(i.getTitulo(), i.getFechaInicioevento(), i.getFechaFinevento()));
-         }
-         } catch (Exception e) {
-         System.out.println("Error listando investitadores!" + e.getLocalizedMessage() + " " + e.getMessage());
-         }*/
     }
 
     //Métodos de navegación
     public String goEventos() {
+
+        /*
+         eventModel = new DefaultScheduleModel();
+         eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));
+         eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
+         eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
+         eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
+         */
+
+
+        try {
+            listadoEvento = new ListDataModel(ejbEvento.findAll());
+            Iterator<Evento> eveIterator = listadoEvento.iterator();
+            eventModel = new DefaultScheduleModel();
+            while (eveIterator.hasNext()) {
+                Evento eve = eveIterator.next();
+                eventModel.addEvent(new DefaultScheduleEvent(eve.getNombreEvento(), eve.getFechaInicio(), eve.getFechaFin()));
+            }
+        } catch (Exception e) {
+            System.out.println("Error listando EVENTOS!" + e.getLocalizedMessage() + " " + e.getMessage());
+        }
 
         return "/portal/eventos.xhtml?faces-redirect=true";
     }
@@ -80,7 +98,7 @@ public class EventosPortalController implements Serializable {
         date.add(Calendar.DATE, ((int) (Math.random() * 30)) + 1);    //set random day of month  
 
         return date.getTime();
-    }    
+    }
 
     public void addEvent(ActionEvent actionEvent) {
         if (event.getId() == null) {
@@ -115,5 +133,97 @@ public class EventosPortalController implements Serializable {
     private void addMessage(FacesMessage message) {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-    
+
+    public DataModel getListadoEvento() {
+        return listadoEvento;
+    }
+
+    public void setListadoEvento(DataModel listadoEvento) {
+        this.listadoEvento = listadoEvento;
+    }
+
+    public uis.giib.administrador.dao.EventoFacade getEjbEvento() {
+        return ejbEvento;
+    }
+
+    public void setEjbEvento(uis.giib.administrador.dao.EventoFacade ejbEvento) {
+        this.ejbEvento = ejbEvento;
+    }
+
+    private Calendar today() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 0, 0, 0);
+
+        return calendar;
+    }
+
+    private Date previousDay8Pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.DATE, t.get(Calendar.DATE) - 1);
+        t.set(Calendar.HOUR, 8);
+
+        return t.getTime();
+    }
+
+    private Date previousDay11Pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.DATE, t.get(Calendar.DATE) - 1);
+        t.set(Calendar.HOUR, 11);
+
+        return t.getTime();
+    }
+
+    private Date today1Pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.HOUR, 1);
+
+        return t.getTime();
+    }
+
+    private Date theDayAfter3Pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.DATE, t.get(Calendar.DATE) + 2);
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.HOUR, 3);
+
+        return t.getTime();
+    }
+
+    private Date today6Pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.HOUR, 6);
+
+        return t.getTime();
+    }
+
+    private Date nextDay9Am() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.AM);
+        t.set(Calendar.DATE, t.get(Calendar.DATE) + 1);
+        t.set(Calendar.HOUR, 9);
+
+        return t.getTime();
+    }
+
+    private Date nextDay11Am() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.AM);
+        t.set(Calendar.DATE, t.get(Calendar.DATE) + 1);
+        t.set(Calendar.HOUR, 11);
+
+        return t.getTime();
+    }
+
+    private Date fourDaysLater3pm() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.PM);
+        t.set(Calendar.DATE, t.get(Calendar.DATE) + 4);
+        t.set(Calendar.HOUR, 3);
+
+        return t.getTime();
+    }
 }

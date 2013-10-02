@@ -74,17 +74,22 @@
                             </f:facet>
                             <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>
-  
+
                     </p:dataTable>
 
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{produccionIntelectualController.prepareCreate}" value="#{bundle.ListProduccionIntelectualCreateLink}"/>
-                <br /><br />                
+                <br /><br />   
 
                 <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoProduccion/#{tipoProduccionController.prepareList()}" value="Administrar Tipos de Producción Intelectual"/>
-                : Permite administrar los Tipos de Producción Intelectual permitidos.
+                <h:link outcome="/administrador/bibliografia/#{bibliografiaController.prepareList()}" value="Administrar Referencias Bibliográficas"/>
+                : Permite administrar las Referencias Bibliográficas aportadas por la comunidad.
+                <br /><br />
+                
+                <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
+                <h:link outcome="/administrador/tipoProduccion/#{tipoProduccionController.prepareList()}" value="Administrar Tipos"/>
+                : Permite administrar los Tipos de Producción Intelectual y de Referencias Bibliográficas permitidos.
 
                 <br /><br />
                 <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListProduccionIntelectualIndexLink}"/>

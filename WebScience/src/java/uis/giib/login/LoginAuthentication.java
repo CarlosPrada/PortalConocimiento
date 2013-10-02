@@ -58,18 +58,23 @@ public class LoginAuthentication implements Serializable {
         }
     }
 
-    public String loginPortal() {
+    public void loginPortal() {
 
         ValidarUsuario();
         if (usuarioAutenticado != null) {
             loggedIn = true;
-            return "/portal/index.xhtml?faces-redirect=true";
         } else {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "!Usted no cuenta con permisos Suficientes!", "Verifique su usuario y contraseña");
             facesContext.addMessage(null, facesMessage);
-            return null;
         }
+    }
+
+    public void logoutPortal() {
+        usuario = new Investigador();
+        usuarioAutenticado = null;
+        loggedIn = false;
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
     }
 
     public String logout() {
@@ -119,7 +124,6 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[5] = false;
                 this.arrayRender[6] = false;
                 this.arrayRender[7] = false;
-
             }
         }
     }

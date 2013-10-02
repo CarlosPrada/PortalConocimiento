@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 template="./../plantillaPortal.xhtml"
@@ -13,21 +13,21 @@
 
         <div class="mainbar660">
             <div class="article">
-                 
-                    <h:form>  
 
-                        <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
+                <h:form>  
 
-                            <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
-                            <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
-                                <f:convertDateTime pattern="yyyy/MM/dd" />
-                            </h:outputText> <br/><br/>
-                            <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
+                    <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
 
-                        </p:dataGrid>
+                        <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
+                        <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
+                            <f:convertDateTime pattern="yyyy/MM/dd" />
+                        </h:outputText> <br/><br/>
+                        <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
+                        <p:separator />
+                    </p:dataGrid>
 
-                    </h:form> 
-                
+                </h:form> 
+
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                     <li><a href="">Destacado</a><br /></li>
                 </ul>
             </div>
-
         </div>
+
     </ui:define>
 </ui:composition>
