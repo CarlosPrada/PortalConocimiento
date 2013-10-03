@@ -41,7 +41,7 @@
                         <h:column class="dashitem" rendered="#{loginAuthentication.arrayRender[0]}">
                             <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
                             <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" value="Gestión de Contenidos"/>
-                            Permite administrar los contenidos de cada sección del portal.
+                            Permite administrar los contenidos del portal.
                         </h:column>
 
                         <h:column rendered="#{loginAuthentication.arrayRender[1]}">
@@ -49,6 +49,12 @@
                             <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}" value="Gestión de Proyectos de Investigación"/>
                             Permite administrar los proyectos de investigación.
                         </h:column>
+
+                        <h:column rendered="#{loginAuthentication.arrayRender[2]}">
+                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}" value="Gestión de Producción Intelectual y Referencias Bibliográficas"/>
+                            Permite administrar la producción intelectual y referencias bibliográficas
+                        </h:column>   
 
                         <h:column rendered="#{loginAuthentication.arrayRender[3]}">
                             <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
@@ -62,30 +68,8 @@
                             Permite administrar las líneas de investigación del grupo.
                         </h:column>
 
-                        <h:column rendered="#{loginAuthentication.arrayRender[5]}">
-                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}" value="Gestión de Producción Intelectual"/>
-                            Gestionar productos de investigación por proyecto.
-                        </h:column>   
 
-                        <h:column rendered="#{loginAuthentication.arrayRender[6]}">
-                            <img src="#{resource['images/admin/dash/updates.gif']}" alt=""/> 
-                            <a href=''> 
-                                Realizar copias de seguridad</a> 
-                            Permite crear copias de seguridad del sistema.
-                        </h:column>
 
-                        <!--<h:column >
-                            <img src="#{resource['images/admin/dash/locale.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/seccion/#{seccionController.prepareList()}" value="Creación de categorías"/>
-                            Permite administrar las opciones de cada sección del portal.
-                        </h:column>-->
-
-                        <!--<h:column>
-                            <img src="#{resource['images/admin/dash/stat.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/publicacion/#{publicacionController.prepareList()}" value="Noticias y eventos del grupo"/>
-                            Permite administrar noticias y eventos.
-                        </h:column>-->
                     </h:panelGrid>    
                 </div> 
             </div>

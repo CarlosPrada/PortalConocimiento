@@ -14,7 +14,7 @@ import uis.giib.entidades.Investigador;
 public class PerfilUsuarioController implements Serializable {
 
     //Atributos
-    private Investigador investigadorActual;
+    private Investigador usuarioActual;
 
     //Constructor
     public PerfilUsuarioController() {
@@ -24,7 +24,7 @@ public class PerfilUsuarioController implements Serializable {
     public String goEditarPerfil(Investigador investigador) {
 
         try {
-            investigadorActual = investigador;
+            usuarioActual = investigador;
         } catch (Exception e) {
             System.out.println("Error Mostrando detalles Investigador!");
         }
@@ -32,11 +32,11 @@ public class PerfilUsuarioController implements Serializable {
     }
 
     //Getters - Setters
-    public Investigador getInvestigadorActual() {
-        return investigadorActual;
+    public Investigador getUsuarioActual() {
+        return usuarioActual;
     }
 
-    public void setInvestigadorActual(Investigador investigadorActual) {
-        this.investigadorActual = investigadorActual;
+    public void setUsuarioActual(Investigador usuarioActual) {
+        this.usuarioActual = usuarioActual;
     }
 }

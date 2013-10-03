@@ -47,9 +47,9 @@
                         <a href="https://www.facebook.com/groups/114952768532406/" target="_black"> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
 
                     </div>
-                    
+
                     <div align="right">
-                        
+
                         <h:form id="loginForm" rendered="#{!loginAuthentication.loggedIn}">
                             <h:panelGrid columns="2" cellpadding="5" >  
 
@@ -70,8 +70,8 @@
                             <h:panelGrid columns="2" cellpadding="5" >  
 
                                 <h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" />
-                                <p:commandLink value="(Editar Perfil)" action="#{perfilUsuarioC.goEditarPerfil(  #loginAuthentication.usuarioAutenticado  )}" update=":loginForm, logoutForm" /> 
-                                <p:commandLink value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logoutPortal()}" update=":loginForm, logoutForm" /> 
+                                <p:commandLink value="(Editar Perfil)" action="#{loginAuthentication.goEditarPerfil()}"  /> 
+                                <p:commandLink ajax="false" value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logoutPortal()}" update=":loginForm, logoutForm" /> 
 
                             </h:panelGrid>
                         </h:form>
@@ -177,23 +177,22 @@
                     <ul class="fbg_ul">
                         <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
                         <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
-                        <li><a href="http://cormoran.uis.edu.co/eisi/" target="_blank">EISI-WEB</a></li>
                     </ul>
                 </div>
                 <div class="col c2">
-                    <h11><h2>Grupos de investigación EISI</h2>
-                        <ul class="fbg_ul">
-                            <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
-                            <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
-                        </ul>
-                    </h11> 
+                    <h2>Grupos de investigación EISI</h2>
+                    <ul class="fbg_ul">
+                        <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
+                        <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
+                    </ul>
+
                 </div>  
 
                 <div class="col c3">
+                    <h2>Grupos de investigación EISI</h2>
                     <ul class="fbg_ul">
-
-
-
+                        <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
+                        <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
                     </ul>
                 </div>
 

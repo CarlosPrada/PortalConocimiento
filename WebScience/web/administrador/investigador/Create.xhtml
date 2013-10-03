@@ -73,11 +73,13 @@
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
 
-                    <p:fileUpload fileUploadListener="#{fileBrowserController.handleFileUpload}" mode="advanced" update="messages" auto="true" sizeLimit="1000000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" value="#{investigadorController.selected.imageInvestigadorPath}"/>  
 
-                    <p:growl id="messages" showDetail="true"/>  
+                    <p:messages showDetail="true"/>  
+                    <p:fileUpload value="#{fileUploadController.file}" mode="simple"/> 
+                    <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadController.upload}"/>  
 
-
+                    
+                    
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}" for="estadoInvestigador" />
                     <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>

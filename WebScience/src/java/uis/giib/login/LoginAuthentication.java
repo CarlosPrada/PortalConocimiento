@@ -3,14 +3,16 @@ package uis.giib.login;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.dao.InvestigadorFacade;
 import uis.giib.entidades.Investigador;
 
 /**
- * COntorlador para verificar que los datos usados en la autenticación sean los
+ * Contorlador para verificar que los datos usados en la autenticación sean los
  * correctos
  *
  * @author Carlos David Prada Remolina
@@ -46,7 +48,7 @@ public class LoginAuthentication implements Serializable {
      */
     public String loginAdministracion() {
 
-        ValidarUsuario();
+        ValidarUsuarioAdmnistracion();
         if (usuarioAutenticado != null) {
             loggedIn = true;
             return "inicio.xhtml?faces-redirect=true";
@@ -58,14 +60,23 @@ public class LoginAuthentication implements Serializable {
         }
     }
 
+    public String logout() {
+        usuario = new Investigador();
+        usuarioAutenticado = null;
+        loggedIn = false;
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "indexAdministracion.xhtml?faces-redirect=true";
+    }
+
+    // LOGIN USUARIO PORTAL
     public void loginPortal() {
 
-        ValidarUsuario();
+        ValidarUsuarioPortal();
         if (usuarioAutenticado != null) {
             loggedIn = true;
         } else {
             FacesContext facesContext = FacesContext.getCurrentInstance();
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "!Usted no cuenta con permisos Suficientes!", "Verifique su usuario y contraseña");
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o Contraseña incorrectos", "Verifique su usuario y contraseña");
             facesContext.addMessage(null, facesMessage);
         }
     }
@@ -77,21 +88,33 @@ public class LoginAuthentication implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
     }
 
-    public String logout() {
-        usuario = new Investigador();
-        usuarioAutenticado = null;
-        loggedIn = false;
-        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "indexAdministracion.xhtml?faces-redirect=true";
+    public String goEditarPerfil() {
+        return "/portal/editarPerfilUsuario.xhtml?faces-redirect=true";
     }
 
+    public void update() {
+        try {
+            getInvestigadorDAO().edit(usuarioAutenticado);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioUpdated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+    }
+
+    public void ValidarUsuarioPortal() {
+        usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
+    }
+
+    /**
+     * ************************************************************************
+     */
     /**
      * Método para verificar los permizos de admisnitración del usuario
      * autenticado
      *
      * @return boolean true o false
      */
-    public void ValidarUsuario() {
+    public void ValidarUsuarioAdmnistracion() {
         usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
         if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
             this.arrayRender[0] = true;
@@ -99,9 +122,6 @@ public class LoginAuthentication implements Serializable {
             this.arrayRender[2] = true;
             this.arrayRender[3] = true;
             this.arrayRender[4] = true;
-            this.arrayRender[5] = true;
-            this.arrayRender[6] = true;
-            this.arrayRender[7] = true;
 
         } else {
             if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
@@ -110,9 +130,6 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[2] = true;
                 this.arrayRender[3] = false;
                 this.arrayRender[4] = false;
-                this.arrayRender[5] = false;
-                this.arrayRender[6] = false;
-                this.arrayRender[7] = false;
 
             } else {
                 this.usuarioAutenticado = null;
@@ -121,9 +138,6 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[2] = false;
                 this.arrayRender[3] = false;
                 this.arrayRender[4] = false;
-                this.arrayRender[5] = false;
-                this.arrayRender[6] = false;
-                this.arrayRender[7] = false;
             }
         }
     }

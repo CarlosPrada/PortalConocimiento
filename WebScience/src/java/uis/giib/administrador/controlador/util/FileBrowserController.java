@@ -1,11 +1,10 @@
 package uis.giib.administrador.controlador.util;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import org.primefaces.event.FileUploadEvent;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;  
+import javax.faces.context.FacesContext;  
+import javax.inject.Named;  
 import org.primefaces.model.UploadedFile;
 
 /**
@@ -14,10 +13,22 @@ import org.primefaces.model.UploadedFile;
  */
 @Named(value = "fileBrowserController")
 @SessionScoped
-public class FileBrowserController implements Serializable{
-
-    public void handleFileUpload(FileUploadEvent event) {
-        FacesMessage msg = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-}
+public class FileBrowserController implements Serializable {  
+  
+    private UploadedFile file;  
+  
+    public UploadedFile getFile() {  
+        return file;  
+    }  
+  
+    public void setFile(UploadedFile file) {  
+        this.file = file;  
+    }  
+  
+    public void upload() {  
+        if(file != null) {  
+            FacesMessage msg = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");  
+            FacesContext.getCurrentInstance().addMessage(null, msg);  
+        }  
+    }  
+}  
