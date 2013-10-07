@@ -4,9 +4,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
 import uis.giib.entidades.Noticia;
 
 /**
@@ -19,9 +18,9 @@ import uis.giib.entidades.Noticia;
 public class NoticiasPortalController implements Serializable {
 
     //Atributos
-    private List<Noticia> listadoNoticias;
     @EJB
     private uis.giib.administrador.dao.NoticiaFacade ejbNoticia;
+    private List<Noticia> listadoNoticias;
 
     //Constructor
     public NoticiasPortalController() {
@@ -36,7 +35,12 @@ public class NoticiasPortalController implements Serializable {
         }
         return "/portal/noticias.xhtml?faces-redirect=true";
     }
-
+    
+    @PostConstruct
+    public void inicializacion(){
+        listadoNoticias = ejbNoticia.listarNoticias();
+    }
+    
     //Getters - Setters
     public List<Noticia> getListadoNoticias() {
         return listadoNoticias;

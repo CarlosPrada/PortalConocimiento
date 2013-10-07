@@ -7,14 +7,14 @@ package uis.giib.administrador.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import uis.giib.entidades.EstadoGeneral;
+import uis.giib.entidades.MensajePortal;
 
 /**
  *
  * @author Carlos
  */
 @Stateless
-public class EstadoGeneralFacade extends AbstractFacade<EstadoGeneral> {
+public class MensajePortalFacade extends AbstractFacade<MensajePortal> {
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -23,8 +23,8 @@ public class EstadoGeneralFacade extends AbstractFacade<EstadoGeneral> {
         return em;
     }
 
-    public EstadoGeneralFacade() {
-        super(EstadoGeneral.class);
+    public MensajePortalFacade() {
+        super(MensajePortal.class);
     }
     
 }

@@ -5,12 +5,7 @@
     <h:head>
         <title>Administrador de contenido</title>
         <h:outputStylesheet library="css"  name="default.css" />
-        <script language="javascript" type="text/javascript">
-
-            function abrirVentanaEmergente(url) {
-                window.open(url, 'kcfinder_textbox', 'status=0, toolbar=0, location=0, menubar=0, directories=0, resizable=1, scrollbars=0, width=1000, height=800');
-            }
-        </script>        
+      
 
     </h:head> 
     <h:body> 
@@ -18,7 +13,7 @@
         <div id="wrap700" class="lltr"> 
             <div id="header"> 
                 <div id="title"> 
-                    <h1>Administración de Contenido - Portal GIIB</h1> 
+                    <h1>Administración - Portal GIIB</h1> 
                 </div> 
 
                 <div id="logout">
@@ -27,9 +22,11 @@
                         <h:commandLink value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logout()}"  /> 
                     </h:form>
                 </div>
+                
                 <div id="path">
                     <p><h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" /> </p>
                 </div> 
+                
             </div>
 
             <br clear="all"/> 
@@ -40,7 +37,7 @@
 
                         <h:column class="dashitem" rendered="#{loginAuthentication.arrayRender[0]}">
                             <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" value="Gestión de Contenidos"/>
+                            <h:link outcome="/administrador/indexContenido.xhtml" value="Gestión de Contenidos"/>
                             Permite administrar los contenidos del portal.
                         </h:column>
 

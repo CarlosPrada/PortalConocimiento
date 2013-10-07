@@ -6,17 +6,14 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h6><title><ui:insert name="title">Portal GIIB</ui:insert></title></h6>
 
         <h:outputStylesheet library="css" name="style.css" />
-        <h:outputStylesheet library="css" name="coin-slider.css" />
-
         <h:outputScript library="js" name="cufon-yui.js" />
         <h:outputScript library="js" name="cufon-yanone.js" />
-
         <h:outputScript library="js" name="script.js"  />
-        <h:outputScript library="js" name="coin-slider.min.js"  />
 
     </h:head>
 
@@ -37,14 +34,20 @@
                     <div class="logo"> 
 
                         <!--LOGO - Grupo-->
-                        <h1>                            
-                            <a href="/index.jsf"><span><img src="#{resource['images/portal/logonn.png']}"> </img></span></a>
-                            <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
-                        </h1>
+                        <ui:insert name="logo">
+                            <h:form>                            
+                                <h1>  
+                                    <h:link outcome="index.jsf" ><h:graphicImage  value="#{resource['images/portal/logonn.png']}"  /></h:link>
+                                    <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
+                                </h1>
+                            </h:form>
+                        </ui:insert>
 
                         <!--Facebook - Twitter-->
-                        <a href="/index.jsf"> <span><img src="#{resource['images/portal/twitt.png']}"> </img></span></a> 
-                        <a href="https://www.facebook.com/groups/114952768532406/" target="_black"> <span><img src="#{resource['images/portal/facebookk.png']}"> </img></span></a>
+                        <h:form>
+                            <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[1].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/twitt.png']}"  /></h:outputLink >
+                            <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[0].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/facebookk.png']}"  /></h:outputLink >
+                        </h:form>
 
                     </div>
 
@@ -142,17 +145,18 @@
 
                     <!--SLIDER-->
                     <ui:insert name="slider">
-                        <div class="slider">
-                            <div id="coin-slider">
+                        <h:form>
+                            <div >
 
-                                <a href="#"><img src="#{resource['images/portal/slide1.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
-                                        Mensaje.</span></a>
-                                <a href="#"><img src="#{resource['images/portal/slide2.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
-                                        Mensaje.</span></a>
-                                <a href="#"><img src="#{resource['images/portal/slide3.jpg']}" width="960" height="320" alt="" /><span><big>Mensaje.</big><br />
-                                        Mensaje.</span></a> 
-                            </div>
-                        </div>
+                                <p:carousel  pageLinks="4"  numVisible="1" autoPlayInterval="2000" circular="true">  
+                                    <h:graphicImage alt="" width="960" height="280" url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[0].nombreImagen}.jsf" />
+                                    <h:graphicImage alt="" width="960" height="280" url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[1].nombreImagen}.jsf" />
+                                    <h:graphicImage alt="" width="960" height="280" url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[2].nombreImagen}.jsf" />
+                                    <h:graphicImage alt="" width="960" height="280" url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[3].nombreImagen}.jsf" />
+                                </p:carousel>  
+
+                            </div> 
+                        </h:form>
                     </ui:insert>
                 </div>     
             </div>
@@ -169,43 +173,43 @@
         </div>
 
         <!--PIE DE PÁGINA-->
+        <h:form>
+            <div class="fbg">
+                <div class="fbg_resize">
+                    <div class="col c1">
+                        <h2><span>Enlaces Institucionales</span></h2>
+                        <ul class="fbg_ul">
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[0].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[0].nombreEnlace}</h:outputLink><br/> 
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[1].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[1].nombreEnlace}</h:outputLink> 
+                        </ul>
+                    </div>
+                    <div class="col c2">
+                        <h2>Grupos de investigación EISI</h2>
+                        <ul class="fbg_ul">
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[2].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[2].nombreEnlace}</h:outputLink><br/> 
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[3].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[3].nombreEnlace}</h:outputLink> 
+                        </ul>
 
-        <div class="fbg">
-            <div class="fbg_resize">
-                <div class="col c1">
-                    <h2><span>Enlaces Institucionales</span></h2>
-                    <ul class="fbg_ul">
-                        <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
-                        <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
-                    </ul>
+                    </div>  
+
+                    <div class="col c3">
+                        <h2>Grupos de investigación UIS</h2>
+                        <ul class="fbg_ul">
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[4].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[4].nombreEnlace}</h:outputLink><br/>
+                            <h:outputLink value="#{enlacesWebPC.enlacesPie[5].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[5].nombreEnlace}</h:outputLink> 
+                        </ul>
+                    </div>
+
+                    <div class="clr"></div>
                 </div>
-                <div class="col c2">
-                    <h2>Grupos de investigación EISI</h2>
-                    <ul class="fbg_ul">
-                        <li><a href="http://simon.uis.edu.co/joomla/home/" target="_blank">Grupo SIMON</a></li>
-                        <li><a href="http://www.cidlisuis.org/gci-web/entidades/CIDLIS/index.php" target="_blank">Grupo CIDLIS</a></li>
-                    </ul>
-
-                </div>  
-
-                <div class="col c3">
-                    <h2>Grupos de investigación EISI</h2>
-                    <ul class="fbg_ul">
-                        <li><a href="http://www.uis.edu.co/webUIS/es/index.jsp" target="_blank">Universidad Industrial de Santander.</a></li>
-                        <li><a href="http://www.uis.edu.co/webUIS/es/academia/facultades/fisicoMecanicas/escuelas/ingenieriaSistemas/programasAcademicos/ingenieriaSistemas/index.jsp?variable=11" target="_blank">Escuela de Ingeniería de Sistemas</a></li>
-                    </ul>
+            </div>
+            <div class="footer">
+                <div class="footer_resize">
+                    <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
+                    <div style="clear:both;"></div>
                 </div>
-
-                <div class="clr"></div>
             </div>
-        </div>
-        <div class="footer">
-            <div class="footer_resize">
-                <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
-                <div style="clear:both;"></div>
-            </div>
-        </div>
-
+        </h:form>
 
     </h:body>
 </html>

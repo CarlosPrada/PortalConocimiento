@@ -1,9 +1,10 @@
 package uis.giib.administrador.controlador;
 
-import uis.giib.entidades.Investigador;
+import uis.giib.entidades.MensajePortal;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
-import uis.giib.administrador.dao.InvestigadorFacade;
+import uis.giib.administrador.dao.MensajePortalFacade;
+
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
@@ -17,45 +18,70 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("investigadorController")
+@Named("mensajePortalController")
 @SessionScoped
-public class InvestigadorController extends AbstractController implements Serializable {
+public class MensajePortalController implements Serializable {
 
-    private Investigador current;
+    private MensajePortal current;
     private DataModel items = null;
     @EJB
-    private uis.giib.administrador.dao.InvestigadorFacade ejbFacade;
+    private uis.giib.administrador.dao.MensajePortalFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    //private UploadedFile file;
-    private String destination = "C:\\Users\\Carlos\\Documents\\GitHub\\PortalConocimiento\\WebScience\\web\\WEB-INF\\lib";
 
-    public InvestigadorController() {
+    public MensajePortalController() {
+    }
+
+    public MensajePortal getSelected() {
+        if (current == null) {
+            current = new MensajePortal();
+            selectedItemIndex = -1;
+        }
+        return current;
+    }
+
+    private MensajePortalFacade getFacade() {
+        return ejbFacade;
+    }
+
+    public PaginationHelper getPagination() {
+        if (pagination == null) {
+            pagination = new PaginationHelper(10) {
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                }
+            };
+        }
+        return pagination;
     }
 
     public String prepareList() {
         recreateModel();
-        System.out.println("New file created!");
         return "List";
     }
 
     public String prepareView() {
-        current = (Investigador) getItems().getRowData();
+        current = (MensajePortal) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Investigador();
+        current = new MensajePortal();
         selectedItemIndex = -1;
         return "Create";
     }
 
     public String create() {
         try {
-            //upload();
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("InvestigadorCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MensajePortalCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -63,9 +89,8 @@ public class InvestigadorController extends AbstractController implements Serial
         }
     }
 
-    // UploadFiles
     public String prepareEdit() {
-        current = (Investigador) getItems().getRowData();
+        current = (MensajePortal) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -73,7 +98,7 @@ public class InvestigadorController extends AbstractController implements Serial
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("InvestigadorUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MensajePortalUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -82,7 +107,7 @@ public class InvestigadorController extends AbstractController implements Serial
     }
 
     public String destroy() {
-        current = (Investigador) getItems().getRowData();
+        current = (MensajePortal) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -106,7 +131,7 @@ public class InvestigadorController extends AbstractController implements Serial
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("InvestigadorDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MensajePortalDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -154,36 +179,6 @@ public class InvestigadorController extends AbstractController implements Serial
         return "List";
     }
 
-    //Getter - Setters
-    public Investigador getSelected() {
-        if (current == null) {
-            current = new Investigador();
-            selectedItemIndex = -1;
-        }
-        return current;
-    }
-
-    private InvestigadorFacade getFacade() {
-        return ejbFacade;
-    }
-
-    public PaginationHelper getPagination() {
-        if (pagination == null) {
-            pagination = new PaginationHelper(10) {
-                @Override
-                public int getItemsCount() {
-                    return getFacade().count();
-                }
-
-                @Override
-                public DataModel createPageDataModel() {
-                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
-                }
-            };
-        }
-        return pagination;
-    }
-
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
@@ -192,64 +187,30 @@ public class InvestigadorController extends AbstractController implements Serial
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Investigador getInvestigador(java.lang.String id) {
+    public MensajePortal getMensajePortal(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    public Investigador getCurrent() {
-        return current;
-    }
-
-    public void setCurrent(Investigador current) {
-        this.current = current;
-    }
-
-    public uis.giib.administrador.dao.InvestigadorFacade getEjbFacade() {
-        return ejbFacade;
-    }
-
-    public void setEjbFacade(uis.giib.administrador.dao.InvestigadorFacade ejbFacade) {
-        this.ejbFacade = ejbFacade;
-    }
-
-    public int getSelectedItemIndex() {
-        return selectedItemIndex;
-    }
-
-    public void setSelectedItemIndex(int selectedItemIndex) {
-        this.selectedItemIndex = selectedItemIndex;
-
-
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    @FacesConverter(forClass = Investigador.class)
-    public static class InvestigadorControllerConverter implements Converter {
+    @FacesConverter(forClass = MensajePortal.class)
+    public static class MensajePortalControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            InvestigadorController controller = (InvestigadorController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "investigadorController");
-            return controller.getInvestigador(getKey(value));
+            MensajePortalController controller = (MensajePortalController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "mensajePortalController");
+            return controller.getMensajePortal(getKey(value));
         }
 
-        java.lang.String getKey(String value) {
-            java.lang.String key;
-            key = value;
+        java.lang.Integer getKey(String value) {
+            java.lang.Integer key;
+            key = Integer.valueOf(value);
             return key;
         }
 
-        String getStringKey(java.lang.String value) {
+        String getStringKey(java.lang.Integer value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -260,11 +221,11 @@ public class InvestigadorController extends AbstractController implements Serial
             if (object == null) {
                 return null;
             }
-            if (object instanceof Investigador) {
-                Investigador o = (Investigador) object;
-                return getStringKey(o.getUsuarioInvestigador());
+            if (object instanceof MensajePortal) {
+                MensajePortal o = (MensajePortal) object;
+                return getStringKey(o.getIdMensaje());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Investigador.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + MensajePortal.class.getName());
             }
         }
     }

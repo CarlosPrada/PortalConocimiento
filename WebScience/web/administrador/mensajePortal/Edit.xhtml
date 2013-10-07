@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMensajePortalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMensajePortalLabel_idMensaje}" for="idMensaje" />
+                    <h:inputText id="idMensaje" value="#{mensajePortalController.selected.idMensaje}" title="#{bundle.EditMensajePortalTitle_idMensaje}" required="true" requiredMessage="#{bundle.EditMensajePortalRequiredMessage_idMensaje}"/>
+                    <h:outputLabel value="#{bundle.EditMensajePortalLabel_contenidoMensaje}" for="contenidoMensaje" />
+                    <h:inputTextarea rows="4" cols="30" id="contenidoMensaje" value="#{mensajePortalController.selected.contenidoMensaje}" title="#{bundle.EditMensajePortalTitle_contenidoMensaje}" required="true" requiredMessage="#{bundle.EditMensajePortalRequiredMessage_contenidoMensaje}"/>
+                    <h:outputLabel value="#{bundle.EditMensajePortalLabel_fechaMensaje}" for="fechaMensaje" />
+                    <h:inputText id="fechaMensaje" value="#{mensajePortalController.selected.fechaMensaje}" title="#{bundle.EditMensajePortalTitle_fechaMensaje}" required="true" requiredMessage="#{bundle.EditMensajePortalRequiredMessage_fechaMensaje}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditMensajePortalLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" value="#{mensajePortalController.selected.idEstado}" title="#{bundle.EditMensajePortalTitle_idEstado}" required="true" requiredMessage="#{bundle.EditMensajePortalRequiredMessage_idEstado}">
+                        <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{mensajePortalController.update}" value="#{bundle.EditMensajePortalSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMensajePortalViewLink}"/>
+                <br />
+                <h:commandLink action="#{mensajePortalController.prepareList}" value="#{bundle.EditMensajePortalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMensajePortalIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

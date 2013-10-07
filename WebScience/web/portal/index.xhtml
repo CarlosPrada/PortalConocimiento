@@ -16,13 +16,14 @@
 
                 <h:form>  
 
-                    <p:dataGrid columns="1" rows="4" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
-
+                    <p:dataGrid columns="1" rows="3" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
+                        <br/>
                         <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
                         <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
                             <f:convertDateTime pattern="yyyy/MM/dd" />
                         </h:outputText> <br/><br/>
-                        <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
+                        <h:outputText value="#{noticias.contenidoNoticia}" escape="false" /><br/><br/>
+                        <p:separator />
                         <p:separator />
                     </p:dataGrid>
 
@@ -36,8 +37,17 @@
                 <h2 class="star"><span></span>MENSAJE DEL DIA</h2>
                 <div class="clr"></div>
                 <ul class="sb_menu">
-                    <li><a href="#">Destacado</a></li>
-                    <li><a href="#"></a></li>
+
+                    <p:dataGrid  rows="3" columns="1" value="#{mensajePC.listadoMensajesPortal}"  emptyMessage="No se encontraton registros" var="mensaje" >
+                        <li>
+                            <p12><h:outputText value="#{mensaje.contenidoMensaje}" escape="false" /> </p12><br/>
+                            <h:outputText value="#{mensaje.fechaMensaje}" escape="false" >
+                                <f:convertDateTime pattern="yyyy/MM/dd" />
+                            </h:outputText> <br/><br/>
+                            <p:separator />
+                        </li>
+                    </p:dataGrid>
+
                 </ul>
             </div>
 

@@ -1,33 +1,30 @@
 package uis.giib.administrador.controlador.util;
 
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
 import org.primefaces.event.FileUploadEvent;
 
 /**
  *
- * @author User
+ * @author Carlos
  */
 @Named(value = "fileUploadController")
-@RequestScoped
-public class FileUploadController2 {
+@SessionScoped
+public class FileUploadController implements Serializable {
 
     private String destination = "D:\\tmp\\";
 
-    public FileUploadController2() {
-    }
-
     public void upload(FileUploadEvent event) {
+        
+        System.out.println("FUCCCKKKK!");
         FacesMessage msg = new FacesMessage("Success! ", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, msg);
         // Do what you want with the file        

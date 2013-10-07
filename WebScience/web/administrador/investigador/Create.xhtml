@@ -5,8 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ck="http://code.google.com/ck-jsf-editor"
-      >
+      xmlns:ck="http://code.google.com/ck-jsf-editor">
 
     <ui:composition template="/template.xhtml">
 
@@ -21,7 +20,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form enctype="multipart/form-data">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_usuarioInvestigador}" for="usuarioInvestigador" />
@@ -70,17 +69,12 @@
                         <f:selectItems value="#{permisoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}"  />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
+                   
+                     
 
-
-                    <p:messages showDetail="true"/>  
-                    <p:fileUpload value="#{fileUploadController.file}" mode="simple"/> 
-                    <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadController.upload}"/>  
-
-                    
-                    
-                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}" for="estadoInvestigador" />
+                    <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}"  />
                     <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
@@ -91,6 +85,7 @@
                 <h:commandLink action="#{investigadorController.create}" value="#{bundle.CreateInvestigadorSaveLink}" />
                 <br/><br/>
                 <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.CreateInvestigadorShowAllLink}" immediate="true"/>
+         
             </h:form>
         </ui:define>
     </ui:composition>
