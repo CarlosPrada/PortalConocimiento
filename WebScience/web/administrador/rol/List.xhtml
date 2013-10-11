@@ -20,39 +20,37 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{rolController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{rolController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:700px;">
+                <p:dataTable value="#{rolController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:700px;">
 
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{rolController.prepareView}" value="#{bundle.ListRolViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{rolController.prepareEdit}" value="#{bundle.ListRolEditLink}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false" action="#{rolController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListRolViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false" action="#{rolController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListRolEditLink}"/>
+                    </p:column>
 
-                        <p:column width="190">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolTitle_nombreRol}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreRol}"/>
-                        </p:column>
+                    <p:column width="190">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRolTitle_nombreRol}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreRol}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolTitle_descripcionRol}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionRol}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListRolTitle_descripcionRol}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionRol}"/>
+                    </p:column>
 
-                    </p:dataTable>
-                </h:panelGroup>
+                </p:dataTable>
                 <br />
-                <h:commandLink action="#{rolController.prepareCreate}" value="#{bundle.ListRolCreateLink}"/>
+                <p:commandButton ajax="false" action="#{rolController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListRolCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListRolIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}" icon="ui-icon-arrowreturnthick-1-w"/>
             </h:form>
         </ui:define>
     </ui:composition>

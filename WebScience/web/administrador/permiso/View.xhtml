@@ -29,9 +29,9 @@
                
                 </p:panelGrid>
                 <br/>                
-                <h:link outcome="Edit" value="#{bundle.ViewPermisoEditLink}"/>
-                <br/>               
-                <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.ViewPermisoShowAllLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewPermisoEditLink}"/>
+                <br/><br/>               
+                <p:commandButton ajax="false" action="#{permisoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewPermisoShowAllLink}"/>
            
             </h:form>
         </ui:define>

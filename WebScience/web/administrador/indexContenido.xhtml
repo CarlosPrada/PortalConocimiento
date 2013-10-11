@@ -36,43 +36,43 @@
 
                         <h:column class="dashitem" >
                             <img src="#{resource['images/admin/dash/locale.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" value="Gestión de Quines Somos y Relaciones"/>
-                            ermite gestionar los contenidos de Quines Somos y las Relaciones Institucioanles.
+                            <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" value="Gestión de Quines Somos"/>
+                            Permite gestionar los contenidos de Quines Somos.
                         </h:column>
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/updates.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/proyecto/#{enlacesWebController.prepareList()}" value="Gestión de Enlaces Web"/>
+                            <h:link outcome="/administrador/enlacesWeb/#{enlacesWebController.prepareList()}" value="Gestión de Enlaces Web"/>
                             Permite gestionar los enlaces a webs externas presentes en el portal.
                         </h:column>
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/produccionIntelectual/#{eventoController.prepareList()}" value="Gestión de Eventos"/>
+                            <h:link outcome="/administrador/evento/#{eventoController.prepareList()}" value="Gestión de Eventos"/>
                             Permite gestionar los eventos relacionados con el grupo.
                         </h:column>   
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/settings.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/investigador/#{herramientaSoftwareController.prepareList()}" value="Gestión de Herramientas Software"/>
+                            <h:link outcome="/administrador/herramientaSoftware/#{herramientaSoftwareController.prepareList()}" value="Gestión de Herramientas Software"/>
                             Permite gestionar los enlaces a las herramientas software usadas comunmente por el grupo.
                         </h:column>     
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/profile.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/lineaInvestigacion/#{imagenPortalController.prepareList()}" value="Gestión de Imágenes del Portal"/>
+                            <h:link outcome="/administrador/imagenPortal/#{imagenPortalController.prepareList()}" value="Gestión de Imágenes del Portal"/>
                             Permite gestionar las imágenes mostradas en el slider del portal.
                         </h:column>
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/lineaInvestigacion/#{mensajePortalController.prepareList()}" value="Gestión de Mensajes del Día"/>
+                            <h:link outcome="/administrador/mensajePortal/#{mensajePortalController.prepareList()}" value="Gestión de Mensajes del Día"/>
                             Permite gestionar los mensajes del día mostrados.
                         </h:column>
 
                         <h:column >
                             <img src="#{resource['images/admin/dash/stat.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/lineaInvestigacion/#{noticiaController.prepareList()}" value="Gestión de Noticias"/>
+                            <h:link outcome="/administrador/noticia/#{noticiaController.prepareList()}" value="Gestión de Noticias"/>
                             Permite gestionar las noticias mostradas en el portal.
                         </h:column>
                         
@@ -88,5 +88,3 @@
 
     </h:body> 
 </html>
-
-

@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -23,51 +24,27 @@
             <h:form>
                 <h:panelGrid columns="2">
                     
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_titulo}" for="titulo" />
-                    <h:inputText id="titulo" value="#{contenidoController.selected.titulo}" title="#{bundle.EditContenidoTitle_titulo}" size="55"/>
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_historia}" for="titulo" />
+                    <ck:editor value="#{contenidoController.selected.historia}" width="850px" uiColor="#aed0ea" requiredMessage="#{bundle.EditContenidoRequiredMessage_historia}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_contenidoResumido}" for="contenidoResumido" />
-                    <ck:editor id="contenidoResumido" value="#{contenidoController.selected.contenidoResumido}" width="850px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_razon}" for="contenidoResumido" />
+                    <ck:editor value="#{contenidoController.selected.razondeser}" width="850px" uiColor="#aed0ea" requiredMessage="#{bundle.EditContenidoRequiredMessage_razon}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_contenidoDetallado}" for="contenidoDetallado" />
-                    <ck:editor id="contenidoDetallado" value="#{contenidoController.selected.contenidoDetallado}" width="850px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_relaciones}" for="contenidoDetallado" />
+                    <ck:editor value="#{contenidoController.selected.relaciones}" width="850px" uiColor="#aed0ea" requiredMessage="#{bundle.EditContenidoRequiredMessage_relaciones}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_idMultimedia}" for="idMultimedia" />
-                    <h:selectOneMenu id="idMultimedia" value="#{contenidoController.selected.idMultimedia}" title="#{bundle.EditContenidoTitle_idMultimedia}" >
-                        <f:selectItems value="#{multimediaController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen1}" for="idMultimedia" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_idTipoContenido}" for="idTipoPublicacion" />
-                    <h:selectOneMenu id="idTipoPublicacion" value="#{contenidoController.selected.idTipoPublicacion}">
-                        <f:selectItems value="#{tipoContenidoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{contenidoController.selected.idEstado}" title="#{bundle.EditContenidoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditContenidoRequiredMessage_idEstado}">
-                        <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_fechaInicioevento}" for="fechaInicioevento" />
-                    <h:inputText id="fechaInicioevento" value="#{contenidoController.selected.fechaInicioevento}" title="#{bundle.EditContenidoTitle_fechaInicioevento}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_fechaFinevento}" for="fechaFinevento" />
-                    <h:inputText id="fechaFinevento" value="#{contenidoController.selected.fechaFinevento}" title="#{bundle.EditContenidoTitle_fechaFinevento}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_fechaDespublicar}" for="fechaDespublicar" />
-                    <h:inputText id="fechaDespublicar" value="#{contenidoController.selected.fechaDespublicar}" title="#{bundle.EditContenidoTitle_fechaDespublicar}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen2}" for="idTipoPublicacion" />
+                    
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen3}" for="idTipoPublicacion" />
 
                 </h:panelGrid>
-                <h:commandLink action="#{contenidoController.update}" value="#{bundle.EditContenidoSaveLink}"/>
+                <p:commandButton ajax="false" action="#{contenidoController.update}" icon="ui-icon-disk" value="#{bundle.EditContenidoSaveLink}"/>
                 <br /><br />
-                <h:link outcome="View" value="#{bundle.EditContenidoViewLink}"/>
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditContenidoViewLink}"/>
                 <br /><br />
-                <h:commandLink action="#{contenidoController.prepareList}" value="#{bundle.EditContenidoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{contenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditContenidoIndexLink}" immediate="true"/>
 
             </h:form>
         </ui:define>

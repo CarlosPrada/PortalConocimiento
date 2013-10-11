@@ -30,7 +30,7 @@ public class AulaVirtualPortalController implements Serializable {
 
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
+            //AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error de AulaVirtual!" + e.getCause());
         }
@@ -43,7 +43,7 @@ public class AulaVirtualPortalController implements Serializable {
     public String goAulaVirtual() {
         try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
+            //AulaVirtual = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error de AulaVirtual!" + e.getCause());
         }

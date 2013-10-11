@@ -70,10 +70,9 @@
 
                 </p:panelGrid>
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewInvestigadorEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewInvestigadorEditLink}"/>
                 <br /><br />
-                <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.ViewInvestigadorShowAllLink}"/>
-                <br />
+                <p:commandButton ajax="false" action="#{investigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewInvestigadorShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

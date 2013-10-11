@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         
@@ -26,12 +27,13 @@
                     <h:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.EditTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
 
                     <h:outputLabel value="#{bundle.EditTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
-                    <h:inputText id="descripcionTipoInvestigador" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_descripcionTipoInvestigador}" size="200"/>
-
+                    <h:inputTextarea rows="5" cols="60" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" />
+                    
                 </h:panelGrid>
-                <h:commandLink action="#{tipoInvestigadorController.update}" value="#{bundle.EditTipoInvestigadorSaveLink}"/>
+                <br/>
+                <p:commandButton ajax="false" action="#{tipoInvestigadorController.update}" icon="ui-icon-disk" value="#{bundle.EditTipoInvestigadorSaveLink}"/>
                 <br/><br/>
-                <h:commandLink action="#{tipoInvestigadorController.prepareList}" value="#{bundle.EditTipoInvestigadorShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditTipoInvestigadorShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

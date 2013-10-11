@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -25,9 +26,7 @@
                     <h:inputTextarea rows="5" cols="60" id="nomnreBibliografia" value="#{bibliografiaController.selected.nombreBibliografia}" title="#{bundle.EditBibliografiaTitle_nomnreBibliografia}" />
 
                     <h:outputLabel value="#{bundle.EditBibliografiaLabel_agnoBibliografia}" for="agnoBibliografia" />
-                    <h:inputText id="agnoBibliografia" value="#{bibliografiaController.selected.agnoBibliografia}" title="#{bundle.EditBibliografiaTitle_agnoBibliografia}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    <p:calendar value="#{bibliografiaController.selected.agnoBibliografia}" id="Fechainicio" showOn="button" pattern="dd/MM/yyyy"/> 
 
                     <h:outputLabel value="#{bundle.EditBibliografiaLabel_referenciaBibliografia}" for="referenciaBibliografia" />
                     <h:inputTextarea rows="5" cols="90" id="referenciaBibliografia" value="#{bibliografiaController.selected.referenciaBibliografia}" title="#{bundle.EditBibliografiaTitle_referenciaBibliografia}" />
@@ -51,11 +50,12 @@
                     </h:selectOneMenu>
 
                 </h:panelGrid>
-                <h:commandLink action="#{bibliografiaController.update}" value="#{bundle.EditBibliografiaSaveLink}"/>
                 <br /><br />
-                <h:link outcome="View" value="#{bundle.EditBibliografiaViewLink}"/>
+                <p:commandButton ajax="false" action="#{bibliografiaController.update}" value="#{bundle.EditBibliografiaSaveLink}" icon="ui-icon-disk"/>
                 <br /><br />
-                <h:commandLink action="#{bibliografiaController.prepareList}" value="#{bundle.EditBibliografiaShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="View" value="#{bundle.EditBibliografiaViewLink}" icon="ui-icon-search"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{bibliografiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditBibliografiaShowAllLink}" />
 
             </h:form>
         </ui:define>

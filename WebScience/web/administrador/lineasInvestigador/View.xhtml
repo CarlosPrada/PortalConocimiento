@@ -7,35 +7,32 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-        
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewLineasInvestigadorTitle}"></h:outputText>
         </ui:define>
-        
+
         <ui:define name="body">
-            
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
+
             <h:form>
                 <p:panelGrid columns="2">
-                    
+
                     <h:outputText value="#{bundle.ViewLineasInvestigadorLabel_investigador}"/>
                     <h:outputText value="#{lineasInvestigadorController.selected.investigador.nombreInvestigador} #{lineasInvestigadorController.selected.investigador.apellidoInvestigador}"/>
-                    
+
                     <h:outputText value="#{bundle.ViewLineasInvestigadorLabel_lineaInvestigacion}"/>
                     <h:outputText value="#{lineasInvestigadorController.selected.lineaInvestigacion.nombreLineaInvestigacion}" title="#{bundle.ViewLineasInvestigadorTitle_lineaInvestigacion}"/>
-                
+
                 </p:panelGrid>
-                
+                <br />
+                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewLineasInvestigadorCreateLink}" />
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewLineasInvestigadorEditLink}"/>
-                <br /><br />
-                <h:commandLink action="#{lineasInvestigadorController.prepareCreate}" value="#{bundle.ViewLineasInvestigadorCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{lineasInvestigadorController.prepareList}" value="#{bundle.ViewLineasInvestigadorShowAllLink}"/>
-  
+                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewLineasInvestigadorShowAllLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

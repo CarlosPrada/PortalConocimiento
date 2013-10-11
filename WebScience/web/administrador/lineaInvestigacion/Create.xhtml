@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         
@@ -43,9 +44,9 @@
 
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{lineaInvestigacionController.create}" value="#{bundle.CreateLineaInvestigacionSaveLink}" />
+                <p:commandButton ajax="false" action="#{lineaInvestigacionController.create}" icon="ui-icon-plus" value="#{bundle.CreateLineaInvestigacionSaveLink}" />
                 <br /><br />
-                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.CreateLineaInvestigacionShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{lineaInvestigacionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateLineaInvestigacionShowAllLink}" immediate="true"/>
 
             </h:form>
         </ui:define>

@@ -22,9 +22,6 @@
                 
                 <p:panelGrid columns="2">
 
-                    <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_idLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.idLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_idLineaInvestigacion}"/>
-
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_nombreLineaInvestigacion}"/>
                     <h:outputText value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_nombreLineaInvestigacion}"/>
 
@@ -41,10 +38,12 @@
                     <h:outputText value="#{lineaInvestigacionController.selected.idEstado.nombreEstado}" />
 
                 </p:panelGrid>
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewLineaInvestigacionEditLink}" />
                 <br /><br /> 
-                <h:commandLink action="#{lineaInvestigacionController.prepareCreate}" value="#{bundle.ViewLineaInvestigacionCreateLink}" />
+                <p:commandButton ajax="false" action="#{lineaInvestigacionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewLineaInvestigacionCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{lineaInvestigacionController.prepareList}" value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{lineaInvestigacionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
                 <br /><br />
                 
             </h:form>

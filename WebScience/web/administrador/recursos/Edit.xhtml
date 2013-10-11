@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -26,15 +27,15 @@
                         <f:selectItems value="#{multimediaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{recursosController.update}" value="#{bundle.EditRecursosSaveLink}"/>
+                <p:commandButton ajax="false" action="#{recursosController.update}" icon="ui-icon-disk" value="#{bundle.EditRecursosSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditRecursosViewLink}"/>
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditRecursosViewLink}"/>
                 <br />
-                <h:commandLink action="#{recursosController.prepareList}" value="#{bundle.EditRecursosShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{recursosController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditRecursosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditRecursosIndexLink}" />
+                <p:commandButton ajax="false" action="/index" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditRecursosIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

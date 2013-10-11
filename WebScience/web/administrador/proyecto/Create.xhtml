@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -62,11 +63,10 @@
                     </h:selectOneMenu>
 
                 </h:panelGrid>
-
+                <br />
+                <p:commandButton ajax="false" action="#{proyectoController.create}" icon="ui-icon-plus" value="#{bundle.CreateProyectoSaveLink}" />
                 <br /><br />
-                <h:commandLink action="#{proyectoController.create}" value="#{bundle.CreateProyectoSaveLink}" />
-                <br /><br />
-                <h:commandLink action="#{proyectoController.prepareList}" value="#{bundle.CreateProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{proyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateProyectoShowAllLink}" immediate="true"/>
 
             </h:form>
         </ui:define>

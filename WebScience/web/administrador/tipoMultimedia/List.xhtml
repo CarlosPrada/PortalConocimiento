@@ -20,15 +20,15 @@
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{tipoMultimediaController.items.rowCount > 0}">
-                    <p:dataTable value="#{tipoMultimediaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:400px;">
+                    <p:dataTable value="#{tipoMultimediaController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:400px;">
                       
                         <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{tipoMultimediaController.prepareView}" value="#{bundle.ListTipoMultimediaViewLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoMultimediaController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoMultimediaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoMultimediaController.prepareEdit}" value="#{bundle.ListTipoMultimediaEditLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoMultimediaController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoMultimediaEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -41,9 +41,9 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{tipoMultimediaController.prepareCreate}" value="#{bundle.ListTipoMultimediaCreateLink}"/>
+                <p:commandButton ajax="false" action="#{tipoMultimediaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoMultimediaCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/multimedia/#{tipoMultimediaController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoMultimediaIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/multimedia/#{tipoMultimediaController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoMultimediaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -3,39 +3,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateMensajePortalTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_idMensaje}" for="idMensaje" />
-                    <h:inputText id="idMensaje" value="#{mensajePortalController.selected.idMensaje}" title="#{bundle.CreateMensajePortalTitle_idMensaje}" required="true" requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_idMensaje}"/>
+
                     <h:outputLabel value="#{bundle.CreateMensajePortalLabel_contenidoMensaje}" for="contenidoMensaje" />
-                    <h:inputTextarea rows="4" cols="30" id="contenidoMensaje" value="#{mensajePortalController.selected.contenidoMensaje}" title="#{bundle.CreateMensajePortalTitle_contenidoMensaje}" required="true" requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_contenidoMensaje}"/>
+                    <ck:editor value="#{mensajePortalController.selected.contenidoMensaje}" width="850px" uiColor="#aed0ea" />
+
                     <h:outputLabel value="#{bundle.CreateMensajePortalLabel_fechaMensaje}" for="fechaMensaje" />
-                    <h:inputText id="fechaMensaje" value="#{mensajePortalController.selected.fechaMensaje}" title="#{bundle.CreateMensajePortalTitle_fechaMensaje}" required="true" requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_fechaMensaje}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    <p:calendar value="#{mensajePortalController.selected.fechaMensaje}" showOn="button" pattern="dd/MM/yyyy"/> 
+
                     <h:outputLabel value="#{bundle.CreateMensajePortalLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{mensajePortalController.selected.idEstado}" title="#{bundle.CreateMensajePortalTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{mensajePortalController.create}" value="#{bundle.CreateMensajePortalSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{mensajePortalController.prepareList}" value="#{bundle.CreateMensajePortalShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateMensajePortalIndexLink}"/>
+                <p:commandButton ajax="false" action="#{mensajePortalController.create}" icon="ui-icon-plus" value="#{bundle.CreateMensajePortalSaveLink}" />
+                <br /><br />
+                <p:commandButton ajax="false" action="#{mensajePortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateMensajePortalShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

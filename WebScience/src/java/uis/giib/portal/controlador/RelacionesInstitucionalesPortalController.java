@@ -31,22 +31,22 @@ public class RelacionesInstitucionalesPortalController implements Serializable {
 
 
     public RelacionesInstitucionalesPortalController() {
-        try {
+       /* try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
             relacionesInstitucionales = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error en relacionesInstirucionales!" + e.getCause());
-        }
+        }*/
     }
 
     //Métodos de navegación
     public String goRelacionesInstitucionales(){
-        try {
+        /*try {
             tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
             relacionesInstitucionales = new ListDataModel(tipoContenido.getContenidoList());
         } catch (Exception e) {
             System.out.println("Error en relacionesInstirucionales!" + e.getCause());
-        }
+        }*/
         return "/portal/relacionesInstitucionales.xhtml?faces-redirect=true";
     }
     

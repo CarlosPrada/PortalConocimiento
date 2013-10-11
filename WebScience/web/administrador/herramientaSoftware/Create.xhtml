@@ -3,41 +3,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateHerramientaSoftwareTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_idHerramienta}" for="idHerramienta" />
-                    <h:inputText id="idHerramienta" value="#{herramientaSoftwareController.selected.idHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_idHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_idHerramienta}"/>
+
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_nombreHerramienta}" for="nombreHerramienta" />
-                    <h:inputText id="nombreHerramienta" value="#{herramientaSoftwareController.selected.nombreHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_nombreHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_nombreHerramienta}"/>
+                    <h:inputTextarea rows="5" cols="60" value="#{herramientaSoftwareController.selected.nombreHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_nombreHerramienta}"/>
+
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_urlHerramienta}" for="urlHerramienta" />
-                    <h:inputText id="urlHerramienta" value="#{herramientaSoftwareController.selected.urlHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_urlHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_urlHerramienta}"/>
+                    <h:inputTextarea rows="10" cols="90" value="#{herramientaSoftwareController.selected.urlHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_urlHerramienta}"/>
+
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_descripcionHerramienta}" for="descripcionHerramienta" />
-                    <h:inputText id="descripcionHerramienta" value="#{herramientaSoftwareController.selected.descripcionHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_descripcionHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_descripcionHerramienta}"/>
+                    <h:inputTextarea rows="10" cols="90" value="#{herramientaSoftwareController.selected.descripcionHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_descripcionHerramienta}"/>
+
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_imagenHerramienta}" for="imagenHerramienta" />
                     <h:inputText id="imagenHerramienta" value="#{herramientaSoftwareController.selected.imagenHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_imagenHerramienta}" />
+
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{herramientaSoftwareController.selected.idEstado}" title="#{bundle.CreateHerramientaSoftwareTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{herramientaSoftwareController.create}" value="#{bundle.CreateHerramientaSoftwareSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{herramientaSoftwareController.prepareList}" value="#{bundle.CreateHerramientaSoftwareShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateHerramientaSoftwareIndexLink}"/>
+                <p:commandButton ajax="false" action="#{herramientaSoftwareController.create}" icon="ui-icon-plus" value="#{bundle.CreateHerramientaSoftwareSaveLink}" />
+                <br /><br />
+                <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateHerramientaSoftwareShowAllLink}" immediate="true"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -32,11 +32,11 @@
 
                 </p:panelGrid>               
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewMultimediaEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" value="#{bundle.ViewMultimediaEditLink}"/>
                 <br /><br />
-                <h:commandLink action="#{multimediaController.prepareCreate}" value="#{bundle.ViewMultimediaCreateLink}" />
+                <p:commandButton ajax="false" action="#{multimediaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewMultimediaCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{multimediaController.prepareList}" value="#{bundle.ViewMultimediaShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{multimediaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewMultimediaShowAllLink}"/>
 
             </h:form>
         </ui:define>

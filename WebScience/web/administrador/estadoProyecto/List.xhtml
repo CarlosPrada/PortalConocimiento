@@ -23,18 +23,18 @@
                 <h:outputText escape="false" value="#{bundle.ListEstadoProyectoEmpty}" rendered="#{estadoProyectoController.items.rowCount == 0}"/>
 
                 <h:panelGroup rendered="#{estadoProyectoController.items.rowCount > 0}">   
-                    <p:dataTable value="#{estadoProyectoController.items}"  paginator="true" rows="30" var="item" resizableColumns="true" style="width:300px;">
+                    <p:dataTable value="#{estadoProyectoController.items}"  paginator="true" rows="15" var="item" resizableColumns="true" style="width:500px;">
 
-                        <p:column width="70">
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{estadoProyectoController.prepareView}" value="#{bundle.ListEstadoProyectoViewLink}"/>
+                            <p:commandButton ajax="false" action="#{estadoProyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListEstadoProyectoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{estadoProyectoController.prepareEdit}" value="#{bundle.ListEstadoProyectoEditLink}"/>
+                            <p:commandButton ajax="false" action="#{estadoProyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListEstadoProyectoEditLink}"/>
                         </p:column>
 
-                        <p:column width="150">
+                        <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEstadoProyectoTitle_nombreEstadoProyecto}"/>
                             </f:facet>
@@ -44,9 +44,9 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{estadoProyectoController.prepareCreate}" value="#{bundle.ListEstadoProyectoCreateLink}"/>
-                <br /><br />
-                <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListEstadoProyectoIndexLink}"/>
+                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListEstadoProyectoCreateLink}"/>
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="/administrador/indexProyecto" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexProyecto}"/>
 
             </h:form>
         </ui:define>

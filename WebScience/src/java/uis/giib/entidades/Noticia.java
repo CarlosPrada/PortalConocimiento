@@ -52,6 +52,9 @@ public class Noticia implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "contenido_noticia")
     private String contenidoNoticia;
+    @Size(max = 150)
+    @Column(name = "imagen_noticia")
+    private String imagenNoticia;
     @Column(name = "fecha_publicacion_noticia")
     @Temporal(TemporalType.DATE)
     private Date fechaPublicacionNoticia;
@@ -135,5 +138,13 @@ public class Noticia implements Serializable {
     @Override
     public String toString() {
         return "uis.giib.entidades.Noticia[ idNoticia=" + idNoticia + " ]";
+    }
+
+    public String getImagenNoticia() {
+        return imagenNoticia;
+    }
+
+    public void setImagenNoticia(String imagenNoticia) {
+        this.imagenNoticia = imagenNoticia;
     }
 }

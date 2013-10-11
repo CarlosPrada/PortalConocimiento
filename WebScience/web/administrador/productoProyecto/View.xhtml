@@ -35,15 +35,15 @@
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idProyecto}"/>
                     <h:outputText value="#{productoProyectoController.selected.idProyecto.nombreProyecto}" title="#{bundle.ViewProductoProyectoTitle_idProyecto}"/>
-                
+
                 </p:panelGrid>
 
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewProductoProyectoEditLink}"/>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewProductoProyectoEditLink}"/>
+                <p:commandButton ajax="false" action="#{productoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewProductoProyectoCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{productoProyectoController.prepareCreate}" value="#{bundle.ViewProductoProyectoCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{productoProyectoController.prepareList}" value="#{bundle.ViewProductoProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{productoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewProductoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

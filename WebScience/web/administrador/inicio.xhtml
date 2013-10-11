@@ -43,19 +43,19 @@
 
                         <h:column rendered="#{loginAuthentication.arrayRender[1]}">
                             <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}" value="Gestión de Proyectos de Investigación"/>
+                            <h:link outcome="/administrador/indexProyecto.xhtml" value="Gestión de Proyectos de Investigación"/>
                             Permite administrar los proyectos de investigación.
                         </h:column>
 
                         <h:column rendered="#{loginAuthentication.arrayRender[2]}">
                             <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}" value="Gestión de Producción Intelectual y Referencias Bibliográficas"/>
+                            <h:link outcome="/administrador/indexProduccionBibliografia.xhtml" value="Gestión de Producción Intelectual y Referencias Bibliográficas"/>
                             Permite administrar la producción intelectual y referencias bibliográficas
                         </h:column>   
 
                         <h:column rendered="#{loginAuthentication.arrayRender[3]}">
                             <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}" value="Gestión de Investigadores"/>
+                            <h:link outcome="/administrador/indexInvestigador.xhtml" value="Gestión de Investigadores"/>
                             Permite administrar investigadores como usuarios del sistema.
                         </h:column>     
 
@@ -64,8 +64,6 @@
                             <h:link outcome="/administrador/lineaInvestigacion/#{lineaInvestigacionController.prepareList()}" value="Gestión de Líneas de Investigación"/>
                             Permite administrar las líneas de investigación del grupo.
                         </h:column>
-
-
 
                     </h:panelGrid>    
                 </div> 

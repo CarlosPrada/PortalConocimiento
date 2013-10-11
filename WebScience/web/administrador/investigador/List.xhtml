@@ -20,15 +20,15 @@
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{investigadorController.items.rowCount > 0}">
-                    <p:dataTable value="#{investigadorController.items}" paginator="true" rows="30" var="item" >
+                    <p:dataTable value="#{investigadorController.items}" paginator="true" rows="15" var="item" >
 
-                        <p:column>
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{investigadorController.prepareView}" value="#{bundle.ListInvestigadorViewLink}"/>
+                            <p:commandButton ajax="false" action="#{investigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{investigadorController.prepareEdit}" value="#{bundle.ListInvestigadorEditLink}"/>
+                            <p:commandButton ajax="false" action="#{investigadorController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListInvestigadorEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -96,13 +96,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInvestigadorTitle_tituloInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tituloInvestigador}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_idEstado}"/>
                             </f:facet>
                             <h:outputText value="#{item.idEstado.nombreEstado}"/>
@@ -110,41 +103,10 @@
 
                     </p:dataTable>
                 </h:panelGroup>
-
+                <br/>
+                <p:commandButton ajax="false" action="#{investigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListInvestigadorCreateLink}"/>
                 <br/><br/>
-                <h:commandLink action="#{investigadorController.prepareCreate}" value="#{bundle.ListInvestigadorCreateLink}"/>
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoInvestigador/#{tipoInvestigadorController.prepareList()}" value="Administrar Tipo de Investigador"/>
-                : Permite administrar los Tipos de Investigadores existentes en el sistema.
-
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
-                <h:link outcome="/administrador/permiso/#{permisoController.prepareList()}" value="Administrar Permisos"/>
-                : Permite administrar la configuración de permisos en el sistema.
-
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
-                <h:link outcome="/administrador/rol/#{rolController.prepareList()}" value="Administrar Roles de Investigación"/>
-                : Permite administrar los Roles de Investigación que desempeñan los Investigadores.
-
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
-                <h:link outcome="/administrador/investigadorProduccion/#{investigadorProduccionController.prepareList()}" value="Asignar Producción Intelectual a Investigadores"/>
-                : Permite asignar la Producción Intelectual a sus respectivos Investigadores.
-
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
-                <h:link outcome="/administrador/lineasInvestigador/#{lineasInvestigadorController.prepareList()}" value="Asignar Líneas de Investigación a Investigadores"/>
-                : Permite asignar Líneas de Investigación a Investigadores
-
-                <br/><br/>
-                <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/>               
-                <h:link outcome="/administrador/proyectoInvestigadores/#{proyectoInvestigadoresController.prepareList()}" value="Asignar Proyectos a Investigadores"/>
-                : Permite asignar Proyectos a Investigadores
-
-                <br/><br/><br/>
-                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexInvestigador}"/>
 
             </h:form>
         </ui:define>

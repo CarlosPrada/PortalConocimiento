@@ -20,82 +20,64 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{proyectoController.items.rowCount > 0}">
-                    <p:dataTable value="#{proyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true">
+                <p:dataTable value="#{proyectoController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
 
-                        <p:column width="70">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{proyectoController.prepareView}" value="#{bundle.ListProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{proyectoController.prepareEdit}" value="#{bundle.ListProyectoEditLink}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false" action="#{proyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProyectoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false" action="#{proyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListProyectoEditLink}"/>
+                    </p:column>
 
-                        <p:column width="170">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_nombreProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreProyecto}"/>
-                        </p:column>
+                    <p:column width="170">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_nombreProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreProyecto}"/>
+                    </p:column>
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_descripcionResumidaProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionResumidaProyecto}"/>
-                        </p:column>
-                       
-                        <p:column width="100">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idTipoProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idTipoProyecto.nombreTipoProyecto}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_descripcionResumidaProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionResumidaProyecto}"/>
+                    </p:column>
 
-                        <p:column width="80">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idEstadoProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEstadoProyecto.nombreEstadoProyecto}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_idTipoProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idTipoProyecto.nombreTipoProyecto}"/>
+                    </p:column>
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idLinea}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idLinea.nombreLineaInvestigacion}"/>
-                        </p:column>
+                    <p:column width="120">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_idEstadoProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstadoProyecto.nombreEstadoProyecto}"/>
+                    </p:column>
 
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProyectoTitle_idEstadoGeneral}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEstadoGeneral.nombreEstado}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_idLinea}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idLinea.nombreLineaInvestigacion}"/>
+                    </p:column>
 
-                    </p:dataTable>
-                </h:panelGroup>
+                    <p:column width="70">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProyectoTitle_idEstadoGeneral}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstadoGeneral.nombreEstado}"/>
+                    </p:column>
+
+                </p:dataTable>
                 <br />
-                <h:commandLink action="#{proyectoController.prepareCreate}" value="#{bundle.ListProyectoCreateLink}"/>
-
+                <p:commandButton ajax="false" action="#{proyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProyectoCreateLink}"/>
                 <br /><br />
-                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                <h:link outcome="/administrador/productoProyecto/#{productoProyectoController.prepareList()}" value="Administrar Productos de Proyectos de Investigación"/>
-                : Permite administrar los Productos resultado de Proyectos de Investigación.
-
-                <br /><br />
-                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                <h:link outcome="/administrador/estadoProyecto/#{estadoProyectoController.prepareList()}" value="Administrar Estados de Proyectos de Investigación"/>
-                : Permite administrar los posibles Estados de los Proyectos de Investigación.
-
-                <br /><br />
-                <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoProyecto/#{tipoProyectoController.prepareList()}" value="Administrar Tipos de Proyectos de Investigación"/>
-                : Permite administrar los posibles Tipos de los Proyectos de Investigación.
-
-                <br /><br />
-                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListInvestigadorIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexProyecto"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexProyecto}"/>
 
             </h:form>
         </ui:define>

@@ -3,45 +3,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEventoTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEventoLabel_idEvento}" for="idEvento" />
-                    <h:inputText id="idEvento" value="#{eventoController.selected.idEvento}" title="#{bundle.CreateEventoTitle_idEvento}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_idEvento}"/>
+
                     <h:outputLabel value="#{bundle.CreateEventoLabel_nombreEvento}" for="nombreEvento" />
                     <h:inputText id="nombreEvento" value="#{eventoController.selected.nombreEvento}" title="#{bundle.CreateEventoTitle_nombreEvento}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_nombreEvento}"/>
+
                     <h:outputLabel value="#{bundle.CreateEventoLabel_contenidoEvento}" for="contenidoEvento" />
-                    <h:inputTextarea rows="4" cols="30" id="contenidoEvento" value="#{eventoController.selected.contenidoEvento}" title="#{bundle.CreateEventoTitle_contenidoEvento}" />
+                    <ck:editor value="#{eventoController.selected.contenidoEvento}" width="850px" uiColor="#aed0ea" />
+
                     <h:outputLabel value="#{bundle.CreateEventoLabel_fechaInicio}" for="fechaInicio" />
                     <h:inputText id="fechaInicio" value="#{eventoController.selected.fechaInicio}" title="#{bundle.CreateEventoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_fechaInicio}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
+
                     <h:outputLabel value="#{bundle.CreateEventoLabel_fechaFin}" for="fechaFin" />
                     <h:inputText id="fechaFin" value="#{eventoController.selected.fechaFin}" title="#{bundle.CreateEventoTitle_fechaFin}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_fechaFin}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
+
                     <h:outputLabel value="#{bundle.CreateEventoLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{eventoController.selected.idEstado}" title="#{bundle.CreateEventoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{eventoController.create}" value="#{bundle.CreateEventoSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{eventoController.prepareList}" value="#{bundle.CreateEventoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateEventoIndexLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{eventoController.create}" icon="ui-icon-plus" value="#{bundle.CreateEventoSaveLink}" />
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="#{eventoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEventoShowAllLink}" immediate="true"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

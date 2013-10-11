@@ -3,39 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewEnlacesWebTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
+
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_nombreEnlace}"/>
                     <h:outputText value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.ViewEnlacesWebTitle_nombreEnlace}"/>
+
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_enlace}"/>
                     <h:outputText value="#{enlacesWebController.selected.enlace}" title="#{bundle.ViewEnlacesWebTitle_enlace}"/>
-                    <h:outputText value="#{bundle.ViewEnlacesWebLabel_idEnlace}"/>
-                    <h:outputText value="#{enlacesWebController.selected.idEnlace}" title="#{bundle.ViewEnlacesWebTitle_idEnlace}"/>
+
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_descripcion}"/>
                     <h:outputText value="#{enlacesWebController.selected.descripcion}" title="#{bundle.ViewEnlacesWebTitle_descripcion}"/>
-                </h:panelGrid>
+
+                </p:panelGrid>
                 <br />
-                <h:commandLink action="#{enlacesWebController.destroyAndView}" value="#{bundle.ViewEnlacesWebDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewEnlacesWebEditLink}"/>
-                <br />
-                <h:commandLink action="#{enlacesWebController.prepareCreate}" value="#{bundle.ViewEnlacesWebCreateLink}" />
-                <br />
-                <h:commandLink action="#{enlacesWebController.prepareList}" value="#{bundle.ViewEnlacesWebShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewEnlacesWebIndexLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewEnlacesWebEditLink}"/>
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewEnlacesWebShowAllLink}"/>
+
 
             </h:form>
         </ui:define>

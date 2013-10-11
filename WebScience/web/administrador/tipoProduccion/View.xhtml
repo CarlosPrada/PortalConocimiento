@@ -7,27 +7,30 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+        
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewTipoProduccionTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            
             <h:form>
                 <p:panelGrid columns="2">
                                         
                     <h:outputText value="#{bundle.ViewTipoProduccionLabel_nombreTipoProduccion}"/>
                     <h:outputText value="#{tipoProduccionController.selected.nombreTipoProduccion}" title="#{bundle.ViewTipoProduccionTitle_nombreTipoProduccion}"/>
                 
-                </p:panelGrid>
-                
+                </p:panelGrid>                
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoProduccionEditLink}"/>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewTipoProduccionEditLink}"/>
+                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoProduccionCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{tipoProduccionController.prepareCreate}" value="#{bundle.ViewTipoProduccionCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{tipoProduccionController.prepareList}" value="#{bundle.ViewTipoProduccionShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoProduccionShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

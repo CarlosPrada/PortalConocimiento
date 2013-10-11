@@ -20,15 +20,15 @@
                 </h:panelGroup>
 
                 <h:panelGroup rendered="#{tipoInvestigadorController.items.rowCount > 0}">
-                    <p:dataTable value="#{tipoInvestigadorController.items}" paginator="true" var="item" rows="30" style="width:600px;" >
+                    <p:dataTable value="#{tipoInvestigadorController.items}" paginator="true" var="item" rows="15" style="width:600px;" >
 
-                        <p:column width="70">
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{tipoInvestigadorController.prepareView}" value="#{bundle.ListTipoInvestigadorViewLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoInvestigadorController.prepareEdit}" value="#{bundle.ListTipoInvestigadorEditLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoInvestigadorEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -48,10 +48,10 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{tipoInvestigadorController.prepareCreate}" value="#{bundle.ListTipoInvestigadorCreateLink}"/>
+                <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoInvestigadorCreateLink}"/>
                 <br />
                 <br />                
-                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoInvestigadorIndexLink}"/>
+                <p:commandButton ajax="false" icon="ui-icon-arrowreturnthick-1-w" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}"/>
             </h:form>
         </ui:define>
     </ui:composition>

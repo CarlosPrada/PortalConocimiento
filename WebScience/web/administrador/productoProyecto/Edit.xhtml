@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -14,7 +15,7 @@
 
         <ui:define name="body">
 
- <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -23,7 +24,7 @@
             <h:form>
 
                 <h:panelGrid columns="2">
-                    
+
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
                     <h:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.EditProductoProyectoTitle_nombreProducto}" size="155"/>
 
@@ -32,7 +33,7 @@
 
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
                     <h:inputTextarea rows="7" cols="80" id="descripcionProducto2" value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
-                    
+
                     <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.EditProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
@@ -44,12 +45,12 @@
                     </h:selectOneMenu>
 
                 </h:panelGrid>
-
-                <h:commandLink action="#{productoProyectoController.update}" value="#{bundle.EditProductoProyectoSaveLink}"/>
+                <br />
+                <p:commandButton ajax="false" action="#{productoProyectoController.update}" icon="ui-icon-disk" value="#{bundle.EditProductoProyectoSaveLink}"/>
                 <br /><br />
-                <h:link outcome="View" value="#{bundle.EditProductoProyectoViewLink}"/>
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditProductoProyectoViewLink}"/>
                 <br /><br />
-                <h:commandLink action="#{productoProyectoController.prepareList}" value="#{bundle.EditProductoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{productoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditProductoProyectoShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

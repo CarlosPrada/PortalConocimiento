@@ -20,32 +20,16 @@
 
                 <h:panelGroup rendered="#{bibliografiaController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{bibliografiaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
+                    <p:dataTable value="#{bibliografiaController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
 
-                        <p:column>
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{bibliografiaController.prepareView}" value="#{bundle.ListBibliografiaViewLink}"/>
+                            <p:commandButton ajax="false" action="#{bibliografiaController.prepareView}" value="#{bundle.ListBibliografiaViewLink}" icon="ui-icon-search"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{bibliografiaController.prepareEdit}" value="#{bundle.ListBibliografiaEditLink}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBibliografiaTitle_nomnreBibliografia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreBibliografia}"/>
-                        </p:column>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBibliografiaTitle_agnoBibliografia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.agnoBibliografia}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
+                            <p:commandButton ajax="false" action="#{bibliografiaController.prepareEdit}" value="#{bundle.ListBibliografiaEditLink}" icon="ui-icon-pencil"/>
+                        </p:column>                        
 
                         <p:column>
                             <f:facet name="header">
@@ -54,28 +38,21 @@
                             <h:outputText value="#{item.referenciaBibliografia}"/>
                         </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBibliografiaTitle_urlBibliografia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.urlBibliografia}"/>
-                        </p:column>
-
-                        <p:column>
+                        <p:column width="180">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_idTipoBibliografia}"/>
                             </f:facet>
                             <h:outputText value="#{item.idTipoBibliografia.nombreTipoProduccion}"/>
                         </p:column>
 
-                        <p:column>
+                        <p:column width="80">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_idEstado}"/>
                             </f:facet>
                             <h:outputText value="#{item.idEstado.nombreEstado}"/>
                         </p:column>
 
-                        <p:column>
+                        <p:column width="180">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_idLinea}"/>
                             </f:facet>
@@ -84,10 +61,11 @@
 
                     </p:dataTable>
                 </h:panelGroup>
-                <br /><br />
-                <h:commandLink action="#{bibliografiaController.prepareCreate}" value="#{bundle.ListBibliografiaCreateLink}"/>
-                <br /><br />
-                <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListBibliografiaIndexLink}"/>
+                <br />
+                <p:commandButton ajax="false" action="#{bibliografiaController.prepareCreate}" value="#{bundle.ListBibliografiaCreateLink}" icon="ui-icon-plus"/>
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia.xhtml" value="#{bundle.indexProduccionBibliografia}" icon="ui-icon-arrowreturnthick-1-w"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

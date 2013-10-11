@@ -25,10 +25,12 @@
 
                     <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
                     <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
-                        <f:convertDateTime pattern="yyyy/MM/dd" />
+                        <f:convertDateTime pattern="yyyy/MM/dd" />                        
                     </h:outputText> <br/><br/>
+                    <h:graphicImage alt="" width="200" height="240" url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
                     <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
                     <p:separator />
+               
                 </p:dataGrid>
 
             </div>

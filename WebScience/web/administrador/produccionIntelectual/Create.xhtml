@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ck="http://code.google.com/ck-jsf-editor">
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -13,8 +14,8 @@
         </ui:define>
 
         <ui:define name="body">
-            
-             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -22,8 +23,8 @@
 
             <h:form>
                 <h:panelGrid columns="2">
-                    
-                                        <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
+
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
                     <h:inputTextarea rows="5" cols="60" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
 
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_agnoProduccion}" for="agnoProduccion" />
@@ -34,7 +35,7 @@
 
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_urlProduccion}" for="nombreProduccion" />
                     <h:inputTextarea rows="7" cols="80" id="urlProduccion" value="#{produccionIntelectualController.selected.urlProduccion}"  />
-                    
+
                     <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idTipoProduccion}" for="idTipoProduccion" />
                     <h:selectOneMenu id="idTipoProduccion" value="#{produccionIntelectualController.selected.idTipoProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_idTipoProduccion}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idTipoProduccion}">
                         <f:selectItems value="#{tipoProduccionController.itemsAvailableSelectOne}"/>
@@ -47,9 +48,9 @@
 
                 </h:panelGrid>
                 <br /><br />
-                <h:commandLink action="#{produccionIntelectualController.create}" value="#{bundle.CreateProduccionIntelectualSaveLink}" />
+                <p:commandButton ajax="false" action="#{produccionIntelectualController.create}" icon="ui-icon-plus" value="#{bundle.CreateProduccionIntelectualSaveLink}" />
                 <br /><br />
-                <h:commandLink action="#{produccionIntelectualController.prepareList}" value="#{bundle.CreateProduccionIntelectualShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateProduccionIntelectualShowAllLink}" immediate="true"/>
 
             </h:form>
         </ui:define>

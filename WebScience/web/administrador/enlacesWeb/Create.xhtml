@@ -3,35 +3,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEnlacesWebTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
                 <h:panelGrid columns="2">
+
                     <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_nombreEnlace}" for="nombreEnlace" />
                     <h:inputText id="nombreEnlace" value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.CreateEnlacesWebTitle_nombreEnlace}" required="true" requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_nombreEnlace}"/>
+
                     <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_enlace}" for="enlace" />
                     <h:inputText id="enlace" value="#{enlacesWebController.selected.enlace}" title="#{bundle.CreateEnlacesWebTitle_enlace}" required="true" requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_enlace}"/>
-                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_idEnlace}" for="idEnlace" />
-                    <h:inputText id="idEnlace" value="#{enlacesWebController.selected.idEnlace}" title="#{bundle.CreateEnlacesWebTitle_idEnlace}" required="true" requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_idEnlace}"/>
+
                     <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_descripcion}" for="descripcion" />
                     <h:inputText id="descripcion" value="#{enlacesWebController.selected.descripcion}" title="#{bundle.CreateEnlacesWebTitle_descripcion}" />
+
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{enlacesWebController.create}" value="#{bundle.CreateEnlacesWebSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{enlacesWebController.prepareList}" value="#{bundle.CreateEnlacesWebShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateEnlacesWebIndexLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEnlacesWebShowAllLink}" immediate="true"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEnlacesWebIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

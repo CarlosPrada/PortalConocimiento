@@ -47,8 +47,6 @@ public class Multimedia implements Serializable {
     @JoinColumn(name = "id_tipo_multimedia", referencedColumnName = "id_tipo_multimedia")
     @ManyToOne(optional = false)
     private TipoMultimedia idTipoMultimedia;
-    @OneToMany(mappedBy = "idMultimedia")
-    private List<Contenido> contenidoCollection;
 
     public Multimedia() {
     }
@@ -125,13 +123,5 @@ public class Multimedia implements Serializable {
 
     public void setRecursosCollection(List<Recursos> recursosCollection) {
         this.recursosCollection = recursosCollection;
-    }
-
-    public List<Contenido> getContenidoCollection() {
-        return contenidoCollection;
-    }
-
-    public void setContenidoCollection(List<Contenido> contenidoCollection) {
-        this.contenidoCollection = contenidoCollection;
     }
 }

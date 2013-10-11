@@ -40,8 +40,6 @@ public class TipoContenido implements Serializable {
     @Size(max = 50)
     @Column(name = "nombre_tipo_contenido")
     private String nombreTipoContenido;
-    @OneToMany(mappedBy = "idTipoPublicacion")
-    private List<Contenido> contenidoList;
 
     public TipoContenido() {
     }
@@ -69,14 +67,6 @@ public class TipoContenido implements Serializable {
 
     public void setNombreTipoContenido(String nombreTipoContenido) {
         this.nombreTipoContenido = nombreTipoContenido;
-    }
-
-    public List<Contenido> getContenidoList() {
-        return contenidoList;
-    }
-
-    public void setContenidoList(List<Contenido> contenidoList) {
-        this.contenidoList = contenidoList;
     }
 
     @Override

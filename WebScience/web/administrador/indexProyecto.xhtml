@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Administrador de contenido</title>
+        <h:outputStylesheet library="css"  name="default.css" />
+    </h:head> 
+
+    <h:body> 
+
+        <div id="wrap700" class="lltr"> 
+            <div id="header"> 
+                <div id="title"> 
+                    <h1>Administración de Proyectos - Portal GIIB</h1> 
+                </div> 
+
+                <div id="logout">
+                    <h:form>
+
+                        <h:commandLink value="Volver" action="inicio.xhtml"  /> 
+                    </h:form>
+                </div>
+
+                <div id="path">
+                    <p><h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" /> </p>
+                </div> 
+
+            </div>
+
+            <br clear="all"/> 
+
+            <div class="contentdiv"> 
+                <div id="wcontent" class="contentinner"><br/>  
+                    <h:panelGrid  id="dashboard" columns="3" columnClasses="dashitem" >
+
+                        <h:column class="dashitem" >
+                            <img src="#{resource['images/admin/dash/stat.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}" value="Gestión de Proyectos"/>
+                            Permite gestionar los proyectos realizados por el grupo.
+                        </h:column>
+
+                        <h:column >
+                            <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/productoProyecto/#{productoProyectoController.prepareList()}" value="Gestión de Productos Resultantes"/>
+                            Permite gestionar los productos resultado de proyectos de investigación.
+                        </h:column>
+
+                        <h:column >
+                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/estadoProyecto/#{estadoProyectoController.prepareList()}" value="Gestión de Estados de Proyectos"/>
+                            Permite gestionar los posibles estados de los proyectos.
+                        </h:column>  
+
+                        <h:column >
+                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/tipoProyecto/#{tipoProyectoController.prepareList()}" value="Gestión de Tipos de Proyectos"/>
+                            Permite gestionar los posibles tipos de los prroyectos.
+                        </h:column>  
+
+
+                    </h:panelGrid>    
+                </div> 
+            </div>
+            <div style="clear: both;">&nbsp;</div> 
+            <div class="empty_inner" style="">&#160;</div> 
+        </div> 
+        <div id="footer"> 
+            <p id="legal">Grupo de investigaci&oacute;n en Ingenier&iacute;a Biom&eacute;dica - Universidad Industrial de Santander v1.0</p> 
+        </div> 
+
+    </h:body> 
+</html>

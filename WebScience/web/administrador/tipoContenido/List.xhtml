@@ -20,15 +20,15 @@
                 </h:panelGroup>
                 
                 <h:panelGroup rendered="#{tipoContenidoController.items.rowCount > 0}">                                       
-                    <p:dataTable value="#{tipoContenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:300px;">>
+                    <p:dataTable value="#{tipoContenidoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:300px;">>
                         
                         <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{tipoContenidoController.prepareView}" value="#{bundle.ListTipoContenidoViewLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoContenidoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoContenidoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoContenidoController.prepareEdit}" value="#{bundle.ListTipoContenidoEditLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoContenidoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoContenidoEditLink}"/>
                         </p:column>
 
                         <p:column width="150">
@@ -41,9 +41,9 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{tipoContenidoController.prepareCreate}" value="#{bundle.ListTipoContenidoCreateLink}"/>
+                <p:commandButton ajax="false" action="#{tipoContenidoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoContenidoCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/contenido/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoContenidoIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/contenido/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoContenidoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

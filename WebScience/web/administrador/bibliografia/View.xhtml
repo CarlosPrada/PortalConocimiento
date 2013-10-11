@@ -47,11 +47,11 @@
                 </p:panelGrid>
 
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewBibliografiaEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" value="#{bundle.ViewBibliografiaEditLink}" icon="ui-icon-pencil"/>
+                <br /><br />                
+                <p:commandButton ajax="false" action="#{bibliografiaController.prepareCreate}" value="#{bundle.ViewBibliografiaCreateLink}" icon="ui-icon-plus"/>
                 <br /><br />
-                <h:commandLink action="#{bibliografiaController.prepareCreate}" value="#{bundle.ViewBibliografiaCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{bibliografiaController.prepareList}" value="#{bundle.ViewBibliografiaShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{bibliografiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewBibliografiaShowAllLink}"/>
 
             </h:form>
         </ui:define>

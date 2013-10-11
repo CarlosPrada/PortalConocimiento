@@ -21,18 +21,18 @@
 
                 <h:panelGroup rendered="#{proyectoInvestigadoresController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{proyectoInvestigadoresController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:900px;">
+                    <p:dataTable value="#{proyectoInvestigadoresController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
 
-                        <p:column width="80">
+                        <p:column width="160">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{proyectoInvestigadoresController.prepareView}" value="#{bundle.ListProyectoInvestigadoresViewLink}"/>
+                            <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProyectoInvestigadoresViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{proyectoInvestigadoresController.prepareEdit}" value="#{bundle.ListProyectoInvestigadoresEditLink}"/>
+                            <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.destroy}" icon="ui-icon-close"  value="#{bundle.ListProyectoInvestigadoresDestroyLink}"/>
                         </p:column>
 
-                        <p:column width="210">
+                        <p:column width="270">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProyectoInvestigadoresTitle_investigador}"/>
                             </f:facet>
@@ -56,9 +56,9 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{proyectoInvestigadoresController.prepareCreate}" value="#{bundle.ListProyectoInvestigadoresCreateLink}"/>
+                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProyectoInvestigadoresCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListProyectoInvestigadoresIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}" icon="ui-icon-arrowreturnthick-1-w"/>
             </h:form>
         </ui:define>
     </ui:composition>

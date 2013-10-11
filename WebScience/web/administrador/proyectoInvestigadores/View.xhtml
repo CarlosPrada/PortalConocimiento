@@ -22,7 +22,7 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewProyectoInvestigadoresLabel_investigador}"/>
-                    <h:outputText value="#{lineasInvestigadorController.selected.investigador.nombreInvestigador} #{lineasInvestigadorController.selected.investigador.apellidoInvestigador}"/>
+                    <h:outputText value="#{proyectoInvestigadoresController.selected.investigador.nombreInvestigador} #{proyectoInvestigadoresController.selected.investigador.apellidoInvestigador}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoInvestigadoresLabel_proyecto}"/>
                     <h:outputText value="#{proyectoInvestigadoresController.selected.proyecto.nombreProyecto}" title="#{bundle.ViewProyectoInvestigadoresTitle_proyecto}"/>
@@ -31,12 +31,10 @@
                     <h:outputText value="#{proyectoInvestigadoresController.selected.idRol.nombreRol}" title="#{bundle.ViewProyectoInvestigadoresTitle_idRol}"/>
 
                 </p:panelGrid>
+                <br />
+                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewProyectoInvestigadoresCreateLink}" />
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewProyectoInvestigadoresEditLink}"/>
-                <br /><br />
-                <h:commandLink action="#{proyectoInvestigadoresController.prepareCreate}" value="#{bundle.ViewProyectoInvestigadoresCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{proyectoInvestigadoresController.prepareList}" value="#{bundle.ViewProyectoInvestigadoresShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewProyectoInvestigadoresShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

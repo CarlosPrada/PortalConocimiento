@@ -21,45 +21,30 @@
             <h:form>
                 <p:panelGrid columns="2">
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_titulo}"/>
-                    <h:outputText value="#{contenidoController.selected.titulo}" title="#{bundle.ViewContenidoTitle_titulo}"/>
+                    <h:outputText value="#{bundle.EditContenidoLabel_historia}"/>
+                    <h:outputText value="#{contenidoController.selected.historia}" escape="false" />
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoResumido}"/>
-                    <h:outputText value="#{contenidoController.selected.contenidoResumido}" escape="false" title="#{bundle.ViewContenidoTitle_contenidoResumido}"/>
+                    <h:outputText value="#{bundle.EditContenidoLabel_razon}"  />
+                    <h:outputText value="#{contenidoController.selected.razondeser}" escape="false"/>
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_contenidoDetallado}" />
-                    <h:outputText value="#{contenidoController.selected.contenidoDetallado}" escape="false" title="#{bundle.ViewContenidoTitle_contenidoDetallado}"/>
-                    
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idMultimedia}"/>
-                    <h:outputText value="#{contenidoController.selected.idMultimedia.nombreMultimedia}" title="#{bundle.ViewContenidoTitle_idMultimedia}"/>
-                    
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idTipoContenido}"/>
-                    <h:outputText value="#{contenidoController.selected.idTipoPublicacion.nombreTipoContenido}" />
-                                        
-                    <h:outputText value="#{bundle.ViewContenidoLabel_idEstado}"/>
-                    <h:outputText value="#{contenidoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewContenidoTitle_idEstado}"/>
+                    <h:outputText value="#{bundle.EditContenidoLabel_relaciones}"/>
+                    <h:outputText value="#{contenidoController.selected.relaciones}" escape="false"/>
 
-                    <h:outputText value="#{bundle.ViewContenidoLabel_fechaInicioevento}"/>
-                    <h:outputText value="#{contenidoController.selected.fechaInicioevento}" title="#{bundle.ViewContenidoTitle_fechaInicioevento}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_fechaFinevento}"/>
-                    <h:outputText value="#{contenidoController.selected.fechaFinevento}" title="#{bundle.ViewContenidoTitle_fechaFinevento}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewContenidoLabel_fechaDespublicar}"/>
-                    <h:outputText value="#{contenidoController.selected.fechaDespublicar}" title="#{bundle.ViewContenidoTitle_fechaDespublicar}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    
+                    <h:outputText value="#{bundle.EditContenidoLabel_imagen1}" />
+                    <h:outputText value="#{contenidoController.selected.imagen1}" escape="false"/>
+
+                    <h:outputText value="#{bundle.EditContenidoLabel_imagen2}" />
+                    <h:outputText value="#{contenidoController.selected.imagen2}" escape="false"/>
+
+                    <h:outputText value="#{bundle.EditContenidoLabel_imagen3}" />
+                    <h:outputText value="#{contenidoController.selected.imagen3}" escape="false"/>
+
                 </p:panelGrid>
-               
+
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewContenidoEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewContenidoEditLink}"/>
                 <br /><br />
-                <h:commandLink action="#{contenidoController.prepareCreate}" value="#{bundle.ViewContenidoCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{contenidoController.prepareList}" value="#{bundle.ViewContenidoShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{contenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewContenidoIndexLink}"/>
 
             </h:form>
         </ui:define>

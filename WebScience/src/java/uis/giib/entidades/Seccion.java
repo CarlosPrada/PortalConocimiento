@@ -43,8 +43,6 @@ public class Seccion implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "nombre_seccion")
     private String nombreSeccion;
-    @OneToMany(mappedBy = "idSeccion")
-    private Collection<Contenido> publicacionCollection;
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
     @ManyToOne(optional = false)
     private EstadoGeneral idEstado;
@@ -75,15 +73,6 @@ public class Seccion implements Serializable {
 
     public void setNombreSeccion(String nombreSeccion) {
         this.nombreSeccion = nombreSeccion;
-    }
-
-    @XmlTransient
-    public Collection<Contenido> getPublicacionCollection() {
-        return publicacionCollection;
-    }
-
-    public void setPublicacionCollection(Collection<Contenido> publicacionCollection) {
-        this.publicacionCollection = publicacionCollection;
     }
 
     @Override

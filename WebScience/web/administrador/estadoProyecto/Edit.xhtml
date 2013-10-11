@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         
@@ -28,11 +29,11 @@
                 
                 </h:panelGrid>
                 
-                <h:commandLink action="#{estadoProyectoController.update}" value="#{bundle.EditEstadoProyectoSaveLink}"/>
+                <p:commandButton ajax="false" action="#{estadoProyectoController.update}" icon="ui-icon-disk" value="#{bundle.EditEstadoProyectoSaveLink}"/>
                 <br /><br />
-                <h:link outcome="View" value="#{bundle.EditEstadoProyectoViewLink}"/>
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditEstadoProyectoViewLink}"/>
                 <br /><br />
-                <h:commandLink action="#{estadoProyectoController.prepareList}" value="#{bundle.EditEstadoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditEstadoProyectoShowAllLink}" immediate="true"/>
                 <br /><br />
             </h:form>
         </ui:define>

@@ -3,36 +3,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.EditEnlacesWebTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
+
                 <h:panelGrid columns="2">
+
                     <h:outputLabel value="#{bundle.EditEnlacesWebLabel_nombreEnlace}" for="nombreEnlace" />
-                    <h:inputText id="nombreEnlace" value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.EditEnlacesWebTitle_nombreEnlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_nombreEnlace}"/>
+                    <h:inputTextarea rows="5" cols="60" id="nombreEnlace" value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.EditEnlacesWebTitle_nombreEnlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_nombreEnlace}"/>
+
                     <h:outputLabel value="#{bundle.EditEnlacesWebLabel_enlace}" for="enlace" />
-                    <h:inputText id="enlace" value="#{enlacesWebController.selected.enlace}" title="#{bundle.EditEnlacesWebTitle_enlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_enlace}"/>
-                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_idEnlace}" for="idEnlace" />
-                    <h:inputText id="idEnlace" value="#{enlacesWebController.selected.idEnlace}" title="#{bundle.EditEnlacesWebTitle_idEnlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_idEnlace}"/>
+                    <h:inputTextarea rows="8" cols="90" id="enlace" value="#{enlacesWebController.selected.enlace}" title="#{bundle.EditEnlacesWebTitle_enlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_enlace}"/>
+
                     <h:outputLabel value="#{bundle.EditEnlacesWebLabel_descripcion}" for="descripcion" />
-                    <h:inputText id="descripcion" value="#{enlacesWebController.selected.descripcion}" title="#{bundle.EditEnlacesWebTitle_descripcion}" />
+                    <h:inputTextarea rows="8" cols="90" id="descripcion" value="#{enlacesWebController.selected.descripcion}" title="#{bundle.EditEnlacesWebTitle_descripcion}" />
+
                 </h:panelGrid>
-                <h:commandLink action="#{enlacesWebController.update}" value="#{bundle.EditEnlacesWebSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditEnlacesWebViewLink}"/>
-                <br />
-                <h:commandLink action="#{enlacesWebController.prepareList}" value="#{bundle.EditEnlacesWebShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditEnlacesWebIndexLink}" />
+                <p:commandButton ajax="false" action="#{enlacesWebController.update}" icon="ui-icon-disk" value="#{bundle.EditEnlacesWebSaveLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditEnlacesWebViewLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditEnlacesWebShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

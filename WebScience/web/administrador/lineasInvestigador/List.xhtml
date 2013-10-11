@@ -22,15 +22,15 @@
                 <h:outputText escape="false" value="#{bundle.ListLineasInvestigadorEmpty}" rendered="#{lineasInvestigadorController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{lineasInvestigadorController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{lineasInvestigadorController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:700px;">
+                    <p:dataTable value="#{lineasInvestigadorController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:1000px;">
 
-                        <p:column width="80">
+                        <p:column width="160">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{lineasInvestigadorController.prepareView}" value="#{bundle.ListLineasInvestigadorViewLink}"/>
+                            <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListLineasInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{lineasInvestigadorController.prepareEdit}" value="#{bundle.ListLineasInvestigadorEditLink}"/>
+                            <p:commandButton ajax="false" action="#{lineasInvestigadorController.destroy}" icon="ui-icon-close"  value="#{bundle.ListLineasInvestigadorDestroyLink}"/>
                         </p:column>
 
                         <p:column>
@@ -50,9 +50,9 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{lineasInvestigadorController.prepareCreate}" value="#{bundle.ListLineasInvestigadorCreateLink}"/>
+                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListLineasInvestigadorCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListLineasInvestigadorIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexInvestigador}"/>
             </h:form>
         </ui:define>
     </ui:composition>

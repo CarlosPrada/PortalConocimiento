@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -25,13 +26,13 @@
                     <h:inputText id="eliminadoSeccion" value="#{seccionController.selected.eliminadoSeccion}" title="#{bundle.CreateSeccionTitle_eliminadoSeccion}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{seccionController.create}" value="#{bundle.CreateSeccionSaveLink}" />
+                <p:commandButton ajax="false" action="#{seccionController.create}" icon="ui-icon-plus" value="#{bundle.CreateSeccionSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{seccionController.prepareList}" value="#{bundle.CreateSeccionShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{seccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateSeccionShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateSeccionIndexLink}"/>
+                <p:commandButton ajax="false" action="/index" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateSeccionIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

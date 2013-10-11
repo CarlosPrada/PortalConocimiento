@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -26,12 +27,12 @@
                     <h:inputText id="nombreTipoProduccion" value="#{tipoProduccionController.selected.nombreTipoProduccion}" title="#{bundle.EditTipoProduccionTitle_nombreTipoProduccion}" required="true" requiredMessage="#{bundle.EditTipoProduccionRequiredMessage_nombreTipoProduccion}" size="55"/>
 
                 </h:panelGrid>
-                <h:commandLink action="#{tipoProduccionController.update}" value="#{bundle.EditTipoProduccionSaveLink}"/>
-
+                <br />
+                <p:commandButton ajax="false" action="#{tipoProduccionController.update}" icon="ui-icon-disk" value="#{bundle.EditTipoProduccionSaveLink}"/>
                 <br /><br />
-                <h:link outcome="View" value="#{bundle.EditTipoProduccionViewLink}"/>
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditTipoProduccionViewLink}"/>
                 <br /><br />
-                <h:commandLink action="#{tipoProduccionController.prepareList}" value="#{bundle.EditTipoProduccionShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditTipoProduccionShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

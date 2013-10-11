@@ -21,15 +21,15 @@
                 <h:outputText escape="false" value="#{bundle.ListMultimediaEmpty}" rendered="#{multimediaController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{multimediaController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{multimediaController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:1000px;">
+                    <p:dataTable value="#{multimediaController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:1000px;">
 
                         <p:column width="70">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{multimediaController.prepareView}" value="#{bundle.ListMultimediaViewLink}"/>
+                            <p:commandButton ajax="false" action="#{multimediaController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListMultimediaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{multimediaController.prepareEdit}" value="#{bundle.ListMultimediaEditLink}"/>
+                            <p:commandButton ajax="false" action="#{multimediaController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListMultimediaEditLink}"/>
                         </p:column>
 
 
@@ -59,14 +59,14 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{multimediaController.prepareCreate}" value="#{bundle.ListMultimediaCreateLink}"/>
+                <p:commandButton ajax="false" action="#{multimediaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListMultimediaCreateLink}"/>
 
                 <br /><br />
                 <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoMultimedia/#{tipoMultimediaController.prepareList()}" value="Administrar Tipos de Multimedia"/>
+                <p:commandButton ajax="false" action="/administrador/tipoMultimedia/#{tipoMultimediaController.prepareList()}" value="Administrar Tipos de Multimedia"/>
                 : Permite administrar Tipos de Multimedia.
                 <br /><br />
-                <h:link outcome="/administrador/contenido/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListMultimediaIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/contenido/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListMultimediaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

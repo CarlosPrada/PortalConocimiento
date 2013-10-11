@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         
@@ -28,9 +29,9 @@
                 </h:panelGrid>
                 
                 <br />
-                <h:commandLink action="#{tipoContenidoController.create}" value="#{bundle.CreateTipoContenidoSaveLink}" />
+                <p:commandButton ajax="false" action="#{tipoContenidoController.create}" icon="ui-icon-plus" value="#{bundle.CreateTipoContenidoSaveLink}" />
                 <br /><br />
-                <h:commandLink action="#{tipoContenidoController.prepareList}" value="#{bundle.CreateTipoContenidoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{tipoContenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateTipoContenidoShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -29,12 +29,12 @@
                     <h:outputText value="#{rolController.selected.descripcionRol}" title="#{bundle.ViewRolTitle_descripcionRol}"/>
 
                 </p:panelGrid>
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewRolEditLink}"/>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewRolEditLink}"/>
+                <p:commandButton ajax="false" action="#{rolController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewRolCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{rolController.prepareCreate}" value="#{bundle.ViewRolCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{rolController.prepareList}" value="#{bundle.ViewRolShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{rolController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewRolShowAllLink}"/>
 
             </h:form>
         </ui:define>

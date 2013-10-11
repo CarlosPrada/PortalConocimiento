@@ -20,19 +20,18 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{permisoController.items.rowCount > 0}">
-                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="30" var="item" style="width:900px;" >
+                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="15" var="item"  >
 
-                        <p:column width="70">
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{permisoController.prepareView}" value="#{bundle.ListPermisoViewLink}"/>
+                            <p:commandButton ajax="false" action="#{permisoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListPermisoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{permisoController.prepareEdit}" value="#{bundle.ListPermisoEditLink}"/>
+                            <p:commandButton ajax="false" action="#{permisoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListPermisoEditLink}"/>
                         </p:column>
 
-                        <p:column width="100">
+                        <p:column width="180">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisoTitle_nombrePermiso}"/>
                             </f:facet>
@@ -47,11 +46,10 @@
                         </p:column>
 
                     </p:dataTable>
-                </h:panelGroup>
                 <br/>
-                <h:commandLink action="#{permisoController.prepareCreate}" value="#{bundle.ListPermisoCreateLink}"/>
+                <p:commandButton ajax="false" action="#{permisoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListPermisoCreateLink}"/>
                 <br/><br/>
-                <h:link outcome="/administrador/investigador/#{investigadorController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListPermisoIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}"/>
 
             </h:form>
         </ui:define>

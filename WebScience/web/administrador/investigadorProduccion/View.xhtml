@@ -26,15 +26,13 @@
 
                     <h:outputText value="#{bundle.ViewInvestigadorProduccionLabel_investigador}"/>
                     <h:outputText value="#{investigadorProduccionController.selected.investigador.nombreInvestigador } #{investigadorProduccionController.selected.investigador.apellidoInvestigador }"/>
-                    
-                </p:panelGrid>
 
+                </p:panelGrid>
+                
+                <br />
+                <p:commandButton ajax="false" action="#{investigadorProduccionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewInvestigadorProduccionCreateLink}" />
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewInvestigadorProduccionEditLink}"/>
-                <br /><br />
-                <h:commandLink action="#{investigadorProduccionController.prepareCreate}" value="#{bundle.ViewInvestigadorProduccionCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{investigadorProduccionController.prepareList}" value="#{bundle.ViewInvestigadorProduccionShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{investigadorProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewInvestigadorProduccionShowAllLink}"/>
 
 
             </h:form>

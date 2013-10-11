@@ -24,29 +24,15 @@
 
                     <p:dataTable value="#{produccionIntelectualController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
 
-                        <p:column width="80">
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{produccionIntelectualController.prepareView}" value="#{bundle.ListProduccionIntelectualViewLink}"/>
+                            <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProduccionIntelectualViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{produccionIntelectualController.prepareEdit}" value="#{bundle.ListProduccionIntelectualEditLink}"/>
+                            <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListProduccionIntelectualEditLink}"/>
                         </p:column>
-
-                        <p:column width="200">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduccionIntelectualTitle_nombreProduccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreProduccion}"/>
-                        </p:column>
-
-                        <p:column width="85">
-                            <f:facet name="header" >
-                                <h:outputText value="#{bundle.ListProduccionIntelectualTitle_agnoProduccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.agnoProduccion}"/>
-                        </p:column>
-
+                        
                         <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProduccionIntelectualTitle_referenciaProduccion}"/>
@@ -54,7 +40,7 @@
                             <h:outputText value="#{item.referenciaProduccion}"/>
                         </p:column>
 
-                        <p:column >
+                        <p:column width="200" >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProduccionIntelectualTitle_urlProduccion}"/>
                             </f:facet>
@@ -79,20 +65,9 @@
 
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{produccionIntelectualController.prepareCreate}" value="#{bundle.ListProduccionIntelectualCreateLink}"/>
+                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProduccionIntelectualCreateLink}"/>
                 <br /><br />   
-
-                <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                <h:link outcome="/administrador/bibliografia/#{bibliografiaController.prepareList()}" value="Administrar Referencias Bibliográficas"/>
-                : Permite administrar las Referencias Bibliográficas aportadas por la comunidad.
-                <br /><br />
-                
-                <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoProduccion/#{tipoProduccionController.prepareList()}" value="Administrar Tipos"/>
-                : Permite administrar los Tipos de Producción Intelectual y de Referencias Bibliográficas permitidos.
-
-                <br /><br />
-                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListProduccionIntelectualIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia.xhtml" icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexProduccionBibliografia}"/>
             </h:form>
         </ui:define>
     </ui:composition>

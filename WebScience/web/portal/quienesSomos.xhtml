@@ -19,20 +19,46 @@
 
         <div class="content">
             <div class="content_resize">
-                <div class="mainbarIzquierdo">
-                    <h:form>
-                        <p:dataGrid value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
-                            <h3><span><p10><h:outputText escape="false" value="#{qunsSms.contenidoDetallado}" /></p10> </span></h3>
-                        </p:dataGrid>
-                    </h:form>
 
-                    <!--<p:fieldset legend="Quienes Somos" >
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <h:outputText value="#{quienesSomosPC.quinesSomos}" />
-                        </h:panelGrid>
-                    </p:fieldset>  -->
-                </div>
+                <h:form>
+                    <p:dataTable resizableColumns="true" value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
+
+                        <p:column width="600" >
+                            <h:outputText escape="false" value="#{qunsSms.historia}" />
+                        </p:column>
+
+                        <p:column >
+                            <h:graphicImage alt="" width="300" height="280" url="/WebScience/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen1}.jsf" />
+                        </p:column>
+
+                    </p:dataTable>
+
+                    <p:dataTable resizableColumns="true" value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
+
+                        <p:column >
+                            <h:graphicImage alt="" width="300" height="280" url="/WebScience/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen2}.jsf" />
+                        </p:column>
+                        
+                        <p:column width="600" >
+                            <h:outputText escape="false" value="#{qunsSms.razondeser}" />
+                        </p:column>
+
+                    </p:dataTable>
+
+                    <p:dataTable  resizableColumns="true" value="#{quienesSomosPC.quinesSomos}" emptyMessage="No se encontraton registros"  var="qunsSms">
+
+                        <p:column width="600" >
+                            <h:outputText escape="false" value="#{qunsSms.relaciones}" />
+                        </p:column>
+
+                        <p:column >
+                            <h:graphicImage alt="" width="300" height="280" url="/WebScience/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen3}.jsf" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
             </div>
         </div>
+
     </ui:define>
 </ui:composition>

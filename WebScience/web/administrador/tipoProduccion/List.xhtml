@@ -20,20 +20,19 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{tipoProduccionController.items.rowCount > 0}">
                     <p:dataTable value="#{tipoProduccionController.items}" paginator="true" rows="60" var="item" resizableColumns="true" style="width:450px;"> 
 
-                        <p:column>
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{tipoProduccionController.prepareView}" value="#{bundle.ListTipoProduccionViewLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoProduccionController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoProduccionViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoProduccionController.prepareEdit}" value="#{bundle.ListTipoProduccionEditLink}"/>
+                            <p:commandButton ajax="false" action="#{tipoProduccionController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoProduccionEditLink}"/>
                         </p:column>
 
 
-                        <p:column width="190">
+                        <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTipoProduccionTitle_nombreTipoProduccion}"/>
                             </f:facet>
@@ -42,11 +41,10 @@
 
 
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
-                <h:commandLink action="#{tipoProduccionController.prepareCreate}" value="#{bundle.ListTipoProduccionCreateLink}"/>
+                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoProduccionCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoProduccionIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexProduccionBibliografia}"/>
             </h:form>
         </ui:define>
     </ui:composition>

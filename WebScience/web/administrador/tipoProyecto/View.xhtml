@@ -16,23 +16,20 @@
             </h:panelGroup>
             <h:form>
                 <p:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewTipoProyectoLabel_idTipoProyecto}"/>
-                    <h:outputText value="#{tipoProyectoController.selected.idTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_idTipoProyecto}"/>
                     
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_nombreTipoProyecto}"/>
                     <h:outputText value="#{tipoProyectoController.selected.nombreTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_nombreTipoProyecto}"/>
                     
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_descripcionTipoProyecto}"/>
                     <h:outputText value="#{tipoProyectoController.selected.descripcionTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_descripcionTipoProyecto}"/>
-                </p:panelGrid>
-               
+                
+                </p:panelGrid>               
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoProyectoEditLink}"/>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewTipoProyectoEditLink}"/>
+                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoProyectoCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{tipoProyectoController.prepareCreate}" value="#{bundle.ViewTipoProyectoCreateLink}" />
-                <br /><br />
-                <h:commandLink action="#{tipoProyectoController.prepareList}" value="#{bundle.ViewTipoProyectoShowAllLink}"/>
-                <br /><br />
+                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

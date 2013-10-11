@@ -26,11 +26,11 @@
                
                 </p:panelGrid>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewTipoContenidoEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoContenidoEditLink}"/>
                 <br /><br />
-                <h:commandLink action="#{tipoContenidoController.prepareCreate}" value="#{bundle.ViewTipoContenidoCreateLink}" />
+                <p:commandButton ajax="false" action="#{tipoContenidoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoContenidoCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{tipoContenidoController.prepareList}" value="#{bundle.ViewTipoContenidoShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{tipoContenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoContenidoShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

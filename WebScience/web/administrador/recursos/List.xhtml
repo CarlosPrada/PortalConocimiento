@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -17,44 +18,44 @@
                 <h:outputText escape="false" value="#{bundle.ListRecursosEmpty}" rendered="#{recursosController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{recursosController.items.rowCount > 0}">
                     <h:outputText value="#{recursosController.pagination.pageFirstItem + 1}..#{recursosController.pagination.pageLastItem + 1}/#{recursosController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{recursosController.previous}" value="#{bundle.Previous} #{recursosController.pagination.pageSize}" rendered="#{recursosController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{recursosController.next}" value="#{bundle.Next} #{recursosController.pagination.pageSize}" rendered="#{recursosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{recursosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:commandButton ajax="false" action="#{recursosController.previous}" value="#{bundle.Previous} #{recursosController.pagination.pageSize}" rendered="#{recursosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <p:commandButton ajax="false" action="#{recursosController.next}" value="#{bundle.Next} #{recursosController.pagination.pageSize}" rendered="#{recursosController.pagination.hasNextPage}"/>&nbsp;
+                    <p:dataTable value="#{recursosController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRecursosTitle_idRecurso}"/>
                             </f:facet>
                             <h:outputText value="#{item.idRecurso}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRecursosTitle_idPublicacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.idPublicacion}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRecursosTitle_idMultimedia}"/>
                             </f:facet>
                             <h:outputText value="#{item.idMultimedia}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{recursosController.prepareView}" value="#{bundle.ListRecursosViewLink}"/>
+                            <p:commandButton ajax="false" action="#{recursosController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListRecursosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{recursosController.prepareEdit}" value="#{bundle.ListRecursosEditLink}"/>
+                            <p:commandButton ajax="false" action="#{recursosController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListRecursosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{recursosController.destroy}" value="#{bundle.ListRecursosDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                            <p:commandButton ajax="false" action="#{recursosController.destroy}" value="#{bundle.ListRecursosDestroyLink}"/>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{recursosController.prepareCreate}" value="#{bundle.ListRecursosCreateLink}"/>
+                <p:commandButton ajax="false" action="#{recursosController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListRecursosCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListRecursosIndexLink}"/>
+                <p:commandButton ajax="false" action="/index" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ListRecursosIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -27,11 +27,11 @@
                 </p:panelGrid>
 
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewTipoMultimediaEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoMultimediaEditLink}"/>
                 <br /><br />
-                <h:commandLink action="#{tipoMultimediaController.prepareCreate}" value="#{bundle.ViewTipoMultimediaCreateLink}" />
+                <p:commandButton ajax="false" action="#{tipoMultimediaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoMultimediaCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{tipoMultimediaController.prepareList}" value="#{bundle.ViewTipoMultimediaShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{tipoMultimediaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoMultimediaShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

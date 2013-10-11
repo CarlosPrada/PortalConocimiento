@@ -3,44 +3,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewNoticiaTitle}"></h:outputText>
         </ui:define>
+
         <ui:define name="body">
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewNoticiaLabel_idNoticia}"/>
-                    <h:outputText value="#{noticiaController.selected.idNoticia}" title="#{bundle.ViewNoticiaTitle_idNoticia}"/>
+                <p:panelGrid columns="2">                    
+                    
                     <h:outputText value="#{bundle.ViewNoticiaLabel_tituloNoticia}"/>
                     <h:outputText value="#{noticiaController.selected.tituloNoticia}" title="#{bundle.ViewNoticiaTitle_tituloNoticia}"/>
+                    
+                    <h:outputText value="#{bundle.ViewNoticiaLabel_imagenNoticia}"/>
+                    <h:outputText value="#{noticiaController.selected.imagenNoticia}" />
+                    
                     <h:outputText value="#{bundle.ViewNoticiaLabel_contenidoNoticia}"/>
-                    <h:outputText value="#{noticiaController.selected.contenidoNoticia}" title="#{bundle.ViewNoticiaTitle_contenidoNoticia}"/>
+                    <h:outputText value="#{noticiaController.selected.contenidoNoticia}" escape="false"/>
+                    
                     <h:outputText value="#{bundle.ViewNoticiaLabel_fechaPublicacionNoticia}"/>
                     <h:outputText value="#{noticiaController.selected.fechaPublicacionNoticia}" title="#{bundle.ViewNoticiaTitle_fechaPublicacionNoticia}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
+                    
                     <h:outputText value="#{bundle.ViewNoticiaLabel_idEstado}"/>
-                    <h:outputText value="#{noticiaController.selected.idEstado}" title="#{bundle.ViewNoticiaTitle_idEstado}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{noticiaController.destroyAndView}" value="#{bundle.ViewNoticiaDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewNoticiaEditLink}"/>
-                <br />
-                <h:commandLink action="#{noticiaController.prepareCreate}" value="#{bundle.ViewNoticiaCreateLink}" />
-                <br />
-                <h:commandLink action="#{noticiaController.prepareList}" value="#{bundle.ViewNoticiaShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewNoticiaIndexLink}"/>
+                    <h:outputText value="#{noticiaController.selected.idEstado.nombreEstado}" title="#{bundle.ViewNoticiaTitle_idEstado}"/>
 
+                </p:panelGrid>
+                <br />
+                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewNoticiaEditLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{noticiaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewNoticiaCreateLink}" />
+                <br /><br />
+                <p:commandButton ajax="false" action="#{noticiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewNoticiaShowAllLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

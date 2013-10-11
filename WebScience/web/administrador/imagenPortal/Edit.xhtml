@@ -3,34 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+        
         <ui:define name="title">
             <h:outputText value="#{bundle.EditImagenPortalTitle}"></h:outputText>
         </ui:define>
+        
         <ui:define name="body">
+            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditImagenPortalLabel_idImagen}" for="idImagen" />
-                    <h:inputText id="idImagen" value="#{imagenPortalController.selected.idImagen}" title="#{bundle.EditImagenPortalTitle_idImagen}" required="true" requiredMessage="#{bundle.EditImagenPortalRequiredMessage_idImagen}"/>
+                   
                     <h:outputLabel value="#{bundle.EditImagenPortalLabel_nombreImagen}" for="nombreImagen" />
-                    <h:inputText id="nombreImagen" value="#{imagenPortalController.selected.nombreImagen}" title="#{bundle.EditImagenPortalTitle_nombreImagen}" />
+                    <h:inputTextarea rows="7" cols="80" value="#{imagenPortalController.selected.nombreImagen}" />
+                    
                     <h:outputLabel value="#{bundle.EditImagenPortalLabel_descripcionImagen}" for="descripcionImagen" />
-                    <h:inputText id="descripcionImagen" value="#{imagenPortalController.selected.descripcionImagen}" title="#{bundle.EditImagenPortalTitle_descripcionImagen}" />
+                    <h:inputTextarea rows="7" cols="80" value="#{imagenPortalController.selected.nombreImagen}" />
+               
                 </h:panelGrid>
-                <h:commandLink action="#{imagenPortalController.update}" value="#{bundle.EditImagenPortalSaveLink}"/>
                 <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditImagenPortalViewLink}"/>
-                <br />
-                <h:commandLink action="#{imagenPortalController.prepareList}" value="#{bundle.EditImagenPortalShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditImagenPortalIndexLink}" />
+                <p:commandButton ajax="false" action="#{imagenPortalController.update}" icon="ui-icon-disk" value="#{bundle.EditImagenPortalSaveLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditImagenPortalViewLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" action="#{imagenPortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditImagenPortalShowAllLink}" immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

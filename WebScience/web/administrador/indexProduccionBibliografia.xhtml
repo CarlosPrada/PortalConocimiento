@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Administrador de contenido</title>
+        <h:outputStylesheet library="css"  name="default.css" />
+    </h:head> 
+
+    <h:body> 
+
+        <div id="wrap700" class="lltr"> 
+            <div id="header"> 
+                <div id="title"> 
+                    <h1>Administración de Producción y Bibliografía - Portal GIIB</h1> 
+                </div> 
+
+                <div id="logout">
+                    <h:form>
+
+                        <h:commandLink value="Volver" action="inicio.xhtml"  /> 
+                    </h:form>
+                </div>
+
+                <div id="path">
+                    <p><h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" /> </p>
+                </div> 
+
+            </div>
+
+            <br clear="all"/> 
+
+            <div class="contentdiv"> 
+                <div id="wcontent" class="contentinner"><br/>  
+                    <h:panelGrid  id="dashboard" columns="3" columnClasses="dashitem" >
+
+                        <h:column class="dashitem" >
+                            <img src="#{resource['images/admin/dash/arrow.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/produccionIntelectual/#{produccionIntelectualController.prepareList()}" value="Gestión de Producción Intelectual"/>
+                            Permite gestionar la producción intelectual realizada por el grupo.
+                        </h:column>
+
+                        <h:column >
+                            <img src="#{resource['images/admin/dash/exit.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/bibliografia/#{bibliografiaController.prepareList()}" value="Gestión de Referencias Bibliográficas"/>
+                            Permite gestionar las referecnias bibliográficas aportadas por el grupo.
+                        </h:column>
+
+                        <h:column >
+                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/tipoProduccion/#{tipoProduccionController.prepareList()}" value="Gestión de Tipos"/>
+                            Permite gestionar los tipos de referecnias bibliográficas y producción intelectual.
+                        </h:column>
+
+                    </h:panelGrid>    
+                </div> 
+            </div>
+            <div style="clear: both;">&nbsp;</div> 
+            <div class="empty_inner" style="">&#160;</div> 
+        </div> 
+        <div id="footer"> 
+            <p id="legal">Grupo de investigaci&oacute;n en Ingenier&iacute;a Biom&eacute;dica - Universidad Industrial de Santander v1.0</p> 
+        </div> 
+
+    </h:body> 
+</html>
+
+

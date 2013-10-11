@@ -26,11 +26,11 @@
                 
                 </p:panelGrid>
                 <br /><br />
-                <h:link outcome="Edit" value="#{bundle.ViewEstadoProyectoEditLink}"/>
+                <p:commandButton ajax="false" action="Edit" value="#{bundle.ViewEstadoProyectoEditLink}" icon="ui-icon-pencil"/>
                 <br /><br />
-                <h:commandLink action="#{estadoProyectoController.prepareCreate}" value="#{bundle.ViewEstadoProyectoCreateLink}" />
+                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewEstadoProyectoCreateLink}" />
                 <br /><br />
-                <h:commandLink action="#{estadoProyectoController.prepareList}" value="#{bundle.ViewEstadoProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewEstadoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

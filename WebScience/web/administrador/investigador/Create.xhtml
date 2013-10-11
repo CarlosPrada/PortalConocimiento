@@ -71,9 +71,7 @@
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}"  />
                     <h:inputText id="imagenInvestigador" value="#{investigadorController.selected.imageInvestigadorPath}" title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" size="100"/>
-                   
-                     
-
+                  
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}"  />
                     <h:selectOneMenu id="idEstado" value="#{investigadorController.selected.idEstado}"  required="true" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
@@ -82,9 +80,9 @@
                 </h:panelGrid>
 
                 <br/>
-                <h:commandLink action="#{investigadorController.create}" value="#{bundle.CreateInvestigadorSaveLink}" />
+                <p:commandButton ajax="false" action="#{investigadorController.create}" icon="ui-icon-plus" value="#{bundle.CreateInvestigadorSaveLink}" />
                 <br/><br/>
-                <h:commandLink action="#{investigadorController.prepareList}" value="#{bundle.CreateInvestigadorShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{investigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateInvestigadorShowAllLink}" immediate="true"/>
          
             </h:form>
         </ui:define>

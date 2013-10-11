@@ -3,76 +3,70 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ListHerramientaSoftwareTitle}"></h:outputText>
         </ui:define>
-        <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+
+        <ui:define name="body">            
+            <h:form >
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+
                 <h:outputText escape="false" value="#{bundle.ListHerramientaSoftwareEmpty}" rendered="#{herramientaSoftwareController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{herramientaSoftwareController.items.rowCount > 0}">
-                    <h:outputText value="#{herramientaSoftwareController.pagination.pageFirstItem + 1}..#{herramientaSoftwareController.pagination.pageLastItem + 1}/#{herramientaSoftwareController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{herramientaSoftwareController.previous}" value="#{bundle.Previous} #{herramientaSoftwareController.pagination.pageSize}" rendered="#{herramientaSoftwareController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{herramientaSoftwareController.next}" value="#{bundle.Next} #{herramientaSoftwareController.pagination.pageSize}" rendered="#{herramientaSoftwareController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{herramientaSoftwareController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+
+                    <p:dataTable value="#{herramientaSoftwareController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+
+                        <p:column width="150">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_idHerramienta}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idHerramienta}"/>
-                        </h:column>
-                        <h:column>
+                            <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListHerramientaSoftwareViewLink}"/>
+                            <h:outputText value=" "/>
+                            <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListHerramientaSoftwareEditLink}"/>
+                        </p:column>
+
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_nombreHerramienta}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreHerramienta}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_urlHerramienta}"/>
                             </f:facet>
                             <h:outputText value="#{item.urlHerramienta}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_descripcionHerramienta}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionHerramienta}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_imagenHerramienta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imagenHerramienta}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHerramientaSoftwareTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{herramientaSoftwareController.prepareView}" value="#{bundle.ListHerramientaSoftwareViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{herramientaSoftwareController.prepareEdit}" value="#{bundle.ListHerramientaSoftwareEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{herramientaSoftwareController.destroy}" value="#{bundle.ListHerramientaSoftwareDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
+                        </p:column>
+                        
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{herramientaSoftwareController.prepareCreate}" value="#{bundle.ListHerramientaSoftwareCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListHerramientaSoftwareIndexLink}"/>
+                <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListHerramientaSoftwareCreateLink}"/>
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

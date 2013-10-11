@@ -23,81 +23,43 @@
                 <h:outputText escape="false" value="#{bundle.ListContenidoEmpty}" rendered="#{contenidoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{contenidoController.items.rowCount > 0}">                   
 
-                    <p:dataTable value="#{contenidoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" >
-
-                        <p:column width="140">
+                    <p:dataTable value="#{contenidoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                        
+                        <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>                            
-                            <p:commandButton ajax="false" action="#{contenidoController.prepareView()}" value="#{bundle.ListContenidoViewLink}" icon="ui-icon-search"/>
+                            <p:commandButton ajax="false" action="#{contenidoController.prepareView}" value="#{bundle.ListContenidoViewLink}" icon="ui-icon-search"/>
                             <h:outputText value=" "/>                            
                             <p:commandButton ajax="false" action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}" icon="ui-icon-pencil" />
                         </p:column>
 
-                        <p:column width="200">
+                        <p:column >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_titulo}"/>
+                                <h:outputText value="#{bundle.ListContenidoTitle_historia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.titulo}"/>
+                            <h:outputText value="#{item.historia}"/>
                         </p:column>
 
-                        <p:column width="250">
+                        <p:column >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_contenidoResumido}"/>
+                                <h:outputText value="#{bundle.ListContenidoTitle_razon}"/>
                             </f:facet>
-                            <h:outputText value="#{item.contenidoResumido}"/>
+                            <h:outputText value="#{item.razondeser}"/>
                         </p:column>
 
-                        <p:column width="250">
+                        <p:column >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_contenidoDetallado}"/>
+                                <h:outputText value="#{bundle.ListContenidoTitle_relaciones}"/>
                             </f:facet>
-                            <h:outputText value="#{item.contenidoDetallado}"/>
-                        </p:column>
-
-                        <p:column width="70">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_idMultimedia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idMultimedia.nombreMultimedia}"/>
-                        </p:column>
-
-                        <p:column width="120">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_idTipoContenido}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idTipoPublicacion.nombreTipoContenido}"/>
-                        </p:column>
-
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContenidoTitle_idEstado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
+                            <h:outputText value="#{item.relaciones}"/>
                         </p:column>
 
                     </p:dataTable>
                 </h:panelGroup>
-                <br />
-                <p:commandButton action="#{contenidoController.prepareCreate}" value="#{bundle.ListContenidoCreateLink}" icon="ui-icon-document" ajax="false"/>
 
-                <br /><br />
-                <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                <h:link outcome="/administrador/tipoContenido/#{tipoContenidoController.prepareList()}" value="Administrar Tipos de Contenido"/>
-                : Permite Administrar los Tipos de Contenido en el protal.
-
-                <br /><br />
-                <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                <h:link outcome="/administrador/multimedia/#{multimediaController.prepareList()}" value="Administrar Multimedias de los Contenidos"/>
-                : Permite administrar los Multimedia de los Contenidos existentes.
-
-                <br /><br />
-                <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                <h:link outcome="/administrador/evento/#{eventoController.prepareList()}" value="Administrar Eventos"/>
-                : Permite administrar los Eventos del grupo.
-
-                <br /><br />
-                <h:link outcome="#{bundle.RutaInicioAdministradorContenido}" value="#{bundle.ListContenidoIndexLink}"/>
+                <br /><br /><br />
+                <p:commandButton ajax="false" action="/administrador/indexContenido"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

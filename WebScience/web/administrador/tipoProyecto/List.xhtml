@@ -20,47 +20,39 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListTipoProyectoEmpty}" rendered="#{tipoProyectoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{tipoProyectoController.items.rowCount > 0}">
+                    <p:dataTable value="#{tipoProyectoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
 
-                    <p:dataTable value="#{tipoProyectoController.items}" paginator="true" rows="30" var="item" resizableColumns="true" style="width:700px;">
-
-                        <p:column width="110">
+                        <p:column width="150">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoProyectoTitle_idTipoProyecto}"/>
+                                <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTipoProyecto}"/>
+                            <p:commandButton ajax="false" action="#{tipoProyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoProyectoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <p:commandButton ajax="false" action="#{tipoProyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoProyectoEditLink}"/>
                         </p:column>
 
-                        <p:column width="200">
+                        <p:column width="250">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTipoProyectoTitle_nombreTipoProyecto}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreTipoProyecto}"/>
                         </p:column>
 
-                        <p:column width="200">
+                        <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTipoProyectoTitle_descripcionTipoProyecto}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcionTipoProyecto}"/>
                         </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{tipoProyectoController.prepareView}" value="#{bundle.ListTipoProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tipoProyectoController.prepareEdit}" value="#{bundle.ListTipoProyectoEditLink}"/>
-                        </p:column>
+ 
 
                     </p:dataTable>
-                </h:panelGroup>
+
                 <br />
-                <h:commandLink action="#{tipoProyectoController.prepareCreate}" value="#{bundle.ListTipoProyectoCreateLink}"/>
+                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoProyectoCreateLink}"/>
                 <br /><br />
-                <h:link outcome="/administrador/proyecto/#{proyectoController.prepareList()}.xhtml?faces-redirect=true" value="#{bundle.ListTipoProyectoIndexLink}"/>
+                <p:commandButton ajax="false" action="/administrador/indexProyecto" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ListTipoProyectoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
