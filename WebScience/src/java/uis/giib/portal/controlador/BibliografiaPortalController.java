@@ -28,7 +28,7 @@ public class BibliografiaPortalController implements Serializable {
     private uis.giib.administrador.dao.TipoProduccionFacade ejbTipoProduccion;
 
     //Constructor
-    public void BibliografiaPortalController() {
+    public BibliografiaPortalController() {
     }
 
     //Métodos de Navegación

@@ -1,15 +1,9 @@
-
 package uis.giib.portal.controlador;
 
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
-import javax.ejb.EJB;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import uis.giib.entidades.Proyecto;
-import uis.giib.entidades.Contenido;
+
 
 /**
  *
@@ -20,7 +14,7 @@ import uis.giib.entidades.Contenido;
 public class IndexPortalController implements Serializable {
 
     
-    // en un ListDataModel colocamos todos los proyectos en la DB
+    // Constructor
     public IndexPortalController() {        
         try{     
         }catch(Exception e){
@@ -28,9 +22,7 @@ public class IndexPortalController implements Serializable {
         }        
     }
     
-    //Métodos de navegación
-    // usado cuando hacemos click en el menú 
-    
+    //Métodos de navegación  
     public String goIndex(){
         try{       
         }catch(Exception e){

@@ -1,13 +1,12 @@
 package uis.giib.administrador.controlador.util;
 
+import javax.inject.Named;
+import javax.enterprise.context.RequestScoped;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.FileUploadEvent;
@@ -16,15 +15,16 @@ import org.primefaces.event.FileUploadEvent;
  *
  * @author Carlos
  */
-@Named(value = "fileUploadController")
-@SessionScoped
-public class FileUploadController implements Serializable {
+@Named(value = "fileUploadC")
+@RequestScoped
+public class FileUploadController {
 
-    private String destination = "D:\\tmp\\";
+    private String destination = "D:\\";
 
     public void upload(FileUploadEvent event) {
-        
-        System.out.println("FUCCCKKKK!");
+
+        System.out.println("hola q ase upload");
+
         FacesMessage msg = new FacesMessage("Success! ", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, msg);
         // Do what you want with the file        
@@ -38,8 +38,6 @@ public class FileUploadController implements Serializable {
 
     public void copyFile(String fileName, InputStream in) {
         try {
-
-
             // write the inputStream to a FileOutputStream
             OutputStream out = new FileOutputStream(new File(destination + fileName));
 

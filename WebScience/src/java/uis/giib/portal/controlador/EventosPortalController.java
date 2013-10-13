@@ -2,7 +2,6 @@ package uis.giib.portal.controlador;
 
 import java.io.Serializable;
 import java.util.Calendar;
-
 import java.util.Date;
 import java.util.Iterator;
 import javax.ejb.EJB;
@@ -43,21 +42,13 @@ public class EventosPortalController implements Serializable {
     //Métodos de navegación
     public String goEventos() {
 
-        /*
-         eventModel = new DefaultScheduleModel();
-         eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));
-         eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
-         eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
-         eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
-         */
-
-
         try {
             listadoEvento = new ListDataModel(ejbEvento.findAll());
             Iterator<Evento> eveIterator = listadoEvento.iterator();
             eventModel = new DefaultScheduleModel();
             while (eveIterator.hasNext()) {
                 Evento eve = eveIterator.next();
+                System.out.println("Error listando EVENTOS!");
                 eventModel.addEvent(new DefaultScheduleEvent(eve.getNombreEvento(), eve.getFechaInicio(), eve.getFechaFin()));
             }
         } catch (Exception e) {
@@ -68,19 +59,12 @@ public class EventosPortalController implements Serializable {
     }
 
     //Getters - Setters
-    public void setEventModel(ScheduleModel eventModel) {
-        this.eventModel = eventModel;
-    }
-
-    public Date getInitialDate() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(calendar.get(Calendar.YEAR), Calendar.FEBRUARY, calendar.get(Calendar.DATE), 0, 0, 0);
-
-        return calendar.getTime();
-    }
-
     public ScheduleModel getEventModel() {
         return eventModel;
+    }
+
+    public void setEventModel(ScheduleModel eventModel) {
+        this.eventModel = eventModel;
     }
 
     public ScheduleEvent getEvent() {
@@ -89,49 +73,6 @@ public class EventosPortalController implements Serializable {
 
     public void setEvent(ScheduleEvent event) {
         this.event = event;
-    }
-
-    //PrimeFaces
-    public Date getRandomDate(Date base) {
-        Calendar date = Calendar.getInstance();
-        date.setTime(base);
-        date.add(Calendar.DATE, ((int) (Math.random() * 30)) + 1);    //set random day of month  
-
-        return date.getTime();
-    }
-
-    public void addEvent(ActionEvent actionEvent) {
-        if (event.getId() == null) {
-            eventModel.addEvent(event);
-        } else {
-            eventModel.updateEvent(event);
-        }
-
-        event = new DefaultScheduleEvent();
-    }
-
-    public void onEventSelect(SelectEvent selectEvent) {
-        event = (ScheduleEvent) selectEvent.getObject();
-    }
-
-    public void onDateSelect(SelectEvent selectEvent) {
-        event = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject());
-    }
-
-    public void onEventMove(ScheduleEntryMoveEvent event) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
-
-        addMessage(message);
-    }
-
-    public void onEventResize(ScheduleEntryResizeEvent event) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
-
-        addMessage(message);
-    }
-
-    private void addMessage(FacesMessage message) {
-        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
     public DataModel getListadoEvento() {
@@ -148,6 +89,22 @@ public class EventosPortalController implements Serializable {
 
     public void setEjbEvento(uis.giib.administrador.dao.EventoFacade ejbEvento) {
         this.ejbEvento = ejbEvento;
+    }
+
+    //Primefaces
+    public Date getRandomDate(Date base) {
+        Calendar date = Calendar.getInstance();
+        date.setTime(base);
+        date.add(Calendar.DATE, ((int) (Math.random() * 30)) + 1);    //set random day of month  
+
+        return date.getTime();
+    }
+
+    public Date getInitialDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), Calendar.FEBRUARY, calendar.get(Calendar.DATE), 0, 0, 0);
+
+        return calendar.getTime();
     }
 
     private Calendar today() {
@@ -225,5 +182,39 @@ public class EventosPortalController implements Serializable {
         t.set(Calendar.HOUR, 3);
 
         return t.getTime();
+    }
+
+    public void addEvent(ActionEvent actionEvent) {
+        if (event.getId() == null) {
+            eventModel.addEvent(event);
+        } else {
+            eventModel.updateEvent(event);
+        }
+
+        event = new DefaultScheduleEvent();
+    }
+
+    public void onEventSelect(SelectEvent selectEvent) {
+        event = (ScheduleEvent) selectEvent.getObject();
+    }
+
+    public void onDateSelect(SelectEvent selectEvent) {
+        event = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject());
+    }
+
+    public void onEventMove(ScheduleEntryMoveEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
+
+        addMessage(message);
+    }
+
+    public void onEventResize(ScheduleEntryResizeEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
+
+        addMessage(message);
+    }
+
+    private void addMessage(FacesMessage message) {
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }

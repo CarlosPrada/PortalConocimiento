@@ -9,7 +9,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
 import uis.giib.entidades.Contenido;
 import uis.giib.entidades.TipoContenido;
 
@@ -21,8 +20,7 @@ import uis.giib.entidades.TipoContenido;
 @SessionScoped
 public class RelacionesInstitucionalesPortalController implements Serializable {
     
-    // Atributos
-    
+    // Atributos    
     private DataModel<Contenido> relacionesInstitucionales;
     private TipoContenido tipoContenido;
     private Integer idTipo = new Integer(3);
@@ -31,22 +29,10 @@ public class RelacionesInstitucionalesPortalController implements Serializable {
 
 
     public RelacionesInstitucionalesPortalController() {
-       /* try {
-            tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            relacionesInstitucionales = new ListDataModel(tipoContenido.getContenidoList());
-        } catch (Exception e) {
-            System.out.println("Error en relacionesInstirucionales!" + e.getCause());
-        }*/
     }
 
     //Métodos de navegación
     public String goRelacionesInstitucionales(){
-        /*try {
-            tipoContenido = ejbTipoContenido.buscarContenidoPorTipo(idTipo);
-            relacionesInstitucionales = new ListDataModel(tipoContenido.getContenidoList());
-        } catch (Exception e) {
-            System.out.println("Error en relacionesInstirucionales!" + e.getCause());
-        }*/
         return "/portal/relacionesInstitucionales.xhtml?faces-redirect=true";
     }
     

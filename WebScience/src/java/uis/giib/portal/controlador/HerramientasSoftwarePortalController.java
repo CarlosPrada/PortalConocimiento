@@ -22,7 +22,7 @@ public class HerramientasSoftwarePortalController implements Serializable {
     private uis.giib.administrador.dao.HerramientaSoftwareFacade ejbHerramientaSoftware;
 
     //Constructor
-    public void HerramientasSoftwarePortalController() {
+    public HerramientasSoftwarePortalController() {
     }
 
     //Métodos de navegación

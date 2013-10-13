@@ -8,13 +8,11 @@
     <h:head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="style.css" />
+
         <h6><title><ui:insert name="title">Portal GIIB</ui:insert></title></h6>
 
-        <h:outputStylesheet library="css" name="style.css" />
-        <h:outputScript library="js" name="cufon-yui.js" />
-        <h:outputScript library="js" name="cufon-yanone.js" />
-        <h:outputScript library="js" name="script.js"  />
-
+        <ui:insert name="libreriasJS">  </ui:insert>
     </h:head>
 
     <h:body>
@@ -124,7 +122,7 @@
                                             <li><h:commandLink action="#{eventosPC.goEventos()}" value="Eventos"></h:commandLink></li>
                                             <li><h:commandLink action="#{noticiasPC.goNoticiasPortalController()}" value="Noticias"></h:commandLink></li>
                                             <li><h:commandLink action="#{herramientasSoftwarePC.goHerramientasSoftware()}" value="Herramientas Software"></h:commandLink></li>
-                                            <li><h:outputLink  value="#{enlacesWebPC.enlaceAulaVirtual()}">Aula Virtual</h:outputLink></li>
+                                            <li><h:outputLink  value="#{enlacesWebPC.enlaceAulaVirtual()}" target="_blank">Aula Virtual</h:outputLink></li>
                                             <li><h:commandLink action="#{bibliografiaPC.goBibliografia()}" value="Bibliografía"></h:commandLink></li>
                                         </ul>
                                     </div>
@@ -135,7 +133,7 @@
                             </ul>
                             <ul class="nav">
                                 <li>
-                                    <h:commandLink styleClass="top-a"  action="#{indexPC.goIndex()}" > <b>Contactenos</b> </h:commandLink>
+                                    <h:commandLink styleClass="top-a"  action="#{contactoPC.goContacto()}" > <b>Contactenos</b> </h:commandLink>
                                 </li>
                             </ul>
 

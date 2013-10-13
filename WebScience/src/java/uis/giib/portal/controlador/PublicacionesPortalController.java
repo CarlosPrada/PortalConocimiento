@@ -29,12 +29,6 @@ public class PublicacionesPortalController implements Serializable {
 
     //Constructor
     public PublicacionesPortalController() {
-        /*try {
-         listadoProduccionIntelectual = new ListDataModel(ejbFacadeProduccionIntelectual.findAll());
-         listaTipoProduccion = new ListDataModel(ejbFacadeTipoProduccion.findAll());
-         } catch (Exception e) {
-         System.out.println("Error listando la producción intelectual!" + e.getMessage());
-         }*/
     }
 
     //Métodos de navegación

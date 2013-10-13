@@ -21,7 +21,7 @@ public class QuienesSomosPortalController implements Serializable {
     private uis.giib.administrador.dao.ContenidoFacade ejbContenido;
 
     // Constructor
-    public void QuienesSomosPortalController() {
+    public QuienesSomosPortalController() {
     }
 
     //Métodos de navegación
