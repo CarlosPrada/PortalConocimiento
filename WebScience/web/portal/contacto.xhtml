@@ -5,9 +5,10 @@
                 template="./../plantillaPortal.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ck="http://code.google.com/ck-jsf-editor">
 
-    <ui:define name="title">Noticias</ui:define>
+    <ui:define name="title">Contáctenos</ui:define>
     <ui:define name="libreriasJS"></ui:define>
     <ui:define name="slider"></ui:define>
 
@@ -16,12 +17,33 @@
         <div class="article">                                
             <h1><span>Contacto</span></h1>  
         </div>
-        
-        <h:form>  
 
+        <h:form id="contacto" rendered="#{contactoPC.render}">
+            <h:panelGrid columns="2" cellpadding="5" >  
 
+                <h:outputLabel for="usuario" value="Nombre:" />                                     
+                <p:inputText value="#{contactoPC.nombre}" required="true"  requiredMessage="Debe especificar un nombre." size="40" />  
 
-        </h:form> 
-        
+                <h:outputLabel for="contrasena" value="Email:" />                                              
+                <p:inputText value="#{contactoPC.correo}" required="true"  requiredMessage="Debe especificar una dirección de correo electrónico." size="40"/>  
+
+                <h:outputLabel for="contrasena" value="Asunto:" />                                              
+                <p:inputText value="#{contactoPC.asunto}" required="true"  requiredMessage="Debe especificar un asunto." size="40"/>  
+
+                <h:outputLabel for="mensaje" value="Mensaje:" />  
+                <h:inputTextarea rows="20" cols="100" id="nombreProyecto" value="#{contactoPC.mensaje}" required="true"  requiredMessage="El contenido del mensaje no puede ser vacio." />
+
+                <div class="buttondiv">
+                    <p:commandButton ajax="false" action="#{contactoPC.sendMail()}" value="Enviar"  update="contacto, :enviado"/>
+                </div>  
+
+            </h:panelGrid> 
+        </h:form >
+
+        <h:form id="enviado" rendered="#{!contactoPC.render}">        
+                
+                <h:outputText value="Solicitud enviada" />
+        </h:form >
+
     </ui:define>
 </ui:composition>

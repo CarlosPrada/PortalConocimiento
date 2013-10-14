@@ -116,28 +116,32 @@ public class LoginAuthentication implements Serializable {
      */
     public void ValidarUsuarioAdmnistracion() {
         usuarioAutenticado = getInvestigadorDAO().loginAdministrador(getUsuario().getUsuarioInvestigador(), getUsuario().getContrasenaInvestigador());
-        if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
-            this.arrayRender[0] = true;
-            this.arrayRender[1] = true;
-            this.arrayRender[2] = true;
-            this.arrayRender[3] = true;
-            this.arrayRender[4] = true;
 
-        } else {
-            if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
+        if (usuarioAutenticado != null) {
+
+            if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
                 this.arrayRender[0] = true;
                 this.arrayRender[1] = true;
                 this.arrayRender[2] = true;
-                this.arrayRender[3] = false;
-                this.arrayRender[4] = false;
+                this.arrayRender[3] = true;
+                this.arrayRender[4] = true;
 
             } else {
-                this.usuarioAutenticado = null;
-                this.arrayRender[0] = false;
-                this.arrayRender[1] = false;
-                this.arrayRender[2] = false;
-                this.arrayRender[3] = false;
-                this.arrayRender[4] = false;
+                if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
+                    this.arrayRender[0] = true;
+                    this.arrayRender[1] = true;
+                    this.arrayRender[2] = true;
+                    this.arrayRender[3] = false;
+                    this.arrayRender[4] = false;
+
+                } else {
+                    this.usuarioAutenticado = null;
+                    this.arrayRender[0] = false;
+                    this.arrayRender[1] = false;
+                    this.arrayRender[2] = false;
+                    this.arrayRender[3] = false;
+                    this.arrayRender[4] = false;
+                }
             }
         }
     }

@@ -38,7 +38,7 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
             return null;
         }
     }
-    
+
     public List<Investigador> listarInvestigadores() {
         try {
             Query query = em.createNamedQuery("Investigador.findInvestigadorByEstado");
@@ -46,5 +46,15 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
         } catch (NoResultException e) {
             return null;
         }
-    }    
+    }
+
+    public Investigador buscarPorIDUsuario(String IDUsuario) {
+        try {
+            Query query = em.createNamedQuery("Investigador.findByUsuarioInvestigador");
+            query.setParameter("usuarioInvestigador", IDUsuario);
+            return (Investigador) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

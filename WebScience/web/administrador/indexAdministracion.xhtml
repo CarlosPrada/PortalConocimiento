@@ -11,8 +11,7 @@
     <ui:define name="logo"> 
         <h:form>                            
             <h1>  
-                <h:link outcome="/portal/index.jsf" ><h:graphicImage  value="#{resource['images/portal/logonn.png']}"  /></h:link>
-                <P11><ui:insert name="header">Grupo de investigacion GIIB</ui:insert></P11>
+               <h:link outcome="/portal/index.jsf" ><h:graphicImage width="660" height="80" value="#{resource['images/portal/logonn.png']}"  /></h:link>  
             </h1>
         </h:form>
     </ui:define>
@@ -27,7 +26,7 @@
                         <td>
                             <div id="header"> 
                                 <div class="article">                                
-                                    <h1><span>Administración de Contenido - Portal GIIB</span></h1>
+                                    <h1><span>Administración de Contenido - Portal </span></h1>
                                 </div>                                
                             </div>                             
                         </td>
@@ -36,16 +35,16 @@
                         <td>
                             <div align="center">
                                 <h:form id="form"> 
-                                    <div>Bienvenido al administrador de contenido del Portal GIIB</div><br/><br/>
+                                    <div>Bienvenido al administrador de contenido del Portal </div><br/><br/>
                                     <div>
 
                                         <h:panelGrid columns="2"  width="373" style="margin-bottom:10px"> 
 
                                             <h:outputLabel for="usuario" value="Usuario :" />                                     
-                                            <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" />  
+                                            <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" required="true"  requiredMessage="Debe especificar su usuario." />  
 
                                             <h:outputLabel for="contrasena" value="Contrase&ntilde;a :" />                                              
-                                            <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a."/>  
+                                            <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe especificar su contrase&ntilde;a."/>  
 
                                         </h:panelGrid>  
                                     </div>
