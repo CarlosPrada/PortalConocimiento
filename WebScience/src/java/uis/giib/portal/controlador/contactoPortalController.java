@@ -8,8 +8,7 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.commons.mail.DefaultAuthenticator;
-import uis.giib.entidades.Investigador;
-
+import uis.giib.entidades.Contacto;
 /**
  *
  * @author Carlos David Prada Remolina
@@ -23,10 +22,15 @@ public class contactoPortalController implements Serializable {
     private String correo;
     private String asunto;
     private String mensaje;
-    private Investigador contacto;
+    private Contacto emisor;
+    private Contacto recibeCorreo1;
+    private Contacto recibeCorreo2;
+    private Contacto recibeCorreo3;
+    private Contacto recibeCorreo4;
+    private Contacto recibeCorreo5;
     private boolean render = true;
     @EJB
-    private uis.giib.administrador.dao.InvestigadorFacade ejbInvestigador;
+    private uis.giib.administrador.dao.ContactoFacade ejbContacto;
 
     //Constructor
     public contactoPortalController() {
@@ -34,18 +38,22 @@ public class contactoPortalController implements Serializable {
 
     //Métodos de navegación
     public String goContacto() {
-
         return "/portal/contacto.xhtml?faces-redirect=true";
     }
 
     public void sendMail() {
 
-        contacto = ejbInvestigador.buscarPorIDUsuario("contacto");
+        emisor = ejbContacto.buscarPorIDContacto("Emisor");
+        recibeCorreo1 = ejbContacto.buscarPorIDContacto("RecibeCorreo1");
+        recibeCorreo2 = ejbContacto.buscarPorIDContacto("RecibeCorreo2");
+        recibeCorreo3 = ejbContacto.buscarPorIDContacto("RecibeCorreo3");
+        recibeCorreo4 = ejbContacto.buscarPorIDContacto("RecibeCorreo4");
+        recibeCorreo5 = ejbContacto.buscarPorIDContacto("RecibeCorreo5");
         Email email = new SimpleEmail();
 
         try {
-            String correoRemitente = contacto.getCorreoInvestigador();
-            String password = contacto.getContrasenaInvestigador();
+            String correoRemitente = emisor.getCorreoElectronico();
+            String password = emisor.getContrasena();
             email.setSmtpPort(587);
             email.setAuthenticator(new DefaultAuthenticator(correoRemitente, password));
             email.setDebug(true);
@@ -63,7 +71,11 @@ public class contactoPortalController implements Serializable {
                     + "\n\nNombre de Remitente: " + nombre
                     + "\n\nAsunto : " + asunto + "\n\n"
                     + mensaje);
-            email.addTo("carlos.prada.remolina@gmail.com", "Grupo GIIB");
+            email.addTo(recibeCorreo1.getCorreoElectronico(), "Grupo GIIB");
+            email.addTo(recibeCorreo2.getCorreoElectronico(), "Grupo GIIB");
+            email.addTo(recibeCorreo3.getCorreoElectronico(), "Grupo GIIB");
+            email.addTo(recibeCorreo4.getCorreoElectronico(), "Grupo GIIB");
+            email.addTo(recibeCorreo5.getCorreoElectronico(), "Grupo GIIB");
             email.send();
             render = false;
         } catch (EmailException e) {
@@ -80,12 +92,12 @@ public class contactoPortalController implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getMensaje() {
-        return mensaje;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getAsunto() {
@@ -96,28 +108,60 @@ public class contactoPortalController implements Serializable {
         this.asunto = asunto;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getMensaje() {
+        return mensaje;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
-    public Investigador getContacto() {
-        return contacto;
+    public Contacto getEmisor() {
+        return emisor;
     }
 
-    public void setContacto(Investigador contacto) {
-        this.contacto = contacto;
+    public void setEmisor(Contacto emisor) {
+        this.emisor = emisor;
     }
 
-    public uis.giib.administrador.dao.InvestigadorFacade getEjbInvestigador() {
-        return ejbInvestigador;
+    public Contacto getRecibeCorreo1() {
+        return recibeCorreo1;
     }
 
-    public void setEjbInvestigador(uis.giib.administrador.dao.InvestigadorFacade ejbInvestigador) {
-        this.ejbInvestigador = ejbInvestigador;
+    public void setRecibeCorreo1(Contacto recibeCorreo1) {
+        this.recibeCorreo1 = recibeCorreo1;
+    }
+
+    public Contacto getRecibeCorreo2() {
+        return recibeCorreo2;
+    }
+
+    public void setRecibeCorreo2(Contacto recibeCorreo2) {
+        this.recibeCorreo2 = recibeCorreo2;
+    }
+
+    public Contacto getRecibeCorreo3() {
+        return recibeCorreo3;
+    }
+
+    public void setRecibeCorreo3(Contacto recibeCorreo3) {
+        this.recibeCorreo3 = recibeCorreo3;
+    }
+
+    public Contacto getRecibeCorreo4() {
+        return recibeCorreo4;
+    }
+
+    public void setRecibeCorreo4(Contacto recibeCorreo4) {
+        this.recibeCorreo4 = recibeCorreo4;
+    }
+
+    public Contacto getRecibeCorreo5() {
+        return recibeCorreo5;
+    }
+
+    public void setRecibeCorreo5(Contacto recibeCorreo5) {
+        this.recibeCorreo5 = recibeCorreo5;
     }
 
     public boolean isRender() {
@@ -126,5 +170,13 @@ public class contactoPortalController implements Serializable {
 
     public void setRender(boolean render) {
         this.render = render;
+    }
+
+    public uis.giib.administrador.dao.ContactoFacade getEjbContacto() {
+        return ejbContacto;
+    }
+
+    public void setEjbContacto(uis.giib.administrador.dao.ContactoFacade ejbContacto) {
+        this.ejbContacto = ejbContacto;
     }
 }

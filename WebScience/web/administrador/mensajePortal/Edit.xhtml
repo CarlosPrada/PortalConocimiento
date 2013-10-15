@@ -25,7 +25,7 @@
                 <h:panelGrid columns="2">                    
                    
                     <h:outputLabel value="#{bundle.EditMensajePortalLabel_contenidoMensaje}" for="contenidoMensaje" />
-                    <ck:editor value="#{eventoController.selected.contenidoEvento}" width="850px" uiColor="#aed0ea" />
+                    <ck:editor value="#{mensajePortalController.selected.contenidoMensaje}" width="850px" uiColor="#aed0ea" />
                                        
                     <h:outputLabel value="#{bundle.EditMensajePortalLabel_fechaMensaje}" for="fechaMensaje" />
                     <p:calendar value="#{mensajePortalController.selected.fechaMensaje}" showOn="button" pattern="dd/MM/yyyy"/> 

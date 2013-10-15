@@ -14,54 +14,110 @@
 
     <ui:define name="body">
 
-        <div class="article">                                
-            <h1><span>Perfil de Usuario</span></h1>
-        </div>        
+        <div class="titulo">                                
+            Perfil de Usuario
+        </div>
 
         <div class="content"> 
             <div class="mainbarDerecho">
 
-                <h:outputText value="#{bundle.Requerido}" /><br/><br/><br/>
+                <h:outputText styleClass="label" value="#{bundle.Requerido}" /><br/><br/>
 
                 <h:form>
 
                     <h:panelGrid columns="2">
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_contrasenaInvestigador}" for="contrasenaInvestigador" />
-                        <h:inputText id="contrasenaInvestigador" value="#{loginAuthentication.usuarioAutenticado.contrasenaInvestigador}" required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_contrasenaInvestigador}" size="40"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_contrasenaInvestigador}" 
+                                       for="contrasenaInvestigador" />
+                        <h:inputText id="contrasenaInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.contrasenaInvestigador}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditInvestigadorRequiredMessage_contrasenaInvestigador}" 
+                                     size="40"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_nombreInvestigador}" for="nombreInvestigador" />
-                        <h:inputText id="nombreInvestigador" value="#{loginAuthentication.usuarioAutenticado.nombreInvestigador}" required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_nombreInvestigador}" size="40"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_nombreInvestigador}" 
+                                       for="nombreInvestigador" />
+                        <h:inputText id="nombreInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.nombreInvestigador}" 
+                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_nombreInvestigador}" 
+                                     size="40"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_apellidoInvestigador}" for="nombreInvestigador" />
-                        <h:inputText id="apellidoInvestigador" value="#{loginAuthentication.usuarioAutenticado.apellidoInvestigador}"  required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_apellidoInvestigador}" size="40"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_apellidoInvestigador}" 
+                                       for="nombreInvestigador" />
+                        <h:inputText id="apellidoInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.apellidoInvestigador}"  
+                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_apellidoInvestigador}" 
+                                     size="40"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_tituloInvestigador}" for="nombreInvestigador" />
-                        <h:inputText id="tituloInvestigador" value="#{loginAuthentication.usuarioAutenticado.tituloInvestigador}"  size="105"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_tituloInvestigador}" 
+                                       for="nombreInvestigador" />
+                        <h:inputText id="tituloInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.tituloInvestigador}" 
+                                     size="105"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_informacionInvestigador}" for="informacionInvestigador" />
-                        <ck:editor id="informacionInvestigador" value="#{loginAuthentication.usuarioAutenticado.informacionInvestigador}" width="850px" height="150px" uiColor="#aed0ea" requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_informacionInvestigador}"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_informacionInvestigador}" 
+                                       for="informacionInvestigador" />
+                        <ck:editor id="informacionInvestigador" 
+                                   value="#{loginAuthentication.usuarioAutenticado.informacionInvestigador}" 
+                                   width="810px" height="150px" uiColor="#aed0ea" 
+                                   requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_informacionInvestigador}"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_telefonoInvestigador}" for="telefonoInvestigador" />
-                        <h:inputText id="telefonoInvestigador" value="#{loginAuthentication.usuarioAutenticado.telefonoInvestigador}"  size="25"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_telefonoInvestigador}" 
+                                       for="telefonoInvestigador" />
+                        <h:inputText id="telefonoInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.telefonoInvestigador}"  
+                                     size="25"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_celularInvestigador}" for="celularInvestigador" />
-                        <h:inputText id="celularInvestigador" value="#{loginAuthentication.usuarioAutenticado.celularInvestigador}" size="25"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_celularInvestigador}" 
+                                       for="celularInvestigador" />
+                        <h:inputText id="celularInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.celularInvestigador}" 
+                                     size="25"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_correoInvestigador}" for="correoInvestigador" />
-                        <h:inputText id="correoInvestigador" value="#{loginAuthentication.usuarioAutenticado.correoInvestigador}" required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}" size="55"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_correoInvestigador}" 
+                                       for="correoInvestigador" />
+                        <h:inputText id="correoInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.correoInvestigador}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}"
+                                     size="55"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_faxInvestigador}" for="faxInvestigador" />
-                        <h:inputText id="faxInvestigador" value="#{loginAuthentication.usuarioAutenticado.faxInvestigador}" size="45"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_faxInvestigador}" 
+                                       for="faxInvestigador" />
+                        <h:inputText id="faxInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.faxInvestigador}" 
+                                     size="45"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_generoInvestigador}" for="generoInvestigador" />
-                        <h:inputText id="generoInvestigador" value="#{loginAuthentication.usuarioAutenticado.generoInvestigador}" required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}" size="5"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_generoInvestigador}" 
+                                       for="generoInvestigador" />
+                        <h:inputText id="generoInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.generoInvestigador}" 
+                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}" 
+                                     size="5"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_cvlacInvestigador}" for="cvlacInvestigador" />
-                        <h:inputText id="cvlacInvestigador" value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}" size="160" />
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_cvlacInvestigador}" 
+                                       for="cvlacInvestigador" />
+                        <h:inputTextarea rows="5" cols="80" 
+                                         id="cvlacInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
 
-                        <h:outputLabel value="#{bundle.EditInvestigadorLabel_imagenInvestigador}" for="estadoInvestigador" />
-                        <h:inputText id="imagenInvestigador" value="#{loginAuthentication.usuarioAutenticado.imageInvestigadorPath}" size="100"/>
+                        <h:outputLabel styleClass="label" 
+                                       value="#{bundle.EditInvestigadorLabel_imagenInvestigador}" 
+                                       for="estadoInvestigador" />
+                        <h:inputText id="imagenInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.imageInvestigadorPath}" 
+                                     size="100"/>
 
                     </h:panelGrid>
 

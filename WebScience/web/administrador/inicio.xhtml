@@ -5,7 +5,7 @@
     <h:head>
         <title>Administrador de contenido</title>
         <h:outputStylesheet library="css"  name="default.css" />
-      
+
 
     </h:head> 
     <h:body> 
@@ -22,11 +22,11 @@
                         <h:commandLink value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logout()}"  /> 
                     </h:form>
                 </div>
-                
+
                 <div id="path">
                     <p><h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" /> </p>
                 </div> 
-                
+
             </div>
 
             <br clear="all"/> 
@@ -63,6 +63,12 @@
                             <img src="#{resource['images/admin/dash/arrow.gif']}" alt=""/> 
                             <h:link outcome="/administrador/lineaInvestigacion/#{lineaInvestigacionController.prepareList()}" value="Gestión de Líneas de Investigación"/>
                             Permite administrar las líneas de investigación del grupo.
+                        </h:column>
+
+                        <h:column rendered="#{loginAuthentication.arrayRender[5]}">
+                            <img src="#{resource['images/admin/dash/arrow.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/contacto/#{lineaInvestigacionController.prepareList()}" value="Gestión de Contacto"/>
+                            Permite administrar los correos eléctronicos que recibirán las distintas solicitudes.
                         </h:column>
 
                     </h:panelGrid>    

@@ -20,9 +20,6 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListContenidoEmpty}" rendered="#{contenidoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{contenidoController.items.rowCount > 0}">                   
-
                     <p:dataTable value="#{contenidoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
                         
                         <p:column width="150">

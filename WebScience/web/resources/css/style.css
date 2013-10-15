@@ -16,21 +16,52 @@ html, .main {
     font-size:0;
     line-height:0;
 }
+
 h2 {
     margin:8px 0;
     padding:8px 0;
     font-size:30px;
     font-weight:normal;
     color:#353c46;
+}
 
+.titulo {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 30px;
+    font-weight:normal;
+    padding:18px 0 0;
+    font-size:35px;
+    font-family: georgia;
+    line-height:1.6em;
+    color:#1E90FF; 
+    text-transform:uppercase;
+}
+
+.cofirmacion {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight:normal;
+    font-size:20px;
+    font-family: georgia;
+    line-height:1.6em;
+    color:green; 
+}
+
+.cajaContacto {   
+    width: 770px;
+    border: 1px #8b8b8b ridge;
+}
+
+.label {
+    color:#000000
 }
 
 p {
     margin:0 ;
     margin-top: 0;
     padding:0 0 8px 0;
-
-
 }
 
 a {
@@ -95,11 +126,7 @@ p10{
     color:#000000;
 }
 
-p12{
-    font-size: 20px;
-    font-family: serif; 
-    color:#000000;
-}
+
 
 p9{ 
     font-size: 20px; 
@@ -172,7 +199,6 @@ h1 small {
 
 .content {
     padding:0;
-    /*border-bottom:1px solid #abb6b6;*/
 }
 .content_resize {
     margin:0 auto;
@@ -234,12 +260,49 @@ h1 small {
     float:left;
     width:600px;
 }
-.content .mainbar660 {
+
+/* Noticias Index */
+
+.mainbar680 {
     margin:0;
-    padding:0 0 40px 20px;
+    padding:0 0 0px 0px;
     float:left;
-    width:660px;
+    width:680px;
 }
+
+.mainbar680 p1{
+    display: block;
+    text-align:center;
+    font-size: 20px;
+    font-family: serif; 
+    color:#000000;
+}
+
+.mainbar680 h2{
+    text-align:right;
+    font-size: 15px;
+    font-family: serif; 
+    color:#000000;
+}
+
+.mainbar680 .contenedorInterno680 {
+    margin:0;
+    padding:5px 10px 5px 10px;
+    float:left;
+
+}
+
+.imageNoticia{
+    display: block;
+}
+
+.textoNoticia {
+    display: block;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+
 
 .content .mainbarIzquierdo h2 {
     margin-bottom:0;
@@ -298,7 +361,7 @@ h1 small {
     text-align:center;
     font-size:35px;
     line-height:1.6em;
-    color:#1E90FF; /*DodgerBlue */ 
+    color:#1E90FF; 
 }
 .content .mainbar440 h2 {
     margin-bottom:0;
@@ -363,7 +426,6 @@ h4 /*estilo de letra negra */ {
     padding:30px; 
     background-color: #FFFFFF; 
     border: 2px solid #0D2AA1;
-
 }
 
 .mainbarInvestigadores .articleInvestigadores h1{
@@ -401,6 +463,14 @@ h4 /*estilo de letra negra */ {
     color:#161616;
 }
 
+
+/* MENSAJE DEL DÍA */
+
+form .styleGreen {    
+    background-color: #009900 !important;
+    background: #009900 !important;
+    color: #009900 !important;
+}
 .content .sidebar {
     padding:0;
     float:right;
@@ -408,28 +478,38 @@ h4 /*estilo de letra negra */ {
 }
 .content .sidebar .gadget {
     margin:0 0 12px;
-    padding:8px 20px 24px;
+    padding:8px 10px 24px;
     background:#0096da;
 }
 .content .sidebar h2 {
     color:#fdeb67;
+    font-size:25px;
+    text-align:center;
+    font-family:arial; 
     text-transform:uppercase;
 }
-ul.sb_menu, ul.ex_menu {
+ul.sb_menu  {
     margin:0;
     padding:0;
     list-style:none;
-    color:#fff;
+    color:#fff;    
 }
-ul.sb_menu li, ul.ex_menu li {
+ul.sb_menu li  li {
     margin:0;
 }
 ul.sb_menu li {
     padding:8px 0;
     width:220px;
+    font-size:14px;
+    text-align:justify;
+    font-family:arial; 
+    font-weight:bold;
 }
-ul.ex_menu li {
-    padding:4px 0;
+
+ul.sb_menu li h1{
+    font-size:10px;
+    text-align:right;
+    font-family:arial; 
 }
 ul.sb_menu li a {
     color:#fff;
@@ -437,12 +517,7 @@ ul.sb_menu li a {
     margin-left:-16px;
     padding:4px 8px 4px 16px;
 }
-ul.ex_menu li a {
-    font-weight:bold;
-    color:#9cffff;
-    text-decoration:none;
-}
-ul.sb_menu li a:hover, ul.ex_menu li a:hover {
+ul.sb_menu li a:hover  li a:hover {
     color:#fdeb67;
     font-weight:bold;
     text-decoration:underline;
@@ -454,7 +529,6 @@ ul.sb_menu li a:hover, ul.ex_menu li a:hover {
 .content .mainbarIzquierdo ul.sb_menu li a:hover, .content .mainbarDerecho ul.sb_menu li a:hover, .content .mainbar440 ul.sb_menu li a:hover  {
     color:#9cffff;
 }
-
 p.spec {
     padding:0 0 16px;
 }
@@ -477,8 +551,6 @@ p.infopost a {
     color:#8b8b8b;
     background:#1b1b1b;
 }
-
-
 .content .mainbarIzquierdo a.com span, .content .mainbarDerecho a.com span , .content .mainbar440 a.com span  {
     display:block;
     margin:-38px 0;
@@ -490,7 +562,6 @@ p.infopost a {
     text-align:center;
     background:#0096da;
 }
-
 .content .mainbarIzquierdo a.rm, .content .mainbarDerecho a.rm, .content .mainbar440 a.rm {
     float:right;
     margin:0 0 16px;
@@ -502,7 +573,6 @@ p.infopost a {
     text-align:center;
     background:none;
 }
-
 .content p.pages {
     margin:0;
     padding:24px 0;
@@ -530,7 +600,6 @@ p.infopost a {
     margin:0;
     padding:16px 0 0 0;
 }
-
 .content .mainbarIzquierdo .comment img.userpic, .content .mainbarDerecho .comment img.userpic, .content .mainbar440 .comment img.userpic {
     border:1px solid #dedede;
     margin:10px 16px 0 0;
@@ -538,43 +607,42 @@ p.infopost a {
     float:left;
 }
 
+/* PIE DE PÁGINA */
+
 .fbg {
     background:#2b2b2b;
     border-top:2px solid #abb6b6;
-    margin:0px 0 0 0;
+    margin:0 0 0 0;
 }
 .fbg_resize {
     margin:0 auto;
     width:920px;
-    padding:5px 0px;
+    padding:0px 0px;
     color:#6e6e6e;
 }
 .fbg h2 {
+    text-align:left;
+    font-family:arial; 
     color:#ccc;
-    font-size:20px;
-    padding-bottom:10px;
+    font-size:13px; 
+    font-weight:600;
     text-transform:uppercase;
-}
-.fbg img.gal {
-    margin:0 8px 8px 0;
-    padding:0;
-    border:none;
 }
 .fbg .col {
     margin:0;
     float:left;
 }
 .fbg .c1 {
-    padding:0 16px 0 0;
+    padding:0 40px 0 0;
     width:280px;
 }
 .fbg .c2 {
-    padding:0 36px 0 16px;
+    padding:0 0 0 0;
     width:280px;
 }
 .fbg .c3 {
-    padding:0 0 0 16px;
-    width:274px;
+    padding:0 0 0 40px;
+    width:280px;
 }
 .fbg .fbg_ul {
     margin:0;
@@ -586,13 +654,9 @@ p.infopost a {
     padding:0;
     list-style:none;
 }
-.fbg .fbg_ul li a {
-    display:block;
-    margin:0;
-    padding:2px 0 2px 12px;
-    color:#6e6e6e;
+.pieLInk {
+    color:#1E90FF ;
     text-decoration:none;
-    /*background:url(#{resource['images/li.gif']}) no-repeat left center;*/
 }
 .fbg .fbg_ul li a:hover {
     color:#0096da;
@@ -653,7 +717,6 @@ ol li .send {
     width:auto;
     height:30px;
 }
-
 #formsearch input.editbox_search {
     margin:0;
     padding:8px 6px;

@@ -125,6 +125,7 @@ public class LoginAuthentication implements Serializable {
                 this.arrayRender[2] = true;
                 this.arrayRender[3] = true;
                 this.arrayRender[4] = true;
+                this.arrayRender[5] = true;
 
             } else {
                 if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
@@ -133,6 +134,7 @@ public class LoginAuthentication implements Serializable {
                     this.arrayRender[2] = true;
                     this.arrayRender[3] = false;
                     this.arrayRender[4] = false;
+                    this.arrayRender[5] = false;
 
                 } else {
                     this.usuarioAutenticado = null;
@@ -141,6 +143,7 @@ public class LoginAuthentication implements Serializable {
                     this.arrayRender[2] = false;
                     this.arrayRender[3] = false;
                     this.arrayRender[4] = false;
+                    this.arrayRender[5] = false;
                 }
             }
         }

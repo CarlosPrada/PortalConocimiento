@@ -35,46 +35,45 @@
                         <ui:insert name="logo">
                             <h:form>                            
                                 <h1>  
-                                    <h:link outcome="index.jsf" ><h:graphicImage width="660" height="80" value="#{resource['images/portal/logonn.png']}"  /></h:link>                               
+                                    <h:link outcome="index.jsf" ><h:graphicImage width="660" height="80" value="#{resource['images/portal/slide1.jpg']}"  /></h:link>                               
                                 </h1>
                             </h:form>
                         </ui:insert>
-
-                        <!--Facebook - Twitter-->
-                        <h:form>
-                            <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[1].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/twitt.png']}"  /></h:outputLink >
-                            <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[0].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/facebookk.png']}"  /></h:outputLink >
-                        </h:form>
-
                     </div>
-                    
+
                     <!--LOGIN USUARIO-->
 
                     <div align="right">
 
                         <h:form rendered="#{!loginAuthentication.loggedIn}">
-                            <h:panelGrid columns="2" cellpadding="5" >  
+                            <h:panelGrid columns="1" cellpadding="0" >  
 
-                                <h:outputLabel for="usuario" value="Usuario:" />                                     
                                 <p:inputText id="usuario" value="#{loginAuthentication.usuario.usuarioInvestigador}" required="true"  requiredMessage="Debe digitar su usuario." size="25" />  
-
-                                <h:outputLabel for="contrasena" value="Contrase&ntilde;a:" />                                              
+                                <p:watermark for="usuario" value="Usuario" />                                          
                                 <p:password id="contrasena" value="#{loginAuthentication.usuario.contrasenaInvestigador}" required="true"  requiredMessage="Debe digitar su contrase&ntilde;a." size="25"/>  
-
-                                <div class="buttondiv">
-                                    <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión"  update="loginForm, :logoutForm"/>
-                                </div>  
+                                <p:watermark for="contrasena" value="Contraseña" />    
+                                <p:commandButton ajax="false" action="#{loginAuthentication.loginPortal()}" value="Iniciar Sesión"  update="loginForm, :logoutForm"/>
 
                             </h:panelGrid> 
                         </h:form >
 
-                        <h:form id="logoutForm" rendered="#{loginAuthentication.loggedIn}">                           
-                            <h:panelGrid columns="2" cellpadding="5" >  
+                        <h:form id="logoutForm" rendered="#{loginAuthentication.loggedIn}"> 
+                            <br/><br/>
+                            <h:panelGrid columns="1" cellpadding="0" >  
 
-                                <h:outputText value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador}" />
-                                <p:commandLink value="(Editar Perfil)" action="#{loginAuthentication.goEditarPerfil()}"  /> 
-                                <p:commandLink ajax="false" value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logoutPortal()}" update=":loginForm, logoutForm" /> 
+                                <p:column>
+                                    <h:outputText styleClass="label" value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador} &nbsp; &nbsp; &nbsp;" />
+                                </p:column>
 
+                                <p:column>
+                                    <h:graphicImage url="#{resource['images/admin/dash/logout.png']}" width="16" />
+                                    <p:commandLink styleClass="pieLInk" ajax="false" value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logoutPortal()}" update=":loginForm, logoutForm" /> 
+                                </p:column>
+
+                                <p:column>
+                                    <p:commandLink styleClass="pieLInk" value="Editar Perfil" action="#{loginAuthentication.goEditarPerfil()}"  /> 
+                                </p:column>
+                                
                             </h:panelGrid>
                         </h:form>
 
@@ -175,26 +174,26 @@
             <div class="fbg">
                 <div class="fbg_resize">
                     <div class="col c1">
-                        <h2><span>Enlaces Institucionales</span></h2>
-                        <ul class="fbg_ul">
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[0].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[0].nombreEnlace}</h:outputLink><br/> 
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[1].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[1].nombreEnlace}</h:outputLink> 
+                        <h2>Enlaces Institucionales</h2>
+                        <ul>
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[0].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[0].nombreEnlace}</h:outputLink><br/> 
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[1].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[1].nombreEnlace}</h:outputLink> 
                         </ul>
                     </div>
                     <div class="col c2">
                         <h2>Grupos de investigación EISI</h2>
-                        <ul class="fbg_ul">
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[2].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[2].nombreEnlace}</h:outputLink><br/> 
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[3].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[3].nombreEnlace}</h:outputLink> 
+                        <ul>
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[2].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[2].nombreEnlace}</h:outputLink><br/> 
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[3].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[3].nombreEnlace}</h:outputLink> 
                         </ul>
 
                     </div>  
 
                     <div class="col c3">
                         <h2>Grupos de investigación UIS</h2>
-                        <ul class="fbg_ul">
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[4].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[4].nombreEnlace}</h:outputLink><br/>
-                            <h:outputLink value="#{enlacesWebPC.enlacesPie[5].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[5].nombreEnlace}</h:outputLink> 
+                        <ul>
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[4].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[4].nombreEnlace}</h:outputLink><br/>
+                            <h:outputLink styleClass="pieLInk" value="#{enlacesWebPC.enlacesPie[5].enlace}" target="_blank" >#{enlacesWebPC.enlacesPie[5].nombreEnlace}</h:outputLink> 
                         </ul>
                     </div>
 
@@ -204,6 +203,14 @@
             <div class="footer">
                 <div class="footer_resize">
                     <p class="lf">&copy; Sitio web del Grupo  GIIB. Copyright. Todos los derechos reservados.  </p>
+
+
+                    <!--Facebook - Twitter-->
+                    <h:form>
+                        <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[1].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/twitt.png']}"  /></h:outputLink >
+                        <h:outputLink value="#{enlacesWebPC.enlacesRedesSociales[0].enlace}" target="_blank" ><h:graphicImage  value="#{resource['images/portal/facebookk.png']}"  /></h:outputLink >
+                    </h:form>
+
                     <div style="clear:both;"></div>
                 </div>
             </div>

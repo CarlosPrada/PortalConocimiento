@@ -11,52 +11,49 @@
 
     <ui:define name="body">
 
-        <div class="mainbar660">
-            <div class="article">
+        <div class="mainbar680">   
+            <h:form>  
 
-                <h:form>  
+                <p:dataGrid columns="1" rows="3" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros" >
+                    <div class="contenedorInterno680"> 
+                        <br/><p1><h:outputText value="#{noticias.tituloNoticia}" escape="false" /></p1><br/>                  
+                        
+                        <center>
+                            <h:graphicImage styleClass="imageInLine" alt="" width="400" height="180" url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
+                        </center>
+                        
+                        <h:outputText  styleClass="textoNoticia" value="#{noticias.contenidoNoticia}" escape="false" />
+                        
+                        <h2>
+                            <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
+                                <f:convertDateTime pattern="yyyy/MM/dd" />
+                            </h:outputText> 
+                        </h2>
+                        
+                        <p:separator /><p:separator />
+                    </div > 
+                </p:dataGrid>
 
-                    <p:dataGrid columns="1" rows="3" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros">
-                        <br/>
-                        <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
-                        <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
-                            <f:convertDateTime pattern="yyyy/MM/dd" />
-                        </h:outputText> <br/><br/>
-                        <h:graphicImage alt="" width="200" height="240" url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
-                        <h:outputText value="#{noticias.contenidoNoticia}" escape="false" /><br/><br/>
-                        <p:separator />
-                        <p:separator />
-                    </p:dataGrid>
-
-                </h:form> 
-
-            </div>
+            </h:form> 
         </div>
 
         <div class="sidebar">
             <div class="gadget">
-                <h2 class="star"><span></span>MENSAJE DEL DIA</h2>
-                <div class="clr"></div>
+                <h2 >Mensaje Del Día</h2>                
                 <ul class="sb_menu">
-
-                    <p:dataGrid  rows="3" columns="1" value="#{mensajePC.listadoMensajesPortal}"  emptyMessage="No se encontraton registros" var="mensaje" >
-                        <li>
-                            <p12><h:outputText value="#{mensaje.contenidoMensaje}" escape="false" /> </p12><br/>
-                            <h:outputText value="#{mensaje.fechaMensaje}" escape="false" >
-                                <f:convertDateTime pattern="yyyy/MM/dd" />
-                            </h:outputText> <br/><br/>
-                            <p:separator />
-                        </li>
-                    </p:dataGrid>
-
-                </ul>
-            </div>
-
-            <div class="gadget">
-                <h2 class="star"><span>AQUI VA IR EVENTOS</span></h2>
-                <div class="clr"></div>
-                <ul class="ex_menu">
-                    <li><a href="">Destacado</a><br /></li>
+                    <h:form>
+                        <p:dataGrid  styleClass="styleGreen" rows="3" columns="1" value="#{mensajePC.listadoMensajesPortal}"  emptyMessage="No se encontraton registros" var="mensaje" >
+                            <li>
+                                <h:outputText value="#{mensaje.contenidoMensaje}" escape="false" />
+                                <h1>
+                                    <h:outputText value="#{mensaje.fechaMensaje}" escape="false" >
+                                        <f:convertDateTime pattern="yyyy/MM/dd" />
+                                    </h:outputText> 
+                                </h1>
+                                <p:separator />
+                            </li>
+                        </p:dataGrid>
+                    </h:form>
                 </ul>
             </div>
         </div>
