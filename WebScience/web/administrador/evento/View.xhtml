@@ -22,31 +22,44 @@
                 <p:panelGrid columns="2">
                                       
                     <h:outputText value="#{bundle.ViewEventoLabel_nombreEvento}"/>
-                    <h:outputText value="#{eventoController.selected.nombreEvento}" title="#{bundle.ViewEventoTitle_nombreEvento}"/>
+                    <h:outputText value="#{eventoController.selected.nombreEvento}" 
+                                  title="#{bundle.ViewEventoTitle_nombreEvento}"/>
                     
                     <h:outputText value="#{bundle.ViewEventoLabel_contenidoEvento}"/>
-                    <h:outputText value="#{eventoController.selected.contenidoEvento}" title="#{bundle.ViewEventoTitle_contenidoEvento}" escape="false"/>
+                    <h:outputText value="#{eventoController.selected.contenidoEvento}" 
+                                  title="#{bundle.ViewEventoTitle_contenidoEvento}" escape="false"/>
                    
                     <h:outputText value="#{bundle.ViewEventoLabel_fechaInicio}"/>
-                    <h:outputText value="#{eventoController.selected.fechaInicio}" title="#{bundle.ViewEventoTitle_fechaInicio}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{eventoController.selected.fechaInicio}" 
+                                  title="#{bundle.ViewEventoTitle_fechaInicio}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="#{bundle.ViewEventoLabel_fechaFin}"/>
-                    <h:outputText value="#{eventoController.selected.fechaFin}" title="#{bundle.ViewEventoTitle_fechaFin}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{eventoController.selected.fechaFin}" 
+                                  title="#{bundle.ViewEventoTitle_fechaFin}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="#{bundle.ViewEventoLabel_idEstado}"/>
-                    <h:outputText value="#{eventoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewEventoTitle_idEstado}"/>
+                    <h:outputText value="#{eventoController.selected.idEstado.nombreEstado}" 
+                                  title="#{bundle.ViewEventoTitle_idEstado}"/>
                
                 </p:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewEventoEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewEventoEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{eventoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewEventoCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{eventoController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewEventoCreateLink}" />
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="#{eventoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewEventoShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{eventoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewEventoShowAllLink}"/>
 
             </h:form>
         </ui:define>

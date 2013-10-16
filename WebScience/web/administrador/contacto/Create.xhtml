@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -16,11 +17,11 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateContactoLabel_idContacto}" for="idContacto" />
-                    <h:inputText id="idContacto" value="#{contactoController.selected.idContacto}" title="#{bundle.CreateContactoTitle_idContacto}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_idContacto}"/>
+                    <p:inputText id="idContacto" value="#{contactoController.selected.idContacto}" title="#{bundle.CreateContactoTitle_idContacto}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_idContacto}"/>
                     <h:outputLabel value="#{bundle.CreateContactoLabel_correoElectronico}" for="correoElectronico" />
-                    <h:inputText id="correoElectronico" value="#{contactoController.selected.correoElectronico}" title="#{bundle.CreateContactoTitle_correoElectronico}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_correoElectronico}"/>
+                    <p:inputText id="correoElectronico" value="#{contactoController.selected.correoElectronico}" title="#{bundle.CreateContactoTitle_correoElectronico}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_correoElectronico}"/>
                     <h:outputLabel value="#{bundle.CreateContactoLabel_contrasena}" for="contrasena" />
-                    <h:inputText id="contrasena" value="#{contactoController.selected.contrasena}" title="#{bundle.CreateContactoTitle_contrasena}" />
+                    <p:inputText id="contrasena" value="#{contactoController.selected.contrasena}" title="#{bundle.CreateContactoTitle_contrasena}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{contactoController.create}" value="#{bundle.CreateContactoSaveLink}" />

@@ -19,18 +19,21 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListEventoEmpty}" rendered="#{eventoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{eventoController.items.rowCount > 0}">
-
                     <p:dataTable value="#{eventoController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
 
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{eventoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListEventoViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{eventoController.prepareView}" 
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListEventoViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{eventoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListEventoEditLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{eventoController.prepareEdit}" 
+                                             icon="ui-icon-pencil"  
+                                             value="#{bundle.ListEventoEditLink}"/>
                         </p:column>
 
                         <p:column width="250">
@@ -47,21 +50,21 @@
                             <h:outputText value="#{item.contenidoEvento}"/>
                         </p:column>
 
-                        <p:column width="100">
+                        <p:column width="140">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEventoTitle_fechaInicio}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaInicio}">
-                                <f:convertDateTime dateStyle="short"/>
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
                             </h:outputText>
                         </p:column>
 
-                        <p:column width="100">
+                        <p:column width="140">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEventoTitle_fechaFin}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaFin}">
-                                <f:convertDateTime dateStyle="short" />
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
                             </h:outputText>
                         </p:column>
 
@@ -73,11 +76,17 @@
                         </p:column>
 
                     </p:dataTable>
-                </h:panelGroup>
+                
                 <br />
-                <p:commandButton ajax="false" action="#{eventoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListEventoCreateLink}"/>
-                <br /><br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{eventoController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListEventoCreateLink}"/>
+                <br /><br />
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexContenido" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

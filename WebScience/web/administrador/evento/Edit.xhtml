@@ -19,33 +19,56 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditEventoLabel_nombreEvento}" for="nombreEvento" />
-                    <h:inputText id="nombreEvento" value="#{eventoController.selected.nombreEvento}" title="#{bundle.EditEventoTitle_nombreEvento}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_nombreEvento}"/>
+                    <p:inputText id="nombreEvento" 
+                                 value="#{eventoController.selected.nombreEvento}" 
+                                 title="#{bundle.EditEventoTitle_nombreEvento}"
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditEventoRequiredMessage_nombreEvento}"/>
 
                     <h:outputLabel value="#{bundle.EditEventoLabel_contenidoEvento}" for="contenidoEvento" />
-                    <ck:editor value="#{eventoController.selected.contenidoEvento}" width="850px" uiColor="#aed0ea" />
+                    <ck:editor value="#{eventoController.selected.contenidoEvento}" 
+                               width="810px" uiColor="#aed0ea" />
 
                     <h:outputLabel value="#{bundle.EditEventoLabel_fechaInicio}" for="fechaInicio" />
-                    <h:inputText id="fechaInicio" value="#{eventoController.selected.fechaInicio}" title="#{bundle.EditEventoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fechaInicio}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    <p:calendar value="#{eventoController.selected.fechaInicio}" 
+                                showOn="button" 
+                                pattern="dd/MM/yyyy"
+                                required="true" 
+                                requiredMessage="#{bundle.EditEventoRequiredMessage_fechaInicio}"/> 
 
                     <h:outputLabel value="#{bundle.EditEventoLabel_fechaFin}" for="fechaFin" />
-                    <h:inputText id="fechaFin" value="#{eventoController.selected.fechaFin}" title="#{bundle.EditEventoTitle_fechaFin}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fechaFin}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    <p:calendar value="#{eventoController.selected.fechaFin}" 
+                                showOn="button" 
+                                pattern="dd/MM/yyyy"
+                                required="true" 
+                                requiredMessage="#{bundle.EditEventoRequiredMessage_fechaFin}"/> 
 
                     <h:outputLabel value="#{bundle.EditEventoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{eventoController.selected.idEstado}" title="#{bundle.EditEventoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idEstado}">
+                    <h:selectOneMenu id="idEstado" 
+                                     value="#{eventoController.selected.idEstado}" 
+                                     title="#{bundle.EditEventoTitle_idEstado}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditEventoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
 
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{eventoController.update}" icon="ui-icon-disk" value="#{bundle.EditEventoSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{eventoController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditEventoSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditEventoViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View"
+                                 icon="ui-icon-search"
+                                 value="#{bundle.EditEventoViewLink}"/>
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="#{eventoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditEventoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{eventoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.EditEventoShowAllLink}" 
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

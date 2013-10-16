@@ -26,16 +26,16 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_nombreLineaInvestigacion}" for="nombreLineaInvestigacion" />
-                    <h:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}" size="55"/>
+                    <p:inputText id="nombreLineaInvestigacion" value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_nombreLineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_nombreLineaInvestigacion}" size="55"/>
 
                     <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_descripcionLineaInvestigacion}" for="descripcionLineaInvestigacion" />
-                    <ck:editor id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" width="850px" uiColor="#aed0ea" />
+                    <ck:editor id="descripcionLineaInvestigacion" value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" width="810px" uiColor="#aed0ea" />
 
                     <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_detalleLineaInvestigacion}" for="detallelineadeinvestigacion" />
-                    <ck:editor id="detalleLineaInvestigacion" value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" width="850px" uiColor="#aed0ea"  />
+                    <ck:editor id="detalleLineaInvestigacion" value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" width="810px" uiColor="#aed0ea"  />
                     
                     <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_imagenLineaInvestigacion}" for="imagenLineaInvestigacion" />
-                    <h:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_imagenLineaInvestigacion}" size="105"/>
+                    <p:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.EditLineaInvestigacionTitle_imagenLineaInvestigacion}" size="105"/>
 
                     <h:outputLabel value="#{bundle.EditLineaInvestigacionLabel_idEstado}" />
                     <h:selectOneMenu id="idEstado" value="#{lineaInvestigacionController.selected.idEstado}"  required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_idEstado}">

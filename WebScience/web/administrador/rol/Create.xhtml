@@ -24,7 +24,7 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.CreateRolLabel_nombreRol}" for="nombreRol" />
-                    <h:inputText id="nombreRol" value="#{rolController.selected.nombreRol}" title="#{bundle.CreateRolTitle_nombreRol}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_nombreRol}" size="50"/>
+                    <p:inputText id="nombreRol" value="#{rolController.selected.nombreRol}" title="#{bundle.CreateRolTitle_nombreRol}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_nombreRol}" size="50"/>
 
                     <h:outputLabel value="#{bundle.CreateRolLabel_descripcionRol}" for="descripcionRol" />
                     <h:inputTextarea rows="5" cols="60" value="#{rolController.selected.descripcionRol}" />

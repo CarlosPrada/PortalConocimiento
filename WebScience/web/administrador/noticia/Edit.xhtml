@@ -25,16 +25,16 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_tituloNoticia}" for="tituloNoticia" />
-                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" width="850px" uiColor="#aed0ea" />
+                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" width="810px" uiColor="#aed0ea" />
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_contenidoNoticia}" for="contenidoNoticia" />
-                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" width="850px" uiColor="#aed0ea" />
+                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" width="810px" uiColor="#aed0ea" />
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_fechaPublicacionNoticia}" for="fechaPublicacionNoticia" />
                     <p:calendar value="#{noticiaController.selected.fechaPublicacionNoticia}" showOn="button" pattern="dd/MM/yyyy"/> 
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_imagenNoticia}"/>
-                    <h:inputText id="idNoticia" value="#{noticiaController.selected.imagenNoticia}" />
+                    <p:inputText id="idNoticia" value="#{noticiaController.selected.imagenNoticia}" />
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{noticiaController.selected.idEstado}" title="#{bundle.EditNoticiaTitle_idEstado}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_idEstado}">

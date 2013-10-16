@@ -33,7 +33,7 @@
                     <h:inputTextarea rows="10" cols="90" value="#{herramientaSoftwareController.selected.descripcionHerramienta}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_descripcionHerramienta}"/>
 
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_imagenHerramienta}" for="imagenHerramienta" />
-                    <h:inputText id="imagenHerramienta" value="#{herramientaSoftwareController.selected.imagenHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_imagenHerramienta}" />
+                    <p:inputText id="imagenHerramienta" value="#{herramientaSoftwareController.selected.imagenHerramienta}" title="#{bundle.CreateHerramientaSoftwareTitle_imagenHerramienta}" />
 
                     <h:outputLabel value="#{bundle.CreateHerramientaSoftwareLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" value="#{herramientaSoftwareController.selected.idEstado}" title="#{bundle.CreateHerramientaSoftwareTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateHerramientaSoftwareRequiredMessage_idEstado}">

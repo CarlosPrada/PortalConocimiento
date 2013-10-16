@@ -28,19 +28,19 @@
                     <h:inputTextarea rows="3" cols="70" id="nombreProyecto" value="#{proyectoController.selected.nombreProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_nombreProyecto}"/>
                     
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_descripcionResumidaProyecto}" for="descripcionResumidaProyecto" />
-                    <h:inputText id="descripcionResumidaProyecto" value="#{proyectoController.selected.descripcionResumidaProyecto}" title="#{bundle.CreateProyectoTitle_descripcionResumidaProyecto}" size="100"/>
+                    <p:inputText id="descripcionResumidaProyecto" value="#{proyectoController.selected.descripcionResumidaProyecto}" title="#{bundle.CreateProyectoTitle_descripcionResumidaProyecto}" size="100"/>
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_descripcionDetalladaProyecto}" for="descripcionDetalladaProyecto" />
-                    <ck:editor id="descripcionDetalladaProyecto" value="#{proyectoController.selected.descripcionDetalladaProyecto}" width="850px" uiColor="#aed0ea"  />
+                    <ck:editor id="descripcionDetalladaProyecto" value="#{proyectoController.selected.descripcionDetalladaProyecto}" width="810px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_objetivosProyecto}" for="objetivosProyecto" />
-                    <ck:editor id="objetivosProyecto" value="#{proyectoController.selected.objetivosProyecto}" width="850px" uiColor="#aed0ea"  />
+                    <ck:editor id="objetivosProyecto" value="#{proyectoController.selected.objetivosProyecto}" width="810px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_resultadosProyecto}" for="resultadosProyecto" />
-                    <ck:editor id="resultadosProyecto" value="#{proyectoController.selected.resultadosProyecto}" width="850px" uiColor="#aed0ea"  />
+                    <ck:editor id="resultadosProyecto" value="#{proyectoController.selected.resultadosProyecto}" width="810px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_imagenProyecto}" for="imagenProyecto" />
-                    <h:inputText id="imagenProyecto" value="#{proyectoController.selected.imagenProyecto}" title="#{bundle.CreateProyectoTitle_imagenProyecto}" size="55"/>
+                    <p:inputText id="imagenProyecto" value="#{proyectoController.selected.imagenProyecto}" title="#{bundle.CreateProyectoTitle_imagenProyecto}" size="55"/>
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_idTipoProyecto}" for="idTipoProyecto" />
                     <h:selectOneMenu id="idTipoProyecto" value="#{proyectoController.selected.idTipoProyecto}" title="#{bundle.CreateProyectoTitle_idTipoProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_idTipoProyecto}">

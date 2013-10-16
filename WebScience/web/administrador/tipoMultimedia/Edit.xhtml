@@ -24,7 +24,7 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditTipoMultimediaLabel_nombreTipoMultimedia}" for="nombreTipoMultimedia" />
-                    <h:inputText id="nombreTipoMultimedia" value="#{tipoMultimediaController.selected.nombreTipoMultimedia}" title="#{bundle.EditTipoMultimediaTitle_nombreTipoMultimedia}" required="true" requiredMessage="#{bundle.EditTipoMultimediaRequiredMessage_nombreTipoMultimedia}" size="55"/>
+                    <p:inputText id="nombreTipoMultimedia" value="#{tipoMultimediaController.selected.nombreTipoMultimedia}" title="#{bundle.EditTipoMultimediaTitle_nombreTipoMultimedia}" required="true" requiredMessage="#{bundle.EditTipoMultimediaRequiredMessage_nombreTipoMultimedia}" size="55"/>
 
                 </h:panelGrid>
                 <p:commandButton ajax="false" action="#{tipoMultimediaController.update}" icon="ui-icon-disk" value="#{bundle.EditTipoMultimediaSaveLink}"/>

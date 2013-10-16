@@ -17,13 +17,13 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditSeccionLabel_idSeccion}" for="idSeccion" />
-                    <h:inputText id="idSeccion" value="#{seccionController.selected.idSeccion}" title="#{bundle.EditSeccionTitle_idSeccion}" required="true" requiredMessage="#{bundle.EditSeccionRequiredMessage_idSeccion}"/>
+                    <p:inputText id="idSeccion" value="#{seccionController.selected.idSeccion}" title="#{bundle.EditSeccionTitle_idSeccion}" required="true" requiredMessage="#{bundle.EditSeccionRequiredMessage_idSeccion}"/>
                     <h:outputLabel value="#{bundle.EditSeccionLabel_nombreSeccion}" for="nombreSeccion" />
-                    <h:inputText id="nombreSeccion" value="#{seccionController.selected.nombreSeccion}" title="#{bundle.EditSeccionTitle_nombreSeccion}" required="true" requiredMessage="#{bundle.EditSeccionRequiredMessage_nombreSeccion}"/>
+                    <p:inputText id="nombreSeccion" value="#{seccionController.selected.nombreSeccion}" title="#{bundle.EditSeccionTitle_nombreSeccion}" required="true" requiredMessage="#{bundle.EditSeccionRequiredMessage_nombreSeccion}"/>
                     <h:outputLabel value="#{bundle.EditSeccionLabel_estadoSeccion}" for="estadoSeccion" />
-                    <h:inputText id="estadoSeccion" value="#{seccionController.selected.estadoSeccion}" title="#{bundle.EditSeccionTitle_estadoSeccion}" />
+                    <p:inputText id="estadoSeccion" value="#{seccionController.selected.estadoSeccion}" title="#{bundle.EditSeccionTitle_estadoSeccion}" />
                     <h:outputLabel value="#{bundle.EditSeccionLabel_eliminadoSeccion}" for="eliminadoSeccion" />
-                    <h:inputText id="eliminadoSeccion" value="#{seccionController.selected.eliminadoSeccion}" title="#{bundle.EditSeccionTitle_eliminadoSeccion}" />
+                    <p:inputText id="eliminadoSeccion" value="#{seccionController.selected.eliminadoSeccion}" title="#{bundle.EditSeccionTitle_eliminadoSeccion}" />
                 </h:panelGrid>
                 <p:commandButton ajax="false" action="#{seccionController.update}" icon="ui-icon-disk" value="#{bundle.EditSeccionSaveLink}"/>
                 <br />

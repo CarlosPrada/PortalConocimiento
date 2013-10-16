@@ -25,10 +25,10 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
-                    <h:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.CreateProductoProyectoTitle_nombreProducto}"  size="155"/>
+                    <p:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.CreateProductoProyectoTitle_nombreProducto}"  size="155"/>
 
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_descripcionProducto}" for="descripcionProducto" />
-                    <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="850px" uiColor="#aed0ea"  />
+                    <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="810px" uiColor="#aed0ea"  />
 
                     <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
                     <h:inputTextarea rows="7" cols="80" value="#{productoProyectoController.selected.enlaceProducto}" />

@@ -18,11 +18,13 @@
             Perfil de Usuario
         </div>
 
-        <div class="content"> 
-            <div class="mainbarDerecho">
 
-                <h:outputText styleClass="label" value="#{bundle.Requerido}" /><br/><br/>
+        <div align="center">
+            <div class="cajaeditarPerfil">
 
+                <div align="left">
+                    <h:outputText styleClass="label" value="#{bundle.Requerido}" /><br/><br/>
+                </div>
                 <h:form>
 
                     <h:panelGrid columns="2">
@@ -30,7 +32,7 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_contrasenaInvestigador}" 
                                        for="contrasenaInvestigador" />
-                        <h:inputText id="contrasenaInvestigador" 
+                        <p:inputText id="contrasenaInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.contrasenaInvestigador}" 
                                      required="true" 
                                      requiredMessage="#{bundle.EditInvestigadorRequiredMessage_contrasenaInvestigador}" 
@@ -39,7 +41,7 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_nombreInvestigador}" 
                                        for="nombreInvestigador" />
-                        <h:inputText id="nombreInvestigador" 
+                        <p:inputText id="nombreInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.nombreInvestigador}" 
                                      required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_nombreInvestigador}" 
                                      size="40"/>
@@ -47,7 +49,7 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_apellidoInvestigador}" 
                                        for="nombreInvestigador" />
-                        <h:inputText id="apellidoInvestigador" 
+                        <p:inputText id="apellidoInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.apellidoInvestigador}"  
                                      required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_apellidoInvestigador}" 
                                      size="40"/>
@@ -55,9 +57,9 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_tituloInvestigador}" 
                                        for="nombreInvestigador" />
-                        <h:inputText id="tituloInvestigador" 
+                        <p:inputText id="tituloInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.tituloInvestigador}" 
-                                     size="105"/>
+                                     size="80"/>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_informacionInvestigador}" 
@@ -70,37 +72,41 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_telefonoInvestigador}" 
                                        for="telefonoInvestigador" />
-                        <h:inputText id="telefonoInvestigador" 
+                        <p:inputText id="telefonoInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.telefonoInvestigador}"  
                                      size="25"/>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_celularInvestigador}" 
                                        for="celularInvestigador" />
-                        <h:inputText id="celularInvestigador" 
+                        <p:inputText id="celularInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.celularInvestigador}" 
                                      size="25"/>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_correoInvestigador}" 
                                        for="correoInvestigador" />
-                        <h:inputText id="correoInvestigador" 
+                        <p:inputText id="correoInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.correoInvestigador}" 
                                      required="true" 
                                      requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}"
-                                     size="55"/>
+                                     size="40"
+                                     validatorMessage="Formato de email inválido">
+                            <f:validateRegex
+                                pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        </p:inputText>  
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_faxInvestigador}" 
                                        for="faxInvestigador" />
-                        <h:inputText id="faxInvestigador" 
+                        <p:inputText id="faxInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.faxInvestigador}" 
-                                     size="45"/>
+                                     size="40"/>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_generoInvestigador}" 
                                        for="generoInvestigador" />
-                        <h:inputText id="generoInvestigador" 
+                        <p:inputText id="generoInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.generoInvestigador}" 
                                      required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}" 
                                      size="5"/>
@@ -110,23 +116,23 @@
                                        for="cvlacInvestigador" />
                         <h:inputTextarea rows="5" cols="80" 
                                          id="cvlacInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
+                                         value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_imagenInvestigador}" 
                                        for="estadoInvestigador" />
-                        <h:inputText id="imagenInvestigador" 
+                        <p:inputText id="imagenInvestigador" 
                                      value="#{loginAuthentication.usuarioAutenticado.imageInvestigadorPath}" 
-                                     size="100"/>
-
+                                     size="50"/>
+                        <br/><br/>
+                        <div class="buttondiv">                            
+                            <p:commandButton ajax="false" 
+                                             action="#{loginAuthentication.update}" 
+                                             value="#{bundle.EditInvestigadorSaveLink}"/>
+                        </div>
                     </h:panelGrid>
-
-                    <br/>
-                    <h:commandLink action="#{loginAuthentication.update}" value="#{bundle.EditInvestigadorSaveLink}"/>
-
-                </h:form>  
-
-            </div>          
+                </h:form> 
+            </div>
         </div>
 
     </ui:define>
