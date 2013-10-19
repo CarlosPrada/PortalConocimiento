@@ -19,6 +19,10 @@ public class AdministradorPortalController implements Serializable {
     public AdministradorPortalController() {
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String goAdministrar(){
         try{
         }catch(Exception e){

@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Bibliografia.findByNombreBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.nombreBibliografia = :nombreBibliografia"),
     @NamedQuery(name = "Bibliografia.findByAñoBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.agnoBibliografia = :agnoBibliografia"),
     @NamedQuery(name = "Bibliografia.findByReferenciaBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.referenciaBibliografia = :referenciaBibliografia"),
+    @NamedQuery(name = "Bibliografia.findBibliografiaByBuscador", query = "SELECT bibli FROM Bibliografia bibli WHERE bibli.referenciaBibliografia LIKE :buscar"),
     @NamedQuery(name = "Bibliografia.findBibliografiaByEstado", query = "SELECT bibli FROM Bibliografia bibli JOIN bibli.idEstado bibliest WHERE bibliest.idEstado = 1"),
     @NamedQuery(name = "Bibliografia.findByUrlBibliografia", query = "SELECT b FROM Bibliografia b WHERE b.urlBibliografia = :urlBibliografia")})
 public class Bibliografia implements Serializable {

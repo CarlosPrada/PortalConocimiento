@@ -35,4 +35,14 @@ public class BibliografiaFacade extends AbstractFacade<Bibliografia> {
             return null;
         }
     }
+
+    public List<Bibliografia> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("Bibliografia.findBibliografiaByBuscador");
+            query.setParameter("buscar","%" + buscar + "%" );
+            return (List<Bibliografia>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

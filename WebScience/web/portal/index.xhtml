@@ -14,22 +14,30 @@
         <div class="mainbar680">   
             <h:form>  
 
-                <p:dataGrid columns="1" rows="3" paginator="true" value="#{noticiasPC.listadoNoticias}" var="noticias"  emptyMessage="No se encontraron registros" >
+                <p:dataGrid columns="1" rows="3" paginator="true" 
+                            value="#{noticiasPC.listadoNoticias}" 
+                            var="noticias"  
+                            emptyMessage="No se encontraron registros" >
+                    
                     <div class="contenedorInterno680"> 
                         <br/><p1><h:outputText value="#{noticias.tituloNoticia}" escape="false" /></p1><br/>                  
-                        
+
                         <center>
-                            <h:graphicImage styleClass="imageInLine" alt="" width="400" height="180" url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
+                            <h:graphicImage styleClass="imageInLine" 
+                                            width="400" height="180" 
+                                            url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
                         </center>
-                        
-                        <h:outputText  styleClass="textoNoticia" value="#{noticias.contenidoNoticia}" escape="false" />
-                        
+
+                        <h:outputText  styleClass="textoNoticia" 
+                                       value="#{noticias.contenidoNoticia}" 
+                                       escape="false" />
+
                         <h2>
                             <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
                                 <f:convertDateTime pattern="yyyy/MM/dd" />
                             </h:outputText> 
                         </h2>
-                        
+
                         <p:separator /><p:separator />
                     </div > 
                 </p:dataGrid>
@@ -38,11 +46,82 @@
         </div>
 
         <div class="sidebar">
+            
+            <!--LOGIN USUARIO-->
+
+            <div align="left">
+
+                <h:form rendered="#{!loginAuthentication.loggedIn}">
+                    <h:panelGrid columns="1" cellpadding="0" >  
+
+                        <p:inputText id="usuario" 
+                                     value="#{loginAuthentication.usuario.usuarioInvestigador}" 
+                                     required="true"  
+                                     requiredMessage="Debe digitar su usuario." 
+                                     size="25" />  
+                        <p:watermark for="usuario" value="Usuario" />                                          
+                        <p:password id="contrasena" 
+                                    value="#{loginAuthentication.usuario.contrasenaInvestigador}" 
+                                    required="true"  
+                                    requiredMessage="Debe digitar su contrase&ntilde;a." 
+                                    size="25"/>  
+                        <p:watermark for="contrasena" value="Contraseña" />    
+                        <p:commandButton ajax="false" 
+                                         action="#{loginAuthentication.loginPortal()}" 
+                                         value="Iniciar Sesión"  
+                                         update="loginForm, :logoutForm"/>
+
+                    </h:panelGrid> 
+                </h:form >
+
+                <h:form id="logoutForm" rendered="#{loginAuthentication.loggedIn}"> 
+                    <br/>
+                    <h:panelGrid columns="1" cellpadding="0" >  
+
+                        <p:column>
+                            <h:outputText styleClass="label" 
+                                          value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador} &nbsp; &nbsp; &nbsp;" />
+                        </p:column>
+
+                        <p:column>
+                            <h:graphicImage url="#{resource['images/admin/dash/logout.png']}" width="16" />
+                            <p:commandLink styleClass="pieLInk" 
+                                           ajax="false" 
+                                           value="Cerrar Sesi&oacute;n" 
+                                           action="#{loginAuthentication.logoutPortal()}" 
+                                           update=":loginForm, logoutForm" /> 
+                        </p:column>
+
+                        <p:column>
+                            <p:commandLink styleClass="pieLInk" 
+                                           value="Editar Perfil" 
+                                           action="#{loginAuthentication.goEditarPerfil()}"  /> 
+                        </p:column>                        
+                        
+                        <p:column>
+                            <p:commandLink rendered="#{loginAuthentication.administrador}" 
+                                           styleClass="pieLInk" 
+                                           value="Administrar" 
+                                           action="#{loginAuthentication.goAdministracion()}"  /> 
+                        </p:column>
+
+                    </h:panelGrid>
+                </h:form>
+
+                <p:separator /><p:separator />
+
+            </div>
+
+
+
             <div class="gadget">
                 <h2 >Mensaje Del Día</h2>                
                 <ul class="sb_menu">
                     <h:form>
-                        <p:dataGrid  styleClass="styleGreen" rows="3" columns="1" value="#{mensajePC.listadoMensajesPortal}"  emptyMessage="No se encontraton registros" var="mensaje" >
+                        <p:dataGrid  rows="3" columns="1"
+                                     value="#{mensajePC.listadoMensajesPortal}"  
+                                     emptyMessage="No se encontraton registros" 
+                                     var="mensaje" >
                             <li>
                                 <h:outputText value="#{mensaje.contenidoMensaje}" escape="false" />
                                 <h1>

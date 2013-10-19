@@ -2,15 +2,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns="http://www.w3.org/1999/xhtml"
-                template="./../plantillaPortal.xhtml">
+                template="./../plantillaPortal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title"> Resultado Búsqueda </ui:define>
+    <ui:define name="title"> Resultado Búsqueda </ui:define>    
     <ui:insert name="header"></ui:insert>
     <ui:define name="libreriasJS"> </ui:define>
     <ui:define name="slider"> </ui:define>
-
     <ui:define name="body">
 
+        <div class="titulo">                                
+            Resultados de la Busqueda
+        </div>
+
+        <p:dataGrid id="bibliografia" value="#{buscadorPC.listaBibliografia}"
+                    columns="1"
+                    var="bibliografia" 
+                    emptyMessage="No se encontraron coincidencias">  
+            <f:facet name="header">  
+                Búsqueda en Bibliografía
+            </f:facet> 
+            <h:outputText value="#{bibliografia.referenciaBibliografia}" />
+            <h:outputLink value="#{bibliografia.urlBibliografia}" target="_blank">Más</h:outputLink>
+            <p:separator/>
+        </p:dataGrid>    
+
+        <p:dataGrid id="evento" value="#{buscadorPC.listaEvento}"
+                    columns="1"
+                    var="evento" 
+                    emptyMessage="No se encontraron coincidencias">  
+            <f:facet name="header">  
+                Búsqueda en Eventos
+            </f:facet> 
+            <h:outputText value="#{evento.nombreEvento}" />
+            <p:separator/>
+        </p:dataGrid>   
 
     </ui:define>
 </ui:composition>

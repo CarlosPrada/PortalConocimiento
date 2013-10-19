@@ -26,6 +26,7 @@ public class LoginAuthentication implements Serializable {
     private Investigador usuario;
     private Investigador usuarioAutenticado;
     private boolean loggedIn = false;
+    private boolean administrador = false;
     private boolean[] arrayRender = new boolean[8];
 
     /**
@@ -64,14 +65,16 @@ public class LoginAuthentication implements Serializable {
         usuario = new Investigador();
         usuarioAutenticado = null;
         loggedIn = false;
+        administrador = false;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "indexAdministracion.xhtml?faces-redirect=true";
+        return "/portal/index.xhtml?faces-redirect=true";
     }
 
     // LOGIN USUARIO PORTAL
     public void loginPortal() {
 
-        ValidarUsuarioPortal();
+        //ValidarUsuarioPortal();
+        ValidarUsuarioAdmnistracion();
         if (usuarioAutenticado != null) {
             loggedIn = true;
         } else {
@@ -85,11 +88,16 @@ public class LoginAuthentication implements Serializable {
         usuario = new Investigador();
         usuarioAutenticado = null;
         loggedIn = false;
+        administrador = false;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
     }
 
     public String goEditarPerfil() {
         return "/portal/editarPerfilUsuario.xhtml?faces-redirect=true";
+    }
+
+    public String goAdministracion() {
+        return "/administrador/inicio.xhtml?faces-redirect=true";
     }
 
     public void update() {
@@ -120,6 +128,7 @@ public class LoginAuthentication implements Serializable {
         if (usuarioAutenticado != null) {
 
             if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 1) {
+                administrador = true;
                 this.arrayRender[0] = true;
                 this.arrayRender[1] = true;
                 this.arrayRender[2] = true;
@@ -129,6 +138,7 @@ public class LoginAuthentication implements Serializable {
 
             } else {
                 if (usuarioAutenticado.getIdNivelPermiso().getIdPermiso() == 2) {
+                    administrador = true;
                     this.arrayRender[0] = true;
                     this.arrayRender[1] = true;
                     this.arrayRender[2] = true;
@@ -137,7 +147,8 @@ public class LoginAuthentication implements Serializable {
                     this.arrayRender[5] = false;
 
                 } else {
-                    this.usuarioAutenticado = null;
+                    //this.usuarioAutenticado = null;
+                    administrador = false;
                     this.arrayRender[0] = false;
                     this.arrayRender[1] = false;
                     this.arrayRender[2] = false;
@@ -199,4 +210,13 @@ public class LoginAuthentication implements Serializable {
     public void setArrayRender(boolean[] arrayRender) {
         this.arrayRender = arrayRender;
     }
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+    
 }

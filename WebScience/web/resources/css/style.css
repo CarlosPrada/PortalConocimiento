@@ -1,6 +1,11 @@
 /* Design by http://www.dreamtemplate.com */
 @charset "utf-8";
 
+
+.main {
+    /*background:url(../images/header_bg.gif) repeat-x left 103px;*/
+}
+
 html, .main {
     padding:0;
     margin:0;
@@ -166,8 +171,6 @@ p10{
     font-family: serif; 
     color:#000000;
 }
-
-
 
 p9{ 
     font-size: 20px; 

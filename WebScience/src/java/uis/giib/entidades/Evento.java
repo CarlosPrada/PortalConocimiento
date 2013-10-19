@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Evento.findByIdEvento", query = "SELECT e FROM Evento e WHERE e.idEvento = :idEvento"),
     @NamedQuery(name = "Evento.findByNombreEvento", query = "SELECT e FROM Evento e WHERE e.nombreEvento = :nombreEvento"),
     @NamedQuery(name = "Evento.findByFechaInicio", query = "SELECT e FROM Evento e WHERE e.fechaInicio = :fechaInicio"),
+    @NamedQuery(name = "Evento.findByBuscador", query = "SELECT eve FROM Evento eve WHERE eve.nombreEvento LIKE :buscar"),
     @NamedQuery(name = "Evento.findByEstado", query = "SELECT eve FROM Evento eve JOIN eve.idEstado eveest WHERE eveest.idEstado = 1"),
     @NamedQuery(name = "Evento.findByFechaFin", query = "SELECT e FROM Evento e WHERE e.fechaFin = :fechaFin")})
 public class Evento implements Serializable {

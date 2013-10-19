@@ -40,7 +40,7 @@ public class InvestigadorProduccion implements Serializable {
 
     public InvestigadorProduccion() {
     }
-
+    
     public InvestigadorProduccion(InvestigadorProduccionPK investigadorProduccionPK) {
         this.investigadorProduccionPK = investigadorProduccionPK;
     }

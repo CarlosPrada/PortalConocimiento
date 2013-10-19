@@ -26,7 +26,10 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{investigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListInvestigadorViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{investigadorController.prepareView}" 
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
                             <p:commandButton ajax="false" action="#{investigadorController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListInvestigadorEditLink}"/>
                         </p:column>
