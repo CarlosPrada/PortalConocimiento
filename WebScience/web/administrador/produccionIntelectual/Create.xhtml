@@ -24,33 +24,59 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}" for="nombreProduccion" />
-                    <h:inputTextarea rows="5" cols="60" id="nombreProduccion" value="#{produccionIntelectualController.selected.nombreProduccion}"  />
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_nombreProduccion}"
+                                   for="nombreProduccion" />
+                    <p:inputTextarea autoResize="false"  rows="5" cols="60" id="nombreProduccion" 
+                                     value="#{produccionIntelectualController.selected.nombreProduccion}"  />
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_agnoProduccion}" for="agnoProduccion" />
-                    <p:inputText id="agnoProduccion" value="#{produccionIntelectualController.selected.agnoProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_agnoProduccion}" />
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_agnoProduccion}" 
+                                   for="agnoProduccion" />
+                    <p:inputText id="agnoProduccion"
+                                 value="#{produccionIntelectualController.selected.agnoProduccion}"
+                                 title="#{bundle.CreateProduccionIntelectualTitle_agnoProduccion}" />
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_referenciaProduccion}" for="referenciaProduccion" />
-                    <ck:editor id="referenciaProduccion" value="#{produccionIntelectualController.selected.referenciaProduccion}" width="810px" uiColor="#aed0ea"  />
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_referenciaProduccion}" 
+                                   for="referenciaProduccion" />
+                    <ck:editor id="referenciaProduccion" 
+                               value="#{produccionIntelectualController.selected.referenciaProduccion}" 
+                               width="810px" uiColor="#aed0ea"  />
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_urlProduccion}" for="nombreProduccion" />
-                    <h:inputTextarea rows="7" cols="80" id="urlProduccion" value="#{produccionIntelectualController.selected.urlProduccion}"  />
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_urlProduccion}" 
+                                   for="nombreProduccion" />
+                    <p:inputTextarea autoResize="false"  rows="7" cols="80" 
+                                     id="urlProduccion" 
+                                     value="#{produccionIntelectualController.selected.urlProduccion}"  />
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idTipoProduccion}" for="idTipoProduccion" />
-                    <h:selectOneMenu id="idTipoProduccion" value="#{produccionIntelectualController.selected.idTipoProduccion}" title="#{bundle.CreateProduccionIntelectualTitle_idTipoProduccion}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idTipoProduccion}">
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idTipoProduccion}" 
+                                   for="idTipoProduccion" />
+                    <p:selectOneMenu id="idTipoProduccion" 
+                                     value="#{produccionIntelectualController.selected.idTipoProduccion}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idTipoProduccion}">
                         <f:selectItems value="#{tipoProduccionController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{produccionIntelectualController.selected.idEstado}" title="#{bundle.CreateProduccionIntelectualTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.CreateProduccionIntelectualLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado"
+                                     value="#{produccionIntelectualController.selected.idEstado}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateProduccionIntelectualRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{produccionIntelectualController.create}" icon="ui-icon-plus" value="#{bundle.CreateProduccionIntelectualSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{produccionIntelectualController.create}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateProduccionIntelectualSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateProduccionIntelectualShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{produccionIntelectualController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateProduccionIntelectualShowAllLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

@@ -48,7 +48,7 @@ public class Bibliografia implements Serializable {
     @Column(name = "agno_bibliografia")
     @Temporal(TemporalType.DATE)
     private Date agnoBibliografia;
-    @Size(max = 800)
+    @Size(max = 65535)
     @Column(name = "referencia_bibliografia")
     private String referenciaBibliografia;
     @Size(max = 800)

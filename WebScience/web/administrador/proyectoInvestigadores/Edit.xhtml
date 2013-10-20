@@ -23,27 +23,46 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{proyectoInvestigadoresController.selected.investigador}" title="#{bundle.EditProyectoInvestigadoresTitle_investigador}" required="true" requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_investigador}">
+                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_investigador}" 
+                                   for="investigador" />
+                    <p:selectOneMenu id="investigador"
+                                     value="#{proyectoInvestigadoresController.selected.investigador}"
+                                     required="true"
+                                     requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_proyecto}" for="proyecto" />
-                    <h:selectOneMenu id="proyecto" value="#{proyectoInvestigadoresController.selected.proyecto}" title="#{bundle.EditProyectoInvestigadoresTitle_proyecto}" required="true" requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_proyecto}">
+                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_proyecto}" 
+                                   for="proyecto" />
+                    <p:selectOneMenu id="proyecto" value="#{proyectoInvestigadoresController.selected.proyecto}" 
+                                     required="true"
+                                     requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_proyecto}">
                         <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_idRol}" for="idRol" />
-                    <h:selectOneMenu id="idRol" value="#{proyectoInvestigadoresController.selected.idRol}" title="#{bundle.EditProyectoInvestigadoresTitle_idRol}" required="true" requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_idRol}">
+                    <h:outputLabel value="#{bundle.EditProyectoInvestigadoresLabel_idRol}"
+                                   for="idRol" />
+                    <p:selectOneMenu id="idRol" value="#{proyectoInvestigadoresController.selected.idRol}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditProyectoInvestigadoresRequiredMessage_idRol}">
                         <f:selectItems value="#{rolController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
-                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.update}" icon="ui-icon-disk" value="#{bundle.EditProyectoInvestigadoresSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoInvestigadoresController.update}"
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditProyectoInvestigadoresSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditProyectoInvestigadoresViewLink}"/>
+                <p:commandButton ajax="false" action="View"
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditProyectoInvestigadoresViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditProyectoInvestigadoresShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{proyectoInvestigadoresController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditProyectoInvestigadoresShowAllLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

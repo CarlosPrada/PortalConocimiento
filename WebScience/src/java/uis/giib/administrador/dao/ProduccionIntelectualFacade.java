@@ -18,6 +18,7 @@ import uis.giib.entidades.ProduccionIntelectual;
  */
 @Stateless
 public class ProduccionIntelectualFacade extends AbstractFacade<ProduccionIntelectual> {
+
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -29,8 +30,8 @@ public class ProduccionIntelectualFacade extends AbstractFacade<ProduccionIntele
     public ProduccionIntelectualFacade() {
         super(ProduccionIntelectual.class);
     }
-    
-        public List<ProduccionIntelectual> listarProduccionIntelectual() {
+
+    public List<ProduccionIntelectual> listarProduccionIntelectual() {
         try {
             Query query = em.createNamedQuery("ProduccionIntelectual.findBibliografiaByEstado");
             return (List<ProduccionIntelectual>) query.getResultList();
@@ -38,5 +39,14 @@ public class ProduccionIntelectualFacade extends AbstractFacade<ProduccionIntele
             return null;
         }
     }
-    
+
+    public List<ProduccionIntelectual> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("ProduccionIntelectual.findByBuscador");
+            query.setParameter("buscar", "%" + buscar + "%");
+            return (List<ProduccionIntelectual>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

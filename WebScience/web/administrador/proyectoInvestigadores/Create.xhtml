@@ -23,26 +23,44 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{proyectoInvestigadoresController.selected.investigador}" title="#{bundle.CreateProyectoInvestigadoresTitle_investigador}" required="true" requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_investigador}">
+                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_investigador}"
+                                   for="investigador" />
+                    <p:selectOneMenu id="investigador" 
+                                     value="#{proyectoInvestigadoresController.selected.investigador}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_proyecto}" for="proyecto" />
-                    <h:selectOneMenu id="proyecto" value="#{proyectoInvestigadoresController.selected.proyecto}" title="#{bundle.CreateProyectoInvestigadoresTitle_proyecto}" required="true" requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_proyecto}">
+                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_proyecto}"
+                                   for="proyecto" />
+                    <p:selectOneMenu id="proyecto"
+                                     value="#{proyectoInvestigadoresController.selected.proyecto}"
+                                     required="true"
+                                     requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_proyecto}">
                         <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_idRol}" for="idRol" />
-                    <h:selectOneMenu id="idRol" value="#{proyectoInvestigadoresController.selected.idRol}" title="#{bundle.CreateProyectoInvestigadoresTitle_idRol}" required="true" requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_idRol}">
+                    <h:outputLabel value="#{bundle.CreateProyectoInvestigadoresLabel_idRol}" 
+                                   for="idRol" />
+                    <p:selectOneMenu id="idRol" value="#{proyectoInvestigadoresController.selected.idRol}" 
+                                     required="true"
+                                     requiredMessage="#{bundle.CreateProyectoInvestigadoresRequiredMessage_idRol}">
                         <f:selectItems value="#{rolController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.create}" icon="ui-icon-plus" value="#{bundle.CreateProyectoInvestigadoresSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoInvestigadoresController.create}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateProyectoInvestigadoresSaveLink}" />
                 <br /> <br />
-                <p:commandButton ajax="false" action="#{proyectoInvestigadoresController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateProyectoInvestigadoresShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoInvestigadoresController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.CreateProyectoInvestigadoresShowAllLink}" 
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

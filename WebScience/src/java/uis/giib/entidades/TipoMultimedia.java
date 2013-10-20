@@ -38,7 +38,7 @@ public class TipoMultimedia implements Serializable {
     private Integer idTipoMultimedia;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(  max = 50)
     @Column(name = "nombre_tipo_multimedia")
     private String nombreTipoMultimedia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoMultimedia")

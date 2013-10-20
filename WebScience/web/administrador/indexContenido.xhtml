@@ -17,7 +17,7 @@
 
                 <div id="logout">
                     <h:form>
-                    
+
                         <h:commandLink value="Volver" action="inicio.xhtml"  /> 
                     </h:form>
                 </div>
@@ -75,7 +75,13 @@
                             <h:link outcome="/administrador/noticia/#{noticiaController.prepareList()}" value="Gestión de Noticias"/>
                             Permite gestionar las noticias mostradas en el portal.
                         </h:column>
-                        
+
+                        <h:column>
+                            <img src="#{resource['images/admin/dash/arrow.gif']}" alt=""/> 
+                            <h:link outcome="/administrador/contacto/#{contactoController.prepareList()}" value="Gestión de Contacto"/>
+                            Permite administrar los correos eléctronicos que recibirán las distintas solicitudes.
+                        </h:column>
+
                     </h:panelGrid>    
                 </div> 
             </div>

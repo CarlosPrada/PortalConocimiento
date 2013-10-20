@@ -4,6 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ck="http://code.google.com/ck-jsf-editor"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
@@ -22,38 +23,73 @@
 
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_nomnreBibliografia}" for="nomnreBibliografia" />
-                    <h:inputTextarea rows="5" cols="60" id="nomnreBibliografia" value="#{bibliografiaController.selected.nombreBibliografia}" title="#{bundle.CreateBibliografiaTitle_nomnreBibliografia}" />
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_agnoBibliografia}" for="agnoBibliografia" />
-                    <p:calendar value="#{bibliografiaController.selected.agnoBibliografia}" id="Fechainicio" showOn="button" pattern="dd/MM/yyyy"/> 
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_referenciaBibliografia}" for="referenciaBibliografia" />
-                    <h:inputTextarea rows="5" cols="90" id="referenciaBibliografia" value="#{bibliografiaController.selected.referenciaBibliografia}" title="#{bundle.CreateBibliografiaTitle_referenciaBibliografia}" />
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_urlBibliografia}" for="urlBibliografia" />
-                    <h:inputTextarea rows="5" cols="90" id="urlBibliografia" value="#{bibliografiaController.selected.urlBibliografia}" title="#{bundle.CreateBibliografiaTitle_urlBibliografia}" />
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idTipoBibliografia}" for="idTipoBibliografia" />
-                    <h:selectOneMenu id="idTipoBibliografia" value="#{bibliografiaController.selected.idTipoBibliografia}" title="#{bundle.CreateBibliografiaTitle_idTipoBibliografia}" required="true" requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idTipoBibliografia}">
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_nomnreBibliografia}" 
+                                   for="nomnreBibliografia" />
+                    <p:inputTextarea rows="5" cols="60" 
+                                     autoResize="false"
+                                     id="nomnreBibliografia" 
+                                     value="#{bibliografiaController.selected.nombreBibliografia}"
+                                     title="#{bundle.CreateBibliografiaTitle_nomnreBibliografia}" />
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_agnoBibliografia}" 
+                                   for="agnoBibliografia" />
+                    <p:calendar value="#{bibliografiaController.selected.agnoBibliografia}" 
+                                id="Fechainicio" 
+                                showOn="button" 
+                                pattern="dd/MM/yyyy"/> 
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_referenciaBibliografia}" 
+                                   for="referenciaBibliografia" />
+                    <ck:editor id="referenciaBibliografia" 
+                               value="#{bibliografiaController.selected.referenciaBibliografia}" 
+                               width="810px" uiColor="#aed0ea"  />
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_urlBibliografia}" 
+                                   for="urlBibliografia" />
+                    <p:inputTextarea autoResize="false"  rows="5" cols="90" 
+                                     id="urlBibliografia" 
+                                     value="#{bibliografiaController.selected.urlBibliografia}" 
+                                     title="#{bundle.CreateBibliografiaTitle_urlBibliografia}" />
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idTipoBibliografia}" 
+                                   for="idTipoBibliografia" />
+                    <p:selectOneMenu id="idTipoBibliografia" 
+                                     value="#{bibliografiaController.selected.idTipoBibliografia}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idTipoBibliografia}">
                         <f:selectItems value="#{tipoProduccionController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{bibliografiaController.selected.idEstado}" title="#{bundle.CreateBibliografiaTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idEstado}">
+                    </p:selectOneMenu>
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" 
+                                     value="#{bibliografiaController.selected.idEstado}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    
-                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idLinea}" for="idLinea" />
-                    <h:selectOneMenu id="idLinea" value="#{bibliografiaController.selected.idLinea}" title="#{bundle.CreateBibliografiaTitle_idLinea}" required="true" requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idLinea}">
+                    </p:selectOneMenu>
+
+                    <h:outputLabel value="#{bundle.CreateBibliografiaLabel_idLinea}" 
+                                   for="idLinea" />
+                    <p:selectOneMenu id="idLinea" 
+                                     value="#{bibliografiaController.selected.idLinea}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateBibliografiaRequiredMessage_idLinea}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    
+                    </p:selectOneMenu>
+
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{bibliografiaController.create}" value="#{bundle.CreateBibliografiaSaveLink}" icon="ui-icon-plus"/>
+                <p:commandButton ajax="false" 
+                                 action="#{bibliografiaController.create}" 
+                                 value="#{bundle.CreateBibliografiaSaveLink}" 
+                                 icon="ui-icon-plus"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{bibliografiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateBibliografiaShowAllLink}" immediate="true" icon="ui-icon-arrowreturnthick-1-w"/>
+                <p:commandButton ajax="false" 
+                                 action="#{bibliografiaController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateBibliografiaShowAllLink}"
+                                 immediate="true" />
 
             </h:form>
         </ui:define>

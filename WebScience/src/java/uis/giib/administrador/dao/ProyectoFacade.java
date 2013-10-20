@@ -34,6 +34,15 @@ public class ProyectoFacade extends AbstractFacade<Proyecto> {
         } catch (NoResultException e) {
             return null;
         }
+    }
 
+    public List<Proyecto> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("Proyecto.findByBuscador");
+            query.setParameter("buscar", "%" + buscar + "%");
+            return (List<Proyecto>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

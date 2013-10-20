@@ -39,4 +39,14 @@ public class LineaInvestigacionFacade extends AbstractFacade<LineaInvestigacion>
             return null;
         }
     }
+
+    public List<LineaInvestigacion> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("LineaInvestigacion.findByBuscador");
+            query.setParameter("buscar", "%" + buscar + "%");
+            return (List<LineaInvestigacion>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

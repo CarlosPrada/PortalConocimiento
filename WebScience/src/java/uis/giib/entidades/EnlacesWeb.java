@@ -32,12 +32,12 @@ public class EnlacesWeb implements Serializable {
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 300)
+    @Size(  max = 300)
     @Column(name = "nombre_enlace")
     private String nombreEnlace;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 800)
+    @Size(  max = 800)
     @Column(name = "enlace")
     private String enlace;
     @Id

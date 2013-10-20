@@ -27,7 +27,7 @@
                     <p:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.EditTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.EditTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
 
                     <h:outputLabel value="#{bundle.EditTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
-                    <h:inputTextarea rows="5" cols="60" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" />
+                    <p:inputTextarea autoResize="false"  rows="5" cols="60" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" />
                     
                 </h:panelGrid>
                 <br/>

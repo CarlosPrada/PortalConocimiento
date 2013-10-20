@@ -19,7 +19,7 @@
         </div>
 
 
-        <div align="center">
+        
             <div class="cajaeditarPerfil">
 
                 <div align="left">
@@ -92,8 +92,7 @@
                                      requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}"
                                      size="40"
                                      validatorMessage="Formato de email inválido">
-                            <f:validateRegex
-                                pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         </p:inputText>  
 
                         <h:outputLabel styleClass="label" 
@@ -106,15 +105,18 @@
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_generoInvestigador}" 
                                        for="generoInvestigador" />
-                        <p:inputText id="generoInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.generoInvestigador}" 
-                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}" 
-                                     size="5"/>
+                        <p:selectOneMenu id="generoInvestigador" 
+                                         value="#{loginAuthentication.usuarioAutenticado.idGenero}" 
+                                         required="true" 
+                                         requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}">
+                            <f:selectItems value="#{generoController.itemsAvailableSelectOne}"/>
+                        </p:selectOneMenu>
 
                         <h:outputLabel styleClass="label" 
                                        value="#{bundle.EditInvestigadorLabel_cvlacInvestigador}" 
                                        for="cvlacInvestigador" />
                         <p:inputTextarea rows="4" cols="80" 
+                                         autoResize="false"
                                          id="cvlacInvestigador" 
                                          value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
 
@@ -133,7 +135,7 @@
                     </h:panelGrid>
                 </h:form> 
             </div>
-        </div>
+        
 
     </ui:define>
 </ui:composition>

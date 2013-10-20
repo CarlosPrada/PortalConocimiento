@@ -24,14 +24,14 @@
                 <h:panelGrid columns="2">
                     
                     <h:outputLabel value="#{bundle.EditLineasInvestigadorLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.EditLineasInvestigadorRequiredMessage_investigador}">
+                    <p:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.EditLineasInvestigadorRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     
                     <h:outputLabel value="#{bundle.EditLineasInvestigadorLabel_lineaInvestigacion}" for="lineaInvestigacion" />
-                    <h:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineasInvestigadorRequiredMessage_lineaInvestigacion}">
+                    <p:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.EditLineasInvestigadorRequiredMessage_lineaInvestigacion}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     
                 </h:panelGrid>
                 <p:commandButton ajax="false" action="#{lineasInvestigadorController.update}" icon="ui-icon-disk" value="#{bundle.EditLineasInvestigadorSaveLink}"/>

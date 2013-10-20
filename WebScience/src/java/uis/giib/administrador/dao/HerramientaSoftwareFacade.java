@@ -35,4 +35,14 @@ public class HerramientaSoftwareFacade extends AbstractFacade<HerramientaSoftwar
             return null;
         }
     }
+
+    public List<HerramientaSoftware> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("HerramientaSoftware.findByBuscador");
+            query.setParameter("buscar", "%" + buscar + "%");
+            return (List<HerramientaSoftware>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

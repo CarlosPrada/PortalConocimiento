@@ -44,7 +44,7 @@ public class EstadoGeneral implements Serializable {
     private Integer idEstado;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @Size(  max = 10)
     @Column(name = "nombre_estado")
     private String nombreEstado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstadoGeneral")

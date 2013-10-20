@@ -40,7 +40,7 @@ public class Seccion implements Serializable {
     private Integer idSeccion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(  max = 20)
     @Column(name = "nombre_seccion")
     private String nombreSeccion;
     @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")

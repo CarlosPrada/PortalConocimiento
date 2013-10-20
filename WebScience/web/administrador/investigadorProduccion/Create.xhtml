@@ -23,21 +23,36 @@
             <h:form>
                 <h:panelGrid columns="2">
                     
-                    <h:outputLabel value="#{bundle.CreateInvestigadorProduccionLabel_produccionIntelectual}" for="produccionIntelectual" />
-                    <h:selectOneMenu id="produccionIntelectual" value="#{investigadorProduccionController.selected.produccionIntelectual}" title="#{bundle.CreateInvestigadorProduccionTitle_produccionIntelectual}" required="true" requiredMessage="#{bundle.CreateInvestigadorProduccionRequiredMessage_produccionIntelectual}">
+                    <h:outputLabel value="#{bundle.CreateInvestigadorProduccionLabel_produccionIntelectual}"
+                                   for="produccionIntelectual" />
+                    <p:selectOneMenu id="produccionIntelectual"
+                                     value="#{investigadorProduccionController.selected.produccionIntelectual}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateInvestigadorProduccionRequiredMessage_produccionIntelectual}">
                         <f:selectItems value="#{produccionIntelectualController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     
-                    <h:outputLabel value="#{bundle.CreateInvestigadorProduccionLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{investigadorProduccionController.selected.investigador}" title="#{bundle.CreateInvestigadorProduccionTitle_investigador}" required="true" requiredMessage="#{bundle.CreateInvestigadorProduccionRequiredMessage_investigador}">
+                    <h:outputLabel value="#{bundle.CreateInvestigadorProduccionLabel_investigador}" 
+                                   for="investigador" />
+                    <p:selectOneMenu id="investigador" 
+                                     value="#{investigadorProduccionController.selected.investigador}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateInvestigadorProduccionRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{investigadorProduccionController.create}" icon="ui-icon-plus" value="#{bundle.CreateInvestigadorProduccionSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{investigadorProduccionController.create}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.CreateInvestigadorProduccionSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{investigadorProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateInvestigadorProduccionShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{investigadorProduccionController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateInvestigadorProduccionShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

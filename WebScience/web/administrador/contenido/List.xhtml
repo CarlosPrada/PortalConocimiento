@@ -35,21 +35,21 @@
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_historia}"/>
                         </f:facet>
-                        <h:outputText value="#{item.historia}"/>
+                        <h:outputText escape="false" value="#{item.historia}"/>
                     </p:column>
 
                     <p:column >
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_razon}"/>
                         </f:facet>
-                        <h:outputText value="#{item.razondeser}"/>
+                        <h:outputText escape="false" value="#{item.razondeser}"/>
                     </p:column>
 
                     <p:column >
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_relaciones}"/>
                         </f:facet>
-                        <h:outputText value="#{item.relaciones}"/>
+                        <h:outputText escape="false" value="#{item.relaciones}"/>
                     </p:column>
 
                 </p:dataTable>

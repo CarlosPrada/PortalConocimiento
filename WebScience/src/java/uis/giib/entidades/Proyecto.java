@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Proyecto.findByNombreProyecto", query = "SELECT p FROM Proyecto p WHERE p.nombreProyecto = :nombreProyecto"),
     @NamedQuery(name = "Proyecto.findByDescripcionResumidaProyecto", query = "SELECT p FROM Proyecto p WHERE p.descripcionResumidaProyecto = :descripcionResumidaProyecto"),
     @NamedQuery(name = "Proyecto.findByEstado", query = "SELECT pro FROM Proyecto pro JOIN pro.idEstadoGeneral proest WHERE proest.idEstado = 1"),
-    @NamedQuery(name = "TipoProyecto.findByIdTipoProyecto", query = "SELECT t FROM TipoProyecto t WHERE t.idTipoProyecto = :idTipoProyecto")})
+    @NamedQuery(name = "Proyecto.findByBuscador", query = "SELECT proy FROM Proyecto proy WHERE proy.descripcionDetalladaProyecto LIKE :buscar OR proy.descripcionResumidaProyecto LIKE :buscar OR proy.nombreProyecto LIKE :buscar OR proy.objetivosProyecto LIKE :buscar")})
 public class Proyecto implements Serializable {
 
     private static final long serialVersionUID = 1L;

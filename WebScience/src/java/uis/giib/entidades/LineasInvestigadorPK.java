@@ -23,7 +23,7 @@ public class LineasInvestigadorPK implements Serializable {
     private int idLinea;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(  max = 30)
     @Column(name = "id_investigador")
     private String idInvestigador;
 

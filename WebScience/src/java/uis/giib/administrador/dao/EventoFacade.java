@@ -39,14 +39,4 @@ public class EventoFacade extends AbstractFacade<Evento> {
             return null;
         }
     }
-
-    public List<Evento> listarBuscador(String buscar) {
-        try {
-            Query query = em.createNamedQuery("Evento.findByBuscador");
-            query.setParameter("buscar", "%" + buscar + "%");
-            return (List<Evento>) query.getResultList();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
 }

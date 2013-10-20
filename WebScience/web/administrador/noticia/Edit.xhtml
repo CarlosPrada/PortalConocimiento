@@ -14,7 +14,7 @@
         </ui:define>
 
         <ui:define name="body">
-            
+
             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
@@ -24,30 +24,52 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditNoticiaLabel_tituloNoticia}" for="tituloNoticia" />
-                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" width="810px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_tituloNoticia}" 
+                                   for="tituloNoticia" />
+                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" 
+                               width="810px" uiColor="#aed0ea" />
 
-                    <h:outputLabel value="#{bundle.EditNoticiaLabel_contenidoNoticia}" for="contenidoNoticia" />
-                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" width="810px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_contenidoNoticia}" 
+                                   for="contenidoNoticia" />
+                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" 
+                               width="810px" uiColor="#aed0ea" />
 
-                    <h:outputLabel value="#{bundle.EditNoticiaLabel_fechaPublicacionNoticia}" for="fechaPublicacionNoticia" />
-                    <p:calendar value="#{noticiaController.selected.fechaPublicacionNoticia}" showOn="button" pattern="dd/MM/yyyy"/> 
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_fechaPublicacionNoticia}" 
+                                   for="fechaPublicacionNoticia" />
+                    <p:calendar value="#{noticiaController.selected.fechaPublicacionNoticia}" 
+                                showOn="button" 
+                                pattern="dd/MM/yyyy"/> 
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_imagenNoticia}"/>
-                    <p:inputText id="idNoticia" value="#{noticiaController.selected.imagenNoticia}" />
+                    <p:inputText id="idNoticia" 
+                                 value="#{noticiaController.selected.imagenNoticia}" />
 
-                    <h:outputLabel value="#{bundle.EditNoticiaLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{noticiaController.selected.idEstado}" title="#{bundle.EditNoticiaTitle_idEstado}" required="true" requiredMessage="#{bundle.EditNoticiaRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.EditNoticiaLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" 
+                                     value="#{noticiaController.selected.idEstado}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditNoticiaRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{noticiaController.update}" icon="ui-icon-disk" value="#{bundle.EditNoticiaSaveLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{noticiaController.update}"
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditNoticiaSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditNoticiaViewLink}"/>
+                <p:commandButton ajax="false"
+                                 action="View"
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditNoticiaViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{noticiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditNoticiaShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{noticiaController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.EditNoticiaShowAllLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

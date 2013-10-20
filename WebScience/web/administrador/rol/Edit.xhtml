@@ -28,7 +28,7 @@
                     <p:inputText id="nombreRol" value="#{rolController.selected.nombreRol}" title="#{bundle.EditRolTitle_nombreRol}" required="true" requiredMessage="#{bundle.EditRolRequiredMessage_nombreRol}" size="50"/>
 
                     <h:outputLabel value="#{bundle.EditRolLabel_descripcionRol}" for="descripcionRol" />
-                    <h:inputTextarea rows="5" cols="60" value="#{rolController.selected.descripcionRol}" />
+                    <p:inputTextarea autoResize="false"  rows="5" cols="60" value="#{rolController.selected.descripcionRol}" />
 
                 </h:panelGrid>
                 <br />

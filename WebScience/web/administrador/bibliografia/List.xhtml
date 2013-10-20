@@ -26,16 +26,22 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{bibliografiaController.prepareView}" value="#{bundle.ListBibliografiaViewLink}" icon="ui-icon-search"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{bibliografiaController.prepareView}" 
+                                             value="#{bundle.ListBibliografiaViewLink}" 
+                                             icon="ui-icon-search"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{bibliografiaController.prepareEdit}" value="#{bundle.ListBibliografiaEditLink}" icon="ui-icon-pencil"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{bibliografiaController.prepareEdit}" 
+                                             value="#{bundle.ListBibliografiaEditLink}"
+                                             icon="ui-icon-pencil"/>
                         </p:column>                        
 
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_referenciaBibliografia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.referenciaBibliografia}"/>
+                            <h:outputText escape="false" value="#{item.referenciaBibliografia}"/>
                         </p:column>
 
                         <p:column width="180">
@@ -62,9 +68,15 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <p:commandButton ajax="false" action="#{bibliografiaController.prepareCreate}" value="#{bundle.ListBibliografiaCreateLink}" icon="ui-icon-plus"/>
+                <p:commandButton ajax="false" 
+                                 action="#{bibliografiaController.prepareCreate}" 
+                                 value="#{bundle.ListBibliografiaCreateLink}"
+                                 icon="ui-icon-plus"/>
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia.xhtml" value="#{bundle.indexProduccionBibliografia}" icon="ui-icon-arrowreturnthick-1-w"/>
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexProduccionBibliografia.xhtml" 
+                                 value="#{bundle.indexProduccionBibliografia}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"/>
                 
             </h:form>
         </ui:define>

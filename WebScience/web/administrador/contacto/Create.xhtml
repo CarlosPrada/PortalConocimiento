@@ -24,10 +24,10 @@
                     <p:inputText id="contrasena" value="#{contactoController.selected.contrasena}" title="#{bundle.CreateContactoTitle_contrasena}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{contactoController.create}" value="#{bundle.CreateContactoSaveLink}" />
+                <p:commandButton ajax="false" action="#{contactoController.create}" value="#{bundle.CreateContactoSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{contactoController.prepareList}" value="#{bundle.CreateContactoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{contactoController.prepareList}" value="#{bundle.CreateContactoShowAllLink}" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateContactoIndexLink}"/>

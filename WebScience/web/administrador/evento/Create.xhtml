@@ -29,10 +29,6 @@
                                  required="true" 
                                  requiredMessage="#{bundle.CreateEventoRequiredMessage_nombreEvento}"/>
 
-                    <h:outputLabel value="#{bundle.CreateEventoLabel_contenidoEvento}" for="contenidoEvento" />
-                    <ck:editor value="#{eventoController.selected.contenidoEvento}" 
-                               width="810px" uiColor="#aed0ea" />
-
                     <h:outputLabel value="#{bundle.CreateEventoLabel_fechaInicio}" for="fechaInicio" />
                     <p:calendar value="#{eventoController.selected.fechaInicio}" 
                                 showOn="button" 
@@ -48,13 +44,12 @@
                                 requiredMessage="#{bundle.CreateEventoRequiredMessage_fechaFin}"/> 
 
                     <h:outputLabel value="#{bundle.CreateEventoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" 
+                    <p:selectOneMenu id="idEstado" 
                                      value="#{eventoController.selected.idEstado}" 
-                                     title="#{bundle.CreateEventoTitle_idEstado}" 
                                      required="true" 
                                      requiredMessage="#{bundle.CreateEventoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br /><br />

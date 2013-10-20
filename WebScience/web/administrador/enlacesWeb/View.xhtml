@@ -22,19 +22,28 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_nombreEnlace}"/>
-                    <h:outputText value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.ViewEnlacesWebTitle_nombreEnlace}"/>
+                    <h:outputText value="#{enlacesWebController.selected.nombreEnlace}" 
+                                  title="#{bundle.ViewEnlacesWebTitle_nombreEnlace}"/>
 
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_enlace}"/>
-                    <h:outputText value="#{enlacesWebController.selected.enlace}" title="#{bundle.ViewEnlacesWebTitle_enlace}"/>
+                    <h:outputText value="#{enlacesWebController.selected.enlace}" 
+                                  title="#{bundle.ViewEnlacesWebTitle_enlace}"/>
 
                     <h:outputText value="#{bundle.ViewEnlacesWebLabel_descripcion}"/>
-                    <h:outputText value="#{enlacesWebController.selected.descripcion}" title="#{bundle.ViewEnlacesWebTitle_descripcion}"/>
+                    <h:outputText value="#{enlacesWebController.selected.descripcion}" 
+                                  title="#{bundle.ViewEnlacesWebTitle_descripcion}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewEnlacesWebEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit"
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewEnlacesWebEditLink}"/>
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewEnlacesWebShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{enlacesWebController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewEnlacesWebShowAllLink}"/>
 
 
             </h:form>

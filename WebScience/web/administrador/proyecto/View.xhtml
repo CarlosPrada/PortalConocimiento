@@ -22,42 +22,64 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_nombreProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.nombreProyecto}" escape="false"/>
+                    <h:outputText value="#{proyectoController.selected.nombreProyecto}" 
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_descripcionResumidaProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.descripcionResumidaProyecto}" title="#{bundle.ViewProyectoTitle_descripcionResumidaProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.descripcionResumidaProyecto}" 
+                                  title="#{bundle.ViewProyectoTitle_descripcionResumidaProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_descripcionDetalladaProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.descripcionDetalladaProyecto}" escape="false" title="#{bundle.ViewProyectoTitle_descripcionDetalladaProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.descripcionDetalladaProyecto}"
+                                  escape="false" 
+                                  title="#{bundle.ViewProyectoTitle_descripcionDetalladaProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_objetivosProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.objetivosProyecto}" escape="false" title="#{bundle.ViewProyectoTitle_objetivosProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.objetivosProyecto}" 
+                                  escape="false" 
+                                  title="#{bundle.ViewProyectoTitle_objetivosProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_resultadosProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.resultadosProyecto}" escape="false" title="#{bundle.ViewProyectoTitle_resultadosProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.resultadosProyecto}" 
+                                  escape="false"
+                                  title="#{bundle.ViewProyectoTitle_resultadosProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_imagenProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.imagenProyecto}" title="#{bundle.ViewProyectoTitle_imagenProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.imagenProyecto}" 
+                                  title="#{bundle.ViewProyectoTitle_imagenProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_idTipoProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.idTipoProyecto.nombreTipoProyecto}" title="#{bundle.ViewProyectoTitle_idTipoProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.idTipoProyecto.nombreTipoProyecto}" 
+                                  title="#{bundle.ViewProyectoTitle_idTipoProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_idEstadoProyecto}"/>
-                    <h:outputText value="#{proyectoController.selected.idEstadoProyecto.nombreEstadoProyecto}" title="#{bundle.ViewProyectoTitle_idEstadoProyecto}"/>
+                    <h:outputText value="#{proyectoController.selected.idEstadoProyecto.nombreEstadoProyecto}" 
+                                  title="#{bundle.ViewProyectoTitle_idEstadoProyecto}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_idLinea}"/>
-                    <h:outputText value="#{proyectoController.selected.idLinea.nombreLineaInvestigacion}" title="#{bundle.ViewProyectoTitle_idLinea}"/>
+                    <h:outputText value="#{proyectoController.selected.idLinea.nombreLineaInvestigacion}"
+                                  title="#{bundle.ViewProyectoTitle_idLinea}"/>
 
                     <h:outputText value="#{bundle.ViewProyectoLabel_idEstadoGeneral}"/>
-                    <h:outputText value="#{proyectoController.selected.idEstadoGeneral.nombreEstado}" title="#{bundle.ViewProyectoTitle_idEstadoGeneral}"/>
+                    <h:outputText value="#{proyectoController.selected.idEstadoGeneral.nombreEstado}" 
+                                  title="#{bundle.ViewProyectoTitle_idEstadoGeneral}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewProyectoEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit" 
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewProyectoEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{proyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewProyectoCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewProyectoCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{proyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewProyectoShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

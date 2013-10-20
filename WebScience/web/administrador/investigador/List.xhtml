@@ -31,7 +31,10 @@
                                              icon="ui-icon-search"  
                                              value="#{bundle.ListInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{investigadorController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListInvestigadorEditLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{investigadorController.prepareEdit}" 
+                                             icon="ui-icon-pencil"  
+                                             value="#{bundle.ListInvestigadorEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -59,7 +62,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInvestigadorTitle_generoInvestigador}"/>
                             </f:facet>
-                            <h:outputText value="#{item.generoInvestigador}"/>
+                            <h:outputText value="#{item.idGenero.nombreGenero}"/>
                         </p:column>
 
                         <p:column>
@@ -107,9 +110,15 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br/>
-                <p:commandButton ajax="false" action="#{investigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListInvestigadorCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{investigadorController.prepareCreate}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListInvestigadorCreateLink}"/>
                 <br/><br/>
-                <p:commandButton ajax="false" action="/administrador/indexInvestigador"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexInvestigador}"/>
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexInvestigador"
+                                 icon="ui-icon-arrowreturnthick-1-w"  
+                                 value="#{bundle.indexInvestigador}"/>
 
             </h:form>
         </ui:define>

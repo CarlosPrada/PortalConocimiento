@@ -38,9 +38,9 @@
                     <p:inputText id="imagenLineaInvestigacion" value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.CreateLineaInvestigacionTitle_imagenLineaInvestigacion}" size="105"/>
 
                     <h:outputLabel value="#{bundle.CreateLineaInvestigacionLabel_idEstado}" />
-                    <h:selectOneMenu id="idEstado" value="#{lineaInvestigacionController.selected.idEstado}"  required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_idEstado}">
+                    <p:selectOneMenu id="idEstado" value="#{lineaInvestigacionController.selected.idEstado}"  required="true" requiredMessage="#{bundle.EditLineaInvestigacionRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />

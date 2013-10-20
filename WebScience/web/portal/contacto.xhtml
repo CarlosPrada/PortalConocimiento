@@ -37,8 +37,7 @@
                                      requiredMessage="Debe especificar una dirección de correo electrónico." 
                                      size="50"
                                      validatorMessage="Formato de email inválido">
-                            <f:validateRegex
-                                pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         </p:inputText>  
 
                         <h:outputLabel styleClass="label" for="contrasena" value="Asunto:" />                                              
@@ -47,7 +46,7 @@
                                      size="50"/>  
 
                         <h:outputLabel styleClass="label" for="mensaje" value="Mensaje:" />  
-                        <h:inputTextarea rows="12" cols="80" 
+                        <p:inputTextarea autoResize="false"  rows="12" cols="80" 
                                          id="nombreProyecto" 
                                          value="#{contactoPC.mensaje}" 
                                          required="true"  

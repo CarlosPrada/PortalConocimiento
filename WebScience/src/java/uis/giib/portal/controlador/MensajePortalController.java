@@ -28,7 +28,7 @@ public class MensajePortalController implements Serializable {
     @PostConstruct
     public void listarMensajesPortal() {
         try {
-            listadoMensajesPortal = ejbMensajePortal.findAll();
+            listadoMensajesPortal = ejbMensajePortal.listarMensajePortal();
         } catch (Exception e) {
             System.out.println("Error al listar mensajes portal");
         }

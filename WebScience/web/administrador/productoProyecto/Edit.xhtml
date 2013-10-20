@@ -25,32 +25,57 @@
 
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
-                    <p:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.EditProductoProyectoTitle_nombreProducto}" size="155"/>
+                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_nombreProducto}" 
+                                   for="nombreProducto" />
+                    <p:inputText id="nombreProducto" 
+                                 value="#{productoProyectoController.selected.nombreProducto}"
+                                 title="#{bundle.EditProductoProyectoTitle_nombreProducto}"
+                                 size="155"/>
 
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_descripcionProducto}" for="descripcionProducto" />
-                    <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="810px" uiColor="#aed0ea"  />
+                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_descripcionProducto}" 
+                                   for="descripcionProducto" />
+                    <ck:editor id="descripcionProducto" 
+                               value="#{productoProyectoController.selected.descripcionProducto}"
+                               width="810px" uiColor="#aed0ea"  />
 
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
-                    <h:inputTextarea rows="7" cols="80" id="descripcionProducto2" value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
+                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_enlaceProducto}"
+                                   for="enlaceProducto" />
+                    <p:inputTextarea autoResize="false"  rows="7" cols="80" 
+                                     id="descripcionProducto2" 
+                                     value="#{productoProyectoController.selected.enlaceProducto}" 
+                                     title="#{bundle.EditProductoProyectoTitle_descripcionProducto}" />
 
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.EditProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idProyecto}" for="idProyecto" />
-                    <h:selectOneMenu id="idProyecto" value="#{productoProyectoController.selected.idProyecto}" title="#{bundle.EditProductoProyectoTitle_idProyecto}" required="true" requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idProyecto}">
+                    <h:outputLabel value="#{bundle.EditProductoProyectoLabel_idProyecto}" 
+                                   for="idProyecto" />
+                    <p:selectOneMenu id="idProyecto" value="#{productoProyectoController.selected.idProyecto}"
+                                     required="true"
+                                     requiredMessage="#{bundle.EditProductoProyectoRequiredMessage_idProyecto}">
                         <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.update}" icon="ui-icon-disk" value="#{bundle.EditProductoProyectoSaveLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{productoProyectoController.update}"
+                                 icon="ui-icon-disk" value="#{bundle.EditProductoProyectoSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditProductoProyectoViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View" icon="ui-icon-search" 
+                                 value="#{bundle.EditProductoProyectoViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditProductoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{productoProyectoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.EditProductoProyectoShowAllLink}"
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

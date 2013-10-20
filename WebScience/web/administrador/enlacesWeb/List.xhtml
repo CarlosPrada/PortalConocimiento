@@ -18,17 +18,23 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListEnlacesWebEmpty}" rendered="#{enlacesWebController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{enlacesWebController.items.rowCount > 0}">
-
-                    <p:dataTable value="#{enlacesWebController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+                    <p:dataTable value="#{enlacesWebController.items}" 
+                                 paginator="true" rows="15"
+                                 var="item" 
+                                 resizableColumns="true">
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{enlacesWebController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListEnlacesWebViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{enlacesWebController.prepareView}" 
+                                             icon="ui-icon-search" 
+                                             value="#{bundle.ListEnlacesWebViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{enlacesWebController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListEnlacesWebEditLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{enlacesWebController.prepareEdit}" 
+                                             icon="ui-icon-pencil"  
+                                             value="#{bundle.ListEnlacesWebEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -53,10 +59,11 @@
                         </p:column>
 
                     </p:dataTable>
-                </h:panelGroup>
-
-                <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
+                <br />
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexContenido" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

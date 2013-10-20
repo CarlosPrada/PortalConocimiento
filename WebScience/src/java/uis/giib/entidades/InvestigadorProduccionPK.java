@@ -23,7 +23,7 @@ public class InvestigadorProduccionPK implements Serializable {
     private int idProduccion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(  max = 30)
     @Column(name = "id_investigador")
     private String idInvestigador;
 

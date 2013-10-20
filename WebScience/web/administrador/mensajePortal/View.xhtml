@@ -22,22 +22,34 @@
                 <p:panelGrid columns="2">
                                    
                     <h:outputText value="#{bundle.ViewMensajePortalLabel_contenidoMensaje}"/>
-                    <h:outputText value="#{mensajePortalController.selected.contenidoMensaje}" escape="false" title="#{bundle.ViewMensajePortalTitle_contenidoMensaje}"/>
+                    <h:outputText value="#{mensajePortalController.selected.contenidoMensaje}" 
+                                  escape="false"
+                                  title="#{bundle.ViewMensajePortalTitle_contenidoMensaje}"/>
                     
                     <h:outputText value="#{bundle.ViewMensajePortalLabel_fechaMensaje}"/>
-                    <h:outputText value="#{mensajePortalController.selected.fechaMensaje}" title="#{bundle.ViewMensajePortalTitle_fechaMensaje}">
+                    <h:outputText value="#{mensajePortalController.selected.fechaMensaje}" 
+                                  title="#{bundle.ViewMensajePortalTitle_fechaMensaje}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="#{bundle.ViewMensajePortalLabel_idEstado}"/>
-                    <h:outputText value="#{mensajePortalController.selected.idEstado.nombreEstado}" title="#{bundle.ViewMensajePortalTitle_idEstado}"/>
+                    <h:outputText value="#{mensajePortalController.selected.idEstado.nombreEstado}" 
+                                  title="#{bundle.ViewMensajePortalTitle_idEstado}"/>
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewMensajePortalEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewMensajePortalEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{mensajePortalController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewMensajePortalCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{mensajePortalController.prepareCreate}"
+                                 icon="ui-icon-plus" value="#{bundle.ViewMensajePortalCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{mensajePortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewMensajePortalShowAllLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{mensajePortalController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewMensajePortalShowAllLink}"/>
 
             </h:form>
         </ui:define>

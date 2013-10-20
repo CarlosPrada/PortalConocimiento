@@ -57,4 +57,14 @@ public class InvestigadorFacade extends AbstractFacade<Investigador> {
             return null;
         }
     }
+
+    public List<Investigador> listarBuscador(String buscar) {
+        try {
+            Query query = em.createNamedQuery("Investigador.findByBuscador");
+            query.setParameter("buscar", "%" + buscar + "%");
+            return (List<Investigador>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

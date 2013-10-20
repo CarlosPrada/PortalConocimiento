@@ -24,14 +24,14 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_investigador}" for="investigador" />
-                    <h:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
+                    <p:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                     <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_lineaInvestigacion}" for="lineaInvestigacion" />
-                    <h:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
+                    <p:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br /><br />

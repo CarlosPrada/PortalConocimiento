@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n"),
     @NamedQuery(name = "Noticia.findByIdNoticia", query = "SELECT n FROM Noticia n WHERE n.idNoticia = :idNoticia"),
     @NamedQuery(name = "Noticia.findByEstado", query = "SELECT noti FROM Noticia noti JOIN noti.idEstado notest WHERE notest.idEstado = 1"),
+    @NamedQuery(name = "Noticia.findByBuscador", query = "SELECT noti FROM Noticia noti WHERE noti.tituloNoticia LIKE :buscar OR noti.contenidoNoticia LIKE :buscar"),
     @NamedQuery(name = "Noticia.findByFechaPublicacionNoticia", query = "SELECT n FROM Noticia n WHERE n.fechaPublicacionNoticia = :fechaPublicacionNoticia")})
 public class Noticia implements Serializable {
 
@@ -43,13 +44,13 @@ public class Noticia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(  max = 65535)
     @Column(name = "titulo_noticia")
     private String tituloNoticia;
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(  max = 65535)
     @Column(name = "contenido_noticia")
     private String contenidoNoticia;
     @Size(max = 150)

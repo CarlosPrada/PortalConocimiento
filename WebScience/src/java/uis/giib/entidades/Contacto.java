@@ -29,7 +29,7 @@ public class Contacto implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(  max = 20)
     @Column(name = "id_contacto")
     private String idContacto;
     @Size(max = 30)
@@ -37,7 +37,7 @@ public class Contacto implements Serializable {
     private String contrasena;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
+    @Size(  max = 200)
     @Column(name = "correo_electronico")
     private String correoElectronico;
 

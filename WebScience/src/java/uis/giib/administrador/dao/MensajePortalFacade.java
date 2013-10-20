@@ -4,9 +4,12 @@
  */
 package uis.giib.administrador.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import uis.giib.entidades.MensajePortal;
 
 /**
@@ -15,6 +18,7 @@ import uis.giib.entidades.MensajePortal;
  */
 @Stateless
 public class MensajePortalFacade extends AbstractFacade<MensajePortal> {
+
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -26,5 +30,13 @@ public class MensajePortalFacade extends AbstractFacade<MensajePortal> {
     public MensajePortalFacade() {
         super(MensajePortal.class);
     }
-    
+
+    public List<MensajePortal> listarMensajePortal() {
+        try {
+            Query query = em.createNamedQuery("MensajePortal.findByEstado");
+            return (List<MensajePortal>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

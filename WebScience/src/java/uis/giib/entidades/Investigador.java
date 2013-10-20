@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Investigador.findByContrasenaInvestigador", query = "SELECT i FROM Investigador i WHERE i.contrasenaInvestigador = :contrasenaInvestigador"),
     @NamedQuery(name = "Investigador.findByLoginParameters", query = "SELECT i FROM Investigador i WHERE i.usuarioInvestigador = :usuarioInvestigador AND i.contrasenaInvestigador = :contrasenaInvestigador"),
     @NamedQuery(name = "Investigador.findInvestigadorByEstado", query = "SELECT inv FROM Investigador inv JOIN inv.idEstado invest WHERE invest.idEstado = 1"),
+    @NamedQuery(name = "Investigador.findByBuscador", query = "SELECT inv FROM Investigador inv WHERE inv.apellidoInvestigador LIKE :buscar OR inv.correoInvestigador LIKE :buscar OR inv.informacionInvestigador LIKE :buscar OR inv.nombreInvestigador LIKE :buscar OR inv.tituloInvestigador LIKE :buscar"),
     @NamedQuery(name = "Investigador.findByTituloInvestigador", query = "SELECT i FROM Investigador i WHERE i.tituloInvestigador = :tituloInvestigador")})
 public class Investigador implements Serializable {
 
@@ -39,22 +40,22 @@ public class Investigador implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(max = 30)
     @Column(name = "usuario_investigador")
     private String usuarioInvestigador;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(max = 20)
     @Column(name = "contrasena_investigador")
     private String contrasenaInvestigador;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(max = 30)
     @Column(name = "nombre_investigador")
     private String nombreInvestigador;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(max = 30)
     @Column(name = "apellido_investigador")
     private String apellidoInvestigador;
     @Lob
@@ -70,9 +71,6 @@ public class Investigador implements Serializable {
     @Size(max = 50)
     @Column(name = "correo_investigador")
     private String correoInvestigador;
-    @Size(max = 1)
-    @Column(name = "genero_investigador")
-    private String generoInvestigador;
     @Size(max = 150)
     @Column(name = "cvlac_investigador")
     private String cvlacInvestigador;
@@ -100,6 +98,9 @@ public class Investigador implements Serializable {
     @JoinColumn(name = "id_nivel_permiso", referencedColumnName = "id_permiso")
     @ManyToOne(optional = false)
     private Permiso idNivelPermiso;
+    @JoinColumn(name = "id_genero", referencedColumnName = "id_genero")
+    @ManyToOne(optional = false)
+    private Genero idGenero;
 
     public Investigador() {
     }
@@ -114,7 +115,6 @@ public class Investigador implements Serializable {
         this.nombreInvestigador = nombreInvestigador;
         this.informacionInvestigador = informacionInvestigador;
         this.correoInvestigador = correoInvestigador;
-        this.generoInvestigador = generoInvestigador;
         this.apellidoInvestigador = apellidoInvestigador;
     }
 
@@ -189,14 +189,6 @@ public class Investigador implements Serializable {
 
     public void setCorreoInvestigador(String correoInvestigador) {
         this.correoInvestigador = correoInvestigador;
-    }
-
-    public String getGeneroInvestigador() {
-        return generoInvestigador;
-    }
-
-    public void setGeneroInvestigador(String generoInvestigador) {
-        this.generoInvestigador = generoInvestigador;
     }
 
     public String getCvlacInvestigador() {
@@ -297,5 +289,13 @@ public class Investigador implements Serializable {
 
     public void setIdEstado(EstadoGeneral idEstado) {
         this.idEstado = idEstado;
+    }
+
+    public Genero getIdGenero() {
+        return idGenero;
+    }
+
+    public void setIdGenero(Genero idGenero) {
+        this.idGenero = idGenero;
     }
 }

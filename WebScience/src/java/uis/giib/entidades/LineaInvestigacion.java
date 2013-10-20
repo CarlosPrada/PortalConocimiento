@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "LineaInvestigacion.findByIdLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.idLineaInvestigacion = :idLineaInvestigacion"),
     @NamedQuery(name = "LineaInvestigacion.findByNombreLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.nombreLineaInvestigacion = :nombreLineaInvestigacion"),
     @NamedQuery(name = "LineaInvestigacion.findLineaInvestigacionByEstado", query = "SELECT linv FROM LineaInvestigacion linv JOIN linv.idEstado linvest WHERE linvest.idEstado = 1"),
+    @NamedQuery(name = "LineaInvestigacion.findByBuscador", query = "SELECT linv FROM LineaInvestigacion linv WHERE linv.descripcionLineaInvestigacion LIKE :buscar OR linv.detalleLineaInvestigacion LIKE :buscar OR linv.nombreLineaInvestigacion LIKE :buscar"),
     @NamedQuery(name = "LineaInvestigacion.findByDescripcionLineaInvestigacion", query = "SELECT l FROM LineaInvestigacion l WHERE l.descripcionLineaInvestigacion = :descripcionLineaInvestigacion")})
 public class LineaInvestigacion implements Serializable {
 
@@ -43,7 +44,7 @@ public class LineaInvestigacion implements Serializable {
     @Column(name = "id_linea_investigacion")
     private Integer idLineaInvestigacion;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(  max = 50)
     @Column(name = "nombre_linea_investigacion")
     private String nombreLineaInvestigacion;
     @Basic(optional = false)

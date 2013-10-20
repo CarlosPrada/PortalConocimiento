@@ -24,22 +24,37 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_contenidoMensaje}" for="contenidoMensaje" />
-                    <ck:editor value="#{mensajePortalController.selected.contenidoMensaje}" width="810px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_contenidoMensaje}" 
+                                   for="contenidoMensaje" />
+                    <ck:editor value="#{mensajePortalController.selected.contenidoMensaje}"
+                               width="810px" uiColor="#aed0ea" />
 
-                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_fechaMensaje}" for="fechaMensaje" />
-                    <p:calendar value="#{mensajePortalController.selected.fechaMensaje}" showOn="button" pattern="dd/MM/yyyy"/> 
+                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_fechaMensaje}" 
+                                   for="fechaMensaje" />
+                    <p:calendar value="#{mensajePortalController.selected.fechaMensaje}" 
+                                showOn="button" 
+                                pattern="dd/MM/yyyy"/> 
 
-                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{mensajePortalController.selected.idEstado}" title="#{bundle.CreateMensajePortalTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.CreateMensajePortalLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" value="#{mensajePortalController.selected.idEstado}"
+                                     required="true"
+                                     requiredMessage="#{bundle.CreateMensajePortalRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{mensajePortalController.create}" icon="ui-icon-plus" value="#{bundle.CreateMensajePortalSaveLink}" />
+                <p:commandButton ajax="false"
+                                 action="#{mensajePortalController.create}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateMensajePortalSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{mensajePortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateMensajePortalShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{mensajePortalController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateMensajePortalShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

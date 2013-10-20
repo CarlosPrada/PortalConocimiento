@@ -24,21 +24,50 @@
 
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_nombreEnlace}" for="nombreEnlace" />
-                    <h:inputTextarea rows="5" cols="60" id="nombreEnlace" value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.EditEnlacesWebTitle_nombreEnlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_nombreEnlace}"/>
+                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_nombreEnlace}"
+                                   for="nombreEnlace" />
+                    <p:inputTextarea autoResize="false" 
+                                     rows="5" cols="60" 
+                                     id="nombreEnlace" 
+                                     value="#{enlacesWebController.selected.nombreEnlace}" 
+                                     title="#{bundle.EditEnlacesWebTitle_nombreEnlace}" 
+                                     required="true"
+                                     requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_nombreEnlace}"/>
+                    
+                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_enlace}" 
+                                   for="enlace" />
+                    <p:inputTextarea autoResize="false"  
+                                     rows="8" cols="90" 
+                                     id="enlace"
+                                     value="#{enlacesWebController.selected.enlace}"
+                                     title="#{bundle.EditEnlacesWebTitle_enlace}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_enlace}"/>
 
-                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_enlace}" for="enlace" />
-                    <h:inputTextarea rows="8" cols="90" id="enlace" value="#{enlacesWebController.selected.enlace}" title="#{bundle.EditEnlacesWebTitle_enlace}" required="true" requiredMessage="#{bundle.EditEnlacesWebRequiredMessage_enlace}"/>
-
-                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_descripcion}" for="descripcion" />
-                    <h:inputTextarea rows="8" cols="90" id="descripcion" value="#{enlacesWebController.selected.descripcion}" title="#{bundle.EditEnlacesWebTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditEnlacesWebLabel_descripcion}"
+                                   for="descripcion" />
+                    <p:inputTextarea autoResize="false"  
+                                     rows="8" cols="90"
+                                     id="descripcion" 
+                                     value="#{enlacesWebController.selected.descripcion}" 
+                                     title="#{bundle.EditEnlacesWebTitle_descripcion}" />
 
                 </h:panelGrid>
-                <p:commandButton ajax="false" action="#{enlacesWebController.update}" icon="ui-icon-disk" value="#{bundle.EditEnlacesWebSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{enlacesWebController.update}"
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditEnlacesWebSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditEnlacesWebViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View"
+                                 icon="ui-icon-search"
+                                 value="#{bundle.EditEnlacesWebViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditEnlacesWebShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{enlacesWebController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditEnlacesWebShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

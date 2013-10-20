@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "ProduccionIntelectual.findByIdProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.idProduccion = :idProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findByNombreProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.nombreProduccion = :nombreProduccion"),
     @NamedQuery(name = "ProduccionIntelectual.findBibliografiaByEstado", query = "SELECT proint FROM ProduccionIntelectual proint JOIN proint.idEstado prointest WHERE prointest.idEstado = 1"),
+    @NamedQuery(name = "ProduccionIntelectual.findByBuscador", query = "SELECT prodint FROM ProduccionIntelectual prodint WHERE prodint.referenciaProduccion LIKE :buscar"),
     @NamedQuery(name = "ProduccionIntelectual.findByAgnoProduccion", query = "SELECT p FROM ProduccionIntelectual p WHERE p.agnoProduccion = :agnoProduccion")})
 public class ProduccionIntelectual implements Serializable {
 

@@ -20,61 +20,70 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListProductoProyectoEmpty}" rendered="#{productoProyectoController.items.rowCount == 0}"/>
+                <p:dataTable value="#{productoProyectoController.items}" 
+                             paginator="true" rows="15" 
+                             var="item" 
+                             resizableColumns="true" >
 
-                <h:panelGroup rendered="#{productoProyectoController.items.rowCount > 0}">
-                    <p:dataTable value="#{productoProyectoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false" action="#{productoProyectoController.prepareView}" 
+                                         icon="ui-icon-search" 
+                                         value="#{bundle.ListProductoProyectoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false" action="#{productoProyectoController.prepareEdit}" 
+                                         icon="ui-icon-pencil" 
+                                         value="#{bundle.ListProductoProyectoEditLink}"/>
+                    </p:column>
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <p:commandButton ajax="false" action="#{productoProyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProductoProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{productoProyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListProductoProyectoEditLink}"/>
-                        </p:column>
+                    <p:column width="120">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoProyectoTitle_nombreProducto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreProducto}"/>
+                    </p:column>
 
-                        <p:column width="120">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_nombreProducto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreProducto}"/>
-                        </p:column>
+                    <p:column >
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoProyectoTitle_descripcionProducto}"/>
+                        </f:facet>
+                        <h:outputText escape="false" value="#{item.descripcionProducto}"/>
+                    </p:column>
 
-                        <p:column >
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_descripcionProducto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionProducto}"/>
-                        </p:column>
+                    <p:column width="190">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoProyectoTitle_enlaceProducto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.enlaceProducto}"/>
+                    </p:column>
 
-                        <p:column width="190">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_enlaceProducto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.enlaceProducto}"/>
-                        </p:column>
+                    <p:column width="60">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoProyectoTitle_idEstado}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstado.nombreEstado}"/>
+                    </p:column>
 
-                        <p:column width="60">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_idEstado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEstado.nombreEstado}"/>
-                        </p:column>
+                    <p:column width="200">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProductoProyectoTitle_idProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idProyecto.nombreProyecto}"/>
+                    </p:column>
 
-                        <p:column width="200">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProductoProyectoTitle_idProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idProyecto.nombreProyecto}"/>
-                        </p:column>
-                        
-                    </p:dataTable>
-                </h:panelGroup>
+                </p:dataTable>
                 <br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProductoProyectoCreateLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{productoProyectoController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListProductoProyectoCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexProyecto" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexProyecto}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexProyecto"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexProyecto}"/>
 
             </h:form>
         </ui:define>

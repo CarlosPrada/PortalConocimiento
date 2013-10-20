@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -34,8 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "MensajePortal.findAll", query = "SELECT m FROM MensajePortal m"),
     @NamedQuery(name = "MensajePortal.findByIdMensaje", query = "SELECT m FROM MensajePortal m WHERE m.idMensaje = :idMensaje"),
+    @NamedQuery(name = "MensajePortal.findByEstado", query = "SELECT m FROM MensajePortal m JOIN m.idEstado mest WHERE mest.idEstado = 1"),
     @NamedQuery(name = "MensajePortal.findByFechaMensaje", query = "SELECT m FROM MensajePortal m WHERE m.fechaMensaje = :fechaMensaje")})
 public class MensajePortal implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +43,7 @@ public class MensajePortal implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "contenido_mensaje")
     private String contenidoMensaje;
     @Basic(optional = false)
@@ -126,5 +124,4 @@ public class MensajePortal implements Serializable {
     public String toString() {
         return "uis.giib.entidades.MensajePortal[ idMensaje=" + idMensaje + " ]";
     }
-    
 }

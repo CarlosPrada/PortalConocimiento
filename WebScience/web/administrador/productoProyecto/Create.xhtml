@@ -24,30 +24,54 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_nombreProducto}" for="nombreProducto" />
-                    <p:inputText id="nombreProducto" value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.CreateProductoProyectoTitle_nombreProducto}"  size="155"/>
+                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_nombreProducto}"
+                                   for="nombreProducto" />
+                    <p:inputText id="nombreProducto" 
+                                 value="#{productoProyectoController.selected.nombreProducto}" 
+                                 title="#{bundle.CreateProductoProyectoTitle_nombreProducto}"  
+                                 size="155"/>
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_descripcionProducto}" for="descripcionProducto" />
-                    <ck:editor id="descripcionProducto" value="#{productoProyectoController.selected.descripcionProducto}" width="810px" uiColor="#aed0ea"  />
+                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_descripcionProducto}" 
+                                   for="descripcionProducto" />
+                    <ck:editor id="descripcionProducto"
+                               value="#{productoProyectoController.selected.descripcionProducto}"
+                               width="810px" uiColor="#aed0ea"  />
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_enlaceProducto}" for="enlaceProducto" />
-                    <h:inputTextarea rows="7" cols="80" value="#{productoProyectoController.selected.enlaceProducto}" />
+                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_enlaceProducto}" 
+                                   for="enlaceProducto" />
+                    <p:inputTextarea autoResize="false"  rows="7" cols="80" 
+                                     value="#{productoProyectoController.selected.enlaceProducto}" />
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{productoProyectoController.selected.idEstado}" title="#{bundle.CreateProductoProyectoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idEstado}" 
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" 
+                                     value="#{productoProyectoController.selected.idEstado}"
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idProyecto}" for="idProyecto" />
-                    <h:selectOneMenu id="idProyecto" value="#{productoProyectoController.selected.idProyecto}" title="#{bundle.CreateProductoProyectoTitle_idProyecto}" required="true" requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idProyecto}">
+                    <h:outputLabel value="#{bundle.CreateProductoProyectoLabel_idProyecto}" 
+                                   for="idProyecto" />
+                    <p:selectOneMenu id="idProyecto" 
+                                     value="#{productoProyectoController.selected.idProyecto}"
+                                     required="true"
+                                     requiredMessage="#{bundle.CreateProductoProyectoRequiredMessage_idProyecto}">
                         <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.create}" icon="ui-icon-plus" value="#{bundle.CreateProductoProyectoSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{productoProyectoController.create}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateProductoProyectoSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateProductoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{productoProyectoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateProductoProyectoShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -13,29 +13,39 @@
 
     <ui:define name="body">
 
-
         <div class="article">                                
             <h1><span>Herramientas Software</span></h1>                                 
         </div>
+
         <div class="mainbar680">
             <div align="center">
                 <h:form>
-                    <p:dataGrid columns="1" paginator="true" rows="4" value="#{herramientasSoftwarePC.listadoHerramientaSoftware}"  emptyMessage="No se encontraton registros" var="lisths">
+                    <p:dataGrid columns="1" rows="4"
+                                paginator="true"  
+                                value="#{herramientasSoftwarePC.listadoHerramientaSoftware}"  
+                                emptyMessage="No se encontraton registros"
+                                var="lisths">
 
                         <div class="cajaHerramienta">
 
-                            <h:commandLink styleClass="tituloRecuperado" value="#{lisths.nombreHerramienta}" action="#{lisths.urlHerramienta}" /><br/>
+                            <h:outputLink styleClass="tituloRecuperado" 
+                                          value="#{lisths.urlHerramienta}" >
+                                #{lisths.nombreHerramienta}
+                            </h:outputLink>
+                            <br/>
                             <center>
-                                <h:graphicImage alt="" width="400" height="180" url="/WebScience/javax.faces.resource/images/ImagenHerramienta/#{lisths.imagenHerramienta}.jsf" /><br/><br/>
+                                <h:graphicImage width="400" height="180" 
+                                                url="/WebScience/javax.faces.resource/images/ImagenHerramienta/#{lisths.imagenHerramienta}.jsf" /><br/><br/>
                             </center>
-                            <h:outputText styleClass="textoHerramienta" value="#{lisths.descripcionHerramienta}" escape="false" />
+                            <h:outputText styleClass="textoHerramienta" 
+                                          value="#{lisths.descripcionHerramienta}" 
+                                          escape="false" />
 
                         </div>
                     </p:dataGrid>  
                 </h:form>
             </div>
         </div>
-
 
     </ui:define>
 </ui:composition>

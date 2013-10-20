@@ -22,28 +22,43 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_nombreProducto}"/>
-                    <h:outputText value="#{productoProyectoController.selected.nombreProducto}" title="#{bundle.ViewProductoProyectoTitle_nombreProducto}"/>
+                    <h:outputText value="#{productoProyectoController.selected.nombreProducto}" 
+                                  title="#{bundle.ViewProductoProyectoTitle_nombreProducto}"/>
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_descripcionProducto}"/>
-                    <h:outputText value="#{productoProyectoController.selected.descripcionProducto}" escape="false" title="#{bundle.ViewProductoProyectoTitle_descripcionProducto}"/>
+                    <h:outputText value="#{productoProyectoController.selected.descripcionProducto}" 
+                                  escape="false"
+                                  title="#{bundle.ViewProductoProyectoTitle_descripcionProducto}"/>
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_enlaceProducto}"/>
-                    <h:outputText value="#{productoProyectoController.selected.enlaceProducto}" title="#{bundle.ViewProductoProyectoTitle_enlaceProducto}"/>
+                    <h:outputText value="#{productoProyectoController.selected.enlaceProducto}" 
+                                  title="#{bundle.ViewProductoProyectoTitle_enlaceProducto}"/>
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idEstado}"/>
-                    <h:outputText value="#{productoProyectoController.selected.idEstado.nombreEstado}" title="#{bundle.ViewProductoProyectoTitle_idEstado}"/>
+                    <h:outputText value="#{productoProyectoController.selected.idEstado.nombreEstado}"
+                                  title="#{bundle.ViewProductoProyectoTitle_idEstado}"/>
 
                     <h:outputText value="#{bundle.ViewProductoProyectoLabel_idProyecto}"/>
-                    <h:outputText value="#{productoProyectoController.selected.idProyecto.nombreProyecto}" title="#{bundle.ViewProductoProyectoTitle_idProyecto}"/>
+                    <h:outputText value="#{productoProyectoController.selected.idProyecto.nombreProyecto}"
+                                  title="#{bundle.ViewProductoProyectoTitle_idProyecto}"/>
 
                 </p:panelGrid>
 
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewProductoProyectoEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewProductoProyectoEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewProductoProyectoCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{productoProyectoController.prepareCreate}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ViewProductoProyectoCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{productoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewProductoProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{productoProyectoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewProductoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

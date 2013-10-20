@@ -26,9 +26,15 @@
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>
-                        <p:commandButton ajax="false" action="#{proyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProyectoViewLink}"/>
+                        <p:commandButton ajax="false" 
+                                         action="#{proyectoController.prepareView}"
+                                         icon="ui-icon-search" 
+                                         value="#{bundle.ListProyectoViewLink}"/>
                         <h:outputText value=" "/>
-                        <p:commandButton ajax="false" action="#{proyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListProyectoEditLink}"/>
+                        <p:commandButton ajax="false" 
+                                         action="#{proyectoController.prepareEdit}"
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListProyectoEditLink}"/>
                     </p:column>
 
                     <p:column width="170">
@@ -75,9 +81,15 @@
 
                 </p:dataTable>
                 <br />
-                <p:commandButton ajax="false" action="#{proyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProyectoCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{proyectoController.prepareCreate}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListProyectoCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexProyecto"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexProyecto}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexProyecto" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexProyecto}"/>
 
             </h:form>
         </ui:define>

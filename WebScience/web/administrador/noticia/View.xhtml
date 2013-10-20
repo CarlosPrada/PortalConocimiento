@@ -22,29 +22,43 @@
                 <p:panelGrid columns="2">                    
                     
                     <h:outputText value="#{bundle.ViewNoticiaLabel_tituloNoticia}"/>
-                    <h:outputText value="#{noticiaController.selected.tituloNoticia}" title="#{bundle.ViewNoticiaTitle_tituloNoticia}"/>
+                    <h:outputText value="#{noticiaController.selected.tituloNoticia}"
+                                  escape="false"
+                                  title="#{bundle.ViewNoticiaTitle_tituloNoticia}"/>
                     
                     <h:outputText value="#{bundle.ViewNoticiaLabel_imagenNoticia}"/>
                     <h:outputText value="#{noticiaController.selected.imagenNoticia}" />
                     
                     <h:outputText value="#{bundle.ViewNoticiaLabel_contenidoNoticia}"/>
-                    <h:outputText value="#{noticiaController.selected.contenidoNoticia}" escape="false"/>
+                    <h:outputText value="#{noticiaController.selected.contenidoNoticia}"
+                                  escape="false"/>
                     
                     <h:outputText value="#{bundle.ViewNoticiaLabel_fechaPublicacionNoticia}"/>
-                    <h:outputText value="#{noticiaController.selected.fechaPublicacionNoticia}" title="#{bundle.ViewNoticiaTitle_fechaPublicacionNoticia}">
+                    <h:outputText value="#{noticiaController.selected.fechaPublicacionNoticia}" 
+                                  title="#{bundle.ViewNoticiaTitle_fechaPublicacionNoticia}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="#{bundle.ViewNoticiaLabel_idEstado}"/>
-                    <h:outputText value="#{noticiaController.selected.idEstado.nombreEstado}" title="#{bundle.ViewNoticiaTitle_idEstado}"/>
+                    <h:outputText value="#{noticiaController.selected.idEstado.nombreEstado}"
+                                  title="#{bundle.ViewNoticiaTitle_idEstado}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewNoticiaEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit"
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewNoticiaEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{noticiaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewNoticiaCreateLink}" />
+                <p:commandButton ajax="false"
+                                 action="#{noticiaController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewNoticiaCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{noticiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewNoticiaShowAllLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{noticiaController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewNoticiaShowAllLink}"/>
                 
             </h:form>
         </ui:define>

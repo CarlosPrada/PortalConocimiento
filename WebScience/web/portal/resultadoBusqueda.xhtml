@@ -14,31 +14,168 @@
     <ui:define name="body">
 
         <div class="titulo">                                
-            Resultados de la Busqueda
+            Búsqueda
         </div>
 
-        <p:dataGrid id="bibliografia" value="#{buscadorPC.listaBibliografia}"
-                    columns="1"
-                    var="bibliografia" 
-                    emptyMessage="No se encontraron coincidencias">  
-            <f:facet name="header">  
-                Búsqueda en Bibliografía
-            </f:facet> 
-            <h:outputText value="#{bibliografia.referenciaBibliografia}" />
-            <h:outputLink value="#{bibliografia.urlBibliografia}" target="_blank">Más</h:outputLink>
-            <p:separator/>
-        </p:dataGrid>    
+        <h:form >
 
-        <p:dataGrid id="evento" value="#{buscadorPC.listaEvento}"
-                    columns="1"
-                    var="evento" 
-                    emptyMessage="No se encontraron coincidencias">  
-            <f:facet name="header">  
-                Búsqueda en Eventos
-            </f:facet> 
-            <h:outputText value="#{evento.nombreEvento}" />
-            <p:separator/>
-        </p:dataGrid>   
+            <h:outputLabel styleClass="label" value="Búsqueda:" /> 
+
+            <h:panelGrid columns="8" cellpadding="5" >  
+
+                <h:outputLabel styleClass="label" value="Palabras Clave:" />                                     
+                <p:inputText value="#{buscadorPC.buscar}" 
+                             id="editbox_search"
+                             size="50"/>               
+                <p:watermark for="editbox_search" value="Buscar..." /> 
+
+                <p:commandButton ajax="false" 
+                                 action="#{buscadorPC.goResultadoBusqueda()}" 
+                                 value="Buscar"/>  
+            </h:panelGrid> 
+
+            <h:panelGrid columns="8" cellpadding="5" >        
+
+                <h:outputLabel styleClass="label" value="Buscar en:" /> 
+
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderBibliografia}" 
+                                         itemLabel="Bibliografia"  /> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderHerramientaSoftware}" 
+                                         itemLabel="Herramientas" /> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderInvestigador}" 
+                                         itemLabel="Investigador" /> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderLineaInvestigacion}" 
+                                         itemLabel="LineaInvestigacion" /> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderNoticia}"
+                                         itemLabel="Noticia"/> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderProduccionIntelectual}" 
+                                         itemLabel="ProduccionIntelectual" /> 
+                <p:selectBooleanCheckbox value="#{buscadorPC.renderProyecto}" 
+                                         itemLabel="Proyecto" /> 
+
+            </h:panelGrid>
+        </h:form >
+
+        <h:outputLabel styleClass="label" value="Palabras Clave Buscadas: #{buscadorPC.buscar}" /> 
+
+        <h:form rendered="#{buscadorPC.renderBibliografia}">
+            <p:dataGrid id="bibliografia" 
+                        value="#{buscadorPC.listaBibliografia}"
+                        columns="1"                        
+                        var="bibliografia" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Bibliografía
+                </f:facet> 
+                <h:outputText escape="false" 
+                              value="#{bibliografia.referenciaBibliografia} " />
+                <h:outputLink value="#{bibliografia.urlBibliografia}"
+                              target="_blank">Más</h:outputLink>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderHerramientaSoftware}">
+            <p:dataGrid id="herramientasSoftware"
+                        value="#{buscadorPC.listaHerramientaSoftware}"
+                        columns="1"                        
+                        var="herramientasSoftware" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Herramientas Software
+                </f:facet> 
+                <h:outputText escape="false" 
+                              value="#{herramientasSoftware.nombreHerramienta} " />
+                <h:commandLink value="Más" 
+                               action="#{herramientasSoftwarePC.goHerramientasSoftware()}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderInvestigador}">
+            <p:dataGrid id="investigador" 
+                        value="#{buscadorPC.listaInvestigador}"
+                        columns="1"
+                        var="investigador" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Investigadores
+                </f:facet> 
+                <h:outputText escape="false"
+                              value="#{investigador.nombreInvestigador} #{investigador.apellidoInvestigador} " />
+                <h:commandLink value="Más"
+                               action="#{investigadorPC.goDetallesInvestigador(investigador)}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderLineaInvestigacion}">
+            <p:dataGrid id="lineaInvestigacion" 
+                        value="#{buscadorPC.listaLineaInvestigacion}"
+                        columns="1"                        
+                        var="lineaInvestigacion" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Líneas de Investigación
+                </f:facet> 
+                <h:outputText escape="false"
+                              value="#{lineaInvestigacion.nombreLineaInvestigacion} " />
+                <h:commandLink value="Más"
+                               action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineaInvestigacion)}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderNoticia}">
+            <p:dataGrid id="noticia"
+                        value="#{buscadorPC.listaNoticia}"
+                        columns="1"                        
+                        var="noticia" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Noticias
+                </f:facet> 
+                <h:outputText escape="false" 
+                              value="#{noticia.tituloNoticia} " />
+                <h:commandLink value="Más" 
+                               action="#{noticiasPC.goNoticiasPortalController()}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderProduccionIntelectual}">
+            <p:dataGrid id="produccionIntelectual"
+                        value="#{buscadorPC.listaProduccionIntelectual}"
+                        columns="1"                        
+                        var="produccionIntelectual" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en la Producción Intelectual
+                </f:facet> 
+                <h:outputText escape="false" 
+                              value="#{produccionIntelectual.referenciaProduccion} " />
+                <h:commandLink value="Más"
+                               action="#{publicacionesPC.goPublicaciones()}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
+
+        <h:form rendered="#{buscadorPC.renderProyecto}">
+            <p:dataGrid id="proyecto"
+                        value="#{buscadorPC.listaProyecto}"
+                        columns="1"                        
+                        var="proyecto" 
+                        emptyMessage="No se encontraron coincidencias">  
+                <f:facet name="header">  
+                    Búsqueda en Proyectos
+                </f:facet> 
+                <h:outputText escape="false" 
+                              value="#{proyecto.nombreProyecto} " />
+                <h:commandLink value="Más"
+                               action="#{proyectoPC.goDetallesProyecto(proyecto)}"/>
+                <p:separator/>
+            </p:dataGrid>  
+        </h:form>
 
     </ui:define>
 </ui:composition>

@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -45,13 +44,9 @@ public class Evento implements Serializable {
     private Integer idEvento;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
+    @Size(  max = 200)
     @Column(name = "nombre_evento")
     private String nombreEvento;
-    @Lob
-    @Size(max = 65535)
-    @Column(name = "contenido_evento")
-    private String contenidoEvento;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_inicio")
@@ -94,14 +89,6 @@ public class Evento implements Serializable {
 
     public void setNombreEvento(String nombreEvento) {
         this.nombreEvento = nombreEvento;
-    }
-
-    public String getContenidoEvento() {
-        return contenidoEvento;
-    }
-
-    public void setContenidoEvento(String contenidoEvento) {
-        this.contenidoEvento = contenidoEvento;
     }
 
     public Date getFechaInicio() {

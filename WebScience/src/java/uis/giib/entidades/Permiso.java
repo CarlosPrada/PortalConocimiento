@@ -39,7 +39,7 @@ public class Permiso implements Serializable {
     private Integer idPermiso;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(  max = 50)
     @Column(name = "nombre_permiso")
     private String nombrePermiso;
     @Size(max = 500)

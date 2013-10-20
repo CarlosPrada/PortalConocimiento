@@ -20,32 +20,35 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListNoticiaEmpty}" rendered="#{noticiaController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{noticiaController.items.rowCount > 0}">
-
                     <p:dataTable value="#{noticiaController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
 
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{noticiaController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListNoticiaViewLink}"/>
+                            <p:commandButton ajax="false"
+                                             action="#{noticiaController.prepareView}"
+                                             icon="ui-icon-search" 
+                                             value="#{bundle.ListNoticiaViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{noticiaController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListNoticiaEditLink}"/>
+                            <p:commandButton ajax="false"
+                                             action="#{noticiaController.prepareEdit}"
+                                             icon="ui-icon-pencil" 
+                                             value="#{bundle.ListNoticiaEditLink}"/>
                         </p:column>
 
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListNoticiaTitle_tituloNoticia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tituloNoticia}"/>
+                            <h:outputText escape="false" value="#{item.tituloNoticia}"/>
                         </p:column>
 
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListNoticiaTitle_contenidoNoticia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.contenidoNoticia}"/>
+                            <h:outputText escape="false" value="#{item.contenidoNoticia}"/>
                         </p:column>
 
                         <p:column width="120">
@@ -65,11 +68,16 @@
                         </p:column>
                         
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
-                <p:commandButton ajax="false" action="#{noticiaController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListNoticiaCreateLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{noticiaController.prepareCreate}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListNoticiaCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexContenido" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

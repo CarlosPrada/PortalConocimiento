@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "HerramientaSoftware.findByIdHerramienta", query = "SELECT h FROM HerramientaSoftware h WHERE h.idHerramienta = :idHerramienta"),
     @NamedQuery(name = "HerramientaSoftware.findByNombreHerramienta", query = "SELECT h FROM HerramientaSoftware h WHERE h.nombreHerramienta = :nombreHerramienta"),
     @NamedQuery(name = "HerramientaSoftware.findByUrlHerramienta", query = "SELECT h FROM HerramientaSoftware h WHERE h.urlHerramienta = :urlHerramienta"),
+    @NamedQuery(name = "HerramientaSoftware.findByBuscador", query = "SELECT hers FROM HerramientaSoftware hers WHERE hers.descripcionHerramienta LIKE :buscar OR hers.nombreHerramienta LIKE :buscar"),
     @NamedQuery(name = "HerramientaSoftware.findByDescripcionHerramienta", query = "SELECT h FROM HerramientaSoftware h WHERE h.descripcionHerramienta = :descripcionHerramienta"),
     @NamedQuery(name = "HerramientaSoftware.findHerramientaSoftwareByEstado", query = "SELECT hs FROM HerramientaSoftware hs JOIN hs.idEstado hsest WHERE hsest.idEstado = 1"),
     @NamedQuery(name = "HerramientaSoftware.findByImagenHerramienta", query = "SELECT h FROM HerramientaSoftware h WHERE h.imagenHerramienta = :imagenHerramienta")})
@@ -41,17 +42,17 @@ public class HerramientaSoftware implements Serializable {
     private Integer idHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
+    @Size(  max = 200)
     @Column(name = "nombre_herramienta")
     private String nombreHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 800)
+    @Size(  max = 800)
     @Column(name = "url_herramienta")
     private String urlHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1000)
+    @Size(  max = 1000)
     @Column(name = "descripcion_herramienta")
     private String descripcionHerramienta;
     @Size(max = 500)

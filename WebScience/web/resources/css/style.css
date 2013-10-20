@@ -1,11 +1,6 @@
 /* Design by http://www.dreamtemplate.com */
 @charset "utf-8";
 
-
-.main {
-    /*background:url(../images/header_bg.gif) repeat-x left 103px;*/
-}
-
 html, .main {
     padding:0;
     margin:0;
@@ -90,7 +85,9 @@ h2 {
 
 /* ESTILO EDITAR PERFIL */
 
-.cajaeditarPerfil {       
+.cajaeditarPerfil {  
+    padding-left: 25px;
+    padding-top: 10px;
     border: 1px #8b8b8b ridge;
 }
 
@@ -861,7 +858,6 @@ a {
     -moz-perspective: 100px;
     -webkit-perspective: 100px;
     -o-perspective: 100px;
-    perspective: 100px;
 }
 .menuHolder ul.nav li {
     display:inline-block; 

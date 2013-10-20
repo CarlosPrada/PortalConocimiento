@@ -24,28 +24,46 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_tituloNoticia}" for="tituloNoticia" />
-                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" width="810px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_tituloNoticia}"
+                                   for="tituloNoticia" />
+                    <ck:editor value="#{noticiaController.selected.tituloNoticia}" 
+                               width="810px" uiColor="#aed0ea" />
 
-                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_contenidoNoticia}" for="contenidoNoticia" />
-                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" width="810px" uiColor="#aed0ea" />
+                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_contenidoNoticia}"
+                                   for="contenidoNoticia" />
+                    <ck:editor value="#{noticiaController.selected.contenidoNoticia}" 
+                               width="810px" uiColor="#aed0ea" />
 
-                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_fechaPublicacionNoticia}" for="fechaPublicacionNoticia" />
-                    <p:calendar value="#{noticiaController.selected.fechaPublicacionNoticia}" showOn="button" pattern="dd/MM/yyyy"/> 
+                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_fechaPublicacionNoticia}" 
+                                   for="fechaPublicacionNoticia" />
+                    <p:calendar value="#{noticiaController.selected.fechaPublicacionNoticia}" 
+                                showOn="button" pattern="dd/MM/yyyy"/> 
 
                     <h:outputLabel value="#{bundle.CreateNoticiaLabel_imagenNoticia}"/>
-                    <p:inputText id="idNoticia" value="#{noticiaController.selected.imagenNoticia}" />
+                    <p:inputText id="idNoticia" 
+                                 value="#{noticiaController.selected.imagenNoticia}" />
 
-                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{noticiaController.selected.idEstado}" title="#{bundle.CreateNoticiaTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateNoticiaRequiredMessage_idEstado}">
+                    <h:outputLabel value="#{bundle.CreateNoticiaLabel_idEstado}"
+                                   for="idEstado" />
+                    <p:selectOneMenu id="idEstado" 
+                                     value="#{noticiaController.selected.idEstado}" 
+                                     required="true"
+                                     requiredMessage="#{bundle.CreateNoticiaRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoGeneralController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{noticiaController.create}" icon="ui-icon-plus" value="#{bundle.CreateNoticiaSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{noticiaController.create}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateNoticiaSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{noticiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateNoticiaShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{noticiaController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateNoticiaShowAllLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

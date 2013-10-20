@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Contenido.findAll", query = "SELECT c FROM Contenido c"),
     @NamedQuery(name = "Contenido.findByIdPublicacion", query = "SELECT c FROM Contenido c WHERE c.idPublicacion = :idPublicacion")})
 public class Contenido implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,58 +43,24 @@ public class Contenido implements Serializable {
     @Size(max = 200)
     @Column(name = "imagen3")
     private String imagen3;
-        @Basic(optional = false)
+    @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "historia")
     private String historia;
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "razondeser")
     private String razondeser;
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "relaciones")
     private String relaciones;
-    /*@Lob
-    @Size(max = 65535)
-    @Column(name = "contenido_resumido")
-    private String contenidoResumido;
-    @Column(name = "fecha_inicioevento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaInicioevento;
-    @Column(name = "fecha_finevento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaFinevento;
-    @Column(name = "fecha_despublicar")
-    @Temporal(TemporalType.DATE)
-    private Date fechaDespublicar;
-    @Size(max = 50)
-    @Column(name = "titulo")
-    private String titulo;
-    @Lob
-    @Size(max = 65535)
-    @Column(name = "contenido_detallado")
-    private String contenidoDetallado;
-    @JoinColumn(name = "id_multimedia", referencedColumnName = "id_multimedia")
-    @ManyToOne
-    private Multimedia idMultimedia;
-    @JoinColumn(name = "id_tipo_publicacion", referencedColumnName = "id_tipo_publicacion")
-    @ManyToOne
-    private TipoContenido idTipoPublicacion;
-    @JoinColumn(name = "id_seccion", referencedColumnName = "id_seccion")
-    @ManyToOne
-    private Seccion idSeccion;
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
-    @ManyToOne(optional = false)
-    private EstadoGeneral idEstado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPublicacion")
-    private List<Recursos> recursosList;*/
 
     public Contenido() {
     }
