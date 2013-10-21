@@ -8,33 +8,44 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="title"> Líneas Investigación </ui:define>
-    <ui:insert name="header"></ui:insert>
-  
+    <ui:insert name="header"></ui:insert>  
     <ui:define name="slider"></ui:define>
 
     <ui:define name="body">
         <h:form>
 
-            <div class="article">                                
-                <h1><span>Líneas de Investigación</span></h1>                                 
+            <div class="titulo">                                
+                Líneas de Investigación
             </div>
 
-            <p:dataGrid columns="2" paginator="false" rows="6" value="#{lineasInvestigacionPC.listadoLineasInvestigacion}"  emptyMessage="No se encontraton registros" var="lineasInv">
+            <div align="center">
+                <div class="mainbar800" >                
 
-                <div clas="content">
-                    <div class="mainbar440">
-                        <div class="article">
+                    <p:dataGrid columns="1" rows="6" 
+                                paginator="false" 
+                                value="#{lineasInvestigacionPC.listadoLineasInvestigacion}"  
+                                emptyMessage="No se encontraton registros" 
+                                var="lineasInv">
 
-                            <h2><h:outputText value="#{lineasInv.nombreLineaInvestigacion}" /></h2><br/>                        
-                            <p><h:outputText value="#{lineasInv.descripcionLineaInvestigacion}" escape="false" /></p><br/>
-                            <p><h:commandLink value="Ver detalles" action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInv)}" /></p>
+                        <div class="cajaLinea">
 
-                        </div>
-                    </div>
-                </div>
+                            <h:outputText styleClass="tituloRecuperado"  
+                                          escape="false" 
+                                          value="#{lineasInv.nombreLineaInvestigacion}" /><br/>                        
+                            <h:outputText styleClass="textoLinea" 
+                                          value="#{lineasInv.descripcionLineaInvestigacion}" 
+                                          escape="false" />
+                            <h:commandLink value="Ver detalles" 
+                                           styleClass="textoDetalle"
+                                           action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInv)}"/>
+                           
+                            <p:separator/><p:separator/>
 
-            </p:dataGrid>
+                        </div> 
 
+                    </p:dataGrid>
+                </div> 
+            </div> 
         </h:form>
     </ui:define>
 </ui:composition>

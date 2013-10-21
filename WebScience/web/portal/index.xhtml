@@ -18,9 +18,13 @@
                             value="#{noticiasPC.listadoNoticias}" 
                             var="noticias"  
                             emptyMessage="No se encontraron registros" >
-                    
+
                     <div class="contenedorInterno680"> 
-                        <br/><p1><h:outputText value="#{noticias.tituloNoticia}" escape="false" /></p1><br/>                  
+                        <br/>                     
+                        <h:outputText styleClass="tituloRecuperado" 
+                                      value="#{noticias.tituloNoticia}" 
+                                          escape="false" />                       
+                        <br/>                  
 
                         <center>
                             <h:graphicImage styleClass="imageInLine" 
@@ -33,6 +37,7 @@
                                        escape="false" />
 
                         <h2>
+                            Posteado el: 
                             <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
                                 <f:convertDateTime pattern="yyyy/MM/dd" />
                             </h:outputText> 
@@ -46,7 +51,7 @@
         </div>
 
         <div class="sidebar">
-            
+
             <!--LOGIN USUARIO-->
 
             <div align="left">
@@ -70,7 +75,6 @@
                                          action="#{loginAuthentication.loginPortal()}" 
                                          value="Iniciar Sesión"  
                                          update="loginForm, :logoutForm"/>
-
                     </h:panelGrid> 
                 </h:form >
 
@@ -97,7 +101,7 @@
                                            value="Editar Perfil" 
                                            action="#{loginAuthentication.goEditarPerfil()}"  /> 
                         </p:column>                        
-                        
+
                         <p:column>
                             <p:commandLink rendered="#{loginAuthentication.administrador}" 
                                            styleClass="pieLInk" 
@@ -107,12 +111,9 @@
 
                     </h:panelGrid>
                 </h:form>
-
                 <p:separator /><p:separator />
 
             </div>
-
-
 
             <div class="gadget">
                 <h2 >Mensaje Del Día</h2>                

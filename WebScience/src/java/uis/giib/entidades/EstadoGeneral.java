@@ -58,8 +58,6 @@ public class EstadoGeneral implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<Investigador> investigadorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
-    private Collection<Seccion> seccionCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<Noticia> noticiaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<Evento> eventoList;
@@ -92,15 +90,6 @@ public class EstadoGeneral implements Serializable {
 
     public void setNombreEstado(String nombreEstado) {
         this.nombreEstado = nombreEstado;
-    }
-
-    @XmlTransient
-    public Collection<Seccion> getSeccionCollection() {
-        return seccionCollection;
-    }
-
-    public void setSeccionCollection(Collection<Seccion> seccionCollection) {
-        this.seccionCollection = seccionCollection;
     }
 
     @XmlTransient

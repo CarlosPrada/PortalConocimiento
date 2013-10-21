@@ -13,12 +13,13 @@
 
     <ui:define name="body">
 
-        <div class="article">                                
-            <h1><span>Herramientas Software</span></h1>                                 
+        <div class="titulo">                                
+            Herramientas Software
         </div>
 
-        <div class="mainbar680">
-            <div align="center">
+        <div align="center">
+            <div class="mainbar800">
+
                 <h:form>
                     <p:dataGrid columns="1" rows="4"
                                 paginator="true"  
@@ -39,7 +40,8 @@
                             </center>
                             <h:outputText styleClass="textoHerramienta" 
                                           value="#{lisths.descripcionHerramienta}" 
-                                          escape="false" />
+                                          escape="false" /><br/>
+                            <p:separator/><p:separator/>
 
                         </div>
                     </p:dataGrid>  

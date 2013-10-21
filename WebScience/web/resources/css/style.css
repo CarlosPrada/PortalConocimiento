@@ -1,35 +1,13 @@
 /* Design by http://www.dreamtemplate.com */
 @charset "utf-8";
 
-html, .main {
-    padding:0;
-    margin:0;
-}
-
-.clr {
-    clear:both;
-    padding:0;
-    margin:0;
-    width:100%;
-    font-size:0;
-    line-height:0;
-}
-
-h2 {
-    margin:8px 0;
-    padding:8px 0;
-    font-size:30px;
-    font-weight:normal;
-    color:#353c46;
-}
-
 /* ESTILOS GENERALES */
 
 .tituloRecuperado {
     text-decoration: none;
     display: block;
     text-align:center;
-    font-size: 20px;
+    font-size: 25px;
     font-family: serif; 
     color:#000000;
 }
@@ -51,6 +29,10 @@ h2 {
     color:#000000
 }
 
+.mainbar800 {
+    width:800px;
+}
+
 .mainbar680 {
     margin:0;
     padding:0 0 0px 0px;
@@ -64,6 +46,58 @@ h2 {
     float:left;
     width:440px;
 }
+
+.mainbar400 {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    float:left;
+    width:400px;	
+}
+
+.mainbar630L {
+    margin-left: 20px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    float:left;
+    width:630px;	
+}
+
+.mainbar630R {
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    float:right;
+    width:630px;	
+}
+
+.mainbar400 .contenedorInterno400 {
+    position:relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    height:210px;
+    border: 2px solid #0D2AA1;
+}
+
+.mainbarDerecho {
+    padding:0 0 40px 20px;
+    float:left;
+    width:960px;
+}
+
+.ui-datalist-item{
+    font-family: cursive;
+}
+
+.textoJustificado{
+    display: block;
+    text-align: justify;
+}
+
+/* FIN ESTILOS GENERALES */
+
 
 /* ESTILO CONTACTO */
 
@@ -83,6 +117,9 @@ h2 {
     border: 1px #8b8b8b ridge;
 }
 
+/* FIN ESTILO CONTACTO */
+
+
 /* ESTILO EDITAR PERFIL */
 
 .cajaeditarPerfil {  
@@ -91,10 +128,16 @@ h2 {
     border: 1px #8b8b8b ridge;
 }
 
+/* FIN ESTILO EDITAR PERFIL */
+
+
 /* ESTILO HERRAMIENTA SOFTWARE */
 
 .cajaHerramienta {  
-
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .textoHerramienta {
@@ -103,7 +146,233 @@ h2 {
     padding-top: 20px;
 }
 
+/* FIN ESTILO HERRAMIENTA SOFTWARE */
 
+
+/* Noticias Index */
+
+.mainbar680 h2{
+    text-align:right;
+    font-size: 11px;
+    font-family: serif; 
+    color:#000000;
+}
+
+.mainbar680 .contenedorInterno680 {
+    margin:0;
+    padding:5px 10px 5px 10px;
+    float:left;
+}
+
+.imageNoticia{
+    display: block;
+}
+
+.textoNoticia {
+    display: block;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+/* Fin Noticias Index */
+
+
+/* MENSAJE DEL DÍA */
+
+.content .sidebar {
+    padding:0;
+    float:right;
+    width:260px;
+}
+
+.content .sidebar .gadget {
+    margin:0 0 12px;
+    padding:8px 10px 24px;
+    background:#0096da;
+}
+
+.content .sidebar h2 {
+    color:#fdeb67;
+    font-size:25px;
+    text-align:center;
+    font-family:arial; 
+    text-transform:uppercase;
+}
+
+ul.sb_menu  {
+    margin:0;
+    padding:0;
+    list-style:none;
+    color:#fff;    
+}
+
+ul.sb_menu li  li {
+    margin:0;
+}
+
+ul.sb_menu li {
+    padding:8px 0;
+    width:220px;
+    font-size:14px;
+    text-align:justify;
+    font-family:arial; 
+    font-weight:bold;
+}
+
+ul.sb_menu li h1{
+    font-size:10px;
+    text-align:right;
+    font-family:arial; 
+}
+
+ul.sb_menu li a {
+    color:#fff;
+    text-decoration:none;
+    margin-left:-16px;
+    padding:4px 8px 4px 16px;
+}
+
+ul.sb_menu li a:hover  li a:hover {
+    color:#fdeb67;
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+/* FIN MENSAJE DEL DÍA */
+
+
+/* Investigadores */
+
+.contenedorInterno400 h1{
+    text-align:left;
+    font-family: arial;
+    font-size:14px;
+    font-weight:bold;
+    color:#161616;	
+}
+
+.contenedorInterno400 h2{
+    text-align:left;
+    font-size:12px;
+    line-height:1.2em;
+    color:#1E90FF;	
+}
+
+.enlaceInvestigador{
+    position: relative;
+    display: block;    
+    font-size:11px;
+    color:#1E90FF;	
+}
+
+/* Fin Investigadores */
+
+
+/* Investigadores Detalle*/
+
+.contactoInvestigador{
+    text-align:left;
+    font-size:15px;
+    font-weight: 600;
+    color:#104BA9;
+}
+
+/* Fin Investigadores Detalle*/
+
+
+/* Línea Investigación*/
+
+.textoLinea {
+    display: block;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+.textoDetalle {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.cajaLinea {  
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* Fin Línea Investigación*/
+
+
+/* Noticias*/
+
+.contenedorInterno800{
+    margin:0;
+    padding:5px 10px 5px 10px;
+    float:left;
+}
+
+.imageNoticia{
+    display: block;
+}
+
+.textoNoticia {
+    display: block;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+.contenedorInterno800 h2{
+    text-align:right;
+    font-size: 11px;
+    font-family: serif; 
+    color:#000000;
+}
+
+/* Fin Noticias*/
+
+
+/* Buscador */
+
+.cajaBuscador{
+    padding-top: 30px;
+}
+
+/* Fin Buscador */
+
+
+/* Quienes Somos */
+
+.cajaBuscador{
+    padding-top: 30px;
+}
+
+/* Fin Quienes Somos */
+
+
+html, .main {
+    padding:0;
+    margin:0;
+}
+
+.clr {
+    clear:both;
+    padding:0;
+    margin:0;
+    width:100%;
+    font-size:0;
+    line-height:0;
+}
+
+h2 {
+    margin:8px 0;
+    padding:8px 0;
+    font-size:30px;
+    font-weight:normal;
+    color:#353c46;
+}
 
 p {
     margin:0 ;
@@ -260,12 +529,7 @@ h1 small {
     padding:0px 0 24px;
     width:480px;
 }
-.mainbarInvestigadores {
-    margin:1.3em;
-    padding:0;
-    float:left;
-    width:400px;	
-}
+
 
 .content .mainbarIzquierdo {
     margin:0;
@@ -273,21 +537,7 @@ h1 small {
     float:right;
     width:960px;
 }
-.content .mainbarDerecho {
-    margin:0 0px 0 0;
-    padding:0 0 40px 20px;
-    float:left;
-    width:960px;
-}
 
-.content .mainbarDerecho .mainbar600 span{
-    margin-bottom:20px;
-    padding-bottom:0px;
-    text-align:left;
-    font-size:15px;
-    line-height:1.2em;
-    color:#161616;
-}
 
 .mainbar600 {
     margin:0;
@@ -296,43 +546,6 @@ h1 small {
     float:left;
     width:600px;
 }
-
-/* Noticias Index */
-
-.mainbar680 p1{
-    display: block;
-    text-align:center;
-    font-size: 20px;
-    font-family: serif; 
-    color:#000000;
-}
-
-.mainbar680 h2{
-    text-align:right;
-    font-size: 15px;
-    font-family: serif; 
-    color:#000000;
-}
-
-.mainbar680 .contenedorInterno680 {
-    margin:0;
-    padding:5px 10px 5px 10px;
-    float:left;
-
-}
-
-.imageNoticia{
-    display: block;
-}
-
-.textoNoticia {
-    display: block;
-    text-align: justify;
-    padding-top: 20px;
-}
-
-
-
 
 .content .mainbarIzquierdo h2 {
     margin-bottom:0;
@@ -446,40 +659,10 @@ h4 /*estilo de letra negra */ {
     background: repeat-x left bottom;
 }
 
-.mainbarInvestigadores .articleInvestigadores {
-    position:relative;
-    margin:1em;
-    height:210px;
-    padding:30px; 
-    border: 2px solid #0D2AA1;
-}
 
-.mainbarInvestigadores .articleInvestigadores h1{
-    margin-bottom: -12px;
-    padding-top:20px;
-    text-align:left;
-    font-size:30px;
-    color:#161616;	
-}
 
-.mainbarInvestigadores .articleInvestigadores h2{
-    text-align:left;
-    font-size:23px;
-    line-height:1.2em;
-    color:#1E90FF;	
-}
 
-.mainbarInvestigadores .articleInvestigadores div {
-    position:absolute;
-    top:135px;
-    left:270px;
-    background:repeat-x left bottom;	
-}
 
-.mainbarInvestigadores .articleInvestigadores div a{
-    height:100px;
-    background:repeat-x left bottom;	
-}
 .content .mainbarIzquierdo .article ul{
     padding-left:5em;
     background:repeat-x left bottom;	
@@ -490,64 +673,8 @@ h4 /*estilo de letra negra */ {
 }
 
 
-/* MENSAJE DEL DÍA */
 
-form .styleGreen {    
-    background-color: #009900 !important;
-    background: #009900 !important;
-    color: #009900 !important;
-}
-.content .sidebar {
-    padding:0;
-    float:right;
-    width:260px;
-}
-.content .sidebar .gadget {
-    margin:0 0 12px;
-    padding:8px 10px 24px;
-    background:#0096da;
-}
-.content .sidebar h2 {
-    color:#fdeb67;
-    font-size:25px;
-    text-align:center;
-    font-family:arial; 
-    text-transform:uppercase;
-}
-ul.sb_menu  {
-    margin:0;
-    padding:0;
-    list-style:none;
-    color:#fff;    
-}
-ul.sb_menu li  li {
-    margin:0;
-}
-ul.sb_menu li {
-    padding:8px 0;
-    width:220px;
-    font-size:14px;
-    text-align:justify;
-    font-family:arial; 
-    font-weight:bold;
-}
 
-ul.sb_menu li h1{
-    font-size:10px;
-    text-align:right;
-    font-family:arial; 
-}
-ul.sb_menu li a {
-    color:#fff;
-    text-decoration:none;
-    margin-left:-16px;
-    padding:4px 8px 4px 16px;
-}
-ul.sb_menu li a:hover  li a:hover {
-    color:#fdeb67;
-    font-weight:bold;
-    text-decoration:underline;
-}
 .content .mainbarIzquierdo ul.sb_menu li a, .content .mainbarDerecho ul.sb_menu li a, .content .mainbar440 ul.sb_menu li a {
     color:#929292;
 }

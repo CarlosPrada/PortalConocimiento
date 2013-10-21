@@ -13,29 +13,56 @@
 
     <ui:define name="body">
 
-        <div class="article">                                
-            <h1><span>Noticias</span></h1>  
+        <div class="titulo">                                
+            Noticias
         </div>
 
-        <h:form>  
+        <div align="center">
+            <div class="mainbar800"> 
 
-            <div class="mainbarDerecho">  
 
-                <p:dataGrid  rows="3" columns="1" paginator="true"  value="#{noticiasPC.listadoNoticias}"  emptyMessage="No se encontraton registros" var="noticias" >
+                <h:form>  
 
-                    <p12><h:outputText value="#{noticias.tituloNoticia}" escape="false" /> </p12><br/>
-                    <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
-                        <f:convertDateTime pattern="yyyy/MM/dd" />                        
-                    </h:outputText> <br/><br/>
-                    <h:graphicImage alt="" width="200" height="240" url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
-                    <h:outputText value="#{noticias.contenidoNoticia}" escape="false" />
-                    <p:separator />
-               
-                </p:dataGrid>
+                    <p:dataGrid  rows="3" columns="1" 
+                                 paginator="true"  
+                                 value="#{noticiasPC.listadoNoticias}"  
+                                 emptyMessage="No se encontraton registros"
+                                 var="noticias" >
+
+                        <div class="contenedorInterno800"> 
+                            <br/>
+
+                            <h:outputText styleClass="tituloRecuperado" 
+                                          value="#{noticias.tituloNoticia}" 
+                                          escape="false" />
+
+                            <br/>
+
+                            <center>
+                                <h:graphicImage styleClass="imageInLine" 
+                                                width="400" height="200"
+                                                url="/WebScience/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
+                            </center>
+
+                            <h:outputText styleClass="textoNoticia" 
+                                          value="#{noticias.contenidoNoticia}" 
+                                          escape="false" />
+                            <h2>
+                                Posteado el: 
+                                <h:outputText value="#{noticias.fechaPublicacionNoticia}"
+                                              escape="false" >
+                                    <f:convertDateTime pattern="yyyy/MM/dd" />                        
+                                </h:outputText> <br/><br/>
+
+                                <p:separator /> <p:separator />
+                            </h2>
+
+                        </div>
+                    </p:dataGrid>
+
+                </h:form> 
 
             </div>
-
-        </h:form> 
-
+        </div>
     </ui:define>
 </ui:composition>
