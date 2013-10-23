@@ -14,8 +14,6 @@
         
         <ui:define name="body">
             
-            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
-            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -23,19 +21,35 @@
             <h:form>
                 <h:panelGrid columns="2">
                    
-                    <h:outputLabel value="#{bundle.EditImagenPortalLabel_nombreImagen}" for="nombreImagen" />
-                    <p:inputTextarea autoResize="false"  rows="7" cols="80" value="#{imagenPortalController.selected.nombreImagen}" />
+                    <h:outputLabel value="#{bundle.EditImagenPortalLabel_nombreImagen}"
+                                   for="nombreImagen" />
+                    <p:inputTextarea autoResize="false" 
+                                     rows="7" cols="80" 
+                                     value="#{imagenPortalController.selected.nombreImagen}" />
                     
-                    <h:outputLabel value="#{bundle.EditImagenPortalLabel_descripcionImagen}" for="descripcionImagen" />
-                    <p:inputTextarea autoResize="false"  rows="7" cols="80" value="#{imagenPortalController.selected.nombreImagen}" />
+                    <h:outputLabel value="#{bundle.EditImagenPortalLabel_descripcionImagen}"
+                                   for="descripcionImagen" />
+                    <p:inputTextarea autoResize="false"  
+                                     rows="7" cols="80" 
+                                     value="#{imagenPortalController.selected.nombreImagen}" />
                
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{imagenPortalController.update}" icon="ui-icon-disk" value="#{bundle.EditImagenPortalSaveLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{imagenPortalController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditImagenPortalSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditImagenPortalViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View"
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditImagenPortalViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{imagenPortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditImagenPortalShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{imagenPortalController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditImagenPortalShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

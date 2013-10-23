@@ -10,7 +10,9 @@ import uis.giib.entidades.MensajePortal;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "mensajePC")
 @SessionScoped
@@ -24,7 +26,10 @@ public class MensajePortalController implements Serializable {
     public MensajePortalController() {
     }
 
-    //Métodos 
+    /**
+     * Almacena en una lista los mensajes activos en la BD. El método es llamado
+     * cuando se accede a la página index.xhtml
+     */
     @PostConstruct
     public void listarMensajesPortal() {
         try {

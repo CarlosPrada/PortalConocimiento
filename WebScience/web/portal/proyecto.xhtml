@@ -37,7 +37,8 @@
                                                 style="float: right"
                                                 url="/WebScience/javax.faces.resource/images/ImagenProyecto/#{proyecto.imagenProyecto}.jsf" />
                                 <h2>
-                                    <h:outputText value="#{proyecto.descripcionResumidaProyecto}"/>
+                                    <h:outputText escape="false"
+                                                  value="#{proyecto.descripcionResumidaProyecto}"/>
                                 </h2>
                                 <br/>
                                 <h:commandLink value="Ver detalles" 

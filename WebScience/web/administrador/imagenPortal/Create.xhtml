@@ -14,8 +14,6 @@
         
         <ui:define name="body">
             
-            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
-            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -23,17 +21,30 @@
             <h:form>
                 <h:panelGrid columns="2">
                                         
-                    <h:outputLabel value="#{bundle.CreateImagenPortalLabel_nombreImagen}" for="nombreImagen" />
-                    <p:inputTextarea autoResize="false"  rows="7" cols="80" value="#{imagenPortalController.selected.nombreImagen}" />
+                    <h:outputLabel value="#{bundle.CreateImagenPortalLabel_nombreImagen}" 
+                                   for="nombreImagen" />
+                    <p:inputTextarea autoResize="false"  
+                                     rows="7" cols="80" 
+                                     value="#{imagenPortalController.selected.nombreImagen}" />
                                         
-                    <h:outputLabel value="#{bundle.CreateImagenPortalLabel_descripcionImagen}" for="descripcionImagen" />
-                    <p:inputTextarea autoResize="false"  rows="10" cols="80" value="#{imagenPortalController.selected.descripcionImagen}" />
+                    <h:outputLabel value="#{bundle.CreateImagenPortalLabel_descripcionImagen}" 
+                                   for="descripcionImagen" />
+                    <p:inputTextarea autoResize="false" 
+                                     rows="10" cols="80"
+                                     value="#{imagenPortalController.selected.descripcionImagen}" />
                                    
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{imagenPortalController.create}" icon="ui-icon-plus" value="#{bundle.CreateImagenPortalSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{imagenPortalController.create}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.CreateImagenPortalSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{imagenPortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateImagenPortalShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{imagenPortalController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateImagenPortalShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

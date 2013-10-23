@@ -13,7 +13,9 @@ import uis.giib.entidades.TipoProduccion;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "publicacionesPC")
 @SessionScoped
@@ -31,7 +33,15 @@ public class PublicacionesPortalController implements Serializable {
     public PublicacionesPortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     * Redirecciona al usuario a la página publicaciones.xhtml Almacena en una
+     * lista los distintos Tipos de Produccion Intelectual de la BD, Así como
+     * una lista de la Produccion Intelectual activa en la BD. Asigna a cada
+     * Tipo de Produccion Intelectual su respectiva lista de Produccion
+     * Intelectual
+     *
+     * @return Retorna el enlace a publicaciones.xhtml
+     */
     public String goPublicaciones() {
 
         try {
@@ -49,8 +59,8 @@ public class PublicacionesPortalController implements Serializable {
         }
         return "/portal/publicaciones.xhtml?faces-redirect=true";
     }
+    
     //Getters - Setters
-
     public List<ProduccionIntelectual> getListadoProduccionIntelectual() {
         return listadoProduccionIntelectual;
     }

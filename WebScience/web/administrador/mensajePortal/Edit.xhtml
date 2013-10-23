@@ -27,13 +27,17 @@
                     <h:outputLabel value="#{bundle.EditMensajePortalLabel_contenidoMensaje}" 
                                    for="contenidoMensaje" />
                     <ck:editor value="#{mensajePortalController.selected.contenidoMensaje}" 
-                               width="810px" uiColor="#aed0ea" />
+                               width="810px" uiColor="#aed0ea" 
+                               required="true"
+                               requiredMessage="#{bundle.EditMensajePortalRequiredMessage_contenidoMensaje}"/>
                                        
                     <h:outputLabel value="#{bundle.EditMensajePortalLabel_fechaMensaje}" 
                                    for="fechaMensaje" />
                     <p:calendar value="#{mensajePortalController.selected.fechaMensaje}" 
                                 showOn="button" 
-                                pattern="dd/MM/yyyy"/> 
+                                pattern="dd/MM/yyyy"
+                                required="true"
+                                requiredMessage="#{bundle.EditMensajePortalRequiredMessage_fechaMensaje}"/> 
                     
                     <h:outputLabel value="#{bundle.EditMensajePortalLabel_idEstado}"
                                    for="idEstado" />

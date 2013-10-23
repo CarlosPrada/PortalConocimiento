@@ -13,7 +13,9 @@ import uis.giib.entidades.Proyecto;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "proyectoPC")
 @SessionScoped
@@ -32,7 +34,14 @@ public class ProyectoPortalController implements Serializable {
     public ProyectoPortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     * Redirecciona al usuario a la página proyecto.xhtml Almacena en una lista
+     * los distintos Tipos de Proyecto de la BD, Así como una lista de las
+     * Proyectos y activas en la BD. Asigna a cada Tipos de Proyecto su
+     * respectiva lista de Proyectos.
+     *
+     * @return Retorna el enlace a proyecto.xhtml
+     */
     public String goProyectos() {
         try {
             listadoEstadoProyecto = new ListDataModel(ejbEstadoProyecto.findAll());

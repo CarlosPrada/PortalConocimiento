@@ -7,7 +7,9 @@ import uis.giib.entidades.Investigador;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "perfilUsuarioC")
 @SessionScoped
@@ -20,7 +22,11 @@ public class PerfilUsuarioController implements Serializable {
     public PerfilUsuarioController() {
     }
 
-    //Métodos de Navegación
+    /**
+     * Redirecciona al usuario a la página de editarPerfilUsuario.xhtml 
+     *
+     * @return Retorna el enlace a editarPerfilUsuario.xhtml
+     */
     public String goEditarPerfil(Investigador investigador) {
 
         try {

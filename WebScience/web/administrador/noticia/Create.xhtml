@@ -14,7 +14,7 @@
         </ui:define>
 
         <ui:define name="body">
-            
+
             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
@@ -27,12 +27,16 @@
                     <h:outputLabel value="#{bundle.CreateNoticiaLabel_tituloNoticia}"
                                    for="tituloNoticia" />
                     <ck:editor value="#{noticiaController.selected.tituloNoticia}" 
-                               width="810px" uiColor="#aed0ea" />
+                               width="810px" uiColor="#aed0ea" 
+                               required="true"
+                               requiredMessage="#{bundle.CreateNoticiaRequiredMessage_tituloNoticia}"/>
 
                     <h:outputLabel value="#{bundle.CreateNoticiaLabel_contenidoNoticia}"
                                    for="contenidoNoticia" />
                     <ck:editor value="#{noticiaController.selected.contenidoNoticia}" 
-                               width="810px" uiColor="#aed0ea" />
+                               width="810px" uiColor="#aed0ea" 
+                               required="true"
+                               requiredMessage="#{bundle.CreateNoticiaRequiredMessage_contenidoNoticia}"/>
 
                     <h:outputLabel value="#{bundle.CreateNoticiaLabel_fechaPublicacionNoticia}" 
                                    for="fechaPublicacionNoticia" />

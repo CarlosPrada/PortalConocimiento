@@ -11,7 +11,9 @@ import uis.giib.entidades.Noticia;
 /**
  *
  * @author Cristhian Ruiz
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "noticiasPC")
 @SessionScoped
@@ -26,7 +28,13 @@ public class NoticiasPortalController implements Serializable {
     public NoticiasPortalController() {
     }
 
-    //Métodos de Navegación
+    /**
+     *
+     * Redirecciona al usuario a la página de noticias.xhtml Almacena en una
+     * lista las noticias activos en la BD.
+     *
+     * @return Retorna el enlace a noticias.xhtml
+     */
     public String goNoticiasPortalController() {
         try {
             listadoNoticias = ejbNoticia.listarNoticias();
@@ -35,12 +43,12 @@ public class NoticiasPortalController implements Serializable {
         }
         return "/portal/noticias.xhtml?faces-redirect=true";
     }
-    
+
     @PostConstruct
-    public void inicializacion(){
+    public void inicializacion() {
         listadoNoticias = ejbNoticia.listarNoticias();
     }
-    
+
     //Getters - Setters
     public List<Noticia> getListadoNoticias() {
         return listadoNoticias;

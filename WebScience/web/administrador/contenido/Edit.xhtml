@@ -24,36 +24,52 @@
             <h:form>
                 <h:panelGrid columns="2">
                     
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_historia}" for="titulo" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_historia}" 
+                                   for="titulo" />
                     <ck:editor value="#{contenidoController.selected.historia}" 
                                width="810px" uiColor="#aed0ea" 
                                required="true" 
-                               requiredMessage="#{bundle.EditContenidoRequiredMessage_historia}" />
+                               requiredMessage="#{bundle.CreateContenidoRequiredMessage_historia}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_razon}" for="contenidoResumido" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_razon}"
+                                   for="contenidoResumido" />
                     <ck:editor value="#{contenidoController.selected.razondeser}" 
                                width="810px" uiColor="#aed0ea" 
                                required="true" 
                                requiredMessage="#{bundle.EditContenidoRequiredMessage_razon}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_relaciones}" for="contenidoDetallado" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_relaciones}" 
+                                   for="contenidoDetallado" />
                     <ck:editor value="#{contenidoController.selected.relaciones}" 
                                width="810px" uiColor="#aed0ea" 
                                required="true" 
                                requiredMessage="#{bundle.EditContenidoRequiredMessage_relaciones}" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen1}" for="idMultimedia" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen1}" 
+                                   for="idMultimedia" />
 
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen2}" for="idTipoPublicacion" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen2}" 
+                                   for="idTipoPublicacion" />
                     
-                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen3}" for="idTipoPublicacion" />
+                    <h:outputLabel value="#{bundle.EditContenidoLabel_imagen3}" 
+                                   for="idTipoPublicacion" />
 
                 </h:panelGrid>
-                <p:commandButton ajax="false" action="#{contenidoController.update}" icon="ui-icon-disk" value="#{bundle.EditContenidoSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{contenidoController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditContenidoSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditContenidoViewLink}"/>
+                <p:commandButton ajax="false"
+                                 action="View"
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditContenidoViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{contenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditContenidoIndexLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{contenidoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditContenidoIndexLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>
