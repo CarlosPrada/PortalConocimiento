@@ -15,12 +15,15 @@ import uis.giib.entidades.Evento;
 
 /**
  *
- * @author Carlos David Prada Remolina
+ * @author Carlos David Prada Remolina  
+ * @version 1.0  
+ * @since 20/07/2013
  */
 @Named(value = "eventosPC")
 @SessionScoped
 public class EventosPortalController implements Serializable {
 
+    //Atributos
     private ScheduleModel eventModel;
     private ScheduleEvent event = new DefaultScheduleEvent();
     private DataModel listadoEvento;
@@ -31,7 +34,12 @@ public class EventosPortalController implements Serializable {
     public EventosPortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     * Redirecciona al usuario a la página de eventos.xhtml
+     * Almacena en una lista los eventos activos en la BD.
+     * 
+     * @return Retorna el enlace a eventos.xhtml
+     */
     public String goEventos() {
 
         try {

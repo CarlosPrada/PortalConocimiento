@@ -36,15 +36,15 @@
             <p:dataGrid  value="#{quienesSomosPC.quinesSomos}"
                          emptyMessage="No se encontraton registros"  
                          var="qunsSms">
-
-                <h:graphicImage width="250" height="200"
-                                url="/WebScience/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen2}.jsf" />
-
+                
                 <div class="mainbar630R">
                     <h:outputText escape="false" 
                                   styleClass="textoJustificado"
                                   value="#{qunsSms.razondeser}" />
                 </div>
+
+                <h:graphicImage width="250" height="200"
+                                url="/WebScience/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen2}.jsf" />
             </p:dataGrid >
 
             <p:dataGrid value="#{quienesSomosPC.quinesSomos}" 

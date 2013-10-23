@@ -14,12 +14,15 @@ import uis.giib.entidades.TipoProduccion;
 /**
  * @author Carlos David Prada Remolina
  * @author cristhian
+ * @version 1.0
+ * @since 10/08/2013
+ *
  */
 @Named(value = "bibliografiaPC")
 @SessionScoped
 public class BibliografiaPortalController implements Serializable {
 
-    //Atributos 
+    //Atributos     
     private List<Bibliografia> listadoBibliografia;
     private DataModel listaTipoBibliografia;
     @EJB
@@ -31,7 +34,15 @@ public class BibliografiaPortalController implements Serializable {
     public BibliografiaPortalController() {
     }
 
-    //Métodos de Navegación
+    /**
+     * Redirecciona al usuario a la página de referenciasBibliograficas.xhtml
+     * Almacena en una lista los distintos tipos de referencias bibliográficas,
+     * así como una lista de las referencias bibliográficas almacenadas y
+     * activas en la base de datos. Asigna a cada tipo de referencia
+     * bibliográfica su respectiva lista de referencias activas.
+     *
+     * @return path relativo a la dirección de la página de referenciasBibliograficas.xhtml
+     */
     public String goBibliografia() {
 
         try {

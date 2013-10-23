@@ -9,7 +9,10 @@ import uis.giib.entidades.EnlacesWeb;
 
 /**
  *
- * @author Carlos David Prada Remolina crisyhian ruiz
+ * @author Carlos David Prada Remolina
+ * @author crisyhian ruiz
+ * @version 1.0
+ * @since 12/09/2013
  */
 @Named(value = "enlacesWebPC")
 @SessionScoped
@@ -27,11 +30,10 @@ public class EnlacesWebPortalController implements Serializable {
     public EnlacesWebPortalController() {
     }
 
-    // Métodos 
     /**
-     * Consulta el registro de la base de datos correspondiente al Aula Virtual
+     * Método que busca el enlace web al aula virtual
      *
-     * @return Retorna el enlace al Aula Virtual
+     * @return Enlace enontrado según el ID
      */
     public String enlaceAulaVirtual() {
         try {
@@ -42,6 +44,10 @@ public class EnlacesWebPortalController implements Serializable {
         return enlaceWeb.getEnlace();
     }
 
+    /**
+     * Método que obtiene de la BD los enlaces dinámicos a webs externas al
+     * protal
+     */
     @PostConstruct
     public void cargarEnlaces() {
 
@@ -55,6 +61,11 @@ public class EnlacesWebPortalController implements Serializable {
         enlacesRedesSociales[1] = obtenerEnlace(3);
     }
 
+    /**
+     * Método que busca enlaces web en la BD por ID
+     *
+     * @return Enlace enontrado según el ID
+     */
     public EnlacesWeb obtenerEnlace(int ID) {
         enlaceWeb = ejbEnlacesWeb.buscarEnlaceWebPorID(ID);
         return enlaceWeb;
@@ -99,5 +110,5 @@ public class EnlacesWebPortalController implements Serializable {
 
     public void setEnlacesRedesSociales(EnlacesWeb[] enlacesRedesSociales) {
         this.enlacesRedesSociales = enlacesRedesSociales;
-    }    
+    }
 }

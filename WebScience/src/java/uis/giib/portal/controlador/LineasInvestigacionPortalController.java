@@ -10,6 +10,8 @@ import uis.giib.entidades.LineaInvestigacion;
 /**
  *
  * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/09/2013
  */
 @Named(value = "lineasInvestigacionPC")
 @SessionScoped
@@ -25,8 +27,12 @@ public class LineasInvestigacionPortalController implements Serializable {
     public LineasInvestigacionPortalController() {
     }
 
-    //Métodos de navegación
-    
+    /**
+     * Redirecciona al usuario a la página de lineasInvestigacion.xhtml Almacena
+     * en una lista las Líneas de Investigación activos en la BD.
+     *
+     * @return Retorna el enlace a lineasInvestigacion.xhtml
+     */
     public String goLineasInvestigacion() {
         try {
             listadoLineasInvestigacion = ejbLineaInvestigacion.listarLineaInvestigacion();
@@ -36,6 +42,14 @@ public class LineasInvestigacionPortalController implements Serializable {
         return "/portal/lineasInvestigacion.xhtml?faces-redirect=true";
     }
 
+    /**
+     * Método que redirige al usuario a la página de
+     * lineasInvestigacionDetalle.xhtm
+     *
+     * @param linInvestiga Objeto que contiene la Línea de Investigación
+     * investigdor cuyos detalles serán explorados
+     * @return Dirección de la página de lineasInvestigacionDetalle.xhtml
+     */
     public String goDetallesLineasInvestigacion(LineaInvestigacion linInvestiga) {
 
         try {
@@ -45,8 +59,8 @@ public class LineasInvestigacionPortalController implements Serializable {
         }
         return "/portal/lineasInvestigacionDetalle.xhtml?faces-redirect=true";
     }
+    
     //Getters - Setters 
-
     public List<LineaInvestigacion> getListadoLineasInvestigacion() {
         return listadoLineasInvestigacion;
     }

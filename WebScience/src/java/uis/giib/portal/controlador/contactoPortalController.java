@@ -11,7 +11,7 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import uis.giib.entidades.Contacto;
 /**
  *
- * @author Carlos David Prada Remolina
+ *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
  */
 @Named(value = "contactoPC")
 @RequestScoped

@@ -12,8 +12,9 @@ import uis.giib.entidades.Investigador;
 import uis.giib.entidades.TipoInvestigador;
 
 /**
- *
  * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 02/10/2013
  */
 @Named(value = "investigadorPC")
 @SessionScoped
@@ -32,11 +33,13 @@ public class InvestigadorPortalController implements Serializable {
     public InvestigadorPortalController() {
     }
 
-    //Métodos de navegación
     /**
-     * Método que redirige al usuario a la página de investigadores.xhtml
+     * Redirecciona al usuario a la página de investigadores.xhtm Almacena en
+     * una lista los distintos Tipos de Investigador de la BD. Almacena en una
+     * lista los Investigadores activos en la BD. Asigna a cada Tipo de
+     * Investigador su respectiva lista de Investigadores activos.
      *
-     * @return Dirección de la página de investigadores.xhtml
+     * @return Retorna el enlace a investigadores.xhtm
      */
     public String goInvestigadores() {
 

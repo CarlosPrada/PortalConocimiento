@@ -5,9 +5,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import org.primefaces.event.ToggleEvent;
 import uis.giib.entidades.Bibliografia;
 import uis.giib.entidades.HerramientaSoftware;
 import uis.giib.entidades.Investigador;
@@ -20,13 +17,13 @@ import uis.giib.entidades.Proyecto;
  *
  * @author Carlos David Prada Remolina
  * @version 1.0
- * @since 10/10/2013
+ * @since 04/09/2013
  */
 @Named(value = "buscadorPC")
 @SessionScoped
 public class BuscadorController implements Serializable {
 
-    //ATRIBUTOS
+    //Atributos
     private String buscar;
     private List<Bibliografia> listaBibliografia;
     private List<HerramientaSoftware> listaHerramientaSoftware;
@@ -57,11 +54,18 @@ public class BuscadorController implements Serializable {
     @EJB
     private uis.giib.administrador.dao.ProyectoFacade ejbProyecto;
 
-    //CONSTRURCTOR
+    //Constructor
     public BuscadorController() {
     }
 
-    //MÉTODOS DE NAVEGACIÓN
+    /**
+     * Redirecciona al usuario a la página de resultadoBusqueda.xhtml Examina
+     * varias tablas de la base de datos en busca de coincidencias con la cadena
+     * suministrada por el usuario.
+     *
+     * @return path relativo a la dirección de la página de
+     * resultadoBusqueda.xhtml
+     */
     public String goResultadoBusqueda() {
 
         try {
@@ -73,28 +77,13 @@ public class BuscadorController implements Serializable {
             listaProduccionIntelectual = ejbProduccionIntelectual.listarBuscador(buscar);
             listaProyecto = ejbProyecto.listarBuscador(buscar);
 
-//            renderBibliografia = listaBibliografia.isEmpty();
-//            renderHerramientaSoftware = listaHerramientaSoftware.isEmpty();
-//            renderInvestigador= listaInvestigador.isEmpty();
-//            renderLineaInvestigacion = listaLineaInvestigacion.isEmpty();
-//            renderNoticia = listaNoticia.isEmpty();
-//            renderProduccionIntelectual = listaProduccionIntelectual.isEmpty();
-//            renderProyecto = listaProyecto.isEmpty();
-
-
         } catch (Exception e) {
             System.out.println("Error listando resultados de la busqueda!" + e.getMessage());
         }
         return "/portal/resultadoBusqueda.xhtml?faces-redirect=true";
     }
 
-    //PANEL ACTIONS
-    public void handleToggle(ToggleEvent event) {
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Fieldset Toggled", "Visibility:" + event.getVisibility());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-
-    //GETTERS - SETTERS   
+    //Getters - Setters   
     public String getBuscar() {
         return buscar;
     }

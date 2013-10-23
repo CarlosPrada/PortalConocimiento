@@ -11,6 +11,9 @@ import uis.giib.entidades.HerramientaSoftware;
  *
  * @author Carlos David Prada Remolina
  * @author cristhian ruiz
+ * @version 1.0
+ * @since 10/10/2013
+ *
  */
 @Named(value = "herramientasSoftwarePC")
 @SessionScoped
@@ -25,7 +28,12 @@ public class HerramientasSoftwarePortalController implements Serializable {
     public HerramientasSoftwarePortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     * Redirecciona al usuario a la página de herramientaSoftware.xhtml Almacena
+     * en una lista las Herramientas Software activos en la BD.
+     *
+     * @return Retorna el enlace al herramientaSoftware.xhtml
+     */
     public String goHerramientasSoftware() {
         try {
             listadoHerramientaSoftware = ejbHerramientaSoftware.listarHerramientaSoftware();

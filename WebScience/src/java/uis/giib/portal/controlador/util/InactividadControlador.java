@@ -6,9 +6,21 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+/**
+ *
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 15/10/2013
+ */
+
 @ManagedBean(name = "idleBean")
 public class InactividadControlador implements Serializable {
-
+    
+    
+    /**
+     * Método para cerrar la sesión y advertir al usuario acerca de su periodo de inactividad.
+     * @throws IOException 
+     */
     public void activeListener() throws IOException {
         FacesContext.getCurrentInstance().addMessage(
                 null,
@@ -18,7 +30,12 @@ public class InactividadControlador implements Serializable {
 
         FacesContext.getCurrentInstance().getExternalContext().redirect("/WebScience/portal/index.jsf");
     }
+    
 
+    /**
+     * Método para cerrar la sesión y advertir al usuario acerca de su periodo de inactividad.
+     * @throws IOException 
+     */
     public void logoutListener() throws IOException {
         FacesContext.getCurrentInstance().addMessage(
                 null,

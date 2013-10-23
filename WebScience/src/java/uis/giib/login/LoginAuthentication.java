@@ -15,7 +15,7 @@ import uis.giib.entidades.Investigador;
  * Contorlador para verificar que los datos usados en la autenticación sean los
  * correctos
  *
- * @author Carlos David Prada Remolina
+ *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
  */
 @Named(value = "loginAuthentication")
 @SessionScoped

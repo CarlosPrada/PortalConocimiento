@@ -10,7 +10,7 @@ import uis.giib.entidades.HerramientaSoftware;
 
 /**
  *
- * @author Carlos David Prada Remolina
+ *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
  */
 @Stateless
 public class HerramientaSoftwareFacade extends AbstractFacade<HerramientaSoftware> {

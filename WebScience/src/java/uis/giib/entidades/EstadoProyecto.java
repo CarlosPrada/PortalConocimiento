@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Carlos David Prada remolina
+ *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
  */
 @Entity
 @Table(name = "estado_proyecto")
