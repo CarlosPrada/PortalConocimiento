@@ -47,15 +47,9 @@
                         </h:column>
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/blocked.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/permiso/#{permisoController.prepareList()}" value="Gestión de Permisos"/>
-                            Permite gestionar la configuración de permisos en el sistema.
-                        </h:column>  
-
-                        <h:column >
                             <img src="#{resource['images/admin/dash/profile.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/rol/#{rolController.prepareList()}" value="Gestión de Roles de Investigación"/>
-                            Permite gestionar los Roles de Investigación que desempeñan los Investigadores.
+                            <h:link outcome="/administrador/rol/#{rolController.prepareList()}" value="Gestión de Roles en Proyectos de Investigación"/>
+                            Permite gestionar los Roles de Proyectos de Investigación que desempeñan los Investigadores.
                         </h:column>  
 
                         <h:column >
