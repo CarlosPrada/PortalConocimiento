@@ -14,10 +14,10 @@
 
 .titulo {
     text-align: center;
-    margin-top: 8px;
-    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     font-weight:normal;
-    padding:18px 0 0;
+    padding:10px 0 0;
     font-size:35px;
     font-family: georgia;
     line-height:1.6em;
@@ -399,7 +399,7 @@ a {
     padding:0;
     float:left;
     width:auto;
-    height:103px
+    height:70px
 }
 
 h5  {
@@ -512,7 +512,7 @@ h1 small {
 }
 .content_resize {
     margin:0 auto;
-    padding:15px 0 24px;
+    padding:0px 0 24px;
     width:960px;
     min-height:300px;
 

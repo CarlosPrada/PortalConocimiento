@@ -23,35 +23,49 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_nomnreBibliografia}"/>
-                    <h:outputText value="#{bibliografiaController.selected.nombreBibliografia}" title="#{bundle.ViewBibliografiaTitle_nomnreBibliografia}"/>
+                    <h:outputText value="#{bibliografiaController.selected.nombreBibliografia}" 
+                                  title="#{bundle.ViewBibliografiaTitle_nomnreBibliografia}"/>
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_agnoBibliografia}"/>
-                    <h:outputText value="#{bibliografiaController.selected.agnoBibliografia}" title="#{bundle.ViewBibliografiaTitle_agnoBibliografia}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
+                    <h:outputText value="#{bibliografiaController.selected.agnoBibliografia}" 
+                                  title="#{bundle.ViewBibliografiaTitle_agnoBibliografia}"/>                        
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_referenciaBibliografia}"/>
-                    <h:outputText value="#{bibliografiaController.selected.referenciaBibliografia}" title="#{bundle.ViewBibliografiaTitle_referenciaBibliografia}"/>
+                    <h:outputText value="#{bibliografiaController.selected.referenciaBibliografia}" 
+                                  title="#{bundle.ViewBibliografiaTitle_referenciaBibliografia}"/>
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_urlBibliografia}"/>
-                    <h:outputText value="#{bibliografiaController.selected.urlBibliografia}" title="#{bundle.ViewBibliografiaTitle_urlBibliografia}"/>
+                    <h:outputText value="#{bibliografiaController.selected.urlBibliografia}"
+                                  title="#{bundle.ViewBibliografiaTitle_urlBibliografia}"/>
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_idTipoBibliografia}"/>
-                    <h:outputText value="#{bibliografiaController.selected.idTipoBibliografia.nombreTipoProduccion}" title="#{bundle.ViewBibliografiaTitle_idTipoBibliografia}"/>
+                    <h:outputText value="#{bibliografiaController.selected.idTipoBibliografia.nombreTipoProduccion}"
+                                  title="#{bundle.ViewBibliografiaTitle_idTipoBibliografia}"/>
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_idEstado}"/>
-                    <h:outputText value="#{bibliografiaController.selected.idEstado.nombreEstado}" title="#{bundle.ViewBibliografiaTitle_idEstado}"/>
+                    <h:outputText value="#{bibliografiaController.selected.idEstado.nombreEstado}" 
+                                  title="#{bundle.ViewBibliografiaTitle_idEstado}"/>
 
                     <h:outputText value="#{bundle.ViewBibliografiaLabel_idLinea}"/>
-                    <h:outputText value="#{bibliografiaController.selected.idLinea.nombreLineaInvestigacion}" title="#{bundle.ViewBibliografiaTitle_idLinea}"/>
+                    <h:outputText value="#{bibliografiaController.selected.idLinea.nombreLineaInvestigacion}" 
+                                  title="#{bundle.ViewBibliografiaTitle_idLinea}"/>
                 </p:panelGrid>
 
                 <br /><br />
-                <p:commandButton ajax="false" action="Edit" value="#{bundle.ViewBibliografiaEditLink}" icon="ui-icon-pencil"/>
+                <p:commandButton ajax="false"
+                                 action="Edit"
+                                 value="#{bundle.ViewBibliografiaEditLink}"
+                                 icon="ui-icon-pencil"/>
                 <br /><br />                
-                <p:commandButton ajax="false" action="#{bibliografiaController.prepareCreate}" value="#{bundle.ViewBibliografiaCreateLink}" icon="ui-icon-plus"/>
+                <p:commandButton ajax="false" 
+                                 action="#{bibliografiaController.prepareCreate}" 
+                                 value="#{bundle.ViewBibliografiaCreateLink}"
+                                 icon="ui-icon-plus"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{bibliografiaController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewBibliografiaShowAllLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{bibliografiaController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.ViewBibliografiaShowAllLink}"/>
 
             </h:form>
         </ui:define>

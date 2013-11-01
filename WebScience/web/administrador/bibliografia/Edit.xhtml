@@ -32,11 +32,9 @@
 
                     <h:outputLabel value="#{bundle.EditBibliografiaLabel_agnoBibliografia}"
                                    for="agnoBibliografia" />
-                    <p:calendar value="#{bibliografiaController.selected.agnoBibliografia}" 
-                                id="Fechainicio" 
-                                showOn="button" 
-                                pattern="dd/MM/yyyy"/> 
-
+                    <p:inputText id="agnoBibliografia" 
+                                 value="#{bibliografiaController.selected.agnoBibliografia}" />
+  
                     <h:outputLabel value="#{bundle.EditBibliografiaLabel_referenciaBibliografia}" 
                                    for="referenciaBibliografia" />
                     <ck:editor id="referenciaBibliografia" 

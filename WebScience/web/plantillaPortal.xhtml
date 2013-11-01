@@ -24,158 +24,155 @@
                 <p:ajax event="active" listener="#{idleBean.activeListener}" update="messages" />
             </p:idleMonitor>
 
-        </h:form>
+        </h:form>        
 
-        <div class="main">
-            <div class="header">
-                <div class="header_resize">
-                    <div class="logo"> 
+        <div class="header_resize">
+            <div class="logo"> 
 
-                        <!--LOGO - Grupo-->
-                        <ui:insert name="logo">
-                            <h:form>                            
-                                <h1>  
-                                    <h:link outcome="index.jsf" >
-                                        <h:graphicImage width="660" height="80" 
-                                                        value="#{resource['images/portal/slide1.jpg']}"  />
-                                    </h:link>                               
-                                </h1>
-                            </h:form>
-                        </ui:insert>
-                    </div>
-
-                    <div class="clr"></div>
-
-                    <!--MENÚ-->
-
-                    <div class="menuHolder"> 
-
-                        <!-- BUSCADOR -->
-                        <div class="searchform">
-                            <h:form >
-
-                                <p:inputText id="editbox_search"  value="#{buscadorPC.buscar}"    />
-                                <p:watermark for="editbox_search" value="Buscar..." /> 
-                                <p:commandButton ajax="false"
-                                                 icon="ui-icon-search" 
-                                                 action="#{buscadorPC.goResultadoBusqueda()}" />  
-
-                            </h:form>
-                        </div>
-
-                        <h:form>
-                            <ul class="nav">
-                                <li>
-                                    <h:commandLink styleClass="top-a"  
-                                                   action="#{indexPC.goIndex()}" ><b>Inicio</b>
-                                    </h:commandLink>
-                                </li>
-                                <li><a class="top-a" ><b>Grupo</b></a>
-                                    <div class="col1">
-                                        <ul class="colLeft">
-                                            <li>
-                                                <h:commandLink action="#{quienesSomosPC.goQuienesSomos()}" 
-                                                               value="Quienes Somos" />
-                                            </li>
-                                            <li>
-                                                <h:commandLink action="#{investigadorPC.goInvestigadores()}" 
-                                                               value="Investigadores" />
-                                            </li>
-                                            <li>
-                                                <h:commandLink action="#{lineasInvestigacionPC.goLineasInvestigacion()}" 
-                                                               value="Líneas Investigación" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h:commandLink styleClass="top-a" 
-                                                   action="#{publicacionesPC.goPublicaciones()}" > <b>Publicaciones</b> 
-                                    </h:commandLink>
-                                </li>
-                                <li>
-                                    <h:commandLink styleClass="top-a" 
-                                                   action="#{proyectoPC.goProyectos()}" > <b>Proyectos</b> 
-                                    </h:commandLink>
-                                </li>
-                                <li><a class="top-a" ><b>Comunidad</b></a>
-                                    <div class="col1">
-                                        <ul class="colLeft">
-                                            <li>
-                                                <h:commandLink action="#{eventosPC.goEventos()}" 
-                                                               value="Eventos">
-                                                </h:commandLink></li>
-                                            <li>
-                                                <h:commandLink action="#{noticiasPC.goNoticiasPortalController()}"
-                                                               value="Noticias">
-                                                </h:commandLink></li>
-                                            <li>
-                                                <h:commandLink action="#{herramientasSoftwarePC.goHerramientasSoftware()}" 
-                                                               value="Herramientas Software">
-                                                </h:commandLink>
-                                            </li>
-                                            <li>
-                                                <h:outputLink  value="#{enlacesWebPC.enlaceAulaVirtual()}" 
-                                                               target="_blank">Aula Virtual
-                                                </h:outputLink>
-                                            </li>
-                                            <li>
-                                                <h:commandLink action="#{bibliografiaPC.goBibliografia()}" 
-                                                               value="Bibliografía">
-                                                </h:commandLink>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <ul class="nav">
-                                <li>
-                                    <h:commandLink styleClass="top-a" 
-                                                   action="#{contactoPC.goContacto()}" > <b>Contactenos</b> 
-                                    </h:commandLink>
-                                </li>
-                            </ul>
-
-                        </h:form>
-                    </div>                    
-
-                    <!--SLIDER-->
-                    <ui:insert name="slider">
-                        <h:form>
-                            <div >
-
-                                <p:carousel effect="easeInStrong"  
-                                            pageLinks="4"  
-                                            numVisible="1"
-                                            autoPlayInterval="2000" 
-                                            circular="true">  
-                                    <h:graphicImage width="960" height="280" 
-                                                    url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[0].nombreImagen}.jsf" />
-                                    <h:graphicImage width="960" height="280" 
-                                                    url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[1].nombreImagen}.jsf" />
-                                    <h:graphicImage width="960" height="280" 
-                                                    url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[2].nombreImagen}.jsf" />
-                                    <h:graphicImage width="960" height="280" 
-                                                    url="/WebScience/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[3].nombreImagen}.jsf" />
-                                </p:carousel>  
-
-                            </div> 
-                        </h:form>
-                    </ui:insert>
-                </div>     
+                <!--LOGO - Grupo-->
+                <ui:insert name="logo">
+                    <h:form>  
+                            <h:link outcome="index.jsf" >
+                                <h:graphicImage width="500" height="70" 
+                                                value="#{resource['images/portal/slide1.jpg']}"/>
+                            </h:link>                               
+                    
+                    </h:form>
+                </ui:insert>
             </div>
 
-            <!--BODY-->
-            <div class="content">
-                <div class="content_resize">
-
-                    <ui:insert name="body"></ui:insert>
-
-                </div>
-            </div>            
             <div class="clr"></div>
-        </div>
+
+            <!--MENÚ-->
+
+            <div class="menuHolder"> 
+
+                <!-- BUSCADOR -->
+                <div class="searchform">
+                    <h:form >
+
+                        <p:inputText id="editbox_search"  value="#{buscadorPC.buscar}"    />
+                        <p:watermark for="editbox_search" value="Buscar..." /> 
+                        <p:commandButton ajax="false"
+                                         icon="ui-icon-search" 
+                                         action="#{buscadorPC.goResultadoBusqueda()}" />  
+
+                    </h:form>
+                </div>
+
+                <h:form>
+                    <ul class="nav">
+                        <li>
+                            <h:commandLink styleClass="top-a"  
+                                           action="#{indexPC.goIndex()}" ><b>Inicio</b>
+                            </h:commandLink>
+                        </li>
+                        <li><a class="top-a" ><b>Grupo</b></a>
+                            <div class="col1">
+                                <ul class="colLeft">
+                                    <li>
+                                        <h:commandLink action="#{quienesSomosPC.goQuienesSomos()}" 
+                                                       value="Quienes Somos" />
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="#{investigadorPC.goInvestigadores()}" 
+                                                       value="Investigadores" />
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="#{lineasInvestigacionPC.goLineasInvestigacion()}" 
+                                                       value="Líneas Investigación" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <h:commandLink styleClass="top-a" 
+                                           action="#{publicacionesPC.goPublicaciones()}" > <b>Publicaciones</b> 
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink styleClass="top-a" 
+                                           action="#{proyectoPC.goProyectos()}" > <b>Proyectos</b> 
+                            </h:commandLink>
+                        </li>
+                        <li><a class="top-a" ><b>Comunidad</b></a>
+                            <div class="col1">
+                                <ul class="colLeft">
+                                    <li>
+                                        <h:commandLink action="#{eventosPC.goEventos()}" 
+                                                       value="Eventos">
+                                        </h:commandLink></li>
+                                    <li>
+                                        <h:commandLink action="#{noticiasPC.goNoticiasPortalController()}"
+                                                       value="Noticias">
+                                        </h:commandLink></li>
+                                    <li>
+                                        <h:commandLink action="#{herramientasSoftwarePC.goHerramientasSoftware()}" 
+                                                       value="Herramientas Software">
+                                        </h:commandLink>
+                                    </li>
+                                    <li>
+                                        <h:outputLink  value="#{enlacesWebPC.enlaceAulaVirtual()}" 
+                                                       target="_blank">Aula Virtual
+                                        </h:outputLink>
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="#{bibliografiaPC.goBibliografia()}" 
+                                                       value="Bibliografía">
+                                        </h:commandLink>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul class="nav">
+                        <li>
+                            <h:commandLink styleClass="top-a" 
+                                           action="#{contactoPC.goContacto()}" > <b>Contactenos</b> 
+                            </h:commandLink>
+                        </li>
+                    </ul>
+
+                </h:form>
+            </div>                    
+
+            <!--SLIDER-->
+            <ui:insert name="slider">
+                <h:form>
+                    <div >
+
+                        <p:carousel effect="easeInStrong"  
+                                    pageLinks="4"  
+                                    numVisible="1"
+                                    autoPlayInterval="2000" 
+                                    circular="true">  
+                            <h:graphicImage width="960" height="200" 
+                                            url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[0].nombreImagen}.jsf" />
+                            <h:graphicImage width="960" height="210" 
+                                            url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[1].nombreImagen}.jsf" />
+                            <h:graphicImage width="960" height="210" 
+                                            url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[2].nombreImagen}.jsf" />
+                            <h:graphicImage width="960" height="210" 
+                                            url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[3].nombreImagen}.jsf" />
+                        </p:carousel>  
+
+                    </div> 
+                </h:form>
+            </ui:insert>
+        </div>     
+
+
+        <!--BODY-->
+        <div class="content">
+            <div class="content_resize">
+
+                <ui:insert name="body"></ui:insert>
+
+            </div>
+        </div>            
+        <div class="clr"></div>
+
 
         <!--PIE DE PÁGINA-->
         <h:form>

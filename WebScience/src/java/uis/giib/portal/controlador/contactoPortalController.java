@@ -11,7 +11,9 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import uis.giib.entidades.Contacto;
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina  
+ * @version 1.0  
+ * @since 10/10/2013
  */
 @Named(value = "contactoPC")
 @RequestScoped
@@ -78,6 +80,7 @@ public class contactoPortalController implements Serializable {
             email.addTo(recibeCorreo5.getCorreoElectronico(), "Grupo GIIB");
             email.send();
             render = false;
+            System.out.println("Eror de mail");
         } catch (EmailException e) {
             System.out.println("Eror de mail" + e.getMessage() + "." + e.getLocalizedMessage());
         }

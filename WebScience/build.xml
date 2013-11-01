@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="WebScience" default="default" basedir=".">
-    <description>Builds, tests, and runs the project WebScience.</description>
+<project name="Giib" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Giib.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

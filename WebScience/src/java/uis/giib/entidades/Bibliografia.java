@@ -1,7 +1,6 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,14 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina  
+ * @version 1.0  
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "bibliografia")
@@ -45,9 +44,9 @@ public class Bibliografia implements Serializable {
     @Size(max = 500)
     @Column(name = "nombre_bibliografia")
     private String nombreBibliografia;
+    @Size(max = 800)
     @Column(name = "agno_bibliografia")
-    @Temporal(TemporalType.DATE)
-    private Date agnoBibliografia;
+    private String agnoBibliografia;
     @Size(max = 65535)
     @Column(name = "referencia_bibliografia")
     private String referenciaBibliografia;
@@ -152,11 +151,11 @@ public class Bibliografia implements Serializable {
         this.idLinea = idLinea;
     }
 
-    public Date getAgnoBibliografia() {
+    public String getAgnoBibliografia() {
         return agnoBibliografia;
     }
 
-    public void setAgnoBibliografia(Date agnoBibliografia) {
+    public void setAgnoBibliografia(String agnoBibliografia) {
         this.agnoBibliografia = agnoBibliografia;
     }
 }
