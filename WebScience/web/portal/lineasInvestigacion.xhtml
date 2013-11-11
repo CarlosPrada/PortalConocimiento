@@ -31,15 +31,17 @@
 
                             <h:outputText styleClass="tituloRecuperado"  
                                           escape="false" 
-                                          value="#{lineasInv.nombreLineaInvestigacion}" /><br/>                        
+                                          value="#{lineasInv.nombreLineaInvestigacion}" />
+                            <br/>                        
                             <h:outputText styleClass="textoLinea" 
                                           value="#{lineasInv.descripcionLineaInvestigacion}" 
                                           escape="false" />
                             <h:commandLink value="Ver detalles" 
                                            styleClass="textoDetalle"
                                            action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineasInv)}"/>
-                           
-                            <p:separator/><p:separator/>
+
+                            <p:separator/>
+                            <p:separator/>
 
                         </div> 
 

@@ -18,7 +18,8 @@
                 <div id="logout">
                     <h:form>
 
-                        <h:commandLink value="Volver" action="inicio.xhtml"  /> 
+                        <h:commandLink value="Volver" 
+                                       action="inicio.xhtml"  /> 
                     </h:form>
                 </div>
 
@@ -31,48 +32,65 @@
             <br clear="all"/> 
 
             <div class="contentdiv"> 
-                <div id="wcontent" class="contentinner"><br/>  
-                    <h:panelGrid  id="dashboard" columns="3" columnClasses="dashitem" >
+                <div id="wcontent" 
+                     class="contentinner"><br/>  
+                    <h:panelGrid  id="dashboard"
+                                  columns="3"
+                                  columnClasses="dashitem" >
 
                         <h:column class="dashitem" >
-                            <img src="#{resource['images/admin/dash/locale.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" value="Gestión de Quienes Somos"/>
+                            <img src="#{resource['images/admin/dash/locale.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/contenido/#{contenidoController.prepareList()}" 
+                                    value="Gestión de Quienes Somos"/>
                             Permite gestionar los contenidos de Quienes Somos.
                         </h:column>
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/updates.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/enlacesWeb/#{enlacesWebController.prepareList()}" value="Gestión de Enlaces Web"/>
+                            <img src="#{resource['images/admin/dash/updates.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/enlacesWeb/#{enlacesWebController.prepareList()}"
+                                    value="Gestión de Enlaces Web"/>
                             Permite gestionar los enlaces a webs externas presentes en el portal.
                         </h:column>
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/evento/#{eventoController.prepareList()}" value="Gestión de Eventos"/>
+                            <img src="#{resource['images/admin/dash/canned.gif']}"
+                                 alt=""/> 
+                            <h:link outcome="/administrador/evento/#{eventoController.prepareList()}" 
+                                    value="Gestión de Eventos"/>
                             Permite gestionar los eventos relacionados con el grupo.
                         </h:column>   
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/settings.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/herramientaSoftware/#{herramientaSoftwareController.prepareList()}" value="Gestión de Herramientas Software"/>
+                            <img src="#{resource['images/admin/dash/settings.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/herramientaSoftware/#{herramientaSoftwareController.prepareList()}" 
+                                    value="Gestión de Herramientas Software"/>
                             Permite gestionar los enlaces a las herramientas software usadas comunmente por el grupo.
                         </h:column>     
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/profile.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/imagenPortal/#{imagenPortalController.prepareList()}" value="Gestión de Imágenes del Portal"/>
+                            <img src="#{resource['images/admin/dash/profile.gif']}"
+                                 alt=""/> 
+                            <h:link outcome="/administrador/imagenPortal/#{imagenPortalController.prepareList()}"
+                                    value="Gestión de Imágenes del Portal"/>
                             Permite gestionar las imágenes mostradas en el slider del portal.
                         </h:column>
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/mensajePortal/#{mensajePortalController.prepareList()}" value="Gestión de Mensajes del Día"/>
+                            <img src="#{resource['images/admin/dash/getcode.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/mensajePortal/#{mensajePortalController.prepareList()}" 
+                                    value="Gestión de Mensajes del Día"/>
                             Permite gestionar los mensajes del día mostrados.
                         </h:column>
 
                         <h:column >
-                            <img src="#{resource['images/admin/dash/stat.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/noticia/#{noticiaController.prepareList()}" value="Gestión de Noticias"/>
+                            <img src="#{resource['images/admin/dash/stat.gif']}"
+                                 alt=""/> 
+                            <h:link outcome="/administrador/noticia/#{noticiaController.prepareList()}"
+                                    value="Gestión de Noticias"/>
                             Permite gestionar las noticias mostradas en el portal.
                         </h:column>
 

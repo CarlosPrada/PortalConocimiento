@@ -23,18 +23,29 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewRolLabel_nombreRol}"/>
-                    <h:outputText value="#{rolController.selected.nombreRol}" title="#{bundle.ViewRolTitle_nombreRol}"/>
+                    <h:outputText value="#{rolController.selected.nombreRol}" 
+                                  title="#{bundle.ViewRolTitle_nombreRol}"/>
 
                     <h:outputText value="#{bundle.ViewRolLabel_descripcionRol}"/>
-                    <h:outputText value="#{rolController.selected.descripcionRol}" title="#{bundle.ViewRolTitle_descripcionRol}"/>
+                    <h:outputText value="#{rolController.selected.descripcionRol}"
+                                  title="#{bundle.ViewRolTitle_descripcionRol}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewRolEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewRolEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{rolController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewRolCreateLink}" />
+                <p:commandButton ajax="false"
+                                 action="#{rolController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewRolCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{rolController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewRolShowAllLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{rolController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewRolShowAllLink}"/>
 
             </h:form>
         </ui:define>

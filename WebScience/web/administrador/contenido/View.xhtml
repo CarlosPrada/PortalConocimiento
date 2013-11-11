@@ -22,29 +22,41 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.EditContenidoLabel_historia}"/>
-                    <h:outputText value="#{contenidoController.selected.historia}" escape="false" />
+                    <h:outputText value="#{contenidoController.selected.historia}"
+                                  escape="false" />
 
                     <h:outputText value="#{bundle.EditContenidoLabel_razon}"  />
-                    <h:outputText value="#{contenidoController.selected.razondeser}" escape="false"/>
+                    <h:outputText value="#{contenidoController.selected.razondeser}" 
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.EditContenidoLabel_relaciones}"/>
-                    <h:outputText value="#{contenidoController.selected.relaciones}" escape="false"/>
+                    <h:outputText value="#{contenidoController.selected.relaciones}"
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.EditContenidoLabel_imagen1}" />
-                    <h:outputText value="#{contenidoController.selected.imagen1}" escape="false"/>
+                    <h:outputText value="#{contenidoController.selected.imagen1}"
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.EditContenidoLabel_imagen2}" />
-                    <h:outputText value="#{contenidoController.selected.imagen2}" escape="false"/>
+                    <h:outputText value="#{contenidoController.selected.imagen2}" 
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.EditContenidoLabel_imagen3}" />
-                    <h:outputText value="#{contenidoController.selected.imagen3}" escape="false"/>
+                    <h:outputText value="#{contenidoController.selected.imagen3}" 
+                                  escape="false"/>
 
                 </p:panelGrid>
 
                 <br /><br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewContenidoEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit"
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewContenidoEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{contenidoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewContenidoIndexLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{contenidoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.ViewContenidoIndexLink}"/>
 
             </h:form>
         </ui:define>

@@ -20,41 +20,57 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <p:dataTable value="#{contenidoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                <p:dataTable value="#{contenidoController.items}" 
+                             paginator="true" 
+                             rows="15" 
+                             var="item" 
+                             resizableColumns="true" >
 
                     <p:column width="150">
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>                            
-                        <p:commandButton ajax="false" action="#{contenidoController.prepareView}" value="#{bundle.ListContenidoViewLink}" icon="ui-icon-search"/>
+                        <p:commandButton ajax="false" 
+                                         action="#{contenidoController.prepareView}" 
+                                         value="#{bundle.ListContenidoViewLink}"
+                                         icon="ui-icon-search"/>
                         <h:outputText value=" "/>                            
-                        <p:commandButton ajax="false" action="#{contenidoController.prepareEdit}" value="#{bundle.ListContenidoEditLink}" icon="ui-icon-pencil" />
+                        <p:commandButton ajax="false" 
+                                         action="#{contenidoController.prepareEdit}" 
+                                         value="#{bundle.ListContenidoEditLink}"
+                                         icon="ui-icon-pencil" />
                     </p:column>
 
                     <p:column >
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_historia}"/>
                         </f:facet>
-                        <h:outputText escape="false" value="#{item.historia}"/>
+                        <h:outputText escape="false"
+                                      value="#{item.historia}"/>
                     </p:column>
 
                     <p:column >
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_razon}"/>
                         </f:facet>
-                        <h:outputText escape="false" value="#{item.razondeser}"/>
+                        <h:outputText escape="false" 
+                                      value="#{item.razondeser}"/>
                     </p:column>
 
                     <p:column >
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListContenidoTitle_relaciones}"/>
                         </f:facet>
-                        <h:outputText escape="false" value="#{item.relaciones}"/>
+                        <h:outputText escape="false" 
+                                      value="#{item.relaciones}"/>
                     </p:column>
 
                 </p:dataTable>
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido"  icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexContenido}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexContenido" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

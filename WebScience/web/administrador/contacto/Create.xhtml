@@ -16,21 +16,38 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateContactoLabel_idContacto}" for="idContacto" />
-                    <p:inputText id="idContacto" value="#{contactoController.selected.idContacto}" title="#{bundle.CreateContactoTitle_idContacto}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_idContacto}"/>
-                    <h:outputLabel value="#{bundle.CreateContactoLabel_correoElectronico}" for="correoElectronico" />
-                    <p:inputText id="correoElectronico" value="#{contactoController.selected.correoElectronico}" title="#{bundle.CreateContactoTitle_correoElectronico}" required="true" requiredMessage="#{bundle.CreateContactoRequiredMessage_correoElectronico}"/>
-                    <h:outputLabel value="#{bundle.CreateContactoLabel_contrasena}" for="contrasena" />
-                    <p:inputText id="contrasena" value="#{contactoController.selected.contrasena}" title="#{bundle.CreateContactoTitle_contrasena}" />
+                    <h:outputLabel value="#{bundle.CreateContactoLabel_idContacto}" 
+                                   for="idContacto" />
+                    <p:inputText id="idContacto" value="#{contactoController.selected.idContacto}" 
+                                 title="#{bundle.CreateContactoTitle_idContacto}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.CreateContactoRequiredMessage_idContacto}"/>
+                    <h:outputLabel value="#{bundle.CreateContactoLabel_correoElectronico}"
+                                   for="correoElectronico" />
+                    <p:inputText id="correoElectronico" 
+                                 value="#{contactoController.selected.correoElectronico}"
+                                 title="#{bundle.CreateContactoTitle_correoElectronico}"
+                                 required="true"
+                                 requiredMessage="#{bundle.CreateContactoRequiredMessage_correoElectronico}"/>
+                    <h:outputLabel value="#{bundle.CreateContactoLabel_contrasena}"
+                                   for="contrasena" />
+                    <p:inputText id="contrasena" value="#{contactoController.selected.contrasena}" 
+                                 title="#{bundle.CreateContactoTitle_contrasena}" />
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{contactoController.create}" value="#{bundle.CreateContactoSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{contactoController.create}"
+                                 value="#{bundle.CreateContactoSaveLink}" />
                 <br />
                 <br />
-                <p:commandButton ajax="false" action="#{contactoController.prepareList}" value="#{bundle.CreateContactoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{contactoController.prepareList}"
+                                 value="#{bundle.CreateContactoShowAllLink}" 
+                                 immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateContactoIndexLink}"/>
+                <h:link outcome="/index" 
+                        value="#{bundle.CreateContactoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

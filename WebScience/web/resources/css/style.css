@@ -188,7 +188,9 @@
 .content .sidebar .gadget {
     margin:0 0 12px;
     padding:8px 10px 24px;
-    background:#0096da;
+    /*    background:#37B6CE;*/
+    /*    background:#60BDCE;*/
+    background:#61B7CF;
 }
 
 .content .sidebar h2 {
@@ -203,7 +205,7 @@ ul.sb_menu  {
     margin:0;
     padding:0;
     list-style:none;
-    color:#fff;    
+    /*    color:#fff;    */
 }
 
 ul.sb_menu li  li {
@@ -225,7 +227,7 @@ ul.sb_menu li h1{
     font-family:arial; 
 }
 
-ul.sb_menu li a {
+/*ul.sb_menu li a {
     color:#fff;
     text-decoration:none;
     margin-left:-16px;
@@ -236,7 +238,7 @@ ul.sb_menu li a:hover  li a:hover {
     color:#fdeb67;
     font-weight:bold;
     text-decoration:underline;
-}
+}*/
 
 /* FIN MENSAJE DEL DÍA */
 
@@ -389,7 +391,7 @@ a {
 }
 
 .header_resize {
-    margin:0 auto;
+    margin:10px auto;
     padding:0;
     width:960px;
 }
@@ -476,10 +478,10 @@ h1 small {
     text-transform:uppercase;
     color:#969696;
 }
-.slider {
+/*.slider {
     padding:0 0 24px;
     background:no-repeat center bottom;
-}
+}*/
 .rss {
     padding:18px 20px 0 0;
     float:right;
@@ -646,42 +648,7 @@ h4 /*estilo de letra negra */ {
     float:left;	
     padding:0 20px 20px 0;	
 }
-.content .mainbarIzquierdo img.fl, .content .mainbarDerecho img.fl, .content .mainbar440 img.fl  {
-    margin:0;
-    padding:0;
-    background:#fff;
-    border:none;
-}
 
-.content .mainbarIzquierdo .article, .article,  .content .mainbar440 .article {
-    margin: 0 0 32px;
-    /* [disabled]padding: 0; */
-    background: repeat-x left bottom;
-}
-
-
-
-
-
-.content .mainbarIzquierdo .article ul{
-    padding-left:5em;
-    background:repeat-x left bottom;	
-}
-
-.content .mainbarIzquierdo .post_content strong, .content .mainbarDerecho .post_content strong, .content .mainbar440 .post_content strong  {
-    color:#161616;
-}
-
-
-
-
-.content .mainbarIzquierdo ul.sb_menu li a, .content .mainbarDerecho ul.sb_menu li a, .content .mainbar440 ul.sb_menu li a {
-    color:#929292;
-}
-
-.content .mainbarIzquierdo ul.sb_menu li a:hover, .content .mainbarDerecho ul.sb_menu li a:hover, .content .mainbar440 ul.sb_menu li a:hover  {
-    color:#9cffff;
-}
 p.spec {
     padding:0 0 16px;
 }
@@ -695,7 +662,7 @@ p.infopost a {
     color:#3f3f3f;
     text-decoration:underline;
 }
-.content .mainbarIzquierdo a.com, .content .mainbarDerecho a.com, .content .mainbar440 a.com {
+/*.content .mainbarIzquierdo a.com, .content .mainbarDerecho a.com, .content .mainbar440 a.com {
     margin:0;
     padding:0;
     float:right;
@@ -703,8 +670,8 @@ p.infopost a {
     text-decoration:none;
     color:#8b8b8b;
     background:#1b1b1b;
-}
-.content .mainbarIzquierdo a.com span, .content .mainbarDerecho a.com span , .content .mainbar440 a.com span  {
+}*/
+/*.content .mainbarIzquierdo a.com span, .content .mainbarDerecho a.com span , .content .mainbar440 a.com span  {
     display:block;
     margin:-38px 0;
     padding:10px 0;
@@ -725,8 +692,8 @@ p.infopost a {
     text-decoration:underline;
     text-align:center;
     background:none;
-}
-.content p.pages {
+}*/
+/*.content p.pages {
     margin:0;
     padding:24px 0;
     font-size:11px;
@@ -748,7 +715,7 @@ p.infopost a {
 .content p.pages small {
     font-size:12px;
     float:right;
-}
+}*/
 .content .mainbarIzquierdo .comment, .content .mainbarDerecho .comment, .content .mainbar440 .comment {
     margin:0;
     padding:16px 0 0 0;
@@ -1104,11 +1071,11 @@ a {
     font:13px/16px arial, sans-serif; 
     color:#069; margin:0; 
     padding:4px 0 4px 15px;
-    background:transparent url(#{resource['images/portal/arrow.gif']}) no-repeat left center;
+
 }
 .menuHolder ul.nav div ul li a:hover {
     color:#09c; 
-    background:transparent url(#{resource['images/portal/arrow.gif']}) no-repeat 1px center;
+
 }
 .menuHolder ul.nav div.col1 {
     width:160px;
@@ -1126,6 +1093,15 @@ a {
     transform: rotateX(0deg);
 }
 
+body {
+    margin:0;
+    padding:0;
+    width:100%;
+    color:#929292;
+    font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+    background-color: #FcFcFF;
+/*        background: url(#{resource['images/main_bg.gif']}) repeat left top;*/
+}
 
 #formsearch span {
     display:block;
@@ -1133,12 +1109,4 @@ a {
     padding:0;
     float:left;
     background:url(#{resource['images/portal/search_bg.gif']}) no-repeat left top;
-}
-body {
-    margin:0;
-    padding:0;
-    width:100%;
-    color:#929292;
-    font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
-    background:#f1f1f1 url(#{resource['images/main_bg.gif']}) repeat left top;
 }

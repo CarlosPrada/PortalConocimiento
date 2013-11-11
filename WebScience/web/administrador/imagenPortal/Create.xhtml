@@ -18,19 +18,19 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
                                         
                     <h:outputLabel value="#{bundle.CreateImagenPortalLabel_nombreImagen}" 
                                    for="nombreImagen" />
                     <p:inputTextarea autoResize="false"  
-                                     rows="7" cols="80" 
+                                     rows="3" cols="90" 
                                      value="#{imagenPortalController.selected.nombreImagen}" />
                                         
                     <h:outputLabel value="#{bundle.CreateImagenPortalLabel_descripcionImagen}" 
                                    for="descripcionImagen" />
                     <p:inputTextarea autoResize="false" 
-                                     rows="10" cols="80"
+                                     rows="3" cols="90"
                                      value="#{imagenPortalController.selected.descripcionImagen}" />
                                    
                 </h:panelGrid>

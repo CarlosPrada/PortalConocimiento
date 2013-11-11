@@ -14,16 +14,16 @@
         </ui:define>
 
         <ui:define name="body">
-            
+
             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
-                    
+
                     <h:outputLabel value="#{bundle.EditContenidoLabel_historia}" 
                                    for="titulo" />
                     <ck:editor value="#{contenidoController.selected.historia}" 
@@ -47,18 +47,31 @@
 
                     <h:outputLabel value="#{bundle.EditContenidoLabel_imagen1}" 
                                    for="idMultimedia" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.uploadContentHistoria}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.EditContenidoLabel_imagen2}" 
                                    for="idTipoPublicacion" />
-                    
+                    <p:fileUpload fileUploadListener="#{fileUploadC.uploadContentRazon}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
+
                     <h:outputLabel value="#{bundle.EditContenidoLabel_imagen3}" 
                                    for="idTipoPublicacion" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.uploadContentRelaciones}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                 </h:panelGrid>
                 <p:commandButton ajax="false" 
                                  action="#{contenidoController.update}" 
                                  icon="ui-icon-disk" 
-                                 value="#{bundle.EditContenidoSaveLink}"/>
+                                 value="#{bundle.EditContenidoSaveLink}">
+                    <f:setPropertyActionListener target="#{contenidoController.fileNameHistoria}" 
+                                                 value="#{fileUploadC.fileNameHistoria}" />
+                    <f:setPropertyActionListener target="#{contenidoController.fileNameRazon}" 
+                                                 value="#{fileUploadC.fileNameRazon}" />
+                    <f:setPropertyActionListener target="#{contenidoController.fileNameRelaciones}" 
+                                                 value="#{fileUploadC.fileNameRelaciones}" />
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false"
                                  action="View"
@@ -70,7 +83,6 @@
                                  icon="ui-icon-arrowreturnthick-1-w"
                                  value="#{bundle.EditContenidoIndexLink}"
                                  immediate="true"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

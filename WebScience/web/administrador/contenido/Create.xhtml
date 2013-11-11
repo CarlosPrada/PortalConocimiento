@@ -47,12 +47,18 @@
 
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_imagen1}" 
                                    for="idMultimedia" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_imagen2}"
                                    for="idTipoPublicacion" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.CreateContenidoLabel_imagen3}"
                                    for="idTipoPublicacion" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                 </h:panelGrid>
                 <br /><br />

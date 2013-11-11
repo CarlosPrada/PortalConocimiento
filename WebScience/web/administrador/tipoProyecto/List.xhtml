@@ -20,39 +20,52 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                    <p:dataTable value="#{tipoProyectoController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                <p:dataTable value="#{tipoProyectoController.items}" 
+                             paginator="true"
+                             rows="15" 
+                             var="item" 
+                             resizableColumns="true" >
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <p:commandButton ajax="false" action="#{tipoProyectoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoProyectoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{tipoProyectoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoProyectoEditLink}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false"
+                                         action="#{tipoProyectoController.prepareView}" 
+                                         icon="ui-icon-search"
+                                         value="#{bundle.ListTipoProyectoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false" 
+                                         action="#{tipoProyectoController.prepareEdit}"
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListTipoProyectoEditLink}"/>
+                    </p:column>
 
-                        <p:column width="250">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoProyectoTitle_nombreTipoProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreTipoProyecto}"/>
-                        </p:column>
+                    <p:column width="250">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTipoProyectoTitle_nombreTipoProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreTipoProyecto}"/>
+                    </p:column>
 
-                        <p:column >
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoProyectoTitle_descripcionTipoProyecto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionTipoProyecto}"/>
-                        </p:column>
-
- 
-
-                    </p:dataTable>
+                    <p:column >
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTipoProyectoTitle_descripcionTipoProyecto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionTipoProyecto}"/>
+                    </p:column>
+                </p:dataTable>
 
                 <br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoProyectoCreateLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{tipoProyectoController.prepareCreate}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListTipoProyectoCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexProyecto" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ListTipoProyectoIndexLink}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexProyecto"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ListTipoProyectoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

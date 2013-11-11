@@ -18,7 +18,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "herramienta_software")
@@ -42,17 +44,17 @@ public class HerramientaSoftware implements Serializable {
     private Integer idHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 200)
+    @Size(max = 200)
     @Column(name = "nombre_herramienta")
     private String nombreHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 800)
+    @Size(max = 800)
     @Column(name = "url_herramienta")
     private String urlHerramienta;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 1000)
+    @Size(max = 1000)
     @Column(name = "descripcion_herramienta")
     private String descripcionHerramienta;
     @Size(max = 500)

@@ -21,7 +21,8 @@
                        var="estProList">
                 <p:tab title="#{estProList.nombreEstadoProyecto}" >
 
-                    <p:dataGrid columns="2" rows="6" 
+                    <p:dataGrid columns="2" 
+                                rows="6" 
                                 paginator="true" 
                                 value="#{estProList.proyectoList}"  
                                 emptyMessage="No se encontraton registros" 
@@ -31,11 +32,13 @@
                             <div class="contenedorInterno400">  
 
                                 <h1>
-                                    <h:outputText value="#{proyecto.nombreProyecto}" escape="false"/>
+                                    <h:outputText value="#{proyecto.nombreProyecto}"
+                                                  escape="false"/>
                                 </h1>
-                                <h:graphicImage width="150" height="120" 
+                                <h:graphicImage width="150" 
+                                                height="120" 
                                                 style="float: right"
-                                                url="/Giib/javax.faces.resource/images/ImagenProyecto/#{proyecto.imagenProyecto}.jsf" />
+                                                url="/images/#{proyecto.imagenProyecto}.jsf" />
                                 <h2>
                                     <h:outputText escape="false"
                                                   value="#{proyecto.descripcionResumidaProyecto}"/>
@@ -48,11 +51,8 @@
                             </div>
                         </div>
                     </p:dataGrid>
-
                 </p:tab>
-
             </p:tabView>
         </h:form>
-
     </ui:define>
 </ui:composition>

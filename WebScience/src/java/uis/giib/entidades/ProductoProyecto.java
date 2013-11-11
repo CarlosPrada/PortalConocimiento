@@ -17,8 +17,9 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "producto_proyecto")
@@ -29,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ProductoProyecto.findByNombreProducto", query = "SELECT p FROM ProductoProyecto p WHERE p.nombreProducto = :nombreProducto"),
     @NamedQuery(name = "ProductoProyecto.findByEnlaceProducto", query = "SELECT p FROM ProductoProyecto p WHERE p.enlaceProducto = :enlaceProducto")})
 public class ProductoProyecto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -131,5 +133,4 @@ public class ProductoProyecto implements Serializable {
     public String toString() {
         return "[" + idProducto + "] - " + nombreProducto;
     }
-    
 }

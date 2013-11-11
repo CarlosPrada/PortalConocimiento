@@ -19,8 +19,6 @@
 
         <div align="center">
             <div class="mainbar800"> 
-
-
                 <h:form>  
 
                     <p:dataGrid  rows="3" columns="1" 
@@ -35,13 +33,13 @@
                             <h:outputText styleClass="tituloRecuperado" 
                                           value="#{noticias.tituloNoticia}" 
                                           escape="false" />
-
                             <br/>
 
                             <center>
                                 <h:graphicImage styleClass="imageInLine" 
-                                                width="400" height="200"
-                                                url="/Giib/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
+                                                width="400" 
+                                                height="200"
+                                                url="/images/#{noticias.imagenNoticia}.jsf" />
                             </center>
 
                             <h:outputText styleClass="textoNoticia" 
@@ -52,16 +50,15 @@
                                 <h:outputText value="#{noticias.fechaPublicacionNoticia}"
                                               escape="false" >
                                     <f:convertDateTime pattern="yyyy/MM/dd" />                        
-                                </h:outputText> <br/><br/>
-
-                                <p:separator /> <p:separator />
+                                </h:outputText> 
+                                <br/><br/>
+                                <p:separator /> 
+                                <p:separator />
                             </h2>
 
                         </div>
                     </p:dataGrid>
-
                 </h:form> 
-
             </div>
         </div>
     </ui:define>

@@ -23,29 +23,43 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_nombreLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_nombreLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.nombreLineaInvestigacion}"
+                                  title="#{bundle.ViewLineaInvestigacionTitle_nombreLineaInvestigacion}"
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_descripcionLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" escape="false" title="#{bundle.ViewLineaInvestigacionTitle_descripcionLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.descripcionLineaInvestigacion}" 
+                                  escape="false" title="#{bundle.ViewLineaInvestigacionTitle_descripcionLineaInvestigacion}"/>
                     
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_detalleLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" escape="false" title="#{bundle.ViewLineaInvestigacionTitle_detalleLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.detalleLineaInvestigacion}" 
+                                  escape="false" 
+                                  title="#{bundle.ViewLineaInvestigacionTitle_detalleLineaInvestigacion}"/>
                   
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_imagenLineaInvestigacion}"/>
-                    <h:outputText value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" title="#{bundle.ViewLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
+                    <h:outputText value="#{lineaInvestigacionController.selected.imagenLineaInvestigacion}" 
+                                  title="#{bundle.ViewLineaInvestigacionTitle_imagenLineaInvestigacion}"/>
 
                     <h:outputText value="#{bundle.ViewLineaInvestigacionLabel_idEstado}"/>
                     <h:outputText value="#{lineaInvestigacionController.selected.idEstado.nombreEstado}" />
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil" value="#{bundle.ViewLineaInvestigacionEditLink}" />
+                <p:commandButton ajax="false"
+                                 action="Edit" 
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewLineaInvestigacionEditLink}" />
                 <br /><br /> 
-                <p:commandButton ajax="false" action="#{lineaInvestigacionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewLineaInvestigacionCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{lineaInvestigacionController.prepareCreate}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewLineaInvestigacionCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{lineaInvestigacionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
-                <br /><br />
-                
+                <p:commandButton ajax="false"
+                                 action="#{lineaInvestigacionController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewLineaInvestigacionShowAllLink}"/>
+                <br /><br />          
             </h:form>
         </ui:define>
     </ui:composition>

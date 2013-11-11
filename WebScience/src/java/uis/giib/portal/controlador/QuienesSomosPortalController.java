@@ -8,8 +8,9 @@ import javax.ejb.EJB;
 import uis.giib.entidades.Contenido;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Named(value = "quienesSomosPC")
 @SessionScoped
@@ -24,7 +25,12 @@ public class QuienesSomosPortalController implements Serializable {
     public QuienesSomosPortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     * Redirecciona al usuario a la página de quienesSomos.xhtml Almacena en una
+     * lista la información correspondiente de la DB.
+     *
+     * @return Retorna el enlace a Quienes Somos
+     */
     public String goQuienesSomos() {
         try {
             quinesSomos = ejbContenido.findAll();

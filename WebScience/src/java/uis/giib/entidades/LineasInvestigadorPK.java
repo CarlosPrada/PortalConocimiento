@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -12,18 +8,20 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Embeddable
 public class LineasInvestigadorPK implements Serializable {
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_linea")
     private int idLinea;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 30)
+    @Size(max = 30)
     @Column(name = "id_investigador")
     private String idInvestigador;
 
@@ -79,5 +77,4 @@ public class LineasInvestigadorPK implements Serializable {
     public String toString() {
         return "uis.giib.entidades.LineasInvestigadorPK[ idLinea=" + idLinea + ", idInvestigador=" + idInvestigador + " ]";
     }
-    
 }

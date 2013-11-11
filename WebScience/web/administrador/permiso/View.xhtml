@@ -7,32 +7,39 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-        
+
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewPermisoTitle}"></h:outputText>
         </ui:define>
-        
+
         <ui:define name="body">
-            
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
+
             <h:form>
                 <p:panelGrid columns="2">
-                    
+
                     <h:outputText value="#{bundle.ViewPermisoLabel_nombrePermiso}"/>
-                    <h:outputText value="#{permisoController.selected.nombrePermiso}" title="#{bundle.ViewPermisoTitle_nombrePermiso}"/>
-                    
+                    <h:outputText value="#{permisoController.selected.nombrePermiso}" 
+                                  title="#{bundle.ViewPermisoTitle_nombrePermiso}"/>
+
                     <h:outputText value="#{bundle.ViewPermisoLabel_descripcionPermiso}"/>
-                    <h:outputText value="#{permisoController.selected.descripcionPermiso}" title="#{bundle.ViewPermisoTitle_descripcionPermiso}"/>
-               
+                    <h:outputText value="#{permisoController.selected.descripcionPermiso}"
+                                  title="#{bundle.ViewPermisoTitle_descripcionPermiso}"/>
+
                 </p:panelGrid>
                 <br/>                
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewPermisoEditLink}"/>
+                <p:commandButton ajax="false" action="Edit"
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewPermisoEditLink}"/>
                 <br/><br/>               
-                <p:commandButton ajax="false" action="#{permisoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewPermisoShowAllLink}"/>
-           
+                <p:commandButton ajax="false" 
+                                 action="#{permisoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewPermisoShowAllLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -18,124 +18,129 @@
             Perfil de Usuario
         </div>
 
+        <div class="cajaeditarPerfil">
 
-        
-            <div class="cajaeditarPerfil">
-
-                <div align="left">
-                    <h:outputText styleClass="label" value="#{bundle.Requerido}" /><br/><br/>
-                </div>
-                <h:form>
-
-                    <h:panelGrid columns="2">
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_contrasenaInvestigador}" 
-                                       for="contrasenaInvestigador" />
-                        <p:inputText id="contrasenaInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.contrasenaInvestigador}" 
-                                     required="true" 
-                                     requiredMessage="#{bundle.EditInvestigadorRequiredMessage_contrasenaInvestigador}" 
-                                     size="40"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_nombreInvestigador}" 
-                                       for="nombreInvestigador" />
-                        <p:inputText id="nombreInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.nombreInvestigador}" 
-                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_nombreInvestigador}" 
-                                     size="40"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_apellidoInvestigador}" 
-                                       for="nombreInvestigador" />
-                        <p:inputText id="apellidoInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.apellidoInvestigador}"  
-                                     required="true" requiredMessage="#{bundle.EditInvestigadorRequiredMessage_apellidoInvestigador}" 
-                                     size="40"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_tituloInvestigador}" 
-                                       for="nombreInvestigador" />
-                        <p:inputText id="tituloInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.tituloInvestigador}" 
-                                     size="80"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_informacionInvestigador}" 
-                                       for="informacionInvestigador" />
-                        <ck:editor id="informacionInvestigador" 
-                                   value="#{loginAuthentication.usuarioAutenticado.informacionInvestigador}" 
-                                   width="810px" height="150px" uiColor="#aed0ea" 
-                                   requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_informacionInvestigador}"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_telefonoInvestigador}" 
-                                       for="telefonoInvestigador" />
-                        <p:inputText id="telefonoInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.telefonoInvestigador}"  
-                                     size="25"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_celularInvestigador}" 
-                                       for="celularInvestigador" />
-                        <p:inputText id="celularInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.celularInvestigador}" 
-                                     size="25"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_correoInvestigador}" 
-                                       for="correoInvestigador" />
-                        <p:inputText id="correoInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.correoInvestigador}" 
-                                     required="true" 
-                                     requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}"
-                                     size="40"
-                                     validatorMessage="Formato de email inválido">
-                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-                        </p:inputText>  
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_faxInvestigador}" 
-                                       for="faxInvestigador" />
-                        <p:inputText id="faxInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.faxInvestigador}" 
-                                     size="40"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_generoInvestigador}" 
-                                       for="generoInvestigador" />
-                        <p:selectOneMenu id="generoInvestigador" 
-                                         value="#{loginAuthentication.usuarioAutenticado.idGenero}" 
-                                         required="true" 
-                                         requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}">
-                            <f:selectItems value="#{generoController.itemsAvailableSelectOne}"/>
-                        </p:selectOneMenu>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_cvlacInvestigador}" 
-                                       for="cvlacInvestigador" />
-                        <p:inputTextarea rows="4" cols="80" 
-                                         autoResize="false"
-                                         id="cvlacInvestigador" 
-                                         value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
-
-                        <h:outputLabel styleClass="label" 
-                                       value="#{bundle.EditInvestigadorLabel_imagenInvestigador}" 
-                                       for="estadoInvestigador" />
-                        <p:inputText id="imagenInvestigador" 
-                                     value="#{loginAuthentication.usuarioAutenticado.imageInvestigadorPath}" 
-                                     size="50"/>
-                        <br/><br/>
-                        <div class="buttondiv">                            
-                            <p:commandButton ajax="false" 
-                                             action="#{loginAuthentication.update}" 
-                                             value="#{bundle.EditInvestigadorSaveLink}"/>
-                        </div>
-                    </h:panelGrid>
-                </h:form> 
+            <div align="left">
+                <h:outputText styleClass="label" 
+                              value="#{bundle.Requerido}" />
+                <br/><br/>
             </div>
-        
+            <h:form id="form"  enctype="multipart/form-data">
+
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_contrasenaInvestigador}" 
+                                   for="contrasenaInvestigador" />
+                    <p:inputText id="contrasenaInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.contrasenaInvestigador}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditInvestigadorRequiredMessage_contrasenaInvestigador}" 
+                                 size="40"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_nombreInvestigador}" 
+                                   for="nombreInvestigador" />
+                    <p:inputText id="nombreInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.nombreInvestigador}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditInvestigadorRequiredMessage_nombreInvestigador}" 
+                                 size="40"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_apellidoInvestigador}" 
+                                   for="nombreInvestigador" />
+                    <p:inputText id="apellidoInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.apellidoInvestigador}"  
+                                 required="true"
+                                 requiredMessage="#{bundle.EditInvestigadorRequiredMessage_apellidoInvestigador}" 
+                                 size="40"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_tituloInvestigador}" 
+                                   for="nombreInvestigador" />
+                    <p:inputText id="tituloInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.tituloInvestigador}" 
+                                 size="80"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_informacionInvestigador}" 
+                                   for="informacionInvestigador" />
+                    <ck:editor id="informacionInvestigador" 
+                               value="#{loginAuthentication.usuarioAutenticado.informacionInvestigador}" 
+                               width="810px" 
+                               height="150px" 
+                               uiColor="#aed0ea" 
+                               requiredMessage="#{bundle.CreateInvestigadorRequiredMessage_informacionInvestigador}"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_telefonoInvestigador}" 
+                                   for="telefonoInvestigador" />
+                    <p:inputText id="telefonoInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.telefonoInvestigador}"  
+                                 size="25"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_celularInvestigador}" 
+                                   for="celularInvestigador" />
+                    <p:inputText id="celularInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.celularInvestigador}" 
+                                 size="25"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_correoInvestigador}" 
+                                   for="correoInvestigador" />
+                    <p:inputText id="correoInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.correoInvestigador}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditInvestigadorRequiredMessage_correoInvestigador}"
+                                 size="40"
+                                 validatorMessage="Formato de email inválido">
+                        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                    </p:inputText>  
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_faxInvestigador}" 
+                                   for="faxInvestigador" />
+                    <p:inputText id="faxInvestigador" 
+                                 value="#{loginAuthentication.usuarioAutenticado.faxInvestigador}" 
+                                 size="40"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_generoInvestigador}" 
+                                   for="generoInvestigador" />
+                    <p:selectOneMenu id="generoInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.idGenero}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.EditInvestigadorRequiredMessage_generoInvestigador}">
+                        <f:selectItems value="#{generoController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_cvlacInvestigador}" 
+                                   for="cvlacInvestigador" />
+                    <p:inputTextarea rows="2" cols="60" 
+                                     autoResize="false"
+                                     id="cvlacInvestigador" 
+                                     value="#{loginAuthentication.usuarioAutenticado.cvlacInvestigador}"/>
+
+                    <h:outputLabel styleClass="label" 
+                                   value="#{bundle.EditInvestigadorLabel_imagenInvestigador}" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
+                    <br/><br/>
+                    <div class="buttondiv">                 
+                        <p:commandButton ajax="false" 
+                                         action="#{loginAuthentication.update}" 
+                                         value="#{bundle.EditInvestigadorSaveLink}">
+                            <f:setPropertyActionListener target="#{loginAuthentication.fileName}" 
+                                                         value="#{fileUploadC.fileName}" />
+                        </p:commandButton>
+                    </div>
+                </h:panelGrid>
+            </h:form> 
+        </div>
+
 
     </ui:define>
 </ui:composition>

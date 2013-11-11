@@ -23,20 +23,40 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_nombreEnlace}" for="nombreEnlace" />
-                    <p:inputText id="nombreEnlace" value="#{enlacesWebController.selected.nombreEnlace}" title="#{bundle.CreateEnlacesWebTitle_nombreEnlace}" required="true" requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_nombreEnlace}"/>
+                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_nombreEnlace}"
+                                   for="nombreEnlace" />
+                    <p:inputText id="nombreEnlace"
+                                 value="#{enlacesWebController.selected.nombreEnlace}" 
+                                 title="#{bundle.CreateEnlacesWebTitle_nombreEnlace}" 
+                                 required="true"
+                                 requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_nombreEnlace}"/>
 
-                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_enlace}" for="enlace" />
-                    <p:inputText id="enlace" value="#{enlacesWebController.selected.enlace}" title="#{bundle.CreateEnlacesWebTitle_enlace}" required="true" requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_enlace}"/>
+                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_enlace}" 
+                                   for="enlace" />
+                    <p:inputText id="enlace" 
+                                 value="#{enlacesWebController.selected.enlace}" 
+                                 title="#{bundle.CreateEnlacesWebTitle_enlace}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.CreateEnlacesWebRequiredMessage_enlace}"/>
 
-                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_descripcion}" for="descripcion" />
-                    <p:inputText id="descripcion" value="#{enlacesWebController.selected.descripcion}" title="#{bundle.CreateEnlacesWebTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateEnlacesWebLabel_descripcion}" 
+                                   for="descripcion" />
+                    <p:inputText id="descripcion" 
+                                 value="#{enlacesWebController.selected.descripcion}"
+                                 title="#{bundle.CreateEnlacesWebTitle_descripcion}" />
 
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEnlacesWebShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{enlacesWebController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateEnlacesWebShowAllLink}" 
+                                 immediate="true"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{enlacesWebController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEnlacesWebIndexLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{enlacesWebController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateEnlacesWebIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

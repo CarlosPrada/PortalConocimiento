@@ -9,8 +9,9 @@ import javax.persistence.Query;
 import uis.giib.entidades.Investigador;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Stateless
 public class InvestigadorFacade extends AbstractFacade<Investigador> {

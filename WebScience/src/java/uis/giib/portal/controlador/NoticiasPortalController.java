@@ -9,7 +9,6 @@ import javax.ejb.EJB;
 import uis.giib.entidades.Noticia;
 
 /**
- *
  * @author Cristhian Ruiz
  * @author Carlos David Prada Remolina
  * @version 1.0

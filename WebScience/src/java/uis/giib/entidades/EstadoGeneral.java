@@ -1,7 +1,6 @@
 package uis.giib.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -21,7 +20,9 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "estado_general")
@@ -31,11 +32,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoGeneral.findByIdEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.idEstado = :idEstado"),
     @NamedQuery(name = "EstadoGeneral.findByNombreEstado", query = "SELECT e FROM EstadoGeneral e WHERE e.nombreEstado = :nombreEstado")})
 public class EstadoGeneral implements Serializable {
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<MensajePortal> mensajePortalList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
     private List<HerramientaSoftware> herramientaSoftwareList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +45,7 @@ public class EstadoGeneral implements Serializable {
     private Integer idEstado;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 10)
+    @Size(max = 10)
     @Column(name = "nombre_estado")
     private String nombreEstado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstadoGeneral")

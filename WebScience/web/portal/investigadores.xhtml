@@ -26,17 +26,20 @@
                                 value="#{tipoInv.investigadorList}"  
                                 emptyMessage="No se encontraton registros" 
                                 var="inv">
-                        
+
                         <div class="mainbar400">
                             <div class="contenedorInterno400"> 
 
                                 <h1>
-                                    <h:outputText value="#{inv.nombreInvestigador} " />
-                                    <h:outputText value="#{inv.apellidoInvestigador}" /> 
+                                    <h:outputText value="#{inv.nombreInvestigador} "
+                                                  escape="false"/>
+                                    <h:outputText value="#{inv.apellidoInvestigador}"
+                                                  escape="false"/> 
                                 </h1>
-                                <h:graphicImage width="120" height="140" 
+                                <h:graphicImage width="120" 
+                                                height="140" 
                                                 style="float: right" 
-                                                url="/Giib/javax.faces.resource/images/ImagenInvestigador/#{inv.imageInvestigadorPath}.jsf" />
+                                                value="/Imagenes/#{inv.imageInvestigadorPath}" />
                                 <h2>
                                     <h:outputText value="#{inv.tituloInvestigador}"/>
                                 </h2>

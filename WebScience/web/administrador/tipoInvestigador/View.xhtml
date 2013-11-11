@@ -16,22 +16,31 @@
             </h:panelGroup>
             <h:form>
                 <p:panelGrid columns="2">
-                    
+
                     <h:outputText value="#{bundle.ViewTipoInvestigadorLabel_idTipoInvestigador}"/>
-                    <h:outputText value="#{tipoInvestigadorController.selected.idTipoInvestigador}" title="#{bundle.ViewTipoInvestigadorTitle_idTipoInvestigador}"/>
-                   
+                    <h:outputText value="#{tipoInvestigadorController.selected.idTipoInvestigador}"
+                                  title="#{bundle.ViewTipoInvestigadorTitle_idTipoInvestigador}"/>
+
                     <h:outputText value="#{bundle.ViewTipoInvestigadorLabel_nombreTipoInvestigador}"/>
-                    <h:outputText value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.ViewTipoInvestigadorTitle_nombreTipoInvestigador}"/>
-                   
+                    <h:outputText value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}"
+                                  title="#{bundle.ViewTipoInvestigadorTitle_nombreTipoInvestigador}"/>
+
                     <h:outputText value="#{bundle.ViewTipoInvestigadorLabel_descripcionTipoInvestigador}"/>
-                    <h:outputText value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" title="#{bundle.ViewTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
-               
+                    <h:outputText value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}"
+                                  title="#{bundle.ViewTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
+
                 </p:panelGrid>
-               
+
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoInvestigadorEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit" 
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewTipoInvestigadorEditLink}"/>
                 <br /> <br />
-                <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoInvestigadorShowAllLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{tipoInvestigadorController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.ViewTipoInvestigadorShowAllLink}"/>
 
             </h:form>
         </ui:define>

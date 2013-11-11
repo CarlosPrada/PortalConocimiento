@@ -20,16 +20,26 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-
-                <p:dataTable value="#{rolController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:700px;">
+                <p:dataTable value="#{rolController.items}" 
+                             paginator="true" 
+                             rows="15" 
+                             var="item"
+                             resizableColumns="true"
+                             style="width:700px;">
 
                     <p:column width="150">
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>
-                        <p:commandButton ajax="false" action="#{rolController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListRolViewLink}"/>
+                        <p:commandButton ajax="false"
+                                         action="#{rolController.prepareView}" 
+                                         icon="ui-icon-search" 
+                                         value="#{bundle.ListRolViewLink}"/>
                         <h:outputText value=" "/>
-                        <p:commandButton ajax="false" action="#{rolController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListRolEditLink}"/>
+                        <p:commandButton ajax="false" 
+                                         action="#{rolController.prepareEdit}"
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListRolEditLink}"/>
                     </p:column>
 
                     <p:column width="190">
@@ -48,9 +58,15 @@
 
                 </p:dataTable>
                 <br />
-                <p:commandButton ajax="false" action="#{rolController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListRolCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{rolController.prepareCreate}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListRolCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}" icon="ui-icon-arrowreturnthick-1-w"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexInvestigador"
+                                 value="#{bundle.indexInvestigador}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -24,16 +24,30 @@
                 
                 <h:panelGrid columns="2">
                                         
-                    <h:outputLabel value="#{bundle.EditEstadoProyectoLabel_nombreEstadoProyecto}" for="nombreEstadoProyecto" />
-                    <p:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" required="true" requiredMessage="#{bundle.EditEstadoProyectoRequiredMessage_idEstadoProyecto}" />
+                    <h:outputLabel value="#{bundle.EditEstadoProyectoLabel_nombreEstadoProyecto}"
+                                   for="nombreEstadoProyecto" />
+                    <p:inputText id="nombreEstadoProyecto" 
+                                 value="#{estadoProyectoController.selected.nombreEstadoProyecto}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditEstadoProyectoRequiredMessage_idEstadoProyecto}" />
                 
                 </h:panelGrid>
                 
-                <p:commandButton ajax="false" action="#{estadoProyectoController.update}" icon="ui-icon-disk" value="#{bundle.EditEstadoProyectoSaveLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{estadoProyectoController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditEstadoProyectoSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditEstadoProyectoViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View" 
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditEstadoProyectoViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditEstadoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{estadoProyectoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditEstadoProyectoShowAllLink}"
+                                 immediate="true"/>
                 <br /><br />
             </h:form>
         </ui:define>

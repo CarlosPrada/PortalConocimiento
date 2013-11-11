@@ -15,11 +15,14 @@
 
         <div class="mainbarDerecho">
             <h3>
-                <h:outputText value="#{investigadorPC.investigadorActual.nombreInvestigador} " />
-                <h:outputText value="#{investigadorPC.investigadorActual.apellidoInvestigador}" />
+                <h:outputText value="#{investigadorPC.investigadorActual.nombreInvestigador} "
+                              escape="false"/>
+                <h:outputText value="#{investigadorPC.investigadorActual.apellidoInvestigador}" 
+                              escape="false"/>
             </h3>
-            <h:graphicImage width="240" height="280"
-                            url="/Giib/javax.faces.resource/images/ImagenInvestigador/#{investigadorPC.investigadorActual.imageInvestigadorPath}.jsf" />
+            <h:graphicImage width="240" 
+                            height="280"
+                            value="/images/#{investigadorPC.investigadorActual.imageInvestigadorPath}"/>
 
             <div class="mainbar680">
 
@@ -27,7 +30,8 @@
                     <p:tabView>
 
                         <p:tab title="Biografía">
-                            <h:panelGrid columns="1" cellpadding="1"  >
+                            <h:panelGrid columns="1"
+                                         cellpadding="1"  >
                                 <p>
                                     <h:outputText escape="false"
                                                   value="#{investigadorPC.investigadorActual.informacionInvestigador}" />
@@ -36,18 +40,21 @@
                         </p:tab>
 
                         <p:tab title="Proyectos">
-                            <h:panelGrid columns="1" cellpadding="1">
+                            <h:panelGrid columns="1" 
+                                         cellpadding="1">
                                 <p:dataList value="#{investigadorPC.investigadorActual.proyectoInvestigadoresList}" 
                                             var="proyectoInvestigador" 
                                             styleClass="ui-datalist-item">
                                     <h:commandLink value="#{proyectoInvestigador.proyecto.nombreProyecto}" 
-                                                   action="#{proyectoPC.goDetallesProyecto(proyectoInvestigador.proyecto)}" /><br/>
+                                                   action="#{proyectoPC.goDetallesProyecto(proyectoInvestigador.proyecto)}" />
+                                    <br/>
                                 </p:dataList>
                             </h:panelGrid>
                         </p:tab>
 
                         <p:tab title="Lineas de Investigación">
-                            <h:panelGrid columns="1" cellpadding="1">
+                            <h:panelGrid columns="1" 
+                                         cellpadding="1">
                                 <p:dataList value="#{investigadorPC.investigadorActual.lineasInvestigadorList}"
                                             var="lineasInvestigador" >
                                     <h:commandLink value="#{lineasInvestigador.lineaInvestigacion.nombreLineaInvestigacion}" 
@@ -57,7 +64,8 @@
                         </p:tab>
 
                         <p:tab title="Producción Intelectual">
-                            <h:panelGrid columns="1" cellpadding="1">
+                            <h:panelGrid columns="1"
+                                         cellpadding="1">
                                 <p:dataList value="#{investigadorPC.investigadorActual.investigadorProduccionList}" 
                                             var="investigadorProduccion" >
                                     <h:commandLink value="#{investigadorProduccion.produccionIntelectual.nombreProduccion}" 
@@ -67,20 +75,30 @@
                         </p:tab>
 
                         <p:tab title="Contacto">
-                            <h:panelGrid columns="2" cellpadding="5">
-                                <h:outputText styleClass="contactoInvestigador" value="Telefono:"/>
-                                <h:outputText value="#{investigadorPC.investigadorActual.telefonoInvestigador}"/>
+                            <h:panelGrid columns="2" 
+                                         cellpadding="5">
+                                <h:outputText styleClass="contactoInvestigador" 
+                                              value="Telefono:"/>
+                                <h:outputText value="#{investigadorPC.investigadorActual.telefonoInvestigador}"
+                                              escape="false"/>
 
-                                <h:outputText styleClass="contactoInvestigador" value="Celular:"/>                                
-                                <h:outputText value="#{investigadorPC.investigadorActual.celularInvestigador}"/>
+                                <h:outputText styleClass="contactoInvestigador" 
+                                              value="Celular:"/>                                
+                                <h:outputText value="#{investigadorPC.investigadorActual.celularInvestigador}"
+                                              escape="false"/>
 
-                                <h:outputText styleClass="contactoInvestigador" value="Fax:"/>                                
-                                <h:outputText value="#{investigadorPC.investigadorActual.faxInvestigador}"/>
+                                <h:outputText styleClass="contactoInvestigador" 
+                                              value="Fax:"/>                                
+                                <h:outputText value="#{investigadorPC.investigadorActual.faxInvestigador}"
+                                              escape="false"/>
 
-                                <h:outputText styleClass="contactoInvestigador" value="Email:"/>                                
-                                <h:outputText value="#{investigadorPC.investigadorActual.correoInvestigador}"/>
+                                <h:outputText styleClass="contactoInvestigador" 
+                                              value="Email:"/>                                
+                                <h:outputText value="#{investigadorPC.investigadorActual.correoInvestigador}"
+                                              escape="false"/>
 
-                                <h:outputText styleClass="contactoInvestigador" value="CvLAC:"/>                                
+                                <h:outputText styleClass="contactoInvestigador"
+                                              value="CvLAC:"/>                                
                                 <h:outputLink value="#{investigadorPC.investigadorActual.cvlacInvestigador}"
                                               target="_blank">
                                     ir CvLAC

@@ -8,7 +8,6 @@ import javax.enterprise.context.SessionScoped;
 import uis.giib.entidades.EnlacesWeb;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @author crisyhian ruiz
  * @version 1.0

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -15,8 +11,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "investigador_produccion")
@@ -25,9 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InvestigadorProduccion.findAll", query = "SELECT i FROM InvestigadorProduccion i"),
     @NamedQuery(name = "InvestigadorProduccion.findByIdProduccion", query = "SELECT i FROM InvestigadorProduccion i WHERE i.investigadorProduccionPK.idProduccion = :idProduccion"),
     @NamedQuery(name = "InvestigadorProduccion.findByIdInvestigador", query = "SELECT i FROM InvestigadorProduccion i WHERE i.investigadorProduccionPK.idInvestigador = :idInvestigador")})
-
 public class InvestigadorProduccion implements Serializable {
-    
+
     @JoinColumn(name = "id_produccion", referencedColumnName = "id_produccion", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private ProduccionIntelectual produccionIntelectual;
@@ -40,7 +36,7 @@ public class InvestigadorProduccion implements Serializable {
 
     public InvestigadorProduccion() {
     }
-    
+
     public InvestigadorProduccion(InvestigadorProduccionPK investigadorProduccionPK) {
         this.investigadorProduccionPK = investigadorProduccionPK;
     }
@@ -97,5 +93,4 @@ public class InvestigadorProduccion implements Serializable {
     public void setInvestigador(Investigador investigador) {
         this.investigador = investigador;
     }
-    
 }

@@ -20,7 +20,11 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                    <p:dataTable value="#{noticiaController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+                    <p:dataTable value="#{noticiaController.items}" 
+                                 paginator="true"
+                                 rows="15" 
+                                 var="item" 
+                                 resizableColumns="true">
 
                         <p:column width="150">
                             <f:facet name="header">

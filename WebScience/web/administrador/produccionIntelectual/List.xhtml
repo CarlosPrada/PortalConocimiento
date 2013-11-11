@@ -19,25 +19,33 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-
-                <h:panelGroup rendered="#{produccionIntelectualController.items.rowCount > 0}">
-
-                    <p:dataTable value="#{produccionIntelectualController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                <p:dataTable value="#{produccionIntelectualController.items}" 
+                             paginator="true"
+                             rows="15" 
+                             var="item" 
+                             resizableColumns="true" >
 
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListProduccionIntelectualViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{produccionIntelectualController.prepareView}"
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListProduccionIntelectualViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListProduccionIntelectualEditLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{produccionIntelectualController.prepareEdit}" 
+                                             icon="ui-icon-pencil" 
+                                             value="#{bundle.ListProduccionIntelectualEditLink}"/>
                         </p:column>
                         
                         <p:column >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProduccionIntelectualTitle_referenciaProduccion}"/>
                             </f:facet>
-                            <h:outputText escape="false" value="#{item.referenciaProduccion}"/>
+                            <h:outputText escape="false" 
+                                          value="#{item.referenciaProduccion}"/>
                         </p:column>
 
                         <p:column width="200" >
@@ -63,11 +71,16 @@
 
                     </p:dataTable>
 
-                </h:panelGroup>
                 <br />
-                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListProduccionIntelectualCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{produccionIntelectualController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListProduccionIntelectualCreateLink}"/>
                 <br /><br />   
-                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia.xhtml" icon="ui-icon-arrowreturnthick-1-w"  value="#{bundle.indexProduccionBibliografia}"/>
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexProduccionBibliografia.xhtml"
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.indexProduccionBibliografia}"/>
             </h:form>
         </ui:define>
     </ui:composition>

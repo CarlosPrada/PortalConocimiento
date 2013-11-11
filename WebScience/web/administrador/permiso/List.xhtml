@@ -20,36 +20,50 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                    <p:dataTable value="#{permisoController.items}"  paginator="true" rows="15" var="item"  >
+                <p:dataTable value="#{permisoController.items}" 
+                             paginator="true"
+                             rows="15" 
+                             var="item"  >
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <p:commandButton ajax="false" action="#{permisoController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListPermisoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{permisoController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListPermisoEditLink}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false"
+                                         action="#{permisoController.prepareView}" 
+                                         icon="ui-icon-search" 
+                                         value="#{bundle.ListPermisoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false"
+                                         action="#{permisoController.prepareEdit}"
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListPermisoEditLink}"/>
+                    </p:column>
 
-                        <p:column width="180">
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPermisoTitle_nombrePermiso}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombrePermiso}"/>
-                        </p:column>
+                    <p:column width="180">
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPermisoTitle_nombrePermiso}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombrePermiso}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPermisoTitle_descripcionPermiso}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionPermiso}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPermisoTitle_descripcionPermiso}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionPermiso}"/>
+                    </p:column>
 
-                    </p:dataTable>
+                </p:dataTable>
                 <br/>
-                <p:commandButton ajax="false" action="#{permisoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListPermisoCreateLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{permisoController.prepareCreate}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListPermisoCreateLink}"/>
                 <br/><br/>
-                <p:commandButton ajax="false" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexInvestigador" 
+                                 value="#{bundle.indexInvestigador}"/>
 
             </h:form>
         </ui:define>

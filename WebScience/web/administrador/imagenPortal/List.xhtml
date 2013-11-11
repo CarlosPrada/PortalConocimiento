@@ -19,38 +19,48 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListImagenPortalEmpty}" rendered="#{imagenPortalController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{imagenPortalController.items.rowCount > 0}">
+                <p:dataTable value="#{imagenPortalController.items}"
+                             paginator="true" 
+                             rows="15"
+                             var="item"
+                             resizableColumns="true">
 
-                    <p:dataTable value="#{imagenPortalController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false"
+                                         action="#{imagenPortalController.prepareView}"
+                                         icon="ui-icon-search"  
+                                         value="#{bundle.ListImagenPortalViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false"
+                                         action="#{imagenPortalController.prepareEdit}" 
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListImagenPortalEditLink}"/>
+                    </p:column>
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <p:commandButton ajax="false" action="#{imagenPortalController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListImagenPortalViewLink}"/>
-                            <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{imagenPortalController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListImagenPortalEditLink}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListImagenPortalTitle_nombreImagen}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreImagen}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImagenPortalTitle_nombreImagen}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreImagen}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListImagenPortalTitle_descripcionImagen}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionImagen}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImagenPortalTitle_descripcionImagen}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionImagen}"/>
-                        </p:column>
+                </p:dataTable>
 
-                    </p:dataTable>
-                </h:panelGroup>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
+                <p:commandButton ajax="false"
+                                 action="/administrador/indexContenido"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

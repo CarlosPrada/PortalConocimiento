@@ -23,21 +23,34 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_investigador}" for="investigador" />
-                    <p:selectOneMenu id="investigador" value="#{lineasInvestigadorController.selected.investigador}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
+                    <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_investigador}"
+                                   for="investigador" />
+                    <p:selectOneMenu id="investigador" 
+                                     value="#{lineasInvestigadorController.selected.investigador}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_investigador}">
                         <f:selectItems value="#{investigadorController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
 
-                    <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_lineaInvestigacion}" for="lineaInvestigacion" />
-                    <p:selectOneMenu id="lineaInvestigacion" value="#{lineasInvestigadorController.selected.lineaInvestigacion}" required="true" requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
+                    <h:outputLabel value="#{bundle.CreateLineasInvestigadorLabel_lineaInvestigacion}"
+                                   for="lineaInvestigacion" />
+                    <p:selectOneMenu id="lineaInvestigacion" 
+                                     value="#{lineasInvestigadorController.selected.lineaInvestigacion}" 
+                                     required="true" 
+                                     requiredMessage="#{bundle.CreateLineasInvestigadorRequiredMessage_lineaInvestigacion}">
                         <f:selectItems value="#{lineaInvestigacionController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
 
                 </h:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{lineasInvestigadorController.create}" icon="ui-icon-plus" value="#{bundle.CreateLineasInvestigadorSaveLink}" />
+                <p:commandButton ajax="false" action="#{lineasInvestigadorController.create}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateLineasInvestigadorSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateLineasInvestigadorShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateLineasInvestigadorShowAllLink}" 
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

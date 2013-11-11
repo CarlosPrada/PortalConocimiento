@@ -18,8 +18,9 @@
                 <h:outputText value="#{lineasInvestigacionPC.lineasInvestigacionActual.nombreLineaInvestigacion} " />
             </h3>
 
-            <h:graphicImage width="300" height="250" 
-                            url="/Giib/javax.faces.resource/images/ImagenLineaInvestigacion/#{lineasInvestigacionPC.lineasInvestigacionActual.imagenLineaInvestigacion}.jsf" />
+            <h:graphicImage width="300"
+                            height="250" 
+                            url="/images/#{lineasInvestigacionPC.lineasInvestigacionActual.imagenLineaInvestigacion}.jsf" />
 
             <div class="mainbar600">
 
@@ -27,14 +28,16 @@
                     <p:tabView > 
 
                         <p:tab title="Descripcion">
-                            <h:panelGrid columns="1" cellpadding="1"  >
+                            <h:panelGrid columns="1" 
+                                         cellpadding="1"  >
                                 <h:outputText escape="false" 
                                               value="#{lineasInvestigacionPC.lineasInvestigacionActual.detalleLineaInvestigacion}"  />
                             </h:panelGrid>
                         </p:tab>
 
                         <p:tab title="Investigadores Relacionados">
-                            <h:panelGrid columns="1" cellpadding="1" >
+                            <h:panelGrid columns="1" 
+                                         cellpadding="1" >
                                 <p:dataList value="#{lineasInvestigacionPC.lineasInvestigacionActual.lineasInvestigadorList}" 
                                             var="lineasInvestigador" >
                                     <h:commandLink value="#{lineasInvestigador.investigador.nombreInvestigador} #{lineasInvestigador.investigador.apellidoInvestigador}"
@@ -44,7 +47,8 @@
                         </p:tab>
 
                         <p:tab title="Proyectos Relacionados">
-                            <h:panelGrid columns="1" cellpadding="1">
+                            <h:panelGrid columns="1" 
+                                         cellpadding="1">
                                 <p:dataList value="#{lineasInvestigacionPC.lineasInvestigacionActual.proyectoList}" 
                                             var="proyectoList" >
                                     <h:commandLink value="#{proyectoList.nombreProyecto}" 
@@ -52,12 +56,9 @@
                                 </p:dataList>
                             </h:panelGrid>
                         </p:tab>
-
                     </p:tabView>
                 </h:form>
-
             </div>
         </div>
-
     </ui:define>
 </ui:composition>

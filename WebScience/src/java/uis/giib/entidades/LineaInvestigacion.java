@@ -21,8 +21,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  * @author Cristhian
  */
 @Entity
@@ -44,7 +45,7 @@ public class LineaInvestigacion implements Serializable {
     @Column(name = "id_linea_investigacion")
     private Integer idLineaInvestigacion;
     @Basic(optional = false)
-    @Size(  max = 50)
+    @Size(max = 50)
     @Column(name = "nombre_linea_investigacion")
     private String nombreLineaInvestigacion;
     @Basic(optional = false)

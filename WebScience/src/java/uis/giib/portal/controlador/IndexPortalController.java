@@ -5,7 +5,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 01/10/2013

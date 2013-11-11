@@ -9,7 +9,6 @@ import javax.ejb.EJB;
 import uis.giib.entidades.MensajePortal;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 10/10/2013

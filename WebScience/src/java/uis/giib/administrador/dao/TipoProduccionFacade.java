@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
 import javax.ejb.Stateless;
@@ -10,11 +6,13 @@ import javax.persistence.PersistenceContext;
 import uis.giib.entidades.TipoProduccion;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Stateless
 public class TipoProduccionFacade extends AbstractFacade<TipoProduccion> {
+
     @PersistenceContext(unitName = "WebSciencePU")
     private EntityManager em;
 
@@ -26,5 +24,4 @@ public class TipoProduccionFacade extends AbstractFacade<TipoProduccion> {
     public TipoProduccionFacade() {
         super(TipoProduccion.class);
     }
-    
 }

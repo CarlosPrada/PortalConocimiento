@@ -23,31 +23,45 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_nombreProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.nombreProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_nombreProduccion}"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.nombreProduccion}"
+                                  title="#{bundle.ViewProduccionIntelectualTitle_nombreProduccion}"/>
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_agnoProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.agnoProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_agnoProduccion}"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.agnoProduccion}" 
+                                  title="#{bundle.ViewProduccionIntelectualTitle_agnoProduccion}"/>
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_referenciaProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.referenciaProduccion}" escape="false"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.referenciaProduccion}" 
+                                  escape="false"/>
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_urlProduccion}"/>
                     <h:outputText value="#{produccionIntelectualController.selected.urlProduccion}" />
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idTipoProduccion}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.idTipoProduccion.nombreTipoProduccion}" title="#{bundle.ViewProduccionIntelectualTitle_idTipoProduccion}"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.idTipoProduccion.nombreTipoProduccion}" 
+                                  title="#{bundle.ViewProduccionIntelectualTitle_idTipoProduccion}"/>
 
                     <h:outputText value="#{bundle.ViewProduccionIntelectualLabel_idEstado}"/>
-                    <h:outputText value="#{produccionIntelectualController.selected.idEstado.nombreEstado}" title="#{bundle.ViewProduccionIntelectualTitle_idEstado}"/>
+                    <h:outputText value="#{produccionIntelectualController.selected.idEstado.nombreEstado}"
+                                  title="#{bundle.ViewProduccionIntelectualTitle_idEstado}"/>
 
                 </p:panelGrid>
 
                 <br /><br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewProduccionIntelectualEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit"
+                                 icon="ui-icon-pencil"
+                                 value="#{bundle.ViewProduccionIntelectualEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewProduccionIntelectualCreateLink}" />
+                <p:commandButton ajax="false"
+                                 action="#{produccionIntelectualController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewProduccionIntelectualCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{produccionIntelectualController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewProduccionIntelectualShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{produccionIntelectualController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewProduccionIntelectualShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

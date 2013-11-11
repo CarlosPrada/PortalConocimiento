@@ -11,12 +11,11 @@ import javax.faces.model.ListDataModel;
 import uis.giib.entidades.Bibliografia;
 import uis.giib.entidades.TipoProduccion;
 
-/** 
+/**
  * @author Carlos David Prada Remolina
  * @author cristhian
  * @version 1.0
  * @since 10/08/2013
- *
  */
 @Named(value = "bibliografiaPC")
 @SessionScoped
@@ -41,7 +40,8 @@ public class BibliografiaPortalController implements Serializable {
      * activas en la base de datos. Asigna a cada tipo de referencia
      * bibliográfica su respectiva lista de referencias activas.
      *
-     * @return path relativo a la dirección de la página de referenciasBibliograficas.xhtml
+     * @return path relativo a la dirección de la página de
+     * referenciasBibliograficas.xhtml
      */
     public String goBibliografia() {
 

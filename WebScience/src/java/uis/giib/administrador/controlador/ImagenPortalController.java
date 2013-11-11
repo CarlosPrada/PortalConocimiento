@@ -23,6 +23,7 @@ import javax.faces.model.SelectItem;
 public class ImagenPortalController implements Serializable {
 
     private ImagenPortal current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.ImagenPortalFacade ejbFacade;
@@ -96,6 +97,7 @@ public class ImagenPortalController implements Serializable {
     }
 
     public String update() {
+        current.setNombreImagen(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ImagenPortalUpdated"));
@@ -189,6 +191,14 @@ public class ImagenPortalController implements Serializable {
 
     public ImagenPortal getImagenPortal(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = ImagenPortal.class)

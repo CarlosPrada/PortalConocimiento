@@ -22,13 +22,12 @@ import javax.faces.model.SelectItem;
 public class InvestigadorController extends AbstractController implements Serializable {
 
     private Investigador current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.InvestigadorFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    //private UploadedFile file;
-    private String destination = "C:\\Users\\Carlos\\Documents\\GitHub\\PortalConocimiento\\WebScience\\web\\WEB-INF\\lib";
 
     public InvestigadorController() {
     }
@@ -52,6 +51,7 @@ public class InvestigadorController extends AbstractController implements Serial
     }
 
     public String create() {
+        current.setImageInvestigadorPath(fileName);
         try {
             //upload();
             getFacade().create(current);
@@ -71,6 +71,7 @@ public class InvestigadorController extends AbstractController implements Serial
     }
 
     public String update() {
+        current.setImageInvestigadorPath(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("InvestigadorUpdated"));
@@ -218,16 +219,14 @@ public class InvestigadorController extends AbstractController implements Serial
 
     public void setSelectedItemIndex(int selectedItemIndex) {
         this.selectedItemIndex = selectedItemIndex;
-
-
     }
 
-    public String getDestination() {
-        return destination;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = Investigador.class)

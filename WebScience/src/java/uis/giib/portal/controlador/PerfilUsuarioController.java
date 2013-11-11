@@ -6,7 +6,6 @@ import java.io.Serializable;
 import uis.giib.entidades.Investigador;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 10/10/2013

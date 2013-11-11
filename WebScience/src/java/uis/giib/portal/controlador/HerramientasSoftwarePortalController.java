@@ -8,12 +8,10 @@ import javax.ejb.EJB;
 import uis.giib.entidades.HerramientaSoftware;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @author cristhian ruiz
  * @version 1.0
  * @since 10/10/2013
- *
  */
 @Named(value = "herramientasSoftwarePC")
 @SessionScoped

@@ -23,6 +23,7 @@ import javax.faces.model.SelectItem;
 public class LineaInvestigacionController implements Serializable {
 
     private LineaInvestigacion current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.LineaInvestigacionFacade ejbFacade;
@@ -79,6 +80,7 @@ public class LineaInvestigacionController implements Serializable {
     }
 
     public String create() {
+        current.setImagenLineaInvestigacion(fileName);
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("LineaInvestigacionCreated"));
@@ -96,6 +98,7 @@ public class LineaInvestigacionController implements Serializable {
     }
 
     public String update() {
+        current.setImagenLineaInvestigacion(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("LineaInvestigacionUpdated"));
@@ -189,6 +192,14 @@ public class LineaInvestigacionController implements Serializable {
 
     public LineaInvestigacion getLineaInvestigacion(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = LineaInvestigacion.class)

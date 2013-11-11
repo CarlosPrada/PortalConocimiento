@@ -22,17 +22,24 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewImagenPortalLabel_nombreImagen}"/>
-                    <h:outputText value="#{imagenPortalController.selected.nombreImagen}" title="#{bundle.ViewImagenPortalTitle_nombreImagen}"/>
+                    <h:outputText value="#{imagenPortalController.selected.nombreImagen}" 
+                                  title="#{bundle.ViewImagenPortalTitle_nombreImagen}"/>
 
                     <h:outputText value="#{bundle.ViewImagenPortalLabel_descripcionImagen}"/>
-                    <h:outputText value="#{imagenPortalController.selected.descripcionImagen}" title="#{bundle.ViewImagenPortalTitle_descripcionImagen}"/>
+                    <h:outputText value="#{imagenPortalController.selected.descripcionImagen}"
+                                  title="#{bundle.ViewImagenPortalTitle_descripcionImagen}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewImagenPortalEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 icon="ui-icon-pencil" 
+                                 value="#{bundle.ViewImagenPortalEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{imagenPortalController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewImagenPortalShowAllLink}"/>
-
+                <p:commandButton ajax="false" 
+                                 action="#{imagenPortalController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewImagenPortalShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

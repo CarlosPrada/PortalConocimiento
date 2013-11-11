@@ -16,20 +16,31 @@
             </h:panelGroup>
             <h:form>
                 <p:panelGrid columns="2">
-                    
+
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_nombreTipoProyecto}"/>
-                    <h:outputText value="#{tipoProyectoController.selected.nombreTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_nombreTipoProyecto}"/>
-                    
+                    <h:outputText value="#{tipoProyectoController.selected.nombreTipoProyecto}" 
+                                  title="#{bundle.ViewTipoProyectoTitle_nombreTipoProyecto}"/>
+
                     <h:outputText value="#{bundle.ViewTipoProyectoLabel_descripcionTipoProyecto}"/>
-                    <h:outputText value="#{tipoProyectoController.selected.descripcionTipoProyecto}" title="#{bundle.ViewTipoProyectoTitle_descripcionTipoProyecto}"/>
-                
+                    <h:outputText value="#{tipoProyectoController.selected.descripcionTipoProyecto}" 
+                                  title="#{bundle.ViewTipoProyectoTitle_descripcionTipoProyecto}"/>
+
                 </p:panelGrid>               
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoProyectoEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit" 
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewTipoProyectoEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoProyectoCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProyectoController.prepareCreate}"
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ViewTipoProyectoCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProyectoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.ViewTipoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

@@ -12,7 +12,6 @@ import uis.giib.entidades.EstadoProyecto;
 import uis.giib.entidades.Proyecto;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 10/10/2013

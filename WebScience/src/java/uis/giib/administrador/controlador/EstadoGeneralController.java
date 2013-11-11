@@ -4,7 +4,6 @@ import uis.giib.entidades.EstadoGeneral;
 import uis.giib.administrador.controlador.util.JsfUtil;
 import uis.giib.administrador.controlador.util.PaginationHelper;
 import uis.giib.administrador.dao.EstadoGeneralFacade;
-
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;

@@ -11,8 +11,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "proyecto_investigadores")
@@ -22,6 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ProyectoInvestigadores.findByIdProyectoInvestigacion", query = "SELECT p FROM ProyectoInvestigadores p WHERE p.proyectoInvestigadoresPK.idProyectoInvestigacion = :idProyectoInvestigacion"),
     @NamedQuery(name = "ProyectoInvestigadores.findByIdInvestigador", query = "SELECT p FROM ProyectoInvestigadores p WHERE p.proyectoInvestigadoresPK.idInvestigador = :idInvestigador")})
 public class ProyectoInvestigadores implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ProyectoInvestigadoresPK proyectoInvestigadoresPK;
@@ -102,5 +104,4 @@ public class ProyectoInvestigadores implements Serializable {
     public String toString() {
         return "uis.giib.entidades.ProyectoInvestigadores[ proyectoInvestigadoresPK=" + proyectoInvestigadoresPK + " ]";
     }
-    
 }

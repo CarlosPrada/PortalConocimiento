@@ -22,21 +22,24 @@
             <h:outputLabel styleClass="contactoInvestigador"  
                            value="Búsqueda:" /> 
 
-            <h:panelGrid columns="8" cellpadding="5" >  
+            <h:panelGrid columns="8"
+                         cellpadding="5" >  
 
                 <h:outputLabel styleClass="contactoInvestigador" 
                                value="Palabras Clave:" />                                     
                 <p:inputText value="#{buscadorPC.buscar}" 
                              id="editbox_search"
                              size="50"/>               
-                <p:watermark for="editbox_search" value="Buscar..." /> 
+                <p:watermark for="editbox_search" 
+                             value="Buscar..." /> 
 
                 <p:commandButton ajax="false" 
                                  action="#{buscadorPC.goResultadoBusqueda()}" 
                                  value="Buscar"/>  
             </h:panelGrid> 
 
-            <h:panelGrid columns="8" cellpadding="5" >        
+            <h:panelGrid columns="8" 
+                         cellpadding="5" >       
 
                 <h:outputLabel styleClass="contactoInvestigador" 
                                value="Buscar en:" /> 
@@ -55,7 +58,6 @@
                                          itemLabel="ProduccionIntelectual" /> 
                 <p:selectBooleanCheckbox value="#{buscadorPC.renderProyecto}" 
                                          itemLabel="Proyecto" /> 
-
             </h:panelGrid>
             <br/>
         </h:form >
@@ -67,9 +69,8 @@
         <div align="center">
             <div class="mainbar800">
 
-
-
-                <h:form rendered="#{buscadorPC.renderBibliografia}">
+                <h:form rendered="#{buscadorPC.renderBibliografia
+                                    and (buscadorPC.listaBibliografia.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="bibliografia" 
@@ -83,14 +84,15 @@
                             <h:outputText escape="false" 
                                           value="#{bibliografia.referenciaBibliografia} " />
                             <h:outputLink value="#{bibliografia.urlBibliografia}"
-                                          target="_blank">Más</h:outputLink>
+                                          target="_blank">Más
+                            </h:outputLink>
                             <p:separator/>
                         </p:dataGrid> 
-
                     </div>
                 </h:form>
 
-                <h:form rendered="#{buscadorPC.renderHerramientaSoftware}">
+                <h:form rendered="#{buscadorPC.renderHerramientaSoftware
+                                    and (buscadorPC.listaHerramientaSoftware.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="herramientasSoftware"
@@ -107,12 +109,12 @@
                                            action="#{herramientasSoftwarePC.goHerramientasSoftware()}"/>
                             <p:separator/>
                         </p:dataGrid> 
-
                     </div>
                 </h:form>
 
 
-                <h:form rendered="#{buscadorPC.renderInvestigador}">
+                <h:form rendered="#{buscadorPC.renderInvestigador
+                                    and (buscadorPC.listaInvestigador.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="investigador" 
@@ -129,11 +131,11 @@
                                            action="#{investigadorPC.goDetallesInvestigador(investigador)}"/>
                             <p:separator/>
                         </p:dataGrid>  
-
                     </div>
                 </h:form>
 
-                <h:form rendered="#{buscadorPC.renderLineaInvestigacion}">
+                <h:form rendered="#{buscadorPC.renderLineaInvestigacion
+                                    and (buscadorPC.listaLineaInvestigacion.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="lineaInvestigacion" 
@@ -150,11 +152,11 @@
                                            action="#{lineasInvestigacionPC.goDetallesLineasInvestigacion(lineaInvestigacion)}"/>
                             <p:separator/>
                         </p:dataGrid>  
-
                     </div>
                 </h:form>
 
-                <h:form rendered="#{buscadorPC.renderNoticia}">
+                <h:form rendered="#{buscadorPC.renderNoticia
+                                    and (buscadorPC.listaNoticia.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="noticia"
@@ -171,11 +173,11 @@
                                            action="#{noticiasPC.goNoticiasPortalController()}"/>
                             <p:separator/>
                         </p:dataGrid>  
-
                     </div>
                 </h:form>
 
-                <h:form rendered="#{buscadorPC.renderProduccionIntelectual}">
+                <h:form rendered="#{buscadorPC.renderProduccionIntelectual
+                                    and (buscadorPC.listaProduccionIntelectual.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="produccionIntelectual"
@@ -192,11 +194,11 @@
                                            action="#{publicacionesPC.goPublicaciones()}"/>
                             <p:separator/>
                         </p:dataGrid>  
-
                     </div>
                 </h:form>
 
-                <h:form rendered="#{buscadorPC.renderProyecto}">
+                <h:form rendered="#{buscadorPC.renderProyecto
+                                    and (buscadorPC.listaProyecto.size() > 0)}">
                     <div class="cajaBuscador">
 
                         <p:dataGrid id="proyecto"
@@ -213,12 +215,9 @@
                                            action="#{proyectoPC.goDetallesProyecto(proyecto)}"/>
                             <p:separator/>
                         </p:dataGrid>  
-
                     </div>
                 </h:form>
-
             </div>
         </div>
-
     </ui:define>
 </ui:composition>

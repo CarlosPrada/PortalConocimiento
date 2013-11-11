@@ -29,22 +29,24 @@
                                   value="#{qunsSms.historia}" />
                 </div>
 
-                <h:graphicImage width="250" height="200" 
-                                url="/Giib/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen1}.jsf" />
+                <h:graphicImage width="250" 
+                                height="200" 
+                                url="/images/#{qunsSms.imagen1}.jsf" />
             </p:dataGrid>
 
             <p:dataGrid  value="#{quienesSomosPC.quinesSomos}"
                          emptyMessage="No se encontraton registros"  
                          var="qunsSms">
-                
+
                 <div class="mainbar630R">
                     <h:outputText escape="false" 
                                   styleClass="textoJustificado"
                                   value="#{qunsSms.razondeser}" />
                 </div>
 
-                <h:graphicImage width="250" height="200"
-                                url="/Giib/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen2}.jsf" />
+                <h:graphicImage width="250" 
+                                height="200"
+                                url="/images/#{qunsSms.imagen2}.jsf" />
             </p:dataGrid >
 
             <p:dataGrid value="#{quienesSomosPC.quinesSomos}" 
@@ -57,11 +59,10 @@
                                   value="#{qunsSms.relaciones}" />        
                 </div>
 
-                <h:graphicImage width="250" height="200" 
-                                url="/Giib/javax.faces.resource/images/portal/QuienesSomos/#{qunsSms.imagen3}.jsf" />
+                <h:graphicImage width="250" 
+                                height="200" 
+                                url="/images/#{qunsSms.imagen3}.jsf" />
             </p:dataGrid >
         </h:form>
-
-
     </ui:define>
 </ui:composition>

@@ -21,12 +21,11 @@
         <div class="mainbarIzquierdo">  
 
             <h:form>
-
                 <p:tabView value="#{bibliografiaPC.listaTipoBibliografia}" 
                            var="tipoBibli" >
                     <p:tab title="#{tipoBibli.nombreTipoProduccion}" >
 
-                        <p:scrollPanel style="width: 100%; height: 100%; border: none;" 
+                        <p:scrollPanel style="width: 100%; height: 500px; border: none;" 
                                        mode="native" >
                             <p:dataGrid columns="1" 
                                         value="#{tipoBibli.bibliografiaList}"  
@@ -36,21 +35,17 @@
                                 <h:outputText value="#{bibli.referenciaBibliografia} " 
                                               escape="false" /> 
                                 <h:outputLink value="#{bibli.urlBibliografia}" 
-                                              target="_blank">
+                                              target="_blank"
+                                              rendered="#{bibli.urlBibliografia.length() > 0}">
                                     Más
                                 </h:outputLink>
-
                                 <p:separator />
 
-                            </p:dataGrid>
-
+                            </p:dataGrid>                            
                         </p:scrollPanel>
-
                     </p:tab>
                 </p:tabView>
-
             </h:form>
-
         </div>
     </ui:define>
 </ui:composition>

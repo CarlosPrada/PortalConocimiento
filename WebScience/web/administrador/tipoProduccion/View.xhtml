@@ -22,15 +22,25 @@
                 <p:panelGrid columns="2">
                                         
                     <h:outputText value="#{bundle.ViewTipoProduccionLabel_nombreTipoProduccion}"/>
-                    <h:outputText value="#{tipoProduccionController.selected.nombreTipoProduccion}" title="#{bundle.ViewTipoProduccionTitle_nombreTipoProduccion}"/>
+                    <h:outputText value="#{tipoProduccionController.selected.nombreTipoProduccion}" 
+                                  title="#{bundle.ViewTipoProduccionTitle_nombreTipoProduccion}"/>
                 
                 </p:panelGrid>                
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewTipoProduccionEditLink}"/>
+                <p:commandButton ajax="false"
+                                 action="Edit" 
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewTipoProduccionEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewTipoProduccionCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProduccionController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewTipoProduccionCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewTipoProduccionShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProduccionController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewTipoProduccionShowAllLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

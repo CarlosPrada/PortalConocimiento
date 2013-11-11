@@ -20,15 +20,26 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                    <p:dataTable value="#{tipoProduccionController.items}" paginator="true" rows="60" var="item" resizableColumns="true" style="width:450px;"> 
+                    <p:dataTable value="#{tipoProduccionController.items}"
+                                 paginator="true"
+                                 rows="60" 
+                                 var="item" 
+                                 resizableColumns="true" 
+                                 style="width:450px;"> 
 
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{tipoProduccionController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoProduccionViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{tipoProduccionController.prepareView}"
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListTipoProduccionViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{tipoProduccionController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoProduccionEditLink}"/>
+                            <p:commandButton ajax="false"
+                                             action="#{tipoProduccionController.prepareEdit}"
+                                             icon="ui-icon-pencil"  
+                                             value="#{bundle.ListTipoProduccionEditLink}"/>
                         </p:column>
 
 
@@ -42,9 +53,15 @@
 
                     </p:dataTable>
                 <br />
-                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoProduccionCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProduccionController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListTipoProduccionCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexProduccionBibliografia" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexProduccionBibliografia}"/>
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexProduccionBibliografia" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexProduccionBibliografia}"/>
             </h:form>
         </ui:define>
     </ui:composition>

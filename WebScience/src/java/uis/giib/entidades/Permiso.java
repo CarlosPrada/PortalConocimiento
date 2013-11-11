@@ -19,8 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "permiso")
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Permiso.findByNombrePermiso", query = "SELECT p FROM Permiso p WHERE p.nombrePermiso = :nombrePermiso"),
     @NamedQuery(name = "Permiso.findByDescripcionPermiso", query = "SELECT p FROM Permiso p WHERE p.descripcionPermiso = :descripcionPermiso")})
 public class Permiso implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +41,7 @@ public class Permiso implements Serializable {
     private Integer idPermiso;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 50)
+    @Size(max = 50)
     @Column(name = "nombre_permiso")
     private String nombrePermiso;
     @Size(max = 500)
@@ -118,5 +120,4 @@ public class Permiso implements Serializable {
     public String toString() {
         return "[" + idPermiso + "] - " + nombrePermiso;
     }
-    
 }

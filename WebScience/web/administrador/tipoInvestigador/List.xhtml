@@ -19,39 +19,53 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:panelGroup rendered="#{tipoInvestigadorController.items.rowCount > 0}">
-                    <p:dataTable value="#{tipoInvestigadorController.items}" paginator="true" var="item" rows="15" style="width:600px;" >
+                <p:dataTable value="#{tipoInvestigadorController.items}"
+                             paginator="true" 
+                             var="item" 
+                             rows="15" 
+                             style="width:600px;" >
 
-                        <p:column width="150">
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListTipoInvestigadorViewLink}"/>
-                            <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListTipoInvestigadorEditLink}"/>
-                        </p:column>
+                    <p:column width="150">
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton ajax="false" 
+                                         action="#{tipoInvestigadorController.prepareView}" 
+                                         icon="ui-icon-search" 
+                                         value="#{bundle.ListTipoInvestigadorViewLink}"/>
+                        <h:outputText value=" "/>
+                        <p:commandButton ajax="false" 
+                                         action="#{tipoInvestigadorController.prepareEdit}" 
+                                         icon="ui-icon-pencil"  
+                                         value="#{bundle.ListTipoInvestigadorEditLink}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_nombreTipoInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombreTipoInvestigador}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTipoInvestigadorTitle_nombreTipoInvestigador}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreTipoInvestigador}"/>
+                    </p:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcionTipoInvestigador}"/>
-                        </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTipoInvestigadorTitle_descripcionTipoInvestigador}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcionTipoInvestigador}"/>
+                    </p:column>
 
-                    </p:dataTable>
-                </h:panelGroup>
+                </p:dataTable>
                 <br />
-                <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListTipoInvestigadorCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoInvestigadorController.prepareCreate}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListTipoInvestigadorCreateLink}"/>
                 <br />
                 <br />                
-                <p:commandButton ajax="false" icon="ui-icon-arrowreturnthick-1-w" action="/administrador/indexInvestigador" value="#{bundle.indexInvestigador}"/>
+                <p:commandButton ajax="false" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 action="/administrador/indexInvestigador" 
+                                 value="#{bundle.indexInvestigador}"/>
             </h:form>
         </ui:define>
     </ui:composition>

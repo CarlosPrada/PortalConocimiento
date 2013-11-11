@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -11,11 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  * @author cristhian ruiz
  */
 @Entity
 public class abstractentidades implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,5 +52,4 @@ public class abstractentidades implements Serializable {
     public String toString() {
         return "uis.giib.entidades.abstractentidades[ id=" + id + " ]";
     }
-    
 }

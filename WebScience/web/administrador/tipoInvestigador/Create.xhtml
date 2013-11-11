@@ -7,15 +7,15 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-        
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateTipoInvestigadorTitle}"></h:outputText>
         </ui:define>
-        
+
         <ui:define name="body">
 
- <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
-            
+            <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -23,17 +23,34 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_nombreTipoInvestigador}" for="nombreTipoInvestigador" />
-                    <p:inputText id="nombreTipoInvestigador" value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" title="#{bundle.CreateTipoInvestigadorTitle_nombreTipoInvestigador}" required="true" requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" size="25"/>
+                    <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_nombreTipoInvestigador}" 
+                                   for="nombreTipoInvestigador" />
+                    <p:inputText id="nombreTipoInvestigador" 
+                                 value="#{tipoInvestigadorController.selected.nombreTipoInvestigador}" 
+                                 title="#{bundle.CreateTipoInvestigadorTitle_nombreTipoInvestigador}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.CreateTipoInvestigadorRequiredMessage_nombreTipoInvestigador}" 
+                                 size="25"/>
 
-                    <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_descripcionTipoInvestigador}" for="descripcionTipoInvestigador" />
-                    <p:inputTextarea autoResize="false"  rows="5" cols="60" value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" />
-               
+                    <h:outputLabel value="#{bundle.CreateTipoInvestigadorLabel_descripcionTipoInvestigador}" 
+                                   for="descripcionTipoInvestigador" />
+                    <p:inputTextarea autoResize="false"  
+                                     rows="5" 
+                                     cols="60" 
+                                     value="#{tipoInvestigadorController.selected.descripcionTipoInvestigador}" />
+
                 </h:panelGrid>
                 <br/>
-                <p:commandButton ajax="false" action="#{tipoInvestigadorController.create}" icon="ui-icon-plus" value="#{bundle.CreateTipoInvestigadorSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{tipoInvestigadorController.create}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.CreateTipoInvestigadorSaveLink}" />
                 <br/><br/>
-                <p:commandButton ajax="false" action="#{tipoInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateTipoInvestigadorShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoInvestigadorController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateTipoInvestigadorShowAllLink}"
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

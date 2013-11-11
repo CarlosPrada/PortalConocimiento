@@ -23,6 +23,9 @@ import javax.faces.model.SelectItem;
 public class ContenidoController implements Serializable {
 
     private Contenido current;
+    private String fileNameHistoria;
+    private String fileNameRazon;
+    private String fileNameRelaciones;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.ContenidoFacade ejbFacade;
@@ -96,6 +99,10 @@ public class ContenidoController implements Serializable {
     }
 
     public String update() {
+        current.setImagen1(fileNameHistoria);
+        current.setImagen2(fileNameRazon);
+        current.setImagen3(fileNameRelaciones);
+//        usuarioAutenticado.setImageInvestigadorPath(fileNameMultiple);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContenidoUpdated"));
@@ -189,6 +196,30 @@ public class ContenidoController implements Serializable {
 
     public Contenido getContenido(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileNameHistoria() {
+        return fileNameHistoria;
+    }
+
+    public void setFileNameHistoria(String fileNameHistoria) {
+        this.fileNameHistoria = fileNameHistoria;
+    }
+
+    public String getFileNameRazon() {
+        return fileNameRazon;
+    }
+
+    public void setFileNameRazon(String fileNameRazon) {
+        this.fileNameRazon = fileNameRazon;
+    }
+
+    public String getFileNameRelaciones() {
+        return fileNameRelaciones;
+    }
+
+    public void setFileNameRelaciones(String fileNameRelaciones) {
+        this.fileNameRelaciones = fileNameRelaciones;
     }
 
     @FacesConverter(forClass = Contenido.class)

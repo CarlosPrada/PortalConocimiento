@@ -6,13 +6,13 @@ package uis.giib.administrador.controlador;
 
 import java.io.Serializable;
 import javax.inject.Inject;
-import uis.giib.login.LoginAuthentication;
+import uis.giib.administrador.controlador.util.LoginAuthentication;
 
 
 public class AbstractController implements Serializable {
 
     @Inject
-    protected uis.giib.login.LoginAuthentication loginAutentication;
+    protected uis.giib.administrador.controlador.util.LoginAuthentication loginAutentication;
 
      
     public AbstractController() {

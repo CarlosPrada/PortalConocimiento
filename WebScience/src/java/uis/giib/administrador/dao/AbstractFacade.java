@@ -1,17 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
- *
- * @author Carlos Humberto
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 12/10/2013
  */
 public abstract class AbstractFacade<T> {
+
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -58,5 +56,4 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
 }

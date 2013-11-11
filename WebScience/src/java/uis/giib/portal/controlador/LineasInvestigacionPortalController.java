@@ -8,7 +8,6 @@ import javax.ejb.EJB;
 import uis.giib.entidades.LineaInvestigacion;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 10/09/2013

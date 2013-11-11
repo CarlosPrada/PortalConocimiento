@@ -7,6 +7,11 @@ public abstract class PaginationHelper {
     private int pageSize;
     private int page;
 
+    /**
+     * Establece el máximo número de páginas en la admnistración
+     * 
+     * @param pageSize número de nodos por página.
+     */
     public PaginationHelper(int pageSize) {
         this.pageSize = 100000;
     }

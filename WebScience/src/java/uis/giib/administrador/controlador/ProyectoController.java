@@ -23,6 +23,7 @@ import javax.faces.model.SelectItem;
 public class ProyectoController implements Serializable {
 
     private Proyecto current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.ProyectoFacade ejbFacade;
@@ -79,6 +80,7 @@ public class ProyectoController implements Serializable {
     }
 
     public String create() {
+        current.setImagenProyecto(fileName);
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProyectoCreated"));
@@ -96,6 +98,7 @@ public class ProyectoController implements Serializable {
     }
 
     public String update() {
+        current.setImagenProyecto(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProyectoUpdated"));
@@ -189,6 +192,14 @@ public class ProyectoController implements Serializable {
 
     public Proyecto getProyecto(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = Proyecto.class)

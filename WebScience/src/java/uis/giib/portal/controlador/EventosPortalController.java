@@ -14,7 +14,6 @@ import org.primefaces.model.ScheduleModel;
 import uis.giib.entidades.Evento;
 
 /**
- *
  * @author Carlos David Prada Remolina  
  * @version 1.0  
  * @since 20/07/2013
@@ -48,7 +47,6 @@ public class EventosPortalController implements Serializable {
             eventModel = new DefaultScheduleModel();
             while (eveIterator.hasNext()) {
                 Evento eve = eveIterator.next();
-                System.out.println("Error listando EVENTOS!");
                 eventModel.addEvent(new DefaultScheduleEvent(eve.getNombreEvento(), eve.getFechaInicio(), eve.getFechaFin()));
             }
         } catch (Exception e) {

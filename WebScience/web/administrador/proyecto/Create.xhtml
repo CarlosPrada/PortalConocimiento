@@ -21,7 +21,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">    
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_nombreProyecto}" 
@@ -31,7 +31,7 @@
                                      value="#{proyectoController.selected.nombreProyecto}" 
                                      required="true"
                                      requiredMessage="#{bundle.CreateProyectoRequiredMessage_nombreProyecto}"/>
-                    
+
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_descripcionResumidaProyecto}" 
                                    for="descripcionResumidaProyecto" />
                     <p:inputText id="descripcionResumidaProyecto"
@@ -59,10 +59,8 @@
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_imagenProyecto}"
                                    for="imagenProyecto" />
-                    <p:inputText id="imagenProyecto"
-                                 value="#{proyectoController.selected.imagenProyecto}" 
-                                 title="#{bundle.CreateProyectoTitle_imagenProyecto}" 
-                                 size="55"/>
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.CreateProyectoLabel_idTipoProyecto}" 
                                    for="idTipoProyecto" />
@@ -104,14 +102,16 @@
                 <br />
                 <p:commandButton ajax="false"
                                  action="#{proyectoController.create}"
-                                 icon="ui-icon-plus" value="#{bundle.CreateProyectoSaveLink}" />
+                                 icon="ui-icon-plus" value="#{bundle.CreateProyectoSaveLink}">
+                    <f:setPropertyActionListener target="#{proyectoController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false" 
                                  action="#{proyectoController.prepareList}"
                                  icon="ui-icon-arrowreturnthick-1-w"
                                  value="#{bundle.CreateProyectoShowAllLink}" 
                                  immediate="true"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

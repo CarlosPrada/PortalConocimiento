@@ -14,7 +14,6 @@ import uis.giib.entidades.ProduccionIntelectual;
 import uis.giib.entidades.Proyecto;
 
 /**
- *
  * @author Carlos David Prada Remolina
  * @version 1.0
  * @since 04/09/2013

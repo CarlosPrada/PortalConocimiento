@@ -21,7 +21,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditProyectoLabel_nombreProyecto}"
@@ -59,10 +59,8 @@
 
                     <h:outputLabel value="#{bundle.EditProyectoLabel_imagenProyecto}" 
                                    for="imagenProyecto" />
-                    <p:inputText id="imagenProyecto" 
-                                 value="#{proyectoController.selected.imagenProyecto}" 
-                                 title="#{bundle.EditProyectoTitle_imagenProyecto}" 
-                                 size="55"/>
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.EditProyectoLabel_idTipoProyecto}" 
                                    for="idTipoProyecto" />
@@ -105,7 +103,10 @@
                 <p:commandButton ajax="false"
                                  action="#{proyectoController.update}"
                                  icon="ui-icon-disk" 
-                                 value="#{bundle.EditProyectoSaveLink}"/>
+                                 value="#{bundle.EditProyectoSaveLink}">
+                    <f:setPropertyActionListener target="#{proyectoController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false"
                                  action="View"

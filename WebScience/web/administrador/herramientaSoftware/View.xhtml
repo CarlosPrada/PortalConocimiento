@@ -22,30 +22,45 @@
                 <p:panelGrid columns="2">
                     
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_idHerramienta}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.idHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_idHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.idHerramienta}" 
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_idHerramienta}"/>
                     
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_nombreHerramienta}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.nombreHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_nombreHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.nombreHerramienta}"
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_nombreHerramienta}"/>
                    
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_urlHerramienta}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.urlHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_urlHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.urlHerramienta}"
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_urlHerramienta}"/>
                     
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_descripcionHerramienta}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.descripcionHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_descripcionHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.descripcionHerramienta}"
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_descripcionHerramienta}"/>
                     
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_imagenHerramienta}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.imagenHerramienta}" title="#{bundle.ViewHerramientaSoftwareTitle_imagenHerramienta}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.imagenHerramienta}"
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_imagenHerramienta}"/>
                    
                     <h:outputText value="#{bundle.ViewHerramientaSoftwareLabel_idEstado}"/>
-                    <h:outputText value="#{herramientaSoftwareController.selected.idEstado.nombreEstado}" title="#{bundle.ViewHerramientaSoftwareTitle_idEstado}"/>
+                    <h:outputText value="#{herramientaSoftwareController.selected.idEstado.nombreEstado}" 
+                                  title="#{bundle.ViewHerramientaSoftwareTitle_idEstado}"/>
                 
                 </p:panelGrid>                
                 <br />
-                <p:commandButton ajax="false" action="Edit" icon="ui-icon-pencil"  value="#{bundle.ViewHerramientaSoftwareEditLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 icon="ui-icon-pencil"  
+                                 value="#{bundle.ViewHerramientaSoftwareEditLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewHerramientaSoftwareCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{herramientaSoftwareController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewHerramientaSoftwareCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewHerramientaSoftwareShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{herramientaSoftwareController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewHerramientaSoftwareShowAllLink}"/>
                 
             </h:form>
         </ui:define>

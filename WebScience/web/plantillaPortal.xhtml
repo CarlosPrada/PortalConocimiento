@@ -4,13 +4,13 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-
+    
     <h:head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="style.css" />
 
-        <h6><title><ui:insert name="title">Portal GIIB</ui:insert></title></h6>
+        <title><ui:insert name="title">Portal</ui:insert></title>
 
         <ui:insert name="libreriasJS">  </ui:insert>
     </h:head>
@@ -20,8 +20,12 @@
             <p:growl id="messages" showDetail="true" sticky="true" />
 
             <p:idleMonitor  timeout="600000">
-                <p:ajax event="idle" listener="#{idleBean.logoutListener}" update="messages" />
-                <p:ajax event="active" listener="#{idleBean.activeListener}" update="messages" />
+                <p:ajax event="idle" 
+                        listener="#{idleBean.logoutListener}" 
+                        update="messages" />
+                <p:ajax event="active" 
+                        listener="#{idleBean.activeListener}" 
+                        update="messages" />
             </p:idleMonitor>
 
         </h:form>        
@@ -32,11 +36,11 @@
                 <!--LOGO - Grupo-->
                 <ui:insert name="logo">
                     <h:form>  
-                            <h:link outcome="index.jsf" >
-                                <h:graphicImage width="500" height="70" 
-                                                value="#{resource['images/portal/slide1.jpg']}"/>
-                            </h:link>                               
-                    
+                        <h:link outcome="index.jsf" >
+                            <h:graphicImage width="500" height="70" 
+                                            value="#{resource['images/portal/slide1.jpg']}"/>
+                        </h:link>                               
+
                     </h:form>
                 </ui:insert>
             </div>
@@ -147,13 +151,13 @@
                                     numVisible="1"
                                     autoPlayInterval="2000" 
                                     circular="true">  
-                            <h:graphicImage width="960" height="200" 
+                            <h:graphicImage width="952" height="200" 
                                             url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[0].nombreImagen}.jsf" />
-                            <h:graphicImage width="960" height="210" 
+                            <h:graphicImage width="952" height="210" 
                                             url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[1].nombreImagen}.jsf" />
-                            <h:graphicImage width="960" height="210" 
+                            <h:graphicImage width="952" height="210" 
                                             url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[2].nombreImagen}.jsf" />
-                            <h:graphicImage width="960" height="210" 
+                            <h:graphicImage width="952" height="210" 
                                             url="/Giib/javax.faces.resource/images/portal/Slider/#{imagenPC.imagenSlider[3].nombreImagen}.jsf" />
                         </p:carousel>  
 

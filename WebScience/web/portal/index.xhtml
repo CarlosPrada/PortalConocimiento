@@ -7,14 +7,14 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title">GIIB</ui:define>
+    <ui:define name="title">Portal</ui:define>
 
     <ui:define name="body">
 
         <div class="mainbar680">   
             <h:form>  
 
-                <p:dataGrid columns="1" rows="3" paginator="true" 
+                <p:dataGrid columns="1" rows="2" paginator="true" 
                             value="#{noticiasPC.listadoNoticias}" 
                             var="noticias"  
                             emptyMessage="No se encontraron registros" >
@@ -23,13 +23,14 @@
                         <br/>                     
                         <h:outputText styleClass="tituloRecuperado" 
                                       value="#{noticias.tituloNoticia}" 
-                                          escape="false" />                       
+                                      escape="false" />                       
                         <br/>                  
 
                         <center>
                             <h:graphicImage styleClass="imageInLine" 
-                                            width="400" height="180" 
-                                            url="/Giib/javax.faces.resource/images/ImagenNoticia/#{noticias.imagenNoticia}.jsf" />
+                                            width="400" 
+                                            height="180" 
+                                            url="/images/#{noticias.imagenNoticia}.jsf" />
                         </center>
 
                         <h:outputText  styleClass="textoNoticia" 
@@ -38,7 +39,8 @@
 
                         <h2>
                             Publicado: 
-                            <h:outputText value="#{noticias.fechaPublicacionNoticia}" escape="false" >
+                            <h:outputText value="#{noticias.fechaPublicacionNoticia}"
+                                          escape="false" >
                                 <f:convertDateTime pattern="yyyy/MM/dd" />
                             </h:outputText> 
                         </h2>
@@ -57,7 +59,8 @@
             <div align="left">
 
                 <h:form rendered="#{!loginAuthentication.loggedIn}">
-                    <h:panelGrid columns="1" cellpadding="0" >  
+                    <h:panelGrid columns="1"
+                                 cellpadding="0" >  
 
                         <p:inputText id="usuario" 
                                      value="#{loginAuthentication.usuario.usuarioInvestigador}" 
@@ -78,17 +81,21 @@
                     </h:panelGrid> 
                 </h:form >
 
-                <h:form id="logoutForm" rendered="#{loginAuthentication.loggedIn}"> 
+                <h:form id="logoutForm" 
+                        rendered="#{loginAuthentication.loggedIn}"> 
                     <br/>
-                    <h:panelGrid columns="1" cellpadding="0" >  
+                    <h:panelGrid columns="1" 
+                                 cellpadding="0" >  
 
                         <p:column>
                             <h:outputText styleClass="label" 
+                                          escape="false"
                                           value=" Bienvenido, #{loginAuthentication.usuarioAutenticado.nombreInvestigador} #{loginAuthentication.usuarioAutenticado.apellidoInvestigador} &nbsp; &nbsp; &nbsp;" />
                         </p:column>
 
                         <p:column>
-                            <h:graphicImage url="#{resource['images/admin/dash/logout.png']}" width="16" />
+                            <h:graphicImage url="#{resource['images/admin/dash/logout.png']}"
+                                            width="16" />
                             <p:commandLink styleClass="pieLInk" 
                                            ajax="false" 
                                            value="Cerrar Sesi&oacute;n" 
@@ -105,7 +112,7 @@
                         <p:column>
                             <p:commandLink rendered="#{loginAuthentication.administrador}" 
                                            styleClass="pieLInk" 
-                                           value="Administrar" 
+                                           value="Administrar el Portal" 
                                            action="#{loginAuthentication.goAdministracion()}"  /> 
                         </p:column>
 

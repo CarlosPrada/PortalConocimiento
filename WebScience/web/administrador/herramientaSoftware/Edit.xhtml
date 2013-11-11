@@ -13,42 +13,41 @@
         </ui:define>
 
         <ui:define name="body">
-            
+
             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>
 
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditHerramientaSoftwareLabel_nombreHerramienta}" 
                                    for="nombreHerramienta" />
-                    <p:inputTextarea autoResize="false"  rows="5" cols="60" 
+                    <p:inputTextarea autoResize="false"  rows="3" cols="90" 
                                      value="#{herramientaSoftwareController.selected.nombreHerramienta}" 
                                      required="true" 
                                      requiredMessage="#{bundle.EditHerramientaSoftwareRequiredMessage_nombreHerramienta}"/>
 
                     <h:outputLabel value="#{bundle.EditHerramientaSoftwareLabel_urlHerramienta}" 
                                    for="urlHerramienta" />
-                    <p:inputTextarea autoResize="false"  rows="10" cols="90" 
+                    <p:inputTextarea autoResize="false"  rows="3" cols="90" 
                                      value="#{herramientaSoftwareController.selected.urlHerramienta}" 
                                      required="true" 
                                      requiredMessage="#{bundle.EditHerramientaSoftwareRequiredMessage_urlHerramienta}"/>
 
                     <h:outputLabel value="#{bundle.EditHerramientaSoftwareLabel_descripcionHerramienta}" 
                                    for="descripcionHerramienta" />
-                    <p:inputTextarea autoResize="false"  rows="10" cols="90" 
+                    <p:inputTextarea autoResize="false"  rows="3" cols="90" 
                                      value="#{herramientaSoftwareController.selected.descripcionHerramienta}" 
                                      required="true" 
                                      requiredMessage="#{bundle.EditHerramientaSoftwareRequiredMessage_descripcionHerramienta}"/>
 
                     <h:outputLabel value="#{bundle.EditHerramientaSoftwareLabel_imagenHerramienta}"
                                    for="imagenHerramienta" />
-                    <p:inputText id="imagenHerramienta" 
-                                 value="#{herramientaSoftwareController.selected.imagenHerramienta}" 
-                                 title="#{bundle.EditHerramientaSoftwareTitle_imagenHerramienta}" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.EditHerramientaSoftwareLabel_idEstado}" 
                                    for="idEstado" />
@@ -64,7 +63,10 @@
                 <p:commandButton ajax="false" 
                                  action="#{herramientaSoftwareController.update}" 
                                  icon="ui-icon-disk" 
-                                 value="#{bundle.EditHerramientaSoftwareSaveLink}"/>
+                                 value="#{bundle.EditHerramientaSoftwareSaveLink}" >
+                    <f:setPropertyActionListener target="#{herramientaSoftwareController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false" 
                                  action="View" 

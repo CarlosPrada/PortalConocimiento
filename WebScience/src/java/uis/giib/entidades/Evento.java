@@ -21,7 +21,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "evento")
@@ -44,7 +46,7 @@ public class Evento implements Serializable {
     private Integer idEvento;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 200)
+    @Size(max = 200)
     @Column(name = "nombre_evento")
     private String nombreEvento;
     @Basic(optional = false)

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -18,8 +14,9 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "imagen_portal")
@@ -30,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ImagenPortal.findByNombreImagen", query = "SELECT i FROM ImagenPortal i WHERE i.nombreImagen = :nombreImagen"),
     @NamedQuery(name = "ImagenPortal.findByDescripcionImagen", query = "SELECT i FROM ImagenPortal i WHERE i.descripcionImagen = :descripcionImagen")})
 public class ImagenPortal implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -98,5 +96,4 @@ public class ImagenPortal implements Serializable {
     public String toString() {
         return "uis.giib.entidades.ImagenPortal[ idImagen=" + idImagen + " ]";
     }
-    
 }

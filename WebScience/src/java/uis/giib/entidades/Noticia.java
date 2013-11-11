@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n"),
     @NamedQuery(name = "Noticia.findByIdNoticia", query = "SELECT n FROM Noticia n WHERE n.idNoticia = :idNoticia"),
-    @NamedQuery(name = "Noticia.findByEstado", query = "SELECT noti FROM Noticia noti JOIN noti.idEstado notest WHERE notest.idEstado = 1"),
+    @NamedQuery(name = "Noticia.findByEstado", query = "SELECT noti FROM Noticia noti JOIN noti.idEstado notest WHERE notest.idEstado = 1 ORDER BY noti.fechaPublicacionNoticia DESC"),
     @NamedQuery(name = "Noticia.findByBuscador", query = "SELECT noti FROM Noticia noti WHERE noti.tituloNoticia LIKE :buscar OR noti.contenidoNoticia LIKE :buscar"),
     @NamedQuery(name = "Noticia.findByFechaPublicacionNoticia", query = "SELECT n FROM Noticia n WHERE n.fechaPublicacionNoticia = :fechaPublicacionNoticia")})
 public class Noticia implements Serializable {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
 import java.util.List;
@@ -13,8 +9,9 @@ import javax.persistence.Query;
 import uis.giib.entidades.MensajePortal;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Stateless
 public class MensajePortalFacade extends AbstractFacade<MensajePortal> {

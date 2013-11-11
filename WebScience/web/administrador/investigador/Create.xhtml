@@ -20,7 +20,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form enctype="multipart/form-data">
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_usuarioInvestigador}" 
@@ -63,7 +63,7 @@
                     <p:inputText id="tituloInvestigador"
                                  value="#{investigadorController.selected.tituloInvestigador}" 
                                  title="#{bundle.CreateInvestigadorTitle_tituloInvestigador}" 
-                                 size="105"/>
+                                 size="88"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_informacionInvestigador}" 
                                    for="informacionInvestigador" />
@@ -90,7 +90,7 @@
                     <p:inputText id="correoInvestigador" 
                                  value="#{investigadorController.selected.correoInvestigador}" 
                                  title="#{bundle.CreateInvestigadorTitle_correoInvestigador}" 
-                                 size="55"/>
+                                 size="45"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_faxInvestigador}" 
                                    for="faxInvestigador" />
@@ -113,7 +113,7 @@
                     <p:inputText id="cvlacInvestigador"
                                  value="#{investigadorController.selected.cvlacInvestigador}" 
                                  title="#{bundle.CreateInvestigadorTitle_cvlacInvestigador}" 
-                                 size="160" />
+                                 size="88" />
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idTipoInvestigador}" 
                                    for="idTipoInvestigador" />
@@ -134,10 +134,8 @@
                     </p:selectOneMenu>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_imagenInvestigador}"  />
-                    <p:inputText id="imagenInvestigador" 
-                                 value="#{investigadorController.selected.imageInvestigadorPath}" 
-                                 title="#{bundle.CreateInvestigadorTitle_imagenInvestigador}" 
-                                 size="100"/>
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.CreateInvestigadorLabel_idEstado}"  />
                     <p:selectOneMenu id="idEstado" 
@@ -153,7 +151,10 @@
                 <p:commandButton ajax="false" 
                                  action="#{investigadorController.create}" 
                                  icon="ui-icon-plus" 
-                                 value="#{bundle.CreateInvestigadorSaveLink}" />
+                                 value="#{bundle.CreateInvestigadorSaveLink}">
+                    <f:setPropertyActionListener target="#{investigadorController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />                
+                </p:commandButton>
                 <br/><br/>
                 <p:commandButton ajax="false"
                                  action="#{investigadorController.prepareList}" 

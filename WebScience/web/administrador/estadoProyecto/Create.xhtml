@@ -23,14 +23,24 @@
             <h:form>
                 <h:panelGrid columns="2"> 
                     
-                    <h:outputLabel value="#{bundle.CreateEstadoProyectoLabel_nombreEstadoProyecto}" for="nombreEstadoProyecto" />
-                    <p:inputText id="nombreEstadoProyecto" value="#{estadoProyectoController.selected.nombreEstadoProyecto}" required="true" requiredMessage="#{bundle.CreateEstadoProyectoRequiredMessage_idEstadoProyecto}" />
+                    <h:outputLabel value="#{bundle.CreateEstadoProyectoLabel_nombreEstadoProyecto}"
+                                   for="nombreEstadoProyecto" />
+                    <p:inputText id="nombreEstadoProyecto" 
+                                 value="#{estadoProyectoController.selected.nombreEstadoProyecto}" 
+                                 required="true"
+                                 requiredMessage="#{bundle.CreateEstadoProyectoRequiredMessage_idEstadoProyecto}" />
                 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{estadoProyectoController.create}" icon="ui-icon-plus" value="#{bundle.CreateEstadoProyectoSaveLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{estadoProyectoController.create}" 
+                                 icon="ui-icon-plus" value="#{bundle.CreateEstadoProyectoSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateEstadoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{estadoProyectoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateEstadoProyectoShowAllLink}" 
+                                 immediate="true"/>
                 <br /><br />
                 
             </h:form>

@@ -19,18 +19,25 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListHerramientaSoftwareEmpty}" rendered="#{herramientaSoftwareController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{herramientaSoftwareController.items.rowCount > 0}">
-
-                    <p:dataTable value="#{herramientaSoftwareController.items}" paginator="true" rows="15" var="item" resizableColumns="true">
+                    <p:dataTable value="#{herramientaSoftwareController.items}"
+                                 paginator="true"
+                                 rows="15" 
+                                 var="item" 
+                                 resizableColumns="true">
 
                         <p:column width="150">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListHerramientaSoftwareViewLink}"/>
+                            <p:commandButton ajax="false"
+                                             action="#{herramientaSoftwareController.prepareView}"
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListHerramientaSoftwareViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareEdit}" icon="ui-icon-pencil"  value="#{bundle.ListHerramientaSoftwareEditLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{herramientaSoftwareController.prepareEdit}" 
+                                             icon="ui-icon-pencil"  
+                                             value="#{bundle.ListHerramientaSoftwareEditLink}"/>
                         </p:column>
 
                         <p:column>
@@ -62,11 +69,16 @@
                         </p:column>
                         
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
-                <p:commandButton ajax="false" action="#{herramientaSoftwareController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListHerramientaSoftwareCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{herramientaSoftwareController.prepareCreate}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.ListHerramientaSoftwareCreateLink}"/>
                 <br /><br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexContenido" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexContenido}"/>
+                <p:commandButton ajax="false" 
+                                 action="/administrador/indexContenido" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexContenido}"/>
             </h:form>
         </ui:define>
     </ui:composition>

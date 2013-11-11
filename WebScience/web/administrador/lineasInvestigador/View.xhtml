@@ -22,16 +22,24 @@
                 <p:panelGrid columns="2">
 
                     <h:outputText value="#{bundle.ViewLineasInvestigadorLabel_investigador}"/>
-                    <h:outputText value="#{lineasInvestigadorController.selected.investigador.nombreInvestigador} #{lineasInvestigadorController.selected.investigador.apellidoInvestigador}"/>
+                    <h:outputText value="#{lineasInvestigadorController.selected.investigador.nombreInvestigador} 
+                                  #{lineasInvestigadorController.selected.investigador.apellidoInvestigador}"/>
 
                     <h:outputText value="#{bundle.ViewLineasInvestigadorLabel_lineaInvestigacion}"/>
-                    <h:outputText value="#{lineasInvestigadorController.selected.lineaInvestigacion.nombreLineaInvestigacion}" title="#{bundle.ViewLineasInvestigadorTitle_lineaInvestigacion}"/>
+                    <h:outputText value="#{lineasInvestigadorController.selected.lineaInvestigacion.nombreLineaInvestigacion}"
+                                  title="#{bundle.ViewLineasInvestigadorTitle_lineaInvestigacion}"/>
 
                 </p:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewLineasInvestigadorCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{lineasInvestigadorController.prepareCreate}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewLineasInvestigadorCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewLineasInvestigadorShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{lineasInvestigadorController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.ViewLineasInvestigadorShowAllLink}"/>
 
             </h:form>
         </ui:define>

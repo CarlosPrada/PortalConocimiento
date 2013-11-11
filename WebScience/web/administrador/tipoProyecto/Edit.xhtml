@@ -23,19 +23,39 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditTipoProyectoLabel_nombreTipoProyecto}" for="nombreTipoProyecto" />
-                    <p:inputText id="nombreTipoProyecto" value="#{tipoProyectoController.selected.nombreTipoProyecto}" title="#{bundle.EditTipoProyectoTitle_nombreTipoProyecto}" required="true" requiredMessage="#{bundle.EditTipoProyectoRequiredMessage_nombreTipoProyecto}" size="55"/>
+                    <h:outputLabel value="#{bundle.EditTipoProyectoLabel_nombreTipoProyecto}" 
+                                   for="nombreTipoProyecto" />
+                    <p:inputText id="nombreTipoProyecto" 
+                                 value="#{tipoProyectoController.selected.nombreTipoProyecto}" 
+                                 title="#{bundle.EditTipoProyectoTitle_nombreTipoProyecto}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditTipoProyectoRequiredMessage_nombreTipoProyecto}" 
+                                 size="55"/>
 
-                    <h:outputLabel value="#{bundle.EditTipoProyectoLabel_descripcionTipoProyecto}" for="descripcionTipoProyecto" />
-                    <p:inputText id="descripcionTipoProyecto" value="#{tipoProyectoController.selected.descripcionTipoProyecto}" title="#{bundle.EditTipoProyectoTitle_descripcionTipoProyecto}" size="155"/>
+                    <h:outputLabel value="#{bundle.EditTipoProyectoLabel_descripcionTipoProyecto}"
+                                   for="descripcionTipoProyecto" />
+                    <p:inputText id="descripcionTipoProyecto"
+                                 value="#{tipoProyectoController.selected.descripcionTipoProyecto}"
+                                 title="#{bundle.EditTipoProyectoTitle_descripcionTipoProyecto}" 
+                                 size="155"/>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.update}" icon="ui-icon-disk" value="#{bundle.EditTipoProyectoSaveLink}"/>
+                <p:commandButton ajax="false"
+                                 action="#{tipoProyectoController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditTipoProyectoSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditTipoProyectoViewLink}"/>
+                <p:commandButton ajax="false"
+                                 action="View" 
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditTipoProyectoViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditTipoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{tipoProyectoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditTipoProyectoShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

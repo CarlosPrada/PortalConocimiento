@@ -16,7 +16,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "enlaces_web")
@@ -32,12 +34,12 @@ public class EnlacesWeb implements Serializable {
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 300)
+    @Size(max = 300)
     @Column(name = "nombre_enlace")
     private String nombreEnlace;
     @Basic(optional = false)
     @NotNull
-    @Size(  max = 800)
+    @Size(max = 800)
     @Column(name = "enlace")
     private String enlace;
     @Id

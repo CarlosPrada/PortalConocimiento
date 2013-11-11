@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.administrador.dao;
 
 import javax.ejb.Stateless;
@@ -10,8 +6,9 @@ import javax.persistence.PersistenceContext;
 import uis.giib.entidades.ProductoProyecto;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Stateless
 public class ProductoProyectoFacade extends AbstractFacade<ProductoProyecto> {
@@ -25,6 +22,5 @@ public class ProductoProyectoFacade extends AbstractFacade<ProductoProyecto> {
 
     public ProductoProyectoFacade() {
         super(ProductoProyecto.class);
-    }
-    
+    }    
 }

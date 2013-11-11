@@ -21,7 +21,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
 
-            <h:form>
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_tituloNoticia}" 
@@ -45,8 +45,8 @@
                                 pattern="dd/MM/yyyy"/> 
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_imagenNoticia}"/>
-                    <p:inputText id="idNoticia" 
-                                 value="#{noticiaController.selected.imagenNoticia}" />
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
 
                     <h:outputLabel value="#{bundle.EditNoticiaLabel_idEstado}" 
                                    for="idEstado" />
@@ -62,7 +62,10 @@
                 <p:commandButton ajax="false"
                                  action="#{noticiaController.update}"
                                  icon="ui-icon-disk" 
-                                 value="#{bundle.EditNoticiaSaveLink}"/>
+                                 value="#{bundle.EditNoticiaSaveLink}">
+                    <f:setPropertyActionListener target="#{noticiaController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />                
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false"
                                  action="View"

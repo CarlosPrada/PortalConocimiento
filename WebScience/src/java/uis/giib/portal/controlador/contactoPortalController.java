@@ -9,10 +9,11 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.commons.mail.DefaultAuthenticator;
 import uis.giib.entidades.Contacto;
+
 /**
  *
- * @author Carlos David Prada Remolina  
- * @version 1.0  
+ * @author Carlos David Prada Remolina
+ * @version 1.0
  * @since 10/10/2013
  */
 @Named(value = "contactoPC")
@@ -38,11 +39,22 @@ public class contactoPortalController implements Serializable {
     public contactoPortalController() {
     }
 
-    //Métodos de navegación
+    /**
+     *
+     * Redirecciona al usuario a la página de contacto.xhtml Almacena en una
+     * lista la información correspondiente de la BD.
+     *
+     * @return Retorna el enlace al Contacto
+     */
     public String goContacto() {
         return "/portal/contacto.xhtml?faces-redirect=true";
     }
 
+    /**
+     * Metodo que toma los datos diligenciados en el formulario de
+     * contacto.xhtml y envia un correo con la solicitud de contacto a los
+     * correos configurados del grupo
+     */
     public void sendMail() {
 
         emisor = ejbContacto.buscarPorIDContacto("Emisor");

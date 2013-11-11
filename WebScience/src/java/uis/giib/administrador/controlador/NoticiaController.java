@@ -23,6 +23,7 @@ import javax.faces.model.SelectItem;
 public class NoticiaController implements Serializable {
 
     private Noticia current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.NoticiaFacade ejbFacade;
@@ -79,6 +80,7 @@ public class NoticiaController implements Serializable {
     }
 
     public String create() {
+        current.setImagenNoticia(fileName);
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("NoticiaCreated"));
@@ -96,6 +98,7 @@ public class NoticiaController implements Serializable {
     }
 
     public String update() {
+        current.setImagenNoticia(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("NoticiaUpdated"));
@@ -189,6 +192,14 @@ public class NoticiaController implements Serializable {
 
     public Noticia getNoticia(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = Noticia.class)

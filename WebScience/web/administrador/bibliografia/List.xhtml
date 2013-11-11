@@ -20,7 +20,11 @@
 
                 <h:panelGroup rendered="#{bibliografiaController.items.rowCount > 0}">
 
-                    <p:dataTable value="#{bibliografiaController.items}" paginator="true" rows="15" var="item" resizableColumns="true" >
+                    <p:dataTable value="#{bibliografiaController.items}"
+                                 paginator="true" 
+                                 rows="15" 
+                                 var="item" 
+                                 resizableColumns="true" >
 
                         <p:column width="150">
                             <f:facet name="header">
@@ -41,7 +45,8 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBibliografiaTitle_referenciaBibliografia}"/>
                             </f:facet>
-                            <h:outputText escape="false" value="#{item.referenciaBibliografia}"/>
+                            <h:outputText escape="false"
+                                          value="#{item.referenciaBibliografia}"/>
                         </p:column>
 
                         <p:column width="180">

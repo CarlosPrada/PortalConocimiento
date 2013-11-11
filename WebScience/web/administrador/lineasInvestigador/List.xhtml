@@ -19,18 +19,25 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
 
-                <h:outputText escape="false" value="#{bundle.ListLineasInvestigadorEmpty}" rendered="#{lineasInvestigadorController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{lineasInvestigadorController.items.rowCount > 0}">
-
-                    <p:dataTable value="#{lineasInvestigadorController.items}" paginator="true" rows="15" var="item" resizableColumns="true" style="width:1000px;">
+                    <p:dataTable value="#{lineasInvestigadorController.items}"
+                                 paginator="true" 
+                                 rows="15" 
+                                 var="item" 
+                                 resizableColumns="true" 
+                                 style="width:1000px;">
 
                         <p:column width="160">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareView}" icon="ui-icon-search"  value="#{bundle.ListLineasInvestigadorViewLink}"/>
+                            <p:commandButton ajax="false" 
+                                             action="#{lineasInvestigadorController.prepareView}" 
+                                             icon="ui-icon-search"  
+                                             value="#{bundle.ListLineasInvestigadorViewLink}"/>
                             <h:outputText value=" "/>
-                            <p:commandButton ajax="false" action="#{lineasInvestigadorController.destroy}" icon="ui-icon-close"  value="#{bundle.ListLineasInvestigadorDestroyLink}"/>
+                            <p:commandButton ajax="false" action="#{lineasInvestigadorController.destroy}"
+                                             icon="ui-icon-close"  
+                                             value="#{bundle.ListLineasInvestigadorDestroyLink}"/>
                         </p:column>
 
                         <p:column>
@@ -48,11 +55,16 @@
                         </p:column>
                         
                     </p:dataTable>
-                </h:panelGroup>
+
                 <br />
-                <p:commandButton ajax="false" action="#{lineasInvestigadorController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ListLineasInvestigadorCreateLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{lineasInvestigadorController.prepareCreate}" 
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ListLineasInvestigadorCreateLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="/administrador/indexInvestigador" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.indexInvestigador}"/>
+                <p:commandButton ajax="false" action="/administrador/indexInvestigador" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.indexInvestigador}"/>
             </h:form>
         </ui:define>
     </ui:composition>

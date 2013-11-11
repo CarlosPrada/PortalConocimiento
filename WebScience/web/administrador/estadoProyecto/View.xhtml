@@ -22,15 +22,25 @@
                 <p:panelGrid columns="2">
                                         
                     <h:outputText value="#{bundle.ViewEstadoProyectoLabel_nombreEstadoProyecto}"/>
-                    <h:outputText value="#{estadoProyectoController.selected.nombreEstadoProyecto}" title="#{bundle.ViewEstadoProyectoTitle_nombreEstadoProyecto}"/>
+                    <h:outputText value="#{estadoProyectoController.selected.nombreEstadoProyecto}" 
+                                  title="#{bundle.ViewEstadoProyectoTitle_nombreEstadoProyecto}"/>
                 
                 </p:panelGrid>
                 <br /><br />
-                <p:commandButton ajax="false" action="Edit" value="#{bundle.ViewEstadoProyectoEditLink}" icon="ui-icon-pencil"/>
+                <p:commandButton ajax="false" 
+                                 action="Edit" 
+                                 value="#{bundle.ViewEstadoProyectoEditLink}" 
+                                 icon="ui-icon-pencil"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareCreate}" icon="ui-icon-plus" value="#{bundle.ViewEstadoProyectoCreateLink}" />
+                <p:commandButton ajax="false" 
+                                 action="#{estadoProyectoController.prepareCreate}"
+                                 icon="ui-icon-plus" 
+                                 value="#{bundle.ViewEstadoProyectoCreateLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{estadoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.ViewEstadoProyectoShowAllLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{estadoProyectoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.ViewEstadoProyectoShowAllLink}"/>
 
             </h:form>
         </ui:define>

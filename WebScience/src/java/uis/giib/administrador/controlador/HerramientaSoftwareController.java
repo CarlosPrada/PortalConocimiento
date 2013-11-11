@@ -23,6 +23,7 @@ import javax.faces.model.SelectItem;
 public class HerramientaSoftwareController implements Serializable {
 
     private HerramientaSoftware current;
+    private String fileName;
     private DataModel items = null;
     @EJB
     private uis.giib.administrador.dao.HerramientaSoftwareFacade ejbFacade;
@@ -79,6 +80,7 @@ public class HerramientaSoftwareController implements Serializable {
     }
 
     public String create() {
+        current.setImagenHerramienta(fileName);
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HerramientaSoftwareCreated"));
@@ -96,6 +98,7 @@ public class HerramientaSoftwareController implements Serializable {
     }
 
     public String update() {
+        current.setImagenHerramienta(fileName);
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HerramientaSoftwareUpdated"));
@@ -189,6 +192,14 @@ public class HerramientaSoftwareController implements Serializable {
 
     public HerramientaSoftware getHerramientaSoftware(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @FacesConverter(forClass = HerramientaSoftware.class)

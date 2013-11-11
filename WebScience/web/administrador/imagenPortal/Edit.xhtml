@@ -7,38 +7,40 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-        
+
         <ui:define name="title">
             <h:outputText value="#{bundle.EditImagenPortalTitle}"></h:outputText>
         </ui:define>
-        
+
         <ui:define name="body">
-            
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
-            <h:form>
+
+            <h:form id="form"  enctype="multipart/form-data">
                 <h:panelGrid columns="2">
-                   
+
                     <h:outputLabel value="#{bundle.EditImagenPortalLabel_nombreImagen}"
                                    for="nombreImagen" />
-                    <p:inputTextarea autoResize="false" 
-                                     rows="7" cols="80" 
-                                     value="#{imagenPortalController.selected.nombreImagen}" />
-                    
+                    <p:fileUpload fileUploadListener="#{fileUploadC.upload}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000000"/>
+
                     <h:outputLabel value="#{bundle.EditImagenPortalLabel_descripcionImagen}"
                                    for="descripcionImagen" />
                     <p:inputTextarea autoResize="false"  
-                                     rows="7" cols="80" 
+                                     rows="3" cols="90" 
                                      value="#{imagenPortalController.selected.nombreImagen}" />
-               
+
                 </h:panelGrid>
                 <br />
                 <p:commandButton ajax="false"
                                  action="#{imagenPortalController.update}" 
                                  icon="ui-icon-disk" 
-                                 value="#{bundle.EditImagenPortalSaveLink}"/>
+                                 value="#{bundle.EditImagenPortalSaveLink}">
+                    <f:setPropertyActionListener target="#{imagenPortalController.fileName}" 
+                                                 value="#{fileUploadC.fileName}" />
+                </p:commandButton>
                 <br /><br />
                 <p:commandButton ajax="false" 
                                  action="View"

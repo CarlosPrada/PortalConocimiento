@@ -9,7 +9,9 @@ import uis.giib.entidades.Contacto;
 
 /**
  *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina  
+ * @version 1.0  
+ * @since 10/08/2013
  */
 @Stateless
 public class ContactoFacade extends AbstractFacade<Contacto> {

@@ -15,19 +15,32 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateGeneroLabel_idGenero}" for="idGenero" />
-                    <h:inputText id="idGenero" value="#{generoController.selected.idGenero}" title="#{bundle.CreateGeneroTitle_idGenero}" required="true" requiredMessage="#{bundle.CreateGeneroRequiredMessage_idGenero}"/>
-                    <h:outputLabel value="#{bundle.CreateGeneroLabel_nombreGenero}" for="nombreGenero" />
-                    <h:inputText id="nombreGenero" value="#{generoController.selected.nombreGenero}" title="#{bundle.CreateGeneroTitle_nombreGenero}" required="true" requiredMessage="#{bundle.CreateGeneroRequiredMessage_nombreGenero}"/>
+                    <h:outputLabel value="#{bundle.CreateGeneroLabel_idGenero}" 
+                                   for="idGenero" />
+                    <h:inputText id="idGenero" value="#{generoController.selected.idGenero}" 
+                                 title="#{bundle.CreateGeneroTitle_idGenero}" 
+                                 required="true" 
+                                 requiredMessage="#{bundle.CreateGeneroRequiredMessage_idGenero}"/>
+                    <h:outputLabel value="#{bundle.CreateGeneroLabel_nombreGenero}"
+                                   for="nombreGenero" />
+                    <h:inputText id="nombreGenero"
+                                 value="#{generoController.selected.nombreGenero}" 
+                                 title="#{bundle.CreateGeneroTitle_nombreGenero}" 
+                                 required="true"
+                                 requiredMessage="#{bundle.CreateGeneroRequiredMessage_nombreGenero}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{generoController.create}" value="#{bundle.CreateGeneroSaveLink}" />
+                <h:commandLink action="#{generoController.create}" 
+                               value="#{bundle.CreateGeneroSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{generoController.prepareList}" value="#{bundle.CreateGeneroShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{generoController.prepareList}"
+                               value="#{bundle.CreateGeneroShowAllLink}"
+                               immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateGeneroIndexLink}"/>
+                <h:link outcome="/index" 
+                        value="#{bundle.CreateGeneroIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

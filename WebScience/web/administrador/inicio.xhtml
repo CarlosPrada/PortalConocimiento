@@ -18,8 +18,10 @@
 
                 <div id="logout">
                     <h:form>
-                        <h:graphicImage url="#{resource['images/admin/dash/logout.png']}" width="16" />
-                        <h:commandLink value="Cerrar Sesi&oacute;n" action="#{loginAuthentication.logout()}"  /> 
+                        <h:graphicImage url="#{resource['images/admin/dash/logout.png']}"
+                                        width="16" />
+                        <h:commandLink value="Cerrar Sesi&oacute;n" 
+                                       action="#{loginAuthentication.logout()}"  /> 
                     </h:form>
                 </div>
 
@@ -33,35 +35,48 @@
 
             <div class="contentdiv"> 
                 <div id="wcontent" class="contentinner"><br/>  
-                    <h:panelGrid  id="dashboard" columns="3" columnClasses="dashitem" >
+                    <h:panelGrid  id="dashboard"
+                                  columns="3"
+                                  columnClasses="dashitem" >
 
-                        <h:column class="dashitem" rendered="#{loginAuthentication.arrayRender[0]}">
-                            <img src="#{resource['images/admin/dash/history.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/indexContenido.xhtml" value="Gestión de Contenidos"/>
+                        <h:column class="dashitem" 
+                                  rendered="#{loginAuthentication.arrayRender[0]}">
+                            <img src="#{resource['images/admin/dash/history.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/indexContenido.xhtml"
+                                    value="Gestión de Contenidos"/>
                             Permite administrar los contenidos del portal.
                         </h:column>
 
                         <h:column rendered="#{loginAuthentication.arrayRender[1]}">
-                            <img src="#{resource['images/admin/dash/getcode.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/indexProyecto.xhtml" value="Gestión de Proyectos de Investigación"/>
+                            <img src="#{resource['images/admin/dash/getcode.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/indexProyecto.xhtml"
+                                    value="Gestión de Proyectos de Investigación"/>
                             Permite administrar los proyectos de investigación.
                         </h:column>
 
                         <h:column rendered="#{loginAuthentication.arrayRender[2]}">
-                            <img src="#{resource['images/admin/dash/canned.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/indexProduccionBibliografia.xhtml" value="Gestión de Producción Intelectual y Referencias Bibliográficas"/>
+                            <img src="#{resource['images/admin/dash/canned.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/indexProduccionBibliografia.xhtml"
+                                    value="Gestión de Producción Intelectual y Referencias Bibliográficas"/>
                             Permite administrar la producción intelectual y referencias bibliográficas
                         </h:column>   
 
                         <h:column rendered="#{loginAuthentication.arrayRender[3]}">
-                            <img src="#{resource['images/admin/dash/visitors.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/indexInvestigador.xhtml" value="Gestión de Investigadores"/>
+                            <img src="#{resource['images/admin/dash/visitors.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/indexInvestigador.xhtml" 
+                                    value="Gestión de Investigadores"/>
                             Permite administrar investigadores como usuarios del sistema.
                         </h:column>     
 
                         <h:column rendered="#{loginAuthentication.arrayRender[4]}">
-                            <img src="#{resource['images/admin/dash/arrow.gif']}" alt=""/> 
-                            <h:link outcome="/administrador/lineaInvestigacion/#{lineaInvestigacionController.prepareList()}" value="Gestión de Líneas de Investigación"/>
+                            <img src="#{resource['images/admin/dash/arrow.gif']}" 
+                                 alt=""/> 
+                            <h:link outcome="/administrador/lineaInvestigacion/#{lineaInvestigacionController.prepareList()}"
+                                    value="Gestión de Líneas de Investigación"/>
                             Permite administrar las líneas de investigación del grupo.
                         </h:column>
 
@@ -69,7 +84,8 @@
                 </div> 
             </div>
             <div style="clear: both;">&nbsp;</div> 
-            <div class="empty_inner" style="">&#160;</div> 
+            <div class="empty_inner"
+                 style="">&#160;</div> 
         </div> 
         <div id="footer"> 
             <p id="legal">Grupo de investigaci&oacute;n en Ingenier&iacute;a Biom&eacute;dica - Universidad Industrial de Santander v1.0</p> 

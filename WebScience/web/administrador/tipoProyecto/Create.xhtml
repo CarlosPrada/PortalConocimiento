@@ -7,33 +7,50 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-       
+
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateTipoProyectoTitle}"></h:outputText>
         </ui:define>
-        
+
         <ui:define name="body">
-            
+
             <h:outputText value="#{bundle.Requerido}"  /><br/><br/><br/>            
-            
+
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
+
             <h:form>
                 <h:panelGrid columns="2">
-                    
-                    <h:outputLabel value="#{bundle.CreateTipoProyectoLabel_nombreTipoProyecto}" for="nombreTipoProyecto" />
-                    <p:inputText id="nombreTipoProyecto" value="#{tipoProyectoController.selected.nombreTipoProyecto}" title="#{bundle.CreateTipoProyectoTitle_nombreTipoProyecto}" required="true" requiredMessage="#{bundle.CreateTipoProyectoRequiredMessage_nombreTipoProyecto}" size="55"/>
-                   
-                    <h:outputLabel value="#{bundle.CreateTipoProyectoLabel_descripcionTipoProyecto}" for="descripcionTipoProyecto" />
-                    <p:inputText id="descripcionTipoProyecto" value="#{tipoProyectoController.selected.descripcionTipoProyecto}" title="#{bundle.CreateTipoProyectoTitle_descripcionTipoProyecto}" size="155" />
-                
+
+                    <h:outputLabel value="#{bundle.CreateTipoProyectoLabel_nombreTipoProyecto}" 
+                                   for="nombreTipoProyecto" />
+                    <p:inputText id="nombreTipoProyecto"
+                                 value="#{tipoProyectoController.selected.nombreTipoProyecto}" 
+                                 title="#{bundle.CreateTipoProyectoTitle_nombreTipoProyecto}"
+                                 required="true" 
+                                 requiredMessage="#{bundle.CreateTipoProyectoRequiredMessage_nombreTipoProyecto}"
+                                 size="55"/>
+
+                    <h:outputLabel value="#{bundle.CreateTipoProyectoLabel_descripcionTipoProyecto}" 
+                                   for="descripcionTipoProyecto" />
+                    <p:inputText id="descripcionTipoProyecto" 
+                                 value="#{tipoProyectoController.selected.descripcionTipoProyecto}"
+                                 title="#{bundle.CreateTipoProyectoTitle_descripcionTipoProyecto}"
+                                 size="155" />
+
                 </h:panelGrid>                
                 <br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.create}" icon="ui-icon-plus" value="#{bundle.CreateTipoProyectoSaveLink}" />
+                <p:commandButton ajax="false"
+                                 action="#{tipoProyectoController.create}" 
+                                 icon="ui-icon-plus"
+                                 value="#{bundle.CreateTipoProyectoSaveLink}" />
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProyectoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.CreateTipoProyectoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{tipoProyectoController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.CreateTipoProyectoShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

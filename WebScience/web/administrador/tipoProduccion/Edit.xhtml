@@ -23,16 +23,32 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditTipoProduccionLabel_nombreTipoProduccion}" for="nombreTipoProduccion" />
-                    <p:inputText id="nombreTipoProduccion" value="#{tipoProduccionController.selected.nombreTipoProduccion}" title="#{bundle.EditTipoProduccionTitle_nombreTipoProduccion}" required="true" requiredMessage="#{bundle.EditTipoProduccionRequiredMessage_nombreTipoProduccion}" size="55"/>
+                    <h:outputLabel value="#{bundle.EditTipoProduccionLabel_nombreTipoProduccion}" 
+                                   for="nombreTipoProduccion" />
+                    <p:inputText id="nombreTipoProduccion" 
+                                 value="#{tipoProduccionController.selected.nombreTipoProduccion}"
+                                 title="#{bundle.EditTipoProduccionTitle_nombreTipoProduccion}"
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditTipoProduccionRequiredMessage_nombreTipoProduccion}" 
+                                 size="55"/>
 
                 </h:panelGrid>
                 <br />
-                <p:commandButton ajax="false" action="#{tipoProduccionController.update}" icon="ui-icon-disk" value="#{bundle.EditTipoProduccionSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProduccionController.update}" 
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditTipoProduccionSaveLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="View" icon="ui-icon-search" value="#{bundle.EditTipoProduccionViewLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="View"
+                                 icon="ui-icon-search" 
+                                 value="#{bundle.EditTipoProduccionViewLink}"/>
                 <br /><br />
-                <p:commandButton ajax="false" action="#{tipoProduccionController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditTipoProduccionShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false" 
+                                 action="#{tipoProduccionController.prepareList}" 
+                                 icon="ui-icon-arrowreturnthick-1-w" 
+                                 value="#{bundle.EditTipoProduccionShowAllLink}" 
+                                 immediate="true"/>
             </h:form>
         </ui:define>
     </ui:composition>

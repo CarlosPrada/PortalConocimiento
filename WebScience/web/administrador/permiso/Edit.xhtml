@@ -23,17 +23,33 @@
             <h:form>
                 <h:panelGrid columns="2">
 
-                    <h:outputLabel value="#{bundle.EditPermisoLabel_nombrePermiso}" for="nombrePermiso" />
-                    <p:inputText id="nombrePermiso" value="#{permisoController.selected.nombrePermiso}" title="#{bundle.EditPermisoTitle_nombrePermiso}" required="true" requiredMessage="#{bundle.EditPermisoRequiredMessage_nombrePermiso}" size="35"/>
+                    <h:outputLabel value="#{bundle.EditPermisoLabel_nombrePermiso}" 
+                                   for="nombrePermiso" />
+                    <p:inputText id="nombrePermiso" 
+                                 value="#{permisoController.selected.nombrePermiso}" 
+                                 title="#{bundle.EditPermisoTitle_nombrePermiso}"
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditPermisoRequiredMessage_nombrePermiso}"
+                                 size="35"/>
 
-                    <h:outputLabel value="#{bundle.EditPermisoLabel_descripcionPermiso}" for="descripcionPermiso" />
-                    <p:inputText id="descripcionPermiso" value="#{permisoController.selected.descripcionPermiso}" size="155"/>
+                    <h:outputLabel value="#{bundle.EditPermisoLabel_descripcionPermiso}" 
+                                   for="descripcionPermiso" />
+                    <p:inputText id="descripcionPermiso" 
+                                 value="#{permisoController.selected.descripcionPermiso}" 
+                                 size="155"/>
 
                 </h:panelGrid>
                 <br/>
-                <p:commandButton ajax="false" action="#{permisoController.update}" icon="ui-icon-disk" value="#{bundle.EditPermisoSaveLink}"/>
+                <p:commandButton ajax="false" 
+                                 action="#{permisoController.update}"
+                                 icon="ui-icon-disk" 
+                                 value="#{bundle.EditPermisoSaveLink}"/>
                 <br/><br/>
-                <p:commandButton ajax="false" action="#{permisoController.prepareList}" icon="ui-icon-arrowreturnthick-1-w" value="#{bundle.EditPermisoShowAllLink}" immediate="true"/>
+                <p:commandButton ajax="false"
+                                 action="#{permisoController.prepareList}"
+                                 icon="ui-icon-arrowreturnthick-1-w"
+                                 value="#{bundle.EditPermisoShowAllLink}" 
+                                 immediate="true"/>
 
             </h:form>
         </ui:define>

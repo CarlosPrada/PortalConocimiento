@@ -9,8 +9,9 @@ import javax.persistence.Query;
 import uis.giib.entidades.Proyecto;
 
 /**
- *
- *  * @author Carlos David Prada Remolina  * @version 1.0  * @since 10/10/2013
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Stateless
 public class ProyectoFacade extends AbstractFacade<Proyecto> {

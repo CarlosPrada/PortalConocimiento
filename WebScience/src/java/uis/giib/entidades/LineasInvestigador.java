@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package uis.giib.entidades;
 
 import java.io.Serializable;
@@ -15,8 +11,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author Carlos
+ * @author Carlos David Prada Remolina
+ * @version 1.0
+ * @since 10/10/2013
  */
 @Entity
 @Table(name = "lineas_investigador")
@@ -26,6 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "LineasInvestigador.findByIdLinea", query = "SELECT l FROM LineasInvestigador l WHERE l.lineasInvestigadorPK.idLinea = :idLinea"),
     @NamedQuery(name = "LineasInvestigador.findByIdInvestigador", query = "SELECT l FROM LineasInvestigador l WHERE l.lineasInvestigadorPK.idInvestigador = :idInvestigador")})
 public class LineasInvestigador implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected LineasInvestigadorPK lineasInvestigadorPK;
@@ -95,5 +93,4 @@ public class LineasInvestigador implements Serializable {
     public String toString() {
         return "uis.giib.entidades.LineasInvestigador[ lineasInvestigadorPK=" + lineasInvestigadorPK + " ]";
     }
-    
 }
